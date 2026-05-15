@@ -71,7 +71,7 @@ export default function Hero({ onNavigate }: HeroProps) {
               onClick={() => onNavigate('taekwondo')}
               className="flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 border border-neon-orange/30 hover:border-neon-orange"
             >
-              Mi a Taekwondo?
+              Mi a Taekwon-do?
             </button>
           </div>
 

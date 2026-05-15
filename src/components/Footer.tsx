@@ -9,7 +9,7 @@ const links: { label: string; section: Section }[] = [
   { label: 'Hírek', section: 'news' },
   { label: 'Edzések', section: 'training' },
   { label: 'Tagok', section: 'members' },
-  { label: 'Taekwondo', section: 'taekwondo' },
+  { label: 'Taekwon-do', section: 'taekwondo' },
   { label: 'Kapcsolat', section: 'contact' },
 ];
 

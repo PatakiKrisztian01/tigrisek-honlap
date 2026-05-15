@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Calendar } from 'lucide-react';
 
 const newsItems = [
@@ -50,6 +50,9 @@ const categoryColors: Record<string, string> = {
 };
 
 export default function News() {
+  const [facebookPosts, setFacebookPosts] = useState<any[]>([]);
+  const [loadingFb, setLoadingFb] = useState(true);
+
   useEffect(() => {
     // Load Facebook SDK
     if (!window.FB) {
@@ -62,7 +65,33 @@ export default function News() {
     } else if (window.FB?.XFBML) {
       window.FB.XFBML.parse();
     }
+
+    // Try to fetch Facebook posts with images via Edge Function
+    fetchFacebookPosts();
   }, []);
+
+  const fetchFacebookPosts = async () => {
+    try {
+      setLoadingFb(true);
+      const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/fetch_facebook_feed`;
+
+      const response = await fetch(apiUrl, {
+        headers: {
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setFacebookPosts(data.posts || []);
+      }
+    } catch (error) {
+      console.log('Facebook feed fetch: Using embedded plugin', error);
+    } finally {
+      setLoadingFb(false);
+    }
+  };
 
   return (
     <div className="min-h-screen pt-20">
@@ -113,23 +142,56 @@ export default function News() {
           <div className="lg:col-span-1">
             <div className="sticky top-24">
               <h2 className="text-2xl font-black text-white mb-6">Facebook Feed</h2>
-              <div className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden">
-                <div
-                  className="fb-page"
-                  data-href="https://www.facebook.com/BudapestTigers"
-                  data-tabs="timeline"
-                  data-width="500"
-                  data-height="800"
-                  data-small-header="true"
-                  data-adapt-container-width="true"
-                  data-hide-cover="false"
-                  data-show-facepile="true"
-                >
-                  <blockquote cite="https://www.facebook.com/BudapestTigers" className="fb-xfbml-parse-ignore">
-                    <a href="https://www.facebook.com/BudapestTigers">Budapesti Tigrisek SE</a>
-                  </blockquote>
+
+              {/* Show fetched posts if available */}
+              {!loadingFb && facebookPosts.length > 0 ? (
+                <div className="space-y-4">
+                  {facebookPosts.map((post) => (
+                    <a
+                      key={post.id}
+                      href={post.permalink_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-neon-orange/50 transition-all duration-300 block group"
+                    >
+                      {post.image && (
+                        <img
+                          src={post.image}
+                          alt="Facebook post"
+                          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      )}
+                      <div className="p-4">
+                        <p className="text-gray-400 text-xs mb-2">
+                          {new Date(post.created_time).toLocaleDateString('hu-HU')}
+                        </p>
+                        <p className="text-white text-sm line-clamp-2">
+                          {post.message}
+                        </p>
+                      </div>
+                    </a>
+                  ))}
                 </div>
-              </div>
+              ) : (
+                /* Fallback to embedded Facebook plugin */
+                <div className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden">
+                  <div
+                    className="fb-page"
+                    data-href="https://www.facebook.com/BudapestTigers"
+                    data-tabs="timeline"
+                    data-width="500"
+                    data-height="800"
+                    data-small-header="true"
+                    data-adapt-container-width="true"
+                    data-hide-cover="false"
+                    data-show-facepile="true"
+                  >
+                    <blockquote cite="https://www.facebook.com/BudapestTigers" className="fb-xfbml-parse-ignore">
+                      <a href="https://www.facebook.com/BudapestTigers">Budapesti Tigrisek SE</a>
+                    </blockquote>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
