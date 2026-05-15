@@ -40,7 +40,7 @@ export default function Navbar({ activeSection, onNavigate, scrolled }: NavbarPr
             className="flex items-center gap-3 group"
           >
             <img
-              src="/438129535_10211771062990011_2247256738171596777_n.jpg"
+              src="/tigrisátlátszó.png"
               alt="Tigrisek Logo"
               className="w-10 h-10 group-hover:scale-110 transition-transform"
             />
