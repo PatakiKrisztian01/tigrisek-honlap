@@ -45,6 +45,13 @@ export default function Hero({ onNavigate }: HeroProps) {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="flex items-center justify-center mb-8">
+            <img
+              src="/tigrisátlátszó.png"
+              alt="Tigrisek Logo"
+              className="h-32 sm:h-40 object-contain drop-shadow-2xl"
+            />
+          </div>
           <div className="inline-flex items-center gap-2 bg-neon-orange/10 border border-neon-orange/40 rounded-full px-4 py-2 mb-8">
             <span className="w-2 h-2 bg-neon-orange rounded-full animate-pulse" />
             <span className="text-neon-orange text-sm font-medium tracking-wider uppercase">Budapest Tigers Taekwon-do Team</span>
