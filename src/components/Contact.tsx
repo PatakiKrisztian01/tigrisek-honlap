@@ -18,29 +18,31 @@ export default function Contact() {
             <h2 className="text-2xl font-black text-white mb-6">Lépj kapcsolatba velünk</h2>
 
             <div className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-neon-orange/50 transition-all duration-300">
-              <img
-                src="/PatakiKrisztian-removebg-preview.png"
-                alt="Pataki Krisztián"
-                className="w-full h-64 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-white font-bold text-lg mb-1">Pataki Krisztián</h3>
-                <p className="text-neon-orange text-sm font-bold mb-4">VI.Dan — Klubvezető elnök</p>
-                <div className="space-y-2">
-                  <a
-                    href="mailto:tigrisek@gmail.com"
-                    className="flex items-center gap-2.5 text-gray-300 hover:text-neon-orange transition-colors group"
-                  >
-                    <Mail className="w-4 h-4 text-gray-500 group-hover:text-neon-orange transition-colors flex-shrink-0" />
-                    <span className="text-sm truncate">tigrisek@gmail.com</span>
-                  </a>
-                  <a
-                    href="tel:+36709415992"
-                    className="flex items-center gap-2.5 text-gray-300 hover:text-neon-orange transition-colors group"
-                  >
-                    <Phone className="w-4 h-4 text-gray-500 group-hover:text-neon-orange transition-colors flex-shrink-0" />
-                    <span className="text-sm">+36-70-941-5992</span>
-                  </a>
+              <div className="flex items-end gap-4 p-6">
+                <img
+                  src="/PatakiKrisztian-removebg-preview.png"
+                  alt="Pataki Krisztián"
+                  className="h-40 object-contain"
+                />
+                <div className="flex-1">
+                  <h3 className="text-white font-bold text-lg mb-1">Pataki Krisztián</h3>
+                  <p className="text-neon-orange text-sm font-bold mb-3">VI.Dan — Klubvezető elnök</p>
+                  <div className="space-y-2">
+                    <a
+                      href="mailto:tigrisek@gmail.com"
+                      className="flex items-center gap-2.5 text-gray-300 hover:text-neon-orange transition-colors group"
+                    >
+                      <Mail className="w-4 h-4 text-gray-500 group-hover:text-neon-orange transition-colors flex-shrink-0" />
+                      <span className="text-sm truncate">tigrisek@gmail.com</span>
+                    </a>
+                    <a
+                      href="tel:+36709415992"
+                      className="flex items-center gap-2.5 text-gray-300 hover:text-neon-orange transition-colors group"
+                    >
+                      <Phone className="w-4 h-4 text-gray-500 group-hover:text-neon-orange transition-colors flex-shrink-0" />
+                      <span className="text-sm">+36-70-941-5992</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
