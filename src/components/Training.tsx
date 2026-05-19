@@ -1,4 +1,4 @@
-import { Clock, MapPin, Users, Swords, Baby, Shield, Mail, Phone } from 'lucide-react';
+import { Clock, MapPin, Users, Swords, Baby, Shield, Mail, Phone, Map } from 'lucide-react';
 
 const trainers = [
   { name: 'Pataki Krisztián', rank: 'VI.dan', role: 'Klubvezető elnök' },
@@ -45,9 +45,20 @@ export default function Training() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {trainers.map((t) => (
               <div key={t.name} className="bg-gray-900 border border-gray-800 rounded-2xl p-6 hover:border-neon-orange/50 transition-all duration-300">
-                <h3 className="text-white font-bold text-lg">{t.name}</h3>
-                <p className="text-neon-orange font-bold text-sm">{t.rank}</p>
-                {t.role && <p className="text-gray-500 text-xs mt-1">{t.role}</p>}
+                <div className="flex items-start gap-3">
+                  {t.name === 'Pataki Krisztián' && (
+                    <img
+                      src="/PatakiKrisztian-removebg-preview.png"
+                      alt={t.name}
+                      className="w-10 h-10 object-cover rounded-lg flex-shrink-0"
+                    />
+                  )}
+                  <div className="flex-1">
+                    <h3 className="text-white font-bold text-lg">{t.name}</h3>
+                    <p className="text-neon-orange font-bold text-sm">{t.rank}</p>
+                    {t.role && <p className="text-gray-500 text-xs mt-1">{t.role}</p>}
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -64,22 +75,34 @@ export default function Training() {
               <div className="bg-neon-orange px-6 py-3">
                 <h3 className="text-black font-black text-lg">Hétfő</h3>
               </div>
-              <div className="p-6 space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 mt-0.5">
-                    <Clock className="w-4 h-4 text-neon-orange" />
+              <div className="p-6">
+                <div className="flex flex-col lg:flex-row gap-6">
+                  <div className="flex-1 space-y-4">
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 mt-0.5">
+                        <Clock className="w-4 h-4 text-neon-orange" />
+                      </div>
+                      <div>
+                        <div className="text-white font-bold text-sm">18:00 – 19:30</div>
+                        <div className="text-gray-400 text-sm mt-0.5">Küzdelem kicsiknek-nagyoknak</div>
+                        <div className="text-neon-orange text-xs font-bold mt-2">fehér öv – fekete öv</div>
+                      </div>
+                    </div>
+                    <div className="bg-gray-800/50 rounded-xl p-4 border border-gray-700">
+                      <div className="flex items-start gap-2">
+                        <MapPin className="w-4 h-4 text-neon-orange flex-shrink-0 mt-0.5" />
+                        <p className="text-gray-300 text-sm">
+                          Kondor Béla Általános Iskola — 1181 Budapest, Kondor Béla sétány 7.
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <div className="text-white font-bold text-sm">18:00 – 19:30</div>
-                    <div className="text-gray-400 text-sm mt-0.5">Küzdelem kicsiknek-nagyoknak</div>
-                  </div>
-                </div>
-                <div className="bg-gray-800/50 rounded-xl p-4 border border-gray-700 mt-3">
-                  <div className="flex items-start gap-2">
-                    <MapPin className="w-4 h-4 text-neon-orange flex-shrink-0 mt-0.5" />
-                    <p className="text-gray-300 text-sm">
-                      Kondor Béla Általános Iskola — 1181 Budapest, Kondor Béla sétány 7.
-                    </p>
+                  <div className="flex-shrink-0">
+                    <img
+                      src="/502521670_122172432698301880_4038565149120948853_n.jpg"
+                      alt="Küzdelmi edzés"
+                      className="w-32 h-32 object-cover rounded-xl border border-gray-700"
+                    />
                   </div>
                 </div>
               </div>
@@ -117,6 +140,15 @@ export default function Training() {
                     </p>
                   </div>
                 </div>
+                <a
+                  href="https://www.openstreetmap.org/?q=Havanna+u.+3+Budapest"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-neon-orange hover:text-orange-500 text-xs font-bold mt-3 transition-colors"
+                >
+                  <Map className="w-3.5 h-3.5" />
+                  Térkép
+                </a>
               </div>
             </div>
 
@@ -202,7 +234,7 @@ export default function Training() {
                 </div>
               </div>
             </div>
-            <div className="bg-gray-800/50 rounded-xl p-4 border border-gray-700">
+            <div className="bg-gray-800/50 rounded-xl p-4 border border-gray-700 mb-3">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
                 <div>
@@ -211,6 +243,15 @@ export default function Training() {
                 </div>
               </div>
             </div>
+            <a
+              href="https://www.openstreetmap.org/?q=Kondor+B%C3%A9la+Művelődési+ház+Budapest"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-amber-500 hover:text-amber-400 text-xs font-bold transition-colors"
+            >
+              <Map className="w-3.5 h-3.5" />
+              Térkép
+            </a>
           </div>
         </div>
 

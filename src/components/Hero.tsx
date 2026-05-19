@@ -171,9 +171,11 @@ export default function Hero({ onNavigate }: HeroProps) {
           </div>
           <div className="grid sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
             <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 text-center hover:border-neon-orange/50 transition-all duration-300">
-              <div className="w-20 h-20 bg-neon-orange/10 border-2 border-neon-orange/40 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-neon-orange font-black text-lg">PK</span>
-              </div>
+              <img
+                src="/PatakiKrisztian-removebg-preview.png"
+                alt="Pataki Krisztián"
+                className="w-20 h-20 mx-auto mb-4 object-contain"
+              />
               <h3 className="text-white font-black text-xl mb-1">Pataki Krisztián</h3>
               <p className="text-neon-orange font-bold text-sm mb-4">VI.Dan — Klubvezető elnök</p>
               <a href="mailto:tigrisek@gmail.com" className="text-gray-400 hover:text-neon-orange text-sm transition-colors block mb-1">tigrisek@gmail.com</a>

@@ -152,9 +152,16 @@ function BeltRow({ belt }: { belt: Belt }) {
         <div className="bg-gray-950/50 border-t border-gray-800 p-4 sm:p-6">
           <div className="flex flex-wrap gap-2">
             {belt.members.map((name) => (
-              <span key={name} className="text-sm text-gray-300 bg-gray-800 rounded-lg px-3 py-1.5 border border-gray-700">
-                {name}
-              </span>
+              <div key={name} className="flex items-center gap-2 text-sm text-gray-300 bg-gray-800 rounded-lg px-3 py-1.5 border border-gray-700">
+                {name === 'Pataki Krisztián' && (
+                  <img
+                    src="/PatakiKrisztian-removebg-preview.png"
+                    alt={name}
+                    className="w-5 h-5 object-cover rounded"
+                  />
+                )}
+                <span>{name}</span>
+              </div>
             ))}
           </div>
           {belt.results && belt.results.length > 0 && (
