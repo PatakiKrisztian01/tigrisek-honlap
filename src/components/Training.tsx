@@ -91,89 +91,120 @@ export default function Training() {
                     <div className="bg-gray-800/50 rounded-xl p-4 border border-gray-700">
                       <div className="flex items-start gap-2">
                         <MapPin className="w-4 h-4 text-neon-orange flex-shrink-0 mt-0.5" />
-                        <p className="text-gray-300 text-sm">
-                          Kondor Béla Általános Iskola — 1181 Budapest, Kondor Béla sétány 7.
-                        </p>
+                        <div>
+                          <p className="text-gray-300 text-sm font-bold">Kondor Béla Általános Iskola</p>
+                          <p className="text-gray-400 text-sm">1181 Budapest, Kondor Béla sétány 7.</p>
+                        </div>
                       </div>
                     </div>
+                    <a
+                      href="https://www.openstreetmap.org/?q=Kondor+B%C3%A9la+s%C3%A9t%C3%A1ny+7+Budapest"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-neon-orange hover:text-orange-500 text-xs font-bold transition-colors"
+                    >
+                      <Map className="w-3.5 h-3.5" />
+                      Térkép
+                    </a>
                   </div>
                   <div className="flex-shrink-0">
                     <img
                       src="/502521670_122172432698301880_4038565149120948853_n.jpg"
                       alt="Küzdelmi edzés"
-                      className="w-32 h-32 object-cover rounded-xl border border-gray-700"
+                      className="w-48 h-48 object-cover rounded-xl border border-gray-700"
                     />
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Szerda */}
+            {/* Szerda - Péntek - Közös helyszín */}
             <div className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden">
-              <div className="bg-neon-orange px-6 py-3">
-                <h3 className="text-black font-black text-lg">Szerda</h3>
-              </div>
-              <div className="p-6 space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 mt-0.5">
-                    <Clock className="w-4 h-4 text-neon-orange" />
+              <div className="p-6">
+                <div className="flex flex-col lg:flex-row gap-6 mb-6">
+                  <div className="flex-1">
+                    <h3 className="text-gray-300 text-sm font-bold mb-1">Havanna u. 3.</h3>
+                    <p className="text-gray-500 text-xs mb-3">A bázis technikai edzések, csoportokra osztva:</p>
+                    <div className="bg-gray-800/50 rounded-xl p-4 border border-gray-700 mb-3">
+                      <div className="flex items-start gap-2">
+                        <MapPin className="w-4 h-4 text-neon-orange flex-shrink-0 mt-0.5" />
+                        <p className="text-gray-300 text-sm">
+                          1181 Budapest, Havanna u. 3.
+                        </p>
+                      </div>
+                    </div>
+                    <a
+                      href="https://www.openstreetmap.org/?q=Havanna+u.+3+Budapest"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-neon-orange hover:text-orange-500 text-xs font-bold transition-colors"
+                    >
+                      <Map className="w-3.5 h-3.5" />
+                      Térkép
+                    </a>
                   </div>
-                  <div>
-                    <div className="text-white font-bold text-sm">16:30 – 18:00</div>
-                    <div className="text-gray-400 text-sm mt-0.5">Fehér öv sárga csík – zöld övig</div>
+                  <div className="flex-shrink-0">
+                    <img
+                      src="/555717957_25013974758240728_3275706361721851860_n.jpg"
+                      alt="Technikai edzés"
+                      className="w-48 h-48 object-cover rounded-xl border border-gray-700"
+                    />
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 mt-0.5">
-                    <Clock className="w-4 h-4 text-neon-orange" />
-                  </div>
-                  <div>
-                    <div className="text-white font-bold text-sm">18:00 – 19:30</div>
-                    <div className="text-gray-400 text-sm mt-0.5">Zöld öv kék csík – piros övig</div>
-                  </div>
-                </div>
-                <div className="bg-gray-800/50 rounded-xl p-4 border border-gray-700 mt-3">
-                  <div className="flex items-start gap-2">
-                    <MapPin className="w-4 h-4 text-neon-orange flex-shrink-0 mt-0.5" />
-                    <p className="text-gray-300 text-sm">
-                      A bázis technikai edzések, csoportokra osztva a Havanna u. 3. szám alatt található termünkben, különböző időpontokban vannak.
-                    </p>
-                  </div>
-                </div>
-                <a
-                  href="https://www.openstreetmap.org/?q=Havanna+u.+3+Budapest"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-neon-orange hover:text-orange-500 text-xs font-bold mt-3 transition-colors"
-                >
-                  <Map className="w-3.5 h-3.5" />
-                  Térkép
-                </a>
-              </div>
-            </div>
 
-            {/* Péntek */}
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden">
-              <div className="bg-neon-orange px-6 py-3">
-                <h3 className="text-black font-black text-lg">Péntek</h3>
-              </div>
-              <div className="p-6 space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 mt-0.5">
-                    <Clock className="w-4 h-4 text-neon-orange" />
-                  </div>
+                <div className="border-t border-gray-700 pt-6 space-y-4">
+                  {/* Szerda */}
                   <div>
-                    <div className="text-white font-bold text-sm">16:30 – 18:00</div>
-                    <div className="text-gray-400 text-sm mt-0.5">Kezdő csoport</div>
+                    <div className="bg-neon-orange/10 border border-neon-orange/30 px-4 py-2 rounded-lg mb-3 inline-block">
+                      <h4 className="text-neon-orange font-bold text-sm">Szerda</h4>
+                    </div>
+                    <div className="space-y-3 ml-2">
+                      <div className="flex items-start gap-3">
+                        <div className="flex-shrink-0 mt-0.5">
+                          <Clock className="w-4 h-4 text-neon-orange" />
+                        </div>
+                        <div>
+                          <div className="text-white font-bold text-sm">16:30 – 18:00</div>
+                          <div className="text-gray-400 text-sm">Fehér öv sárga csík – zöld övig</div>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="flex-shrink-0 mt-0.5">
+                          <Clock className="w-4 h-4 text-neon-orange" />
+                        </div>
+                        <div>
+                          <div className="text-white font-bold text-sm">18:00 – 19:30</div>
+                          <div className="text-gray-400 text-sm">Zöld öv kék csík – piros övig</div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 mt-0.5">
-                    <Clock className="w-4 h-4 text-neon-orange" />
-                  </div>
-                  <div>
-                    <div className="text-white font-bold text-sm">18:00 – 19:30</div>
-                    <div className="text-gray-400 text-sm mt-0.5">Piros övtől 3.dan-ig</div>
+
+                  {/* Péntek */}
+                  <div className="pt-3">
+                    <div className="bg-neon-orange/10 border border-neon-orange/30 px-4 py-2 rounded-lg mb-3 inline-block">
+                      <h4 className="text-neon-orange font-bold text-sm">Péntek</h4>
+                    </div>
+                    <div className="space-y-3 ml-2">
+                      <div className="flex items-start gap-3">
+                        <div className="flex-shrink-0 mt-0.5">
+                          <Clock className="w-4 h-4 text-neon-orange" />
+                        </div>
+                        <div>
+                          <div className="text-white font-bold text-sm">16:30 – 18:00</div>
+                          <div className="text-gray-400 text-sm">Kezdő csoport</div>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="flex-shrink-0 mt-0.5">
+                          <Clock className="w-4 h-4 text-neon-orange" />
+                        </div>
+                        <div>
+                          <div className="text-white font-bold text-sm">18:00 – 19:30</div>
+                          <div className="text-gray-400 text-sm">Piros övtől 3.dan-ig</div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -183,22 +214,45 @@ export default function Training() {
 
         {/* Önvédelem */}
         <div className="mb-16">
-          <div className="bg-gray-900 border border-emerald-600/30 rounded-2xl p-8">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-emerald-600/10 border border-emerald-600/30 rounded-xl flex items-center justify-center">
-                <Shield className="w-6 h-6 text-emerald-500" />
-              </div>
-              <div>
-                <h2 className="text-2xl font-black text-white">Ingyenes önvédelmi edzések</h2>
-                <p className="text-emerald-500 font-bold text-sm">18 éves kortól</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <div className="flex-shrink-0 mt-0.5">
-                <Clock className="w-4 h-4 text-emerald-500" />
-              </div>
-              <div>
-                <div className="text-white font-bold text-sm">Kedd: 18:00 – 19:00-ig</div>
+          <div className="bg-gray-900 border border-emerald-600/30 rounded-2xl overflow-hidden">
+            <div className="p-6 lg:p-8">
+              <div className="flex flex-col lg:flex-row gap-6">
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-12 h-12 bg-emerald-600/10 border border-emerald-600/30 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Shield className="w-6 h-6 text-emerald-500" />
+                    </div>
+                    <div>
+                      <h2 className="text-2xl font-black text-white">Ingyenes önvédelmi edzések</h2>
+                      <p className="text-emerald-500 font-bold text-sm">18 éves kortól</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3 mb-4">
+                    <div className="flex-shrink-0 mt-0.5">
+                      <Clock className="w-4 h-4 text-emerald-500" />
+                    </div>
+                    <div>
+                      <div className="text-white font-bold text-sm">Kedd: 18:00 – 19:00-ig</div>
+                      <div className="text-emerald-500 text-xs font-bold mt-2">Havanna u. 3., 1181 Budapest</div>
+                    </div>
+                  </div>
+                  <a
+                    href="https://www.openstreetmap.org/?q=Havanna+u.+3+Budapest"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-emerald-500 hover:text-emerald-400 text-xs font-bold transition-colors"
+                  >
+                    <Map className="w-3.5 h-3.5" />
+                    Térkép
+                  </a>
+                </div>
+                <div className="flex-shrink-0">
+                  <img
+                    src="/555717957_25013974758240728_3275706361721851860_n.jpg"
+                    alt="Önvédelmi edzés"
+                    className="w-48 h-48 object-cover rounded-xl border border-emerald-600/30"
+                  />
+                </div>
               </div>
             </div>
           </div>
