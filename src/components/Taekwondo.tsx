@@ -219,11 +219,99 @@ export default function Taekwondo() {
 
         {/* Founder */}
         {activeTab === 'founder' && (
-          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
-            <h2 className="text-2xl font-black text-white mb-6">Choi Hong Hi</h2>
-            <p className="text-gray-400 leading-relaxed">
-              Choi Hong Hi tábornok (1918–2002) a modern ITF Taekwon-do megalapítója. Az ITF (International Taekwondo Federation) 1966-ban alakult meg Choi Hong Hi vezetésével, aki a harcművészetet a világ minden tájára elvitte.
-            </p>
+          <div className="space-y-6">
+            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+              <h2 className="text-2xl font-black text-white mb-6">Choi Hong Hi</h2>
+              <div className="flex flex-col md:flex-row gap-6 mb-6">
+                <img
+                  src="https://tigrisek.hu/images/choi1.jpg"
+                  alt="Choi Hong Hi"
+                  className="w-full md:w-64 h-auto rounded-xl object-cover flex-shrink-0"
+                />
+                <div className="space-y-4 text-gray-300 leading-relaxed">
+                  <p>
+                    Choi Hong Hi tábornok a Taekwon-do legendás alapítója 1918 november 9.-én született a koreai félsziget észak-keleti részén fekvő Hwa-Dae-ben, Myong-Chun tartományban. Gyermekkorától a szépírás (kalligráfia) művészetét tanulta, és már fiatalon megismerkedett az ősi koreai harcművészettel a Taek-kyon-nal.
+                  </p>
+                  <p>
+                    Hét évnyi kalligráfus képzés és intenzív Taek-kyon edzés után felsőfokú tanulmányainak megkezdésére Japánba utazott. Kyoto-ban először főiskolára járt, majd Tokyo-ban a Choong Ang egyetem jogi karának végzése mellett magas fokon elsajátította a shotokan karatét is. Visszatérve Koreába már keményen dolgozott saját új stílusának létrehozásán, emellett a japán megszállás elleni felszabadítási mozgalom szervezője és egyik élharcosa lett, amiért a japánok bebörtönözték és később halálra ítélték. Szerencsére azonban a kivégzés előtt három nappal, 1945 augusztus 15.-én Korea felszabadult és Choi szabad emberként léphetett ki a börtön kapuján.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+              <div className="flex flex-col md:flex-row-reverse gap-6 mb-6">
+                <img
+                  src="https://tigrisek.hu/images/choi2.jpg"
+                  alt="Choi Hong Hi katonai pályafutása"
+                  className="w-full md:w-64 h-auto rounded-xl object-cover flex-shrink-0"
+                />
+                <div className="space-y-4 text-gray-300 leading-relaxed">
+                  <p>
+                    Choi Hong Hi a katonai pályát választotta hivatásul és a Szöul-i Katonai Akadémián szerzett diplomát 1946-ban. Az új Dél-koreai fegyveres erők egyik megalapítójaként fényes katonai karriert futott be és egészen a kétcsillagos tábornoki rangig vitte. Befolyásos katonatisztként az 1950-es évek közepére létrehozta tudományos elvekre, a koreai szellemiségre és különleges lábtechnikákra épülő, új, kihívást jelentő harcművészetét, ami először a hadseregben került bevezetésre. A Taekwon-dot - melyet ezért a nyugati világban eleinte még "Military Taekwon-do" néven is emlegettek - a saját parancsnoksága alá tartozó 29.-es gyalogsági hadosztály, az u.n. "ököl divízió" katonáinak körében kezdte el oktatni és ők próbálták ki először éles harchelyzetben is.
+                  </p>
+                  <p>
+                    Choi kezdeményezésére a "Taekwon-do" elnevezést hivatalosan <strong className="text-white">1955 április 11.-én</strong> fogadták el Koreában és azóta ez a nap a Taekwon-do Születésnapja!
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+              <div className="space-y-4 text-gray-300 leading-relaxed">
+                <p>
+                  General Choi elnökletével 1959 szeptemberében megalakult az első koreai Taekwon-do Szövetség. 1961-ben erős politikai nyomás hatására visszavonult a katonai pályától, de később 1962-ben diplomataként kinevezték Korea malaysiai nagykövetévé. <strong className="text-white">1966 március 22.-én</strong> kilenc tagország részvételével Szöul-ban megalapította a Nemzetközi Taekwon-do Szövetséget (International Taekwon-do Federation), melynek elnöki posztját haláláig Ő töltötte be. General Choi az 1970-es évek elejére végleg szembekerült az akkori Dél-koreai diktátor-elnök rezsimjével és ezért 1972-ben politikai menekültként Kanadába emigrálni kényszerült, ahol állampolgárságot kapott.
+                </p>
+                <p>
+                  1973-tól kezdve Choi Hong Hi a Taekwon-do valóságos "utazó nagykövete" lett. Repülő járatról járatra szállva, az elmúlt évtizedek során földünk szinte valamennyi országába ellátogatott, hogy harcművészetét ismertté és elismertté tegye. Még idős korában is fáradhatatlan energiával tartotta a bemutatókat, edzőtáborokat, övvizsgákat, továbbképző szemináriumokat - kizárólag a Taekwon-donak szentelve életét! Igazi géniusz volt, született vezető és milliók számára követendő példakép. Szuggesztív egyéniségével és óriási tudásanyagával képes volt tanítványok millióit vonzani az edzőtermekbe. Életének nemes célját, a Taekwon-do világméretű elterjesztését végül teljes siker koronázta.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+              <div className="flex flex-col md:flex-row gap-6">
+                <img
+                  src="https://tigrisek.hu/images/choi3.jpg"
+                  alt="Choi Hong Hi - A Taekwon-do Atyja"
+                  className="w-full md:w-64 h-auto rounded-xl object-cover flex-shrink-0"
+                />
+                <div className="space-y-4 text-gray-300 leading-relaxed">
+                  <p>
+                    A Taekwon-do az 1990-es évek végére hihetetlen tömegbázisra tett szert, futótűz sebességével hódítva meg a világot. Napjainkban ez az egyik legnagyobb létszámú harcművészeti ág, melyet öt kontinens több, mint száz tagországában sok millióan űznek.
+                  </p>
+                  <p>
+                    A Taekwon-do Atyját, vagy ahogy életrajzírói kedvesen említik a "Kis Óriást" 84 éves korában, rövid ideig tartó súlyos betegség után Phenjan-ban, Észak-Koreában érte a halál. A XX. század utolsó nagy harcművész stílusalapítója <strong className="text-white">2002 június 15.-én</strong> örökre eltávozott...
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Timeline */}
+            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+              <h3 className="text-neon-orange font-bold text-lg mb-6">Életrajzi mérföldkövek</h3>
+              <div className="space-y-4">
+                {[
+                  { year: '1918', event: 'Született Hwa-Dae-ben, Myong-Chun tartományban' },
+                  { year: '1930-as évek', event: 'Kalligráfia és Taek-kyon képzés; Japánban shotokan karate' },
+                  { year: '1945', event: 'Felszabadulás a börtönből Korea felszabadulásakor' },
+                  { year: '1946', event: 'Diploma a Szöul-i Katonai Akadémián' },
+                  { year: '1955', event: 'A "Taekwon-do" elnevezés hivatalos elfogadása (április 11.)' },
+                  { year: '1959', event: 'Első koreai Taekwon-do Szövetség megalakulása' },
+                  { year: '1966', event: 'ITF (International Taekwon-do Federation) alapítása (március 22.)' },
+                  { year: '1972', event: 'Kanadába emigrál politikai menekültként' },
+                  { year: '1973-tól', event: 'A Taekwon-do "utazó nagykövete" - világkörüli turnék' },
+                  { year: '2002', event: 'Elhunyt Phenjanban, Észak-Koreában (június 15.)' },
+                ].map((item) => (
+                  <div key={item.year} className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-28 text-neon-orange font-bold text-sm text-right pt-0.5">
+                      {item.year}
+                    </div>
+                    <div className="flex-shrink-0 w-2 h-2 bg-neon-orange rounded-full mt-2" />
+                    <p className="text-gray-300 text-sm">{item.event}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         )}
 
