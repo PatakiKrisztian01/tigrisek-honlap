@@ -5,10 +5,11 @@ import News from './components/News';
 import Training from './components/Training';
 import Members from './components/Members';
 import Taekwondo from './components/Taekwondo';
+import Oath from './components/Oath';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
-export type Section = 'home' | 'news' | 'training' | 'members' | 'taekwondo' | 'contact';
+export type Section = 'home' | 'news' | 'training' | 'members' | 'taekwondo' | 'oath' | 'contact';
 
 function App() {
   const [activeSection, setActiveSection] = useState<Section>('home');
@@ -33,6 +34,7 @@ function App() {
       {activeSection === 'training' && <Training />}
       {activeSection === 'members' && <Members />}
       {activeSection === 'taekwondo' && <Taekwondo />}
+      {activeSection === 'oath' && <Oath />}
       {activeSection === 'contact' && <Contact />}
       <Footer onNavigate={navigate} />
     </div>

@@ -10,6 +10,7 @@ const links: { label: string; section: Section }[] = [
   { label: 'Edzések', section: 'training' },
   { label: 'Tagok', section: 'members' },
   { label: 'Taekwon-do', section: 'taekwondo' },
+  { label: 'Eskü és Tanai', section: 'oath' },
   { label: 'Kapcsolat', section: 'contact' },
 ];
 
@@ -22,9 +23,9 @@ export default function Footer({ onNavigate }: FooterProps) {
           <div>
             <button onClick={() => onNavigate('home')} className="flex items-center gap-3 mb-4 group">
               <img
-                src="/438129535_10211771062990011_2247256738171596777_n.jpg"
+                src="/tigrisátlátszó.png"
                 alt="Tigrisek Logo"
-                className="w-10 h-10 group-hover:scale-110 transition-transform"
+                className="w-10 h-10 group-hover:scale-110 transition-transform object-contain"
               />
               <div className="text-left">
                 <div className="text-white font-bold text-xs leading-tight">BUDAPESTI</div>

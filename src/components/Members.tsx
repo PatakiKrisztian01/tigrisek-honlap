@@ -132,10 +132,65 @@ function BeltRow({ belt }: { belt: Belt }) {
         className="w-full flex items-center justify-between p-4 sm:p-5 text-left bg-gray-900 hover:bg-gray-800/80 transition-colors"
         onClick={() => setOpen(!open)}
       >
-        <div className="flex items-center gap-4">
-          <span className={`text-xs font-bold px-3 py-1.5 rounded-full ${belt.color}`}>
-            {belt.rank}
-          </span>
+        <div className="flex items-center gap-4 flex-1">
+          {/* Belt rank box */}
+          <div className="flex items-center">
+            {belt.rank.includes('Dan') && (
+              <div className="bg-yellow-600 text-black font-bold px-4 py-2 rounded-full text-xs border border-yellow-700">
+                {belt.rank}
+              </div>
+            )}
+            {belt.rank === '1.gup' && (
+              <div className="bg-red-600 text-black font-bold px-4 py-2 rounded-full text-xs border border-red-700">
+                {belt.rank}
+              </div>
+            )}
+            {belt.rank === '2.gup' && (
+              <div className="bg-red-500 text-black font-bold px-4 py-2 rounded-full text-xs border border-red-600">
+                {belt.rank}
+              </div>
+            )}
+            {belt.rank === '3.gup' && (
+              <div className="bg-blue-600 text-red-400 font-bold px-4 py-2 rounded-full text-xs border border-blue-700">
+                {belt.rank}
+              </div>
+            )}
+            {belt.rank === '4.gup' && (
+              <div className="bg-blue-500 text-red-400 font-bold px-4 py-2 rounded-full text-xs border border-blue-600">
+                {belt.rank}
+              </div>
+            )}
+            {belt.rank === '5.gup' && (
+              <div className="bg-emerald-600 text-blue-400 font-bold px-4 py-2 rounded-full text-xs border border-emerald-700">
+                {belt.rank}
+              </div>
+            )}
+            {belt.rank === '6.gup' && (
+              <div className="bg-emerald-500 text-blue-400 font-bold px-4 py-2 rounded-full text-xs border border-emerald-600">
+                {belt.rank}
+              </div>
+            )}
+            {belt.rank === '7.gup' && (
+              <div className="bg-yellow-600 text-green-600 font-bold px-4 py-2 rounded-full text-xs border border-yellow-700">
+                {belt.rank}
+              </div>
+            )}
+            {belt.rank === '8.gup' && (
+              <div className="bg-yellow-500 text-green-600 font-bold px-4 py-2 rounded-full text-xs border border-yellow-600">
+                {belt.rank}
+              </div>
+            )}
+            {belt.rank === '9.gup' && (
+              <div className="bg-orange-600 text-black font-bold px-4 py-2 rounded-full text-xs border border-orange-700">
+                {belt.rank}
+              </div>
+            )}
+            {belt.rank === '10.gup' && (
+              <div className="bg-gray-600 text-black font-bold px-4 py-2 rounded-full text-xs border border-gray-700">
+                {belt.rank}
+              </div>
+            )}
+          </div>
           <div>
             <span className="text-white font-bold">{belt.rankEn}</span>
             <span className="text-gray-500 text-sm ml-2">({belt.members.length} fő)</span>
@@ -150,19 +205,71 @@ function BeltRow({ belt }: { belt: Belt }) {
 
       {open && (
         <div className="bg-gray-950/50 border-t border-gray-800 p-4 sm:p-6">
-          <div className="flex flex-wrap gap-2">
-            {belt.members.map((name) => (
-              <div key={name} className="flex items-center gap-2 text-sm text-gray-300 bg-gray-800 rounded-lg px-3 py-1.5 border border-gray-700">
-                {name === 'Pataki Krisztián' && (
-                  <img
-                    src="/PatakiKrisztian-removebg-preview.png"
-                    alt={name}
-                    className="w-5 h-5 object-cover rounded"
-                  />
-                )}
-                <span>{name}</span>
-              </div>
-            ))}
+          <div className="flex flex-wrap gap-3">
+            {belt.members.map((name) => {
+              let bgColor = 'bg-gray-800';
+              let textColor = 'text-gray-300';
+              let borderColor = 'border-gray-700';
+
+              if (belt.rank === '6.Dan' || belt.rank === '4.Dan' || belt.rank === '3.Dan' || belt.rank === '2.Dan' || belt.rank === '1.Dan') {
+                bgColor = 'bg-yellow-600';
+                textColor = 'text-black';
+                borderColor = 'border-yellow-700';
+              } else if (belt.rank === '1.gup') {
+                bgColor = 'bg-red-600';
+                textColor = 'text-black';
+                borderColor = 'border-red-700';
+              } else if (belt.rank === '2.gup') {
+                bgColor = 'bg-red-500';
+                textColor = 'text-black';
+                borderColor = 'border-red-600';
+              } else if (belt.rank === '3.gup') {
+                bgColor = 'bg-blue-600';
+                textColor = 'text-red-400';
+                borderColor = 'border-blue-700';
+              } else if (belt.rank === '4.gup') {
+                bgColor = 'bg-blue-500';
+                textColor = 'text-red-400';
+                borderColor = 'border-blue-600';
+              } else if (belt.rank === '5.gup') {
+                bgColor = 'bg-emerald-600';
+                textColor = 'text-blue-400';
+                borderColor = 'border-emerald-700';
+              } else if (belt.rank === '6.gup') {
+                bgColor = 'bg-emerald-500';
+                textColor = 'text-blue-400';
+                borderColor = 'border-emerald-600';
+              } else if (belt.rank === '7.gup') {
+                bgColor = 'bg-yellow-600';
+                textColor = 'text-green-600';
+                borderColor = 'border-yellow-700';
+              } else if (belt.rank === '8.gup') {
+                bgColor = 'bg-yellow-500';
+                textColor = 'text-green-600';
+                borderColor = 'border-yellow-600';
+              } else if (belt.rank === '9.gup') {
+                bgColor = 'bg-orange-600';
+                textColor = 'text-black';
+                borderColor = 'border-orange-700';
+              } else if (belt.rank === '10.gup') {
+                bgColor = 'bg-gray-600';
+                textColor = 'text-black';
+                borderColor = 'border-gray-700';
+              }
+
+              return (
+                <div key={name} className={`flex items-center gap-2 text-sm font-bold ${textColor} ${bgColor} rounded-lg px-4 py-2 border ${borderColor} inline-block`}>
+                  {name === 'Pataki Krisztián' && (
+                    <img
+                      src="/PatakiKrisztian-removebg-preview.png"
+                      alt={name}
+                      className="w-5 h-5 object-cover rounded"
+                    />
+                  )}
+                  <span>{name}</span>
+                </div>
+              );
+            })}
           </div>
           {belt.results && belt.results.length > 0 && (
             <div className="mt-6 space-y-4">

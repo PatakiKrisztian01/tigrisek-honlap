@@ -210,34 +210,45 @@ export default function Training() {
 
         {/* Önvédelem */}
         <div className="mb-16">
-          <div className="bg-gray-900 border border-emerald-600/30 rounded-2xl p-6 lg:p-8">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-emerald-600/10 border border-emerald-600/30 rounded-xl flex items-center justify-center flex-shrink-0">
-                <Shield className="w-6 h-6 text-emerald-500" />
+          <div className="bg-gray-900 border border-emerald-600/30 rounded-2xl overflow-hidden">
+            <div className="flex flex-col lg:flex-row h-full">
+              <div className="flex-1 p-6 lg:p-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 bg-emerald-600/10 border border-emerald-600/30 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Shield className="w-6 h-6 text-emerald-500" />
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-black text-white">Ingyenes önvédelmi edzések</h2>
+                    <p className="text-emerald-500 font-bold text-sm">18 éves kortól</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 mb-4">
+                  <div className="flex-shrink-0 mt-0.5">
+                    <Clock className="w-4 h-4 text-emerald-500" />
+                  </div>
+                  <div>
+                    <div className="text-white font-bold text-sm">Kedd: 18:00 – 19:00-ig</div>
+                    <div className="text-emerald-500 text-xs font-bold mt-2">Havanna u. 3., 1181 Budapest</div>
+                  </div>
+                </div>
+                <a
+                  href="https://www.openstreetmap.org/?q=Havanna+u.+3+Budapest"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-emerald-500 hover:text-emerald-400 text-xs font-bold transition-colors"
+                >
+                  <Map className="w-3.5 h-3.5" />
+                  Térkép
+                </a>
               </div>
-              <div>
-                <h2 className="text-2xl font-black text-white">Ingyenes önvédelmi edzések</h2>
-                <p className="text-emerald-500 font-bold text-sm">18 éves kortól</p>
+              <div className="w-full lg:w-64 flex-shrink-0 bg-emerald-600/10 lg:border-l border-emerald-600/30">
+                <img
+                  src="/555717957_25013974758240728_3275706361721851860_n.jpg"
+                  alt="Önvédelmi edzés"
+                  className="w-full h-64 lg:h-full object-cover"
+                />
               </div>
             </div>
-            <div className="flex items-start gap-3 mb-4">
-              <div className="flex-shrink-0 mt-0.5">
-                <Clock className="w-4 h-4 text-emerald-500" />
-              </div>
-              <div>
-                <div className="text-white font-bold text-sm">Kedd: 18:00 – 19:00-ig</div>
-                <div className="text-emerald-500 text-xs font-bold mt-2">Havanna u. 3., 1181 Budapest</div>
-              </div>
-            </div>
-            <a
-              href="https://www.openstreetmap.org/?q=Havanna+u.+3+Budapest"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-emerald-500 hover:text-emerald-400 text-xs font-bold transition-colors"
-            >
-              <Map className="w-3.5 h-3.5" />
-              Térkép
-            </a>
           </div>
         </div>
 

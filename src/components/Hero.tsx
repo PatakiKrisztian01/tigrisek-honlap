@@ -49,7 +49,8 @@ export default function Hero({ onNavigate }: HeroProps) {
             <img
               src="/tigrisátlátszó.png"
               alt="Tigrisek Logo"
-              className="h-32 sm:h-40 object-contain drop-shadow-2xl"
+              className="h-32 sm:h-40 object-contain drop-shadow-2xl animate-bounce"
+              style={{ animation: 'bounce 3s ease-in-out infinite' }}
             />
           </div>
           <div className="inline-flex items-center gap-2 bg-neon-orange/10 border border-neon-orange/40 rounded-full px-4 py-2 mb-8">
