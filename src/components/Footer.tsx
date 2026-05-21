@@ -35,7 +35,8 @@ export default function Footer({ onNavigate }: FooterProps) {
             <div className="text-gray-400 text-sm leading-relaxed space-y-2">
               <p className="font-semibold text-white">Több mint harcművészet. Tradíció, fegyelem és közösség.</p>
               <p className="text-gray-500">
-                Ahol a tradíció találkozik a küzdőszellemmel. Harcművészet oktatás gyerekeknek és felnőtteknek, 2002 óta.
+                Ahol a tradíció találkozik a küzdőszellemmel.</br>
+                Harcművészet oktatás gyerekeknek és felnőtteknek, 2002 óta.
               </p>
               <p className="text-neon-orange font-bold tracking-wide pt-1">Lépj a bajnokok útjára!</p>
             </div>
@@ -72,7 +73,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               {/* Közvetlen Facebook gomb tokenek nélkül */}
               <div className="pt-2">
                 <a 
-                  href="https://www.facebook.com/budapestitigrisekse" 
+                  href="https://www.facebook.com/BudapestTigers" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-transparent border border-neon-orange text-neon-orange hover:bg-neon-orange hover:text-black font-bold text-xs uppercase tracking-wider px-4 py-2 rounded transition-all duration-300 shadow-[0_0_10px_rgba(255,165,0,0.1)] hover:shadow-[0_0_15px_rgba(255,165,0,0.4)]"
