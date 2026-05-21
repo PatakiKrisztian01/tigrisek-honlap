@@ -67,9 +67,12 @@ export default function Hero({ onNavigate }: HeroProps) {
           <div className="text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed space-y-4">
             <p className="font-bold text-white text-2xl">Fedezd fel a benned rejlő erőt!</p>
             <p className="text-base sm:text-lg text-gray-400">
-              Nálunk a Taekwon-do nemcsak látványos önvédelem és küzdőszellem, hanem egy összetartó, családias közösség is 2002 óta. 
-              Hiszünk abban, hogy az edzőteremben megszerzett magabiztosság, tisztelet és fegyelem az élet minden területén sikeressé teszi a tanítványainkat. 
-              Támogató csapattal várunk minden korosztályt, a teljesen kezdőktől a fekete övesekig. Tartozz te is a Tigrisek családjához!
+              Nálunk a Taekwon-do nemcsak látványos önvédelem és küzdőszellem, 
+              hanem egy összetartó, családias közösség is 2002 óta. 
+              Hiszünk abban, hogy az edzőteremben megszerzett magabiztosság, tisztelet és fegyelem 
+              az élet minden területén sikeressé teszi a tanítványainkat. 
+              Támogató csapattal várunk minden korosztályt, a teljesen kezdőktől a fekete övesekig. 
+              Tartozz te is a Tigrisek családjához!
             </p>
           </div>
 
@@ -195,7 +198,7 @@ export default function Hero({ onNavigate }: HeroProps) {
               <h3 className="text-white font-black text-xl mb-1">Patakiné Zs. Anikó</h3>
               <p className="text-neon-orange font-bold text-sm mb-4">III.Dan — Klubvezető helyettes</p>
               <a href="mailto:patakineaniko@gmail.com" className="text-gray-400 hover:text-neon-orange text-sm transition-colors block mb-1">patakineaniko@gmail.com</a>
-              <a href="tel:+36703184834" className="text-gray-400 hover:text-neon-orange text-sm transition-colors">+36-70-941-5992</a>
+              <a href="tel:+36703184834" className="text-gray-400 hover:text-neon-orange text-sm transition-colors">+36-70-318-4834</a>
             </div>
           </div>
         </div>
