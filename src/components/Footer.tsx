@@ -35,7 +35,7 @@ export default function Footer({ onNavigate }: FooterProps) {
             <div className="text-gray-400 text-sm leading-relaxed space-y-2">
               <p className="font-semibold text-white">Több mint harcművészet. Tradíció, fegyelem és közösség.</p>
               <p className="text-gray-500">
-                Ahol a tradíció találkozik a küzdőszellemmel.</br>
+                Ahol a tradíció találkozik a küzdőszellemmel.<br />
                 Harcművészet oktatás gyerekeknek és felnőtteknek, 2002 óta.
               </p>
               <p className="text-neon-orange font-bold tracking-wide pt-1">Lépj a bajnokok útjára!</p>
