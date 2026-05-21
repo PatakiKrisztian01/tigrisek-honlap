@@ -94,26 +94,29 @@ export default function News() {
             </div>
           </div>
 
-          {/* Új, Biztonságos Facebook Sidebar */}
+          {/* ÉLŐ FACEBOOK HÍRFOLYAM SIDEBAR */}
           <div className="lg:col-span-1">
             <div className="sticky top-24">
-              <h2 className="text-2xl font-black text-white mb-6">Közösségi Média</h2>
+              <div className="flex items-center gap-2 mb-6">
+                <Facebook className="w-6 h-6 text-blue-500 fill-current" />
+                <h2 className="text-2xl font-black text-white">Facebook hírfolyam</h2>
+              </div>
               
-              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 text-center space-y-6 relative overflow-hidden group hover:border-neon-orange/30 transition-all duration-300">
-                {/* Dekoratív háttér ikon */}
-                <div className="absolute -right-10 -bottom-10 text-gray-800/10 w-40 h-40 pointer-events-none group-hover:scale-110 transition-transform duration-500">
-                  <Facebook className="w-full h-full" />
-                </div>
-
-                <div className="w-16 h-16 bg-blue-600/10 text-blue-500 rounded-full flex items-center justify-center mx-auto border border-blue-600/20 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
-                  <Facebook className="w-8 h-8 fill-current" />
-                </div>
-
-                <div className="space-y-2">
-                  <h3 className="text-white font-bold text-lg">Kövess minket Facebookon!</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
-                    Legfrissebb mindennapi híreinket, edzőtábori pillanatainkat, galériáinkat és azonnali hirdetményeinket a hivatalos Facebook oldalunkon tesszük közzé.
-                  </p>
+              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-4 text-center space-y-4 shadow-xl">
+                {/* Hivatalos, beágyazott Facebook hírfolyam doboz */}
+                <div className="w-full overflow-hidden rounded-xl bg-white flex justify-center">
+                  <iframe 
+                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FBudapestTigers&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
+                    width="340" 
+                    height="500" 
+                    style={{ border: 'none', overflow: 'hidden' }} 
+                    scrolling="no" 
+                    frameBorder="0" 
+                    allowFullScreen={true} 
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                    title="Budapest Tigers Facebook Feed"
+                    className="w-full max-w-[340px]"
+                  ></iframe>
                 </div>
 
                 <div className="pt-2">
@@ -121,15 +124,11 @@ export default function News() {
                     href="https://www.facebook.com/BudapestTigers"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 w-full bg-neon-orange text-black font-black text-sm uppercase tracking-wider py-3.5 px-6 rounded-xl transition-all duration-300 hover:bg-white shadow-[0_4px_20px_rgba(255,165,0,0.2)] hover:shadow-[0_4px_25px_rgba(255,255,255,0.3)] hover:-translate-y-0.5"
+                    className="inline-flex items-center justify-center gap-2 w-full bg-neon-orange text-black font-black text-sm uppercase tracking-wider py-3 px-4 rounded-xl transition-all duration-300 hover:bg-white shadow-[0_4px_15px_rgba(255,165,0,0.2)] hover:scale-[1.02]"
                   >
-                    Tigrisek Facebook Oldal
+                    Megnyitás a Facebookon
                     <ExternalLink className="w-4 h-4" />
                   </a>
-                </div>
-
-                <div className="text-gray-600 text-xs">
-                  Azonnali frissítések &bull; Élő közösség
                 </div>
               </div>
             </div>
