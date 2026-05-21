@@ -192,9 +192,12 @@ export default function Hero({ onNavigate }: HeroProps) {
               <a href="tel:+36709415992" className="text-gray-400 hover:text-neon-orange text-sm transition-colors">+36-70-941-5992</a>
             </div>
             <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 text-center hover:border-neon-orange/50 transition-all duration-300">
-              <div className="w-20 h-20 bg-neon-orange/10 border-2 border-neon-orange/40 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-neon-orange font-black text-lg">PA</span>
-              </div>
+              {/* Kicserélve a helyőrző a feltöltött patakinezsaniko.png képre */}
+              <img
+                src="/patakinezsaniko.png"
+                alt="Patakiné Zs. Anikó"
+                className="w-20 h-20 mx-auto mb-4 object-contain"
+              />
               <h3 className="text-white font-black text-xl mb-1">Patakiné Zs. Anikó</h3>
               <p className="text-neon-orange font-bold text-sm mb-4">III.Dan — Klubvezető helyettes</p>
               <a href="mailto:patakineaniko@gmail.com" className="text-gray-400 hover:text-neon-orange text-sm transition-colors block mb-1">patakineaniko@gmail.com</a>
