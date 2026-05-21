@@ -8,7 +8,7 @@ interface HeroProps {
 const stats = [
   { icon: Trophy, value: '24 év', label: 'Tapasztalat' },
   { icon: Users, value: '100+', label: 'Aktív Tag' },
-  { icon: Trophy, value: 'VC', label: 'Aranyérmek' },
+  { icon: Trophy, value: 'VK', label: 'Aranyérmek' },
   { icon: Calendar, value: 'EB', label: 'Aranyérmek' },
 ];
 
