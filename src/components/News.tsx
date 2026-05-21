@@ -118,7 +118,7 @@ export default function News() {
 
                 <div className="pt-2">
                   <a
-                    href="https://www.facebook.com/budapestitigrisekse"
+                    href="https://www.facebook.com/BudapestTigers"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 w-full bg-neon-orange text-black font-black text-sm uppercase tracking-wider py-3.5 px-6 rounded-xl transition-all duration-300 hover:bg-white shadow-[0_4px_20px_rgba(255,165,0,0.2)] hover:shadow-[0_4px_25px_rgba(255,255,255,0.3)] hover:-translate-y-0.5"
