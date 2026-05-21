@@ -8,8 +8,8 @@ interface HeroProps {
 const stats = [
   { icon: Trophy, value: '24 év', label: 'Tapasztalat' },
   { icon: Users, value: '100+', label: 'Aktív Tag' },
-  { icon: Trophy, value: 'VB', label: 'Bronzérem' },
-  { icon: Calendar, value: 'EB', label: 'Aranyérem' },
+  { icon: Trophy, value: 'VC', label: 'Aranyérmek' },
+  { icon: Calendar, value: 'EB', label: 'Aranyérmek' },
 ];
 
 const newsItems = [
@@ -67,12 +67,12 @@ export default function Hero({ onNavigate }: HeroProps) {
           <div className="text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed space-y-4">
             <p className="font-bold text-white text-2xl">Fedezd fel a benned rejlő erőt!</p>
             <p className="text-base sm:text-lg text-gray-400">
-              Nálunk a Taekwon-do nemcsak látványos önvédelem és küzdőszellem, 
-              hanem egy összetartó, családias közösség is 2002 óta. 
-              Hiszünk abban, hogy az edzőteremben megszerzett magabiztosság, tisztelet és fegyelem 
-              az élet minden területén sikeressé teszi a tanítványainkat. 
-              Támogató csapattal várunk minden korosztályt, a teljesen kezdőktől a fekete övesekig. 
-              Tartozz te is a Tigrisek családjához!
+              Nálunk a Taekwon-do nemcsak látványos önvédelem és küzdőszellem, <br />
+              hanem egy összetartó, családias közösség is 2002 óta. <br />
+              Hiszünk abban, hogy az edzőteremben megszerzett magabiztosság, tisztelet és fegyelem <br />
+              az élet minden területén sikeressé teszi a tanítványainkat. <br />
+              Támogató csapattal várunk minden korosztályt, a teljesen kezdőktől a fekete övesekig. <br />
+              Tartozz te is a Tigrisek családjához!<br />
             </p>
           </div>
 
