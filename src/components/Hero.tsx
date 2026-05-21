@@ -6,7 +6,7 @@ interface HeroProps {
 }
 
 const stats = [
-  { icon: Trophy, value: '30+', label: 'Év Tapasztalat' },
+  { icon: Trophy, value: '24 év', label: 'Tapasztalat' },
   { icon: Users, value: '100+', label: 'Aktív Tag' },
   { icon: Trophy, value: 'VB', label: 'Bronzérem' },
   { icon: Calendar, value: 'EB', label: 'Aranyérem' },
@@ -63,16 +63,22 @@ export default function Hero({ onNavigate }: HeroProps) {
             <span className="block text-neon-orange">TIGRISEK SE</span>
           </h1>
 
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed">
-            ITF Taekwon-do klub Budapestről. Hagyomány, becsület, és küzdőszellem — 1990 óta.
-          </p>
+          {/* Új, összedolgozott, családias és motiváló bemutatkozó szöveg */}
+          <div className="text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed space-y-4">
+            <p className="font-bold text-white text-2xl">Fedezd fel a benned rejlő erőt!</p>
+            <p className="text-base sm:text-lg text-gray-400">
+              Nálunk a Taekwon-do nemcsak látványos önvédelem és küzdőszellem, hanem egy összetartó, családias közösség is 2002 óta. 
+              Hiszünk abban, hogy az edzőteremben megszerzett magabiztosság, tisztelet és fegyelem az élet minden területén sikeressé teszi a tanítványainkat. 
+              Támogató csapattal várunk minden korosztályt, a teljesen kezdőktől a fekete övesekig. Tartozz te is a Tigrisek családjához!
+            </p>
+          </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
             <button
               onClick={() => onNavigate('training')}
               className="group flex items-center gap-2 bg-neon-orange hover:bg-orange-600 text-black px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:scale-105 shadow-lg shadow-neon-orange/40"
             >
-              Csatlakozz hozzánk
+              Jelentkezem az első ingyenes edzésre
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
             <button
@@ -189,7 +195,7 @@ export default function Hero({ onNavigate }: HeroProps) {
               <h3 className="text-white font-black text-xl mb-1">Patakiné Zs. Anikó</h3>
               <p className="text-neon-orange font-bold text-sm mb-4">III.Dan — Klubvezető helyettes</p>
               <a href="mailto:patakineaniko@gmail.com" className="text-gray-400 hover:text-neon-orange text-sm transition-colors block mb-1">patakineaniko@gmail.com</a>
-              <a href="tel:+36709415992" className="text-gray-400 hover:text-neon-orange text-sm transition-colors">+36-70-941-5992</a>
+              <a href="tel:+36703184834" className="text-gray-400 hover:text-neon-orange text-sm transition-colors">+36-70-941-5992</a>
             </div>
           </div>
         </div>
