@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { Calendar } from 'lucide-react';
+import { Calendar, Facebook, ExternalLink } from 'lucide-react';
 
 const newsItems = [
   {
@@ -50,49 +49,6 @@ const categoryColors: Record<string, string> = {
 };
 
 export default function News() {
-  const [facebookPosts, setFacebookPosts] = useState<any[]>([]);
-  const [loadingFb, setLoadingFb] = useState(true);
-
-  useEffect(() => {
-    // Load Facebook SDK
-    if (!window.FB) {
-      const script = document.createElement('script');
-      script.src = 'https://connect.facebook.net/hu_HU/sdk.js#xfbml=1&version=v18.0';
-      script.async = true;
-      script.defer = true;
-      script.crossOrigin = 'anonymous';
-      document.body.appendChild(script);
-    } else if (window.FB?.XFBML) {
-      window.FB.XFBML.parse();
-    }
-
-    // Try to fetch Facebook posts with images via Edge Function
-    fetchFacebookPosts();
-  }, []);
-
-  const fetchFacebookPosts = async () => {
-    try {
-      setLoadingFb(true);
-      const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/fetch_facebook_feed`;
-
-      const response = await fetch(apiUrl, {
-        headers: {
-          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-          'Content-Type': 'application/json',
-        },
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        setFacebookPosts(data.posts || []);
-      }
-    } catch (error) {
-      console.log('Facebook feed fetch: Using embedded plugin', error);
-    } finally {
-      setLoadingFb(false);
-    }
-  };
-
   return (
     <div className="min-h-screen pt-20">
       {/* Page Header */}
@@ -138,74 +94,48 @@ export default function News() {
             </div>
           </div>
 
-          {/* Facebook Feed Sidebar */}
+          {/* Új, Biztonságos Facebook Sidebar */}
           <div className="lg:col-span-1">
             <div className="sticky top-24">
-              <h2 className="text-2xl font-black text-white mb-6">Facebook Feed</h2>
+              <h2 className="text-2xl font-black text-white mb-6">Közösségi Média</h2>
+              
+              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 text-center space-y-6 relative overflow-hidden group hover:border-neon-orange/30 transition-all duration-300">
+                {/* Dekoratív háttér ikon */}
+                <div className="absolute -right-10 -bottom-10 text-gray-800/10 w-40 h-40 pointer-events-none group-hover:scale-110 transition-transform duration-500">
+                  <Facebook className="w-full h-full" />
+                </div>
 
-              {/* Show fetched posts if available */}
-              {!loadingFb && facebookPosts.length > 0 ? (
-                <div className="space-y-4">
-                  {facebookPosts.map((post) => (
-                    <a
-                      key={post.id}
-                      href={post.permalink_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-neon-orange/50 transition-all duration-300 block group"
-                    >
-                      {post.image && (
-                        <img
-                          src={post.image}
-                          alt="Facebook post"
-                          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                      )}
-                      <div className="p-4">
-                        <p className="text-gray-400 text-xs mb-2">
-                          {new Date(post.created_time).toLocaleDateString('hu-HU')}
-                        </p>
-                        <p className="text-white text-sm line-clamp-2">
-                          {post.message}
-                        </p>
-                      </div>
-                    </a>
-                  ))}
+                <div className="w-16 h-16 bg-blue-600/10 text-blue-500 rounded-full flex items-center justify-center mx-auto border border-blue-600/20 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
+                  <Facebook className="w-8 h-8 fill-current" />
                 </div>
-              ) : (
-                /* Fallback to embedded Facebook plugin */
-                <div className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden">
-                  <div
-                    className="fb-page"
-                    data-href="https://www.facebook.com/BudapestTigers"
-                    data-tabs="timeline"
-                    data-width="500"
-                    data-height="800"
-                    data-small-header="true"
-                    data-adapt-container-width="true"
-                    data-hide-cover="false"
-                    data-show-facepile="true"
+
+                <div className="space-y-2">
+                  <h3 className="text-white font-bold text-lg">Kövess minket Facebookon!</h3>
+                  <p className="text-gray-400 text-sm leading-relaxed">
+                    Legfrissebb mindennapi híreinket, edzőtábori pillanatainkat, galériáinkat és azonnali hirdetményeinket a hivatalos Facebook oldalunkon tesszük közzé.
+                  </p>
+                </div>
+
+                <div className="pt-2">
+                  <a
+                    href="https://www.facebook.com/budapestitigrisekse"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 w-full bg-neon-orange text-black font-black text-sm uppercase tracking-wider py-3.5 px-6 rounded-xl transition-all duration-300 hover:bg-white shadow-[0_4px_20px_rgba(255,165,0,0.2)] hover:shadow-[0_4px_25px_rgba(255,255,255,0.3)] hover:-translate-y-0.5"
                   >
-                    <blockquote cite="https://www.facebook.com/BudapestTigers" className="fb-xfbml-parse-ignore">
-                      <a href="https://www.facebook.com/BudapestTigers">Budapesti Tigrisek SE</a>
-                    </blockquote>
-                  </div>
+                    Tigrisek Facebook Oldal
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
                 </div>
-              )}
+
+                <div className="text-gray-600 text-xs">
+                  Azonnali frissítések &bull; Élő közösség
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   );
-}
-
-declare global {
-  interface Window {
-    FB?: {
-      XFBML?: {
-        parse: () => void;
-      };
-    };
-  }
 }
