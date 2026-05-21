@@ -6,10 +6,10 @@ interface HeroProps {
 }
 
 const stats = [
-  { icon: Trophy, value: '24 év', label: 'Tapasztalat' },
+  { icon: Calendar, value: '24 év', label: 'Tapasztalat' },
   { icon: Users, value: '100+', label: 'Aktív Tag' },
   { icon: Trophy, value: 'VK', label: 'Aranyérmek' },
-  { icon: Calendar, value: 'EB', label: 'Aranyérmek' },
+  { icon: Trophy, value: 'EB', label: 'Aranyérmek' },
 ];
 
 const newsItems = [
