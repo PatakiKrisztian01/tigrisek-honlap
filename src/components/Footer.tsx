@@ -8,6 +8,9 @@ const links: { label: string; section: Section }[] = [
   { label: 'Főoldal', section: 'home' },
   { label: 'Hírek', section: 'news' },
   { label: 'Edzések', section: 'training' },
+  { label: 'Kick-box', section: 'kickbox' },
+  { label: 'Önvédelem', section: 'selfdefense' },
+  { label: 'Eseménynaptár', section: 'calendar' },
   { label: 'Tagok', section: 'members' },
   { label: 'Taekwon-do', section: 'taekwondo' },
   { label: 'Eskü és Tanai', section: 'oath' },
@@ -51,7 +54,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                 <li key={link.section}>
                   <button
                     onClick={() => onNavigate(link.section)}
-                    className="text-gray-500 hover:text-neon-orange text-sm transition-colors"
+                    className="text-gray-500 hover:text-neon-orange text-sm transition-colors text-left"
                   >
                     {link.label}
                   </button>
