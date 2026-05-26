@@ -109,38 +109,33 @@ const belts: Belt[] = [
 
 function BeltRow({ belt }: { belt: Belt }) {
   const [open, setOpen] = useState(false);
+  const isBlackBelt = belt.rank.includes('Dan');
 
   let beltBg = 'bg-gray-950';
   let embroideryColor = 'text-gray-200';
   let borderColor = 'border-gray-800';
-  let customShadow = '';
+  let customClasses = 'hover:border-gray-700';
 
-  if (belt.rank.includes('Dan')) {
-    // Tiszta fekete öv, arany hímzéssel, arany kerettel és belső arany ragyogással a kiemelésért
-    beltBg = 'bg-black border-2';
+  if (isBlackBelt) {
+    // Tiszta mélyfekete háttér, neon UV narancs keret + finom izzás, hoverre lebegés és erősebb fény
+    beltBg = 'bg-black';
     embroideryColor = 'text-amber-400 font-extrabold tracking-wider';
-    borderColor = 'border-amber-500/40 hover:border-amber-400';
-    customShadow = 'shadow-[inset_0_0_15px_rgba(245,158,11,0.15)]'; 
+    borderColor = 'border-neon-orange/60';
+    customClasses = 'hover:border-neon-orange hover:-translate-y-1 shadow-[0_0_15px_rgba(255,90,0,0.15)] hover:shadow-[0_0_25px_rgba(255,90,0,0.35)]';
   } else {
     switch (belt.rank) {
       case '1.gup':
       case '2.gup':
         beltBg = 'bg-red-600'; embroideryColor = 'text-black'; borderColor = 'border-red-700'; break;
-      
       case '3.gup':
       case '4.gup':
-        // Szemkímélő, lágyabb lazac/korall-piros szövegszín a vibrálás ellen
         beltBg = 'bg-blue-600'; embroideryColor = 'text-red-200'; borderColor = 'border-blue-700'; break;
-
       case '5.gup':
       case '6.gup':
         beltBg = 'bg-emerald-600'; embroideryColor = 'text-blue-900'; borderColor = 'border-emerald-700'; break;
-
       case '7.gup':
       case '8.gup':
-        // Sötétebb, kontrasztosabb fenyőzöld hímzés sárga alapon
         beltBg = 'bg-yellow-400'; embroideryColor = 'text-emerald-950'; borderColor = 'border-yellow-500'; break;
-
       case '9.gup':
         beltBg = 'bg-white'; embroideryColor = 'text-yellow-600'; borderColor = 'border-gray-300'; break;
       case '10.gup':
@@ -149,14 +144,25 @@ function BeltRow({ belt }: { belt: Belt }) {
   }
 
   return (
-    <div className={`border rounded-xl overflow-hidden transition-all duration-300 ${borderColor} ${customShadow}`}>
+    <div className={`border rounded-xl overflow-hidden transition-all duration-300 ${borderColor} ${customClasses}`}>
       <button
-        className={`w-full flex items-center justify-between p-4 sm:p-5 text-left transition-colors uppercase tracking-wider font-black font-serif ${beltBg} ${embroideryColor}`}
+        className={`w-full flex items-center justify-between p-4 sm:p-5 text-left transition-all uppercase tracking-wider font-black font-serif ${beltBg} ${embroideryColor}`}
         onClick={() => setOpen(!open)}
       >
         <div className="flex items-center justify-between flex-1 pr-4">
           <div className="flex items-center gap-6">
-            <span className="text-sm opacity-80 border-r border-current pr-4 min-w-[70px] inline-block font-serif">{belt.rank}</span>
+            {/* HA FEKETE ÖV: Kép jelenik meg, HA SZÍNES ÖV: Marad a számozott gup felirat */}
+            {isBlackBelt ? (
+              <img 
+                src="/himzes1.png" 
+                alt="Taekwon-do hímzés" 
+                className="w-10 h-10 object-contain flex-shrink-0"
+              />
+            ) : (
+              <span className="text-sm opacity-80 border-r border-current pr-4 min-w-[70px] inline-block font-serif">
+                {belt.rank}
+              </span>
+            )}
             <span className="text-base sm:text-lg font-serif">{belt.rankEn}</span>
           </div>
           <span className="text-xs font-sans normal-case opacity-75">({belt.members.length} fő)</span>
