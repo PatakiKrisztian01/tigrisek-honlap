@@ -43,7 +43,7 @@ export default function Contact() {
                 <img
                   src="/PatakiKrisztian-removebg-preview.png"
                   alt="Pataki Krisztián"
-                  className="h-36 w-28 sm:h-40 sm:w-32 object-contain flex-shrink-0"
+                  className="h-40 w-31 sm:h-40 sm:w-32 object-contain flex-shrink-0"
                 />
               </div>
             </div>
