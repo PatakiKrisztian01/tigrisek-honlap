@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Play, ExternalLink, Shield } from 'lucide-react';
 import { dictionary, counting } from '../data/dictionary';
 
 type TabId = 'overview' | 'history' | 'techniques' | 'belts' | 'forms' | 'founder' | 'oath' | 'dictionary' | 'rules';
@@ -15,10 +16,282 @@ const tabs: { id: TabId; label: string }[] = [
   { id: 'rules', label: 'Szabályok' },
 ];
 
-const forms = Array.from({ length: 24 }, (_, i) => ({
-  num: i + 1,
-  image: `https://tigrisek.hu/images/formagyak/p${i + 1}.jpg`,
-}));
+type TulData = {
+  name: string;
+  moves: number | string;
+  returnFoot?: string;
+  meaning: string[];
+  youtubeUrl: string;
+};
+
+const alapGyakorlatok: TulData[] = [
+  {
+    name: 'Saju-Jirugi',
+    moves: 'Négyirányú',
+    meaning: ['„Négyirányú ütés”. Egyszerű alapvédelmi és támadó gyakorlat, amelyet kezdők számára tanítanak a Taekwon-Do alapjainak és irányváltásainak elsajátítására.'],
+    youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Saju+Jirugi',
+  },
+  {
+    name: 'Saju-Makgi',
+    moves: 'Négyirányú',
+    meaning: ['„Négyirányú védés”. Egyszerű alapvédelmi gyakorlat, amely segít a kezdőknek rögzíteni a hárítások pontos koordinációját.'],
+    youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Saju+Makgi',
+  },
+];
+
+const tulsData: TulData[] = [
+  {
+    name: 'Chon-Ji',
+    moves: 19,
+    returnFoot: 'bal láb tér vissza',
+    meaning: [
+      'A „Chon-Ji” jelentése: „Menny és Föld”. A keleti filozófiában ez a világ teremtését, illetve az emberi történelem kezdetét jelképezi. Ezért ez az első formagyakorlat, amelyet a kezdők megtanulnak.',
+      'A minta két hasonló részből áll: az egyik az eget, a másik a földet szimbolizálja.',
+    ],
+    youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Chon-Ji+Tul',
+  },
+  {
+    name: 'Dan-Gun',
+    moves: 21,
+    returnFoot: 'bal láb tér vissza',
+    meaning: ['A formát a legendás Dan-Gunról nevezték el, akit Korea alapítójaként tartanak számon Kr. e. 2333-ból.'],
+    youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Dan-Gun+Tul',
+  },
+  {
+    name: 'Do-San',
+    moves: 24,
+    returnFoot: 'jobb láb tér vissza',
+    meaning: [
+      'A „Do-San” Ahn Chang-Ho (1876–1938) hazafi írói neve volt.',
+      'A 24 mozdulat egész életét jelképezi, amelyet Korea oktatásának fejlesztésére és a függetlenségi mozgalom támogatására szentelt.',
+    ],
+    youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Do-San+Tul',
+  },
+  {
+    name: 'Won-Hyo',
+    moves: 28,
+    returnFoot: 'jobb láb tér vissza',
+    meaning: ['Won-Hyo híres buddhista szerzetes volt, aki Kr. u. 686-ban elterjesztette a buddhizmust a Silla-dinasztia idején.'],
+    youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Won-Hyo+Tul',
+  },
+  {
+    name: 'Yul-Gok',
+    moves: 38,
+    returnFoot: 'bal láb tér vissza',
+    meaning: [
+      'A „Yul-Gok” Yi I (1536–1584) nagy filozófus és tudós írói neve volt, akit gyakran „Korea Konfuciuszának” neveztek.',
+      'A 38 mozdulat a születési helyének 38. szélességi fokára utal, a diagram pedig a tudóst jelképezi.',
+    ],
+    youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Yul-Gok+Tul',
+  },
+  {
+    name: 'Joong-Gun',
+    moves: 32,
+    returnFoot: 'bal láb tér vissza',
+    meaning: [
+      'A formát Ahn Joong-Gun hazafiról nevezték el, aki meggyilkolta Hirobumi Itót, Korea első japán kormányzóját, aki jelentős szerepet játszott Korea japán megszállásában.',
+      'A 32 mozdulat Ahn Joong-Gun életkorára utal, amikor 1910-ben kivégezték a Lui-Shung börtönben.',
+    ],
+    youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Joong-Gun+Tul',
+  },
+  {
+    name: 'Toi-Gye',
+    moves: 37,
+    returnFoot: 'jobb láb tér vissza',
+    meaning: [
+      'A „Toi-Gye” Yi Hwang híres tudós írói neve volt a 16. században, aki a neo-konfucianizmus egyik legnagyobb szakértője volt.',
+      'A 37 mozdulat a születési helyének 37. szélességi fokára utal, a diagram pedig a tudóst jelképezi.',
+    ],
+    youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Toi-Gye+Tul',
+  },
+  {
+    name: 'Hwa-Rang',
+    moves: 29,
+    returnFoot: 'jobb láb tér vissza',
+    meaning: [
+      'A formát a Hwa-Rang ifjúsági csoportról nevezték el, amely a 7. század elején alakult a Silla-dinasztia idején.',
+      'A 29 mozdulat a 29. gyaloghadosztályra utal, ahol a Taekwon-Do elérte teljes fejlődését.',
+    ],
+    youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Hwa-Rang+Tul',
+  },
+  {
+    name: 'Choong-Moo',
+    moves: 30,
+    returnFoot: 'bal láb tér vissza',
+    meaning: [
+      'Choong-Moo Yi Soon-Sin admirális posztumusz neve volt a Yi-dinasztia idején.',
+      'Neki tulajdonítják az első páncélozott hadihajó, a Kobukson („teknőshajó”) megalkotását 1592-ben, amelyet a mai tengeralattjárók elődjének tartanak.',
+      'A forma balkezes támadással végződik, ami tragikus halálát jelképezi: nem volt lehetősége teljes képességeit kibontakoztatni, mert hűsége a királyhoz korlátozta őt.',
+    ],
+    youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Choong-Moo+Tul',
+  },
+  {
+    name: 'Kwang-Gae',
+    moves: 39,
+    returnFoot: 'bal láb tér vissza',
+    meaning: [
+      'A formát a híres Kwang-Gae-Toh-Wangról, a Koguryo-dinasztia 19. királyáról nevezték el, aki visszahódította Korea elvesztett területeit, beleértve Mandzsúria nagy részét is.',
+      'A diagram a terjeszkedést és az elveszett földek visszaszerzését jelképezi.',
+      'A 39 mozdulat a 391-es év első két számjegyére utal, amikor trónra lépett.',
+    ],
+    youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Kwang-Gae+Tul',
+  },
+  {
+    name: 'Po-Eun',
+    moves: 36,
+    returnFoot: 'bal láb tér vissza',
+    meaning: [
+      'A „Po-Eun” Chong Mong-Chu hűséges államférfi írói neve volt (1400 körül).',
+      'Híres költőként ismerték, egyik verse pedig minden koreai számára ismert: „Nem szolgálnék más urat, még ha százszor keresztre is feszítenének.” A fizika tudományának úttörője is volt.',
+      'A diagram a királyhoz és hazájához való rendíthetetlen hűségét jelképezi a Koryo-dinasztia végén.',
+    ],
+    youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Po-Eun+Tul',
+  },
+  {
+    name: 'Ge-Baek',
+    moves: 44,
+    returnFoot: 'jobb láb tér vissza',
+    meaning: [
+      'A formát Ge-Baek tábornokról nevezték el, aki a Baek Je-dinasztia nagy hadvezére volt Kr. u. 660-ban.',
+      'A diagram szigorú katonai fegyelmét jelképezi.',
+    ],
+    youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Ge-Baek+Tul',
+  },
+  {
+    name: 'Eui-Am',
+    moves: 45,
+    returnFoot: 'jobb láb tér vissza',
+    meaning: [
+      'Az „Eui-Am” Son Byong Hi írói neve volt, aki az 1919. március 1-jei koreai függetlenségi mozgalom vezetője volt.',
+      'A 45 mozdulat arra az életkorára utal, amikor 1905-ben a Dong Hak („Keleti Kultúra”) nevét Chondo Kyo-ra („A Mennyei Út Vallása”) változtatta.',
+      'A diagram rendíthetetlen szellemét jelképezi, amelyet hazája fejlődésének szolgálatába állított.',
+    ],
+    youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Eui-Am+Tul',
+  },
+  {
+    name: 'Choong-Jang',
+    moves: 52,
+    returnFoot: 'bal láb tér vissza',
+    meaning: [
+      'A „Choong-Jang” Kim Duk Ryang tábornok írói neve volt a Yi-dinasztia idején.',
+      'A forma balkezes támadással fejeződik be, ami tragikus halálát jelképezi: 27 évesen börtönben halt meg, mielőtt elérhette volna teljes érettségét.',
+    ],
+    youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Choong-Jang+Tul',
+  },
+  {
+    name: 'Ko-Dang',
+    moves: 39,
+    meaning: [
+      'A „Ko-Dang” Cho Man Sik hazafi írói neve volt, aki egész életét népe oktatásának és Korea függetlenségének szentelte.',
+      'A 39 mozdulat börtönéveire és a 39. szélességi körön fekvő szülőhelyére utal.',
+    ],
+    youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Ko-Dang+Tul',
+  },
+  {
+    name: 'Juche',
+    moves: 45,
+    returnFoot: 'jobb láb tér vissza',
+    meaning: [
+      'A „Juche” filozófiai eszme szerint az ember minden dolog ura, és maga alakítja saját sorsát.',
+      'Az elképzelés gyökereit a Baekdu-hegyhez kötik, amely a koreai nép szellemét szimbolizálja.',
+      'A diagram a Baekdu-hegyet jelképezi.',
+    ],
+    youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Juche+Tul',
+  },
+  {
+    name: 'Sam-Il',
+    moves: 33,
+    returnFoot: 'jobb láb tér vissza',
+    meaning: [
+      'A „Sam-Il” Korea 1919. március 1-jén indult függetlenségi mozgalmának történelmi dátumára utal.',
+      'A 33 mozdulat a mozgalmat megszervező 33 hazafit jelképezi.',
+    ],
+    youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Sam-Il+Tul',
+  },
+  {
+    name: 'Yoo-Sin',
+    moves: 68,
+    returnFoot: 'jobb láb tér vissza',
+    meaning: [
+      'A formát Kim Yoo Sin tábornokról nevezték el, aki a Silla-dinasztia egyik vezető hadvezére volt.',
+      'A 68 mozdulat a 668-as év utolsó két számjegyére utal, amikor Korea egyesült.',
+      'A készenléti állás jobb oldalon viselt kardot jelképez, ami Yoo Sin hibájára utal: királya parancsára idegen erőkkel együtt harcolt saját nemzete ellen.',
+    ],
+    youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Yoo-Sin+Tul',
+  },
+  {
+    name: 'Choi-Yong',
+    moves: 45,
+    returnFoot: 'jobb láb tér vissza',
+    meaning: [
+      'A formát Choi Yong tábornokról nevezték el, aki a 14. századi Koryo-dinasztia miniszterelnöke és főparancsnoka volt. Hűségéért, hazaszeretetéért és szerénységéért nagy tisztelet övezte.',
+      'Végül saját alárendeltjei végezték ki Yi Sung Gae vezetésével, aki később a Lee-dinasztia első királya lett.',
+    ],
+    youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Choi-Yong+Tul',
+  },
+  {
+    name: 'Yon-Gae',
+    moves: 49,
+    returnFoot: 'jobb láb tér vissza',
+    meaning: [
+      'A formát Yon Gae Somoon tábornokról nevezték el a Koguryo-dinasztia idejéből.',
+      'A 49 mozdulat a 649-es évre utal, amikor legyőzte a Tang-dinasztia seregeit, és mintegy 300 000 katonájuk megsemmisítése után kiűzte őket Koreából.',
+    ],
+    youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Yon-Gae+Tul',
+  },
+  {
+    name: 'Ul-Ji',
+    moves: 42,
+    returnFoot: 'bal láb tér vissza',
+    meaning: [
+      'A formát Ul-Ji Moon Dok tábornokról nevezték el, aki sikeresen megvédte Koreát a Tang-dinasztia közel egymilliós serege ellen Kr. u. 612-ben. Gerillataktikát alkalmazva hatalmas veszteségeket okozott az ellenségnek.',
+      'A diagram az „L” alakban vezetéknevét jelképezi.',
+      'A 42 mozdulat a forma megalkotójának életkorára utal.',
+    ],
+    youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Ul-Ji+Tul',
+  },
+  {
+    name: 'Moon-Moo',
+    moves: 61,
+    returnFoot: 'bal láb tér vissza',
+    meaning: [
+      'A forma a Silla-dinasztia 30. királyának, Moon Moo-nak állít emléket. Testét a Dae Wang Am („A Nagy Király Sziklája”) közelében temették el.',
+      'Végrendelete szerint: „Lelkem örökké megvédi hazámat a japánoktól.” A legenda szerint a Sok Gul Am („Kőbarlang”) sírjának őrzésére épült.',
+      'A 61 mozdulat a 661-es évre utal, amikor trónra lépett.',
+    ],
+    youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Moon-Moo+Tul',
+  },
+  {
+    name: 'So-San',
+    moves: 72,
+    returnFoot: 'bal láb tér vissza',
+    meaning: [
+      'A „So-San” Choi Hyong Ung nagy buddhista szerzetes írói neve volt a Lee-dinasztia idején (1520–1604).',
+      'A 72 mozdulat arra az életkorára utal, amikor tanítványa, Sa Myung Dang segítségével megszervezte a szerzeteshadsereget. Ezek a harcos szerzetesek jelentős szerepet játszottak a japán megszállók visszaverésében 1592-ben.',
+    ],
+    youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+So-San+Tul',
+  },
+  {
+    name: 'Se-Jong',
+    moves: 24,
+    returnFoot: 'bal láb tér vissza',
+    meaning: [
+      'A formát Korea egyik legnagyobb uralkodójáról, Se-Jong királyról nevezték el, aki 1443-ban megalkotta a koreai ábécét (Hangul), és kiváló meteorológus is volt.',
+      'A diagram a királyt jelképezi, a 24 mozdulat pedig a koreai ábécé 24 betűjére utal.',
+    ],
+    youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Se-Jong+Tul',
+  },
+  {
+    name: 'Tong-Il',
+    moves: 42,
+    returnFoot: 'bal láb tér vissza',
+    meaning: [
+      'A „Tong-Il” Korea újraegyesítésének vágyát és elhatározását jelképezi, mivel az ország 1945 óta megosztott.',
+      'A diagram az egységes koreai nemzetet szimbolizálja.',
+    ],
+    youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Tong-Il+Tul',
+  },
+];
 
 export default function Taekwondo() {
   const [activeTab, setActiveTab] = useState<TabId>('overview');
@@ -82,7 +355,7 @@ export default function Taekwondo() {
                 A Taekwon-do eredete az időszámításunk előtti I. századi társadalmakig vezethető vissza. Ebben az időben a Koreai félszigeten három királyság alakult ki: Silla (ie. 57.), Koguryo (ie. 37.) és Baekje (ie. 18.). Ezek a királyságok évszázadokon keresztül harcban álltak egymással a félsziget feletti uralomért.
               </p>
               <p>
-                Az első máig fenn maradt harcművészeti vonatkozású emlékek ebből az időből származnak: a Koguryu dinasztiabeli Muyong-chong és Kakchu-chong nevű királyi síremlékek falain, illetve mennyezetén lévő falfestmények, melyek egymással küzdő férfiakat ábrázolnak.
+                Az első máig fenn maradt harcművészeti vonatkozású emlékek ebből az időből származnak: a Koguryu dinasztiabeli Muyong-chong és Kakchu-chong nevű királyi síremlékek falain, illetve mennyezetén lévő falfestmények, melyer egymással küzdő férfiakat ábrázolnak.
               </p>
               <p>
                 Akkoriban a Koguryo tudott a legdinamikusabban terjeszkedni, ahol már ekkor magas színvonalon oktatták a harcművészeteket. Silla 24. királya Chin Heung Konguryo királyával szövetkezve létrehozta az első elit katonai alakulatot a "Hwarangdo"-t. A Hwarangdo kiképzésben nagy hangsúlyt fektettek mind a fegyveres mind a fegyver nélküli közelharc képzésére. Ha hinni lehet a korabeli történeteknek, már ekkor magas színvonalú láb technika jellemezte a stílust. A Hwarangdo képzésben a testi nevelés mellett a szellemi képzéssel is foglalkoztak. Ezt egy Buddhista tanító Won Kwang konfuciusi tanai alapján tették.
@@ -97,7 +370,7 @@ export default function Taekwondo() {
                 A Silla által létrehozott egységes Koreai állam végül belülről hullott darabjaira, és az országot egy Van Gon (877-943) nevezetű hadvezérnek sikerült újraegyesítenie 935-ben. Az új állam és a dinasztia Koryo néven 1392-ig állt fenn. Innen ered a Korea elnevezése is az Európai nyelvekben.
               </p>
               <p>
-                1392-ben a Koryo dinasztiát felváltotta a Li dinasztia. Melynek első királya Li Szong Gé megfosztotta trónjától a Koryo dinasztia utolsó királyát is és Thedzsó néven ült trónra. A Li dinasztia az országot Csoszonnak nevezte, így ezt a korszakot szokták O-Csoszonnak is nevezni. Ez a korszak lényegében 1910-ig a Japán megszállás kezdetéig tartott.
+                1392-ben a Koryo dinasztiát felváltotta a Li dinasztia. Melynek első királya Li Szong Gé megfosztotta trónjától a Koryo dinasztia utolsó királyát is és Thedzsó néven ült trónra. A Li dinasztia az országot Csoszonnak nevezte, így ezt a korszakot szokták O-Csoszonnak is megnevezni. Ez a korszak lényegében 1910-ig a Japán megszállás kezdetéig tartott.
               </p>
               <p>
                 Ebben az időben a harcművészeteket elsősorban a hadseregben oktatták, illetve megvoltak a köznépnek is a maga harcművészeti játékai, például a Soo Bak és a Taek Kyon. Máig rendszeresen rendeznek Soo Bak és Taek Kyon versenyeket a Dan-O ünnepek alkalmával (Május 5.-én és Augusztus 15.-én). Valószínűleg ebben az időben érték Kínai hatások is a Koreai harcművészeteket melyek jellegzetességei néhány mai Koreai harcművészeti ágban is megtalálhatóak.
@@ -180,296 +453,4 @@ export default function Taekwondo() {
         {/* Belts */}
         {activeTab === 'belts' && (
           <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
-            <h2 className="text-2xl font-black text-white mb-6">Övszínek Magyarázata</h2>
-            <div className="space-y-4">
-              <div><h3 className="text-white font-bold mb-2">Fehér öv:</h3><p className="text-gray-400">Az érintetlenség és gyermeki tisztaság szimbóluma. Utal arra, hogy a kezdő taekwon-dos még nem rendelkezik komoly taekwon-do tudással.</p></div>
-              <div><h3 className="text-white font-bold mb-2">Sárga öv:</h3><p className="text-gray-400">A földet szimbolizálja, melyben az elültetett növény kicsírázik, és gyökeret ereszt. Így rögződnek a tudás alapjai is a taekwon-dosban.</p></div>
-              <div><h3 className="text-white font-bold mb-2">Zöld öv:</h3><p className="text-gray-400">A növényt, növekedését szimbolizálja. Jelzi, hogy a technikák is igazi fejlődésnek indulnak.</p></div>
-              <div><h3 className="text-white font-bold mb-2">Kék öv:</h3><p className="text-gray-400">Az eget szimbolizálja, amely felé most már terebélyes faként tör a növény. Utal a mind magasabb taekwon-do tudásra.</p></div>
-              <div><h3 className="text-white font-bold mb-2">Piros öv:</h3><p className="text-gray-400">A tűz, a vér és a veszély szimbóluma. Emlékezteti a tanítványt, hogy most már óvatosan kell bánnia megszerzett taekwon-do tudásával, de figyelmezteti ellenfelét is, hogy maradjon távol!</p></div>
-              <div><h3 className="text-white font-bold mb-2">Fekete öv:</h3><p className="text-gray-400">Szimbolizálja a félelmetes és kiismerhetetlen harcmodort. Ellentéte a fehérnek. Az elmélyült és mesterfokú taekwon-do tudást jelzi.</p></div>
-            </div>
-          </div>
-        )}
-
-        {/* Forms */}
-        {activeTab === 'forms' && (
-          <div>
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 mb-6">
-              <h2 className="text-2xl font-black text-white mb-4">24 Formagyakorlat (Tull)</h2>
-              <p className="text-gray-400 mb-2">
-                A 24 tulajdonképpeni tull-okat két előkészítő formagyakorlat előzi meg, melyek célja a tanulók alapvető koordináltságának kialakítása és az egyszerűbb technikák kétoldalas ismételtetésén keresztül rákészítés a nehezebb feladatokra. Ezek a négyirányú ütés (Sajoo Chirugi) és a négyirányú hárítás (Sajoo Makgi).
-              </p>
-              <p className="text-gray-400">
-                A tull-ok elnevezéseikkel emléket állítanak a koreai történelem egy-egy kimagasló alakjának, hadvezérének, államférfinek, vagy éppenséggel ismert tudósnak, filozófusnak, nemzetközi költőnek stb.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-              {forms.map((form) => (
-                <a key={form.num} href={form.image} target="_blank" rel="noopener noreferrer"
-                  className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-neon-orange/50 transition-all duration-300 group">
-                  <img src={form.image} alt={`Formagyakorlat ${form.num}`}
-                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" />
-                  <div className="p-3 text-center"><p className="text-neon-orange font-bold">Tull {form.num}</p></div>
-                </a>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Founder */}
-        {activeTab === 'founder' && (
-          <div className="space-y-6">
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
-              <h2 className="text-2xl font-black text-white mb-6">Choi Hong Hi</h2>
-              <div className="flex flex-col md:flex-row gap-6 mb-6">
-                <img
-                  src="https://tigrisek.hu/images/choi1.jpg"
-                  alt="Choi Hong Hi"
-                  className="w-full md:w-64 h-auto rounded-xl object-cover flex-shrink-0"
-                />
-                <div className="space-y-4 text-gray-300 leading-relaxed">
-                  <p>
-                    Choi Hong Hi tábornok a Taekwon-do legendás alapítója 1918 november 9.-én született a koreai félsziget észak-keleti részén fekvő Hwa-Dae-ben, Myong-Chun tartományban. Gyermekkorától a szépírás (kalligráfia) művészetét tanulta, és már fiatalon megismerkedett az ősi koreai harcművészettel a Taek-kyon-nal.
-                  </p>
-                  <p>
-                    Hét évnyi kalligráfus képzés és intenzív Taek-kyon edzés után felsőfokú tanulmányainak megkezdésére Japánba utazott. Kyoto-ban először főiskolára járt, majd Tokyo-ban a Choong Ang egyetem jogi karának végzése mellett magas fokon elsajátította a shotokan karatét is. Visszatérve Koreába már keményen dolgozott saját új stílusának létrehozásán, emellett a japán megszállás elleni felszabadítási mozgalom szervezője és egyik élharcosa lett, amiért a japánok bebörtönözték és később halálra ítélték. Szerencsére azonban a kivégzés előtt három nappal, 1945 augusztus 15.-én Korea felszabadult és Choi szabad emberként léphetett ki a börtön kapuján.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
-              <div className="flex flex-col md:flex-row-reverse gap-6 mb-6">
-                <img
-                  src="https://tigrisek.hu/images/choi2.jpg"
-                  alt="Choi Hong Hi katonai pályafutása"
-                  className="w-full md:w-64 h-auto rounded-xl object-cover flex-shrink-0"
-                />
-                <div className="space-y-4 text-gray-300 leading-relaxed">
-                  <p>
-                    Choi Hong Hi a katonai pályát választotta hivatásul és a Szöul-i Katonai Akadémián szerzett diplomát 1946-ban. Az új Dél-koreai fegyveres erők egyik megalapítójaként fényes katonai karriert futott be és egészen a kétcsillagos tábornoki rangig vitte. Befolyásos katonatisztként az 1950-es évek közepére létrehozta tudományos elvekre, a koreai szellemiségre és különleges lábtechnikákra épülő, új, kihívást jelentő harcművészetét, ami először a hadseregben került bevezetésre. A Taekwon-dot - melyet ezért a nyugati világban eleinte még "Military Taekwon-do" néven is emlegettek - a saját parancsnoksága alá tartozó 29.-es gyalogsági hadosztály, az u.n. "ököl divízió" katonáinak körében kezdte el oktatni és ők próbálták ki először éles harchelyzetben is.
-                  </p>
-                  <p>
-                    Choi kezdeményezésére a "Taekwon-do" elnevezést hivatalosan <strong className="text-white">1955 április 11.-én</strong> fogadták el Koreában és azóta ez a nap a Taekwon-do Születésnapja!
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
-              <div className="space-y-4 text-gray-300 leading-relaxed">
-                <p>
-                  General Choi elnökletével 1959 szeptemberében megalakult az első koreai Taekwon-do Szövetség. 1961-ben erős politikai nyomás hatására visszavonult a katonai pályától, de később 1962-ben diplomataként kinevezték Korea malaysiai nagykövetévé. <strong className="text-white">1966 március 22.-én</strong> kilenc tagország részvételével Szöul-ban megalapította a Nemzetközi Taekwon-do Szövetséget (International Taekwon-do Federation), melynek elnöki posztját haláláig Ő töltötte be. General Choi az 1970-es évek elejére végleg szembekerült az akkori Dél-koreai diktátor-elnök rezsimjével és ezért 1972-ben politikai menekültként Kanadába emigrálni kényszerült, ahol állampolgárságot kapott.
-                </p>
-                <p>
-                  1973-tól kezdve Choi Hong Hi a Taekwon-do valóságos "utazó nagykövete" lett. Repülő járatról járatra szállva, az elmúlt évtizedek során földünk szinte valamennyi országába ellátogatott, hogy harcművészetét ismertté és elismertté tegye. Még idős korában is fáradhatatlan energiával tartotta a bemutatókat, edzőtáborokat, övvizsgákat, továbbképző szemináriumokat - kizárólag a Taekwon-donak szentelve életét! Igazi géniusz volt, született vezető és milliók számára követendő példakép. Szuggesztív egyéniségével és óriási tudásanyagával képes volt tanítványok millióit vonzani az edzőtermekbe. Életének nemes célját, a Taekwon-do világméretű elterjesztését végül teljes siker koronázta.
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
-              <div className="flex flex-col md:flex-row gap-6">
-                <img
-                  src="https://tigrisek.hu/images/choi3.jpg"
-                  alt="Choi Hong Hi - A Taekwon-do Atyja"
-                  className="w-full md:w-64 h-auto rounded-xl object-cover flex-shrink-0"
-                />
-                <div className="space-y-4 text-gray-300 leading-relaxed">
-                  <p>
-                    A Taekwon-do az 1990-es évek végére hihetetlen tömegbázisra tett szert, futótűz sebességével hódítva meg a világot. Napjainkban ez az egyik legnagyobb létszámú harcművészeti ág, melyet öt kontinens több, mint száz tagországában sok millióan űznek.
-                  </p>
-                  <p>
-                    A Taekwon-do Atyját, vagy ahogy életrajzírói kedvesen említik a "Kis Óriást" 84 éves korában, rövid ideig tartó súlyos betegség után Phenjan-ban, Észak-Koreában érte a halál. A XX. század utolsó nagy harcművész stílusalapítója <strong className="text-white">2002 június 15.-én</strong> örökre eltávozott...
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Timeline */}
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
-              <h3 className="text-neon-orange font-bold text-lg mb-6">Életrajzi mérföldkövek</h3>
-              <div className="space-y-4">
-                {[
-                  { year: '1918', event: 'Született Hwa-Dae-ben, Myong-Chun tartományban' },
-                  { year: '1930-as évek', event: 'Kalligráfia és Taek-kyon képzés; Japánban shotokan karate' },
-                  { year: '1945', event: 'Felszabadulás a börtönből Korea felszabadulásakor' },
-                  { year: '1946', event: 'Diploma a Szöul-i Katonai Akadémián' },
-                  { year: '1955', event: 'A "Taekwon-do" elnevezés hivatalos elfogadása (április 11.)' },
-                  { year: '1959', event: 'Első koreai Taekwon-do Szövetség megalakulása' },
-                  { year: '1966', event: 'ITF (International Taekwon-do Federation) alapítása (március 22.)' },
-                  { year: '1972', event: 'Kanadába emigrál politikai menekültként' },
-                  { year: '1973-tól', event: 'A Taekwon-do "utazó nagykövete" - világkörüli turnék' },
-                  { year: '2002', event: 'Elhunyt Phenjanban, Észak-Koreában (június 15.)' },
-                ].map((item) => (
-                  <div key={item.year} className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-28 text-neon-orange font-bold text-sm text-right pt-0.5">
-                      {item.year}
-                    </div>
-                    <div className="flex-shrink-0 w-2 h-2 bg-neon-orange rounded-full mt-2" />
-                    <p className="text-gray-300 text-sm">{item.event}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Oath */}
-        {activeTab === 'oath' && (
-          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
-            <h2 className="text-2xl font-black text-white mb-6">Eskü</h2>
-            <p className="text-gray-400 mb-6">Az edzések elején és versenyeken a taekwon-do-sok a következő esküt mondják:</p>
-            <div className="space-y-3 mb-8">
-              {[
-                'Betartom a Taekwon-do alapelveit.',
-                'Tisztelem az instruktort és idősebb tagjait.',
-                'Soha nem élek vissza a Taekwon-dóval.',
-                'Igazságos és becsületes emberi életet élek.',
-                'Taekwon-dót egy erőteljesebb, békésebb világ érdekében gyakorlom.',
-              ].map((point, i) => (
-                <p key={i} className="text-gray-300"><span className="text-neon-orange font-bold">{i + 1}.</span> {point}</p>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Dictionary */}
-        {activeTab === 'dictionary' && (
-          <div className="space-y-6">
-            <h2 className="text-2xl font-black text-white">Koreai–Magyar–Angol Szótár</h2>
-
-            {/* Counting */}
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden">
-              <div className="bg-gray-800 px-6 py-4 border-b border-gray-700">
-                <h3 className="text-white font-bold text-lg">Számolás</h3>
-              </div>
-              <div className="grid grid-cols-3 bg-gray-800/50 px-6 py-2 text-xs font-bold text-gray-400 border-b border-gray-700">
-                <span>Koreai</span><span>Magyar</span><span>Angol</span>
-              </div>
-              <div className="divide-y divide-gray-800">
-                {counting.map((entry, i) => (
-                  <div key={i} className={`grid grid-cols-3 px-6 py-2 text-sm ${i % 2 === 0 ? '' : 'bg-gray-900/50'}`}>
-                    <span className="text-neon-orange font-bold">{entry.korean}</span>
-                    <span className="text-gray-300">{entry.hungarian}</span>
-                    <span className="text-gray-500">{entry.english}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Letter filter */}
-            <div className="flex flex-wrap gap-2">
-              {dictionary.map((group) => (
-                <button
-                  key={group.letter}
-                  onClick={() => setDictLetter(group.letter)}
-                  className={`w-10 h-10 rounded-lg font-bold text-sm transition-all ${
-                    dictLetter === group.letter
-                      ? 'bg-neon-orange text-black'
-                      : 'bg-gray-800 text-gray-400 hover:text-white hover:bg-gray-700'
-                  }`}
-                >
-                  {group.letter}
-                </button>
-              ))}
-            </div>
-
-            {/* Dictionary entries */}
-            {dictionary.filter((g) => g.letter === dictLetter).map((group) => (
-              <div key={group.letter} className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden">
-                <div className="bg-gray-800 px-6 py-4 border-b border-gray-700">
-                  <h3 className="text-neon-orange font-bold text-xl">{group.letter}</h3>
-                </div>
-                <div className="grid grid-cols-3 bg-gray-800/50 px-6 py-2 text-xs font-bold text-gray-400 border-b border-gray-700">
-                  <span>Koreai</span><span>Magyar</span><span>Angol</span>
-                </div>
-                <div className="divide-y divide-gray-800">
-                  {group.entries.map((entry, i) => (
-                    <div key={i} className={`grid grid-cols-3 px-6 py-2 text-sm ${i % 2 === 0 ? '' : 'bg-gray-900/50'}`}>
-                      <span className="text-neon-orange font-bold">{entry.korean}</span>
-                      <span className="text-gray-300">{entry.hungarian}</span>
-                      <span className="text-gray-500">{entry.english}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {/* Rules */}
-        {activeTab === 'rules' && (
-          <div className="space-y-6">
-            <h2 className="text-2xl font-black text-white">Szabályok</h2>
-
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
-              <h3 className="text-neon-orange font-bold text-lg mb-4">Általános rendelkezések</h3>
-              <div className="space-y-4 text-gray-300 leading-relaxed">
-                <p>
-                  1. Belépéskor a tagok kijelentik, hogy semmilyen általuk ismert testi, vagy szervi elváltozásban nem szenvednek. A taekwon-dosok egészségi állapotuk és fizikai teher-bíró képességük ismeretében, saját felelősségükre vesznek részt az edzéseken, bemutatókon edzőtáborokon, vizsgákon és a versenyeken! A rendszeres sportorvosi vizsgálatra eljárnak.
-                </p>
-                <p>
-                  2. A tagok továbbá kijelentik, hogy korábban büntetve nem voltak. Taekwon-do tudásukat kívülálló személyeknek nem adhatják át (csak az edző engedélyével)! A tagok kijelentik, hogy megszerzett Taekwon-do tudásukkal semmilyen körülmények között nem élnek vissza!
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
-              <h3 className="text-neon-orange font-bold text-lg mb-4">Edzőtermi előírások</h3>
-              <div className="space-y-3 text-gray-300 leading-relaxed">
-                <p>1. Az edzőterembe utcai cipővel belépni, ott enni, inni; dohányozni, hangosan beszélgetni, komolytalanul viselkedni szigorúan tilos! (Ez a látogatókra is vonatkozik!)</p>
-                <p>2. A Dojangba való be-, illetve kilépéskor minden taekwon-dos meghajlással köteles köszönni a teremben tartózkodó legmagasabb övfokozatú mester irányába. Fekete övesek távolléte esetén a jelenlevő rangidős edzésvezető, vagy a csapatzászló felé történik a tiszteletadás. Ha nincs csapatzászló, a meghajlás a terem közepe felé történik. Tiszteletadásnál a törzs 30°-os, a fej 45°-os szögben hajlik meg.</p>
-                <p>3. Köszönésként a mesterek felé - mind az edzőteremben, mind pedig az utcán, vagy egyéb helyeken is - a meghajlás kötelező! (Minden esetben az alacsonyabb övfokozatú hajoljon meg először). A mester megszólítása Sabom-nim - magyarul: mester.</p>
-                <p>4. Mindenkinek be kell tartani a magasabb övfokozatúak felé a tiszteletadás szabályait.</p>
-                <p>5. Az edzés csakis a klubvezető-mester, vagy a megbízott helyettese jelenlétében (illetve tudtával és engedélyével) kezdhető el.</p>
-                <p>6. Az edzésekről késni, vagy hamarabb elmenni nem, vagy csak nagyon indokolt esetben lehet.</p>
-                <p>7. A sorakozó után érkezők kötelesek az ajtóban megállva várakozni és csak mesterük intésére állhatnak be! Az edzések menetét fegyelmezetlenkedéssel, beszélgetéssel senki sem zavarhatja! Előzetes engedély nélkül a sorból kilépni, az edzőtermet elhagyni, illetve az edzésekre beállni szigorúan tilos!</p>
-                <p>8. A sérülések megelőzése végett a tanítványok nem viselhetnek az edzéseken sem ékszereket, sem fémtárgyakat (órát, gyűrűt, láncot, fülbevalót, karkötőt, stb.) szemüvegben tilos küzdeni, de az edzéseken saját felelősségére bárki használhatja. Minden tanítvány köteles kéz- és lábkörmeit rendszeresen rövidre vágni, a foglalkozásokon tisztára mosott ruhában, ápoltan megjelenni.</p>
-                <p>9. Taekwon-do egyenruhában (dobok) a teremben tartózkodók csak a földre ülhetnek pihenés céljából!</p>
-                <p>10. A klubban a rendért a legmagasabb övfokozatú színes övesek a felelősek és kötelességük a fegyelem bármilyen eszközzel való betarttatása!</p>
-                <p>11. A foglalkozások megkezdése előtti időt a tanítványok technikai tudásuk, fizikai képességeik fejlesztésére fordítsák.</p>
-                <p>12. A tanfolyami és tagdíjakat pontosan fizessék be, aki többszöri felszólításra sem rendezi anyagi lemaradását, fegyelmi büntetést kap. Folyamatos és/vagy igazolatlan távolmaradások öv vizsgáról való eltiltást, a klubból való kizárást eredményezik.</p>
-                <p>13. Az edzésre hozott értéktárgyakért semmilyen felelőséget sem vállal a klub vezetősége, az öltöző zárhatóságától függetlenül.</p>
-                <p>14. Mindenki hang nélkül és a legjobb tudását nyújtva, keményen dolgozzon meg az eredményekért.</p>
-                <p>15. Tudni kell önfegyelemmel viselni a terhelések okozta fájdalomérzetet, fáradságot, kellemetlenséget.</p>
-                <p>16. Egy edzőtermet - az oda belépők alázatos magatartása, - az ott végzett kemény munka, - a Taekwon-do szelleme teszi Dojanggá!</p>
-              </div>
-            </div>
-
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
-              <h3 className="text-neon-orange font-bold text-lg mb-4">Meghajlások</h3>
-              <p className="text-white font-bold mb-3">Mikor kell meghajolni?</p>
-              <ul className="text-gray-300 space-y-1 ml-4">
-                <li>- terembe be- és kilépéskor</li>
-                <li>- páros gyakorlatok előtt, után a párod felé</li>
-                <li>- magasabb öves felé, megszólítás előtt, majd megköszönni a válaszát</li>
-                <li>- töréstechnika előtt, után, bemutatón a közönség felé, vizsgán a vizsgáztató felé</li>
-                <li>- edzőtermen kívül is, ha magasabb övessel vagy mesterrel találkozol, köszönés képpen</li>
-                <li>- versenyen, mérkőzés előtt, után a bírók és az ellenfeled felé</li>
-                <li>- övvizsga területére be- és kilépéskor</li>
-              </ul>
-            </div>
-
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
-              <h3 className="text-neon-orange font-bold text-lg mb-4">Tanítványok figyelmébe!</h3>
-              <div className="space-y-3 text-gray-300 leading-relaxed">
-                <p>A tanítvány soha ne fáradjon bele a tanulásba. Bárhol és bármikor gyakoroljon ahol lehetősége nyílik rá: ez a tudás alapja!</p>
-                <p>Igyekezzék saját mércéjét és technikai felkészültségét mindig a lehető legmagasabbra állítani és tudásával előbbre vinni az egész taekwon-do-sport ügyét. A tanítvány által elért eredmények jelentik az edzők számára a legnagyobb jutalmat fáradozásaikért. A tanuló hozzon áldozatot mesteréért és klubjáért és olyan legyen akire számítani lehet! Ha szükség van rá, versenyezzen és vegyen részt a bemutatókon, magasabb fokozatúak pedig nyújtsanak segítséget az edzésvezetői munkában!</p>
-                <p>A növendék viselkedésében és emberi tulajdonságaiban mutasson jó példát! Legyen szerény, visszafogott és tisztelettudó. Tudásával ne kérkedjen, sporttársait ne bírálja.</p>
-                <p>Legyen hűséges és kitartó, soha ne kritizálja mások előtt mesterét, és az általa képviselt stílust, vagy iskolát.</p>
-                <p>Ha instruktorától új technikát tanul, szorgalmasan gyakorolja addig, amíg tökéletesen el nem sajátítja.</p>
-                <p>Jusson eszébe, hogy az edzőtermen kívüli viselkedésével és életmódjával a Taekwon-do egészére vet fényt.</p>
-                <p>Ha egy tanuló olyan technikákat, vagy technikai megoldásokat szed fel, amellyek saját mestere szerint helytelenek, akkor azonnal fel kell hogy hagyjon a gyakorlásával. Amennyiben az illető erre nem hajlandó, akkor inkább menjen el! Valaki vagy elfogadja és maradéktalanul magáévá teszi mestere tanácsait, vagy pedig nincs keresnivalója a klubban!</p>
-                <p>Minden tanítvány törődjék bele, hogy edzésen, társai rovására semmiféle előjogokat nem érhet el, a magasabböveseknek is részt kell venniük az edzésmunkában, ha csak edzőjük más feladatot nem ró ki rájuk.</p>
-                <p>Amenyiben úgy érzi a tanuló, hogy egy technikai kérdésben nem biztos, akkor feltétlenül forduljon instruktorához! A közönyös, érdektelen növendék soha nem lesz képes eredmények elérésére.</p>
-                <p>A tanítvány soha ne éljen vissza a belé helyezett bizalommal!</p>
-                <p>Ha ezek közül a szabályok közül a tanítvány akár csak egyet is megszeg, önfegyelemmel viselje a következményeit.</p>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-}
+            <h2 className="text-2xl font-black text
