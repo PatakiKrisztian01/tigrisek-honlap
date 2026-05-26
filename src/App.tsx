@@ -4,7 +4,68 @@ import Hero from './components/Hero';
 import News from './components/News';
 import Training from './components/Training';
 import Members from './components/Members';
+import Taekwondo fimport { useState, useEffect } from 'react';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import News from './components/News';
+import Training from './components/Training';
+import Members from './components/Members';
 import Taekwondo from './components/Taekwondo';
+import Oath from './components/Oath';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+
+// A 3 ÚJ, SAJÁT FÁJLBA KISZERVEZETT KOMPONENS IMPORTÁLÁSA
+import Kickbox from './components/Kickbox';
+import SelfDefense from './components/SelfDefense';
+import Calendar from './components/Calendar';
+
+// A teljes, hivatalos szakasz típuslista (összhangban a Navbar és Footer elemeivel)
+export type Section = 'home' | 'news' | 'training' | 'members' | 'taekwondo' | 'oath' | 'contact' | 'kickbox' | 'selfdefense' | 'calendar';
+
+function App() {
+  const [activeSection, setActiveSection] = useState<Section>('home');
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navigate = (section: Section) => {
+    setActiveSection(section);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return (
+    <div className="min-h-screen bg-black text-white font-sans flex flex-col">
+      {/* Navbár az aktív szakasszal és a navigációs függvénnyel */}
+      <Navbar activeSection={activeSection} onNavigate={navigate} scrolled={scrolled} />
+      
+      {/* Dinamikus tartalomkezelő rész */}
+      <main className="flex-grow">
+        {activeSection === 'home' && <Hero onNavigate={navigate} />}
+        {activeSection === 'news' && <News />}
+        {activeSection === 'training' && <Training />}
+        {activeSection === 'members' && <Members />}
+        {activeSection === 'taekwondo' && <Taekwondo />}
+        {activeSection === 'oath' && <Oath />}
+        {activeSection === 'contact' && <Contact />}
+        
+        {/* AZ ÚJ MENÜPONTOK AKTIVÁLÁSA */}
+        {activeSection === 'kickbox' && <Kickbox onNavigate={navigate} />}
+        {activeSection === 'selfdefense' && <SelfDefense />}
+        {activeSection === 'calendar' && <Calendar />}
+      </main>
+
+      {/* Lábléc a navigációhoz */}
+      <Footer onNavigate={navigate} />
+    </div>
+  );
+}
+
+export default App; './components/Taekwondo';
 import Oath from './components/Oath';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
