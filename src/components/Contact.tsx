@@ -17,17 +17,13 @@ export default function Contact() {
           <div className="space-y-6">
             <h2 className="text-2xl font-black text-white mb-6">Lépj kapcsolatba velünk</h2>
 
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-neon-orange/50 transition-all duration-300">
-              <div className="flex items-end gap-4 p-6">
-                <img
-                  src="/PatakiKrisztian-removebg-preview.png"
-                  alt="Pataki Krisztián"
-                  className="h-40 object-contain"
-                />
-                <div className="flex-1">
-                  <h3 className="text-white font-bold text-lg mb-1">Pataki Krisztián</h3>
-                  <p className="text-neon-orange text-sm font-bold mb-3">VI.Dan — Klubvezető elnök</p>
-                  <div className="space-y-2">
+            {/* Pataki Krisztián Kártya */}
+            <div className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-neon-orange/50 transition-all duration-300 p-6">
+              <div className="flex items-center justify-between gap-4">
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-white font-bold text-lg mb-1 truncate">Pataki Krisztián</h3>
+                  <p className="text-neon-orange text-sm font-bold mb-4">VI.Dan — Klubvezető elnök</p>
+                  <div className="space-y-2.5">
                     <a
                       href="mailto:tigrisek@gmail.com"
                       className="flex items-center gap-2.5 text-gray-300 hover:text-neon-orange transition-colors group"
@@ -40,36 +36,46 @@ export default function Contact() {
                       className="flex items-center gap-2.5 text-gray-300 hover:text-neon-orange transition-colors group"
                     >
                       <Phone className="w-4 h-4 text-gray-500 group-hover:text-neon-orange transition-colors flex-shrink-0" />
-                      <span className="text-sm">+36-70-941-5992</span>
+                      <span className="text-sm whitespace-nowrap">+36-70-941-5992</span>
                     </a>
                   </div>
                 </div>
+                <img
+                  src="/PatakiKrisztian-removebg-preview.png"
+                  alt="Pataki Krisztián"
+                  className="h-36 w-28 sm:h-40 sm:w-32 object-contain flex-shrink-0"
+                />
               </div>
             </div>
 
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 hover:border-neon-orange/50 transition-all duration-300">
-             <img
+            {/* Patakiné Zs. Anikó Kártya */}
+            <div className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-neon-orange/50 transition-all duration-300 p-6">
+              <div className="flex items-center justify-between gap-4">
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-white font-bold text-lg mb-1 truncate">Patakiné Zs. Anikó</h3>
+                  <p className="text-neon-orange text-sm font-bold mb-4">III.Dan — Klubvezető helyettes</p>
+                  <div className="space-y-2.5">
+                    <a
+                      href="mailto:patakineaniko@gmail.com"
+                      className="flex items-center gap-2.5 text-gray-300 hover:text-neon-orange transition-colors group"
+                    >
+                      <Mail className="w-4 h-4 text-gray-500 group-hover:text-neon-orange transition-colors flex-shrink-0" />
+                      <span className="text-sm truncate">patakineaniko@gmail.com</span>
+                    </a>
+                    <a
+                      href="tel:+36709415992"
+                      className="flex items-center gap-2.5 text-gray-300 hover:text-neon-orange transition-colors group"
+                    >
+                      <Phone className="w-4 h-4 text-gray-500 group-hover:text-neon-orange transition-colors flex-shrink-0" />
+                      <span className="text-sm whitespace-nowrap">+36-70-941-5992</span>
+                    </a>
+                  </div>
+                </div>
+                <img
                   src="/patakinezsaniko.png"
                   alt="Patakiné Zs. Anikó"
-                  className="h-40 object-contain"
+                  className="h-36 w-28 sm:h-40 sm:w-32 object-contain flex-shrink-0"
                 />
-              <h3 className="text-white font-bold text-lg mb-1">Patakiné Zs. Anikó</h3>
-              <p className="text-neon-orange text-sm font-bold mb-4">III.Dan — Klubvezető helyettes</p>
-              <div className="space-y-2">
-                <a
-                  href="mailto:patakineaniko@gmail.com"
-                  className="flex items-center gap-2.5 text-gray-300 hover:text-neon-orange transition-colors group"
-                >
-                  <Mail className="w-4 h-4 text-gray-500 group-hover:text-neon-orange transition-colors flex-shrink-0" />
-                  <span className="text-sm truncate">patakineaniko@gmail.com</span>
-                </a>
-                <a
-                  href="tel:+36709415992"
-                  className="flex items-center gap-2.5 text-gray-300 hover:text-neon-orange transition-colors group"
-                >
-                  <Phone className="w-4 h-4 text-gray-500 group-hover:text-neon-orange transition-colors flex-shrink-0" />
-                  <span className="text-sm">+36-70-941-5992</span>
-                </a>
               </div>
             </div>
 
