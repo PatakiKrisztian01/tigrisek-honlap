@@ -97,7 +97,7 @@ const belts: Belt[] = [
   },
   {
     rank: '9.gup',
-    rankEn: 'Fehér öv — Sárga csík (Narancs)',
+    rankEn: 'Fehér öv — Sárga csík',
     members: ['Baka Lia', 'Dobos Roland', 'Gárdonyi Ágoston', 'Gránicz Mónika', 'Kerekes Viktor', 'Nijhuis Philip', 'Simon Attila', 'Spitz Benedek', 'Szabó Levente', 'Szép-Magyar Izabella', 'Varga Richárd Norman', 'Veron-Nagy Gergő'],
   },
   {
@@ -110,54 +110,53 @@ const belts: Belt[] = [
 function BeltRow({ belt }: { belt: Belt }) {
   const [open, setOpen] = useState(false);
 
-  // DINAMIKUS ÖVSZÍN ÉS HÍMZÉS STÍLUSOK MEGHATÁROZÁSA A KÉRÉS ALAPJÁN
   let beltBg = 'bg-gray-950';
   let embroideryColor = 'text-gray-200';
   let borderColor = 'border-gray-800';
+  let customShadow = '';
 
   if (belt.rank.includes('Dan')) {
-    beltBg = 'bg-gray-900 border-y-4 border-gray-950'; // Tradicionális vastag fekete öv hatás
-    embroideryColor = 'text-amber-400 font-extrabold tracking-wide'; // Arany hímzés
-    borderColor = 'border-amber-500/20';
+    // Tiszta fekete öv, arany hímzéssel, arany kerettel és belső arany ragyogással a kiemelésért
+    beltBg = 'bg-black border-2';
+    embroideryColor = 'text-amber-400 font-extrabold tracking-wider';
+    borderColor = 'border-amber-500/40 hover:border-amber-400';
+    customShadow = 'shadow-[inset_0_0_15px_rgba(245,158,11,0.15)]'; 
   } else {
     switch (belt.rank) {
-      case '1.gup': // Páratlan: alap a piros, hímzés a felette lévő (fekete)
-        beltBg = 'bg-red-600'; embroideryColor = 'text-black'; borderColor = 'border-red-700'; break;
-      case '2.gup': // Páros: tiszta piros öv, hímzés fekete betűvel
+      case '1.gup':
+      case '2.gup':
         beltBg = 'bg-red-600'; embroideryColor = 'text-black'; borderColor = 'border-red-700'; break;
       
-      case '3.gup': // Páratlan: alap a kék, hímzés a felette lévő (piros)
-        beltBg = 'bg-blue-600'; embroideryColor = 'text-red-600'; borderColor = 'border-blue-700'; break;
-      case '4.gup': // Páros: tiszta kék öv, hímzés piros betűvel
-        beltBg = 'bg-blue-600'; embroideryColor = 'text-red-600'; borderColor = 'border-blue-700'; break;
+      case '3.gup':
+      case '4.gup':
+        // Szemkímélő, lágyabb lazac/korall-piros szövegszín a vibrálás ellen
+        beltBg = 'bg-blue-600'; embroideryColor = 'text-red-200'; borderColor = 'border-blue-700'; break;
 
-      case '5.gup': // Páratlan: alap a zöld, hímzés a felette lévő (kék)
-        beltBg = 'bg-emerald-600'; embroideryColor = 'text-blue-600'; borderColor = 'border-emerald-700'; break;
-      case '6.gup': // Páros: tiszta zöld öv, hímzés kék betűvel
-        beltBg = 'bg-emerald-600'; embroideryColor = 'text-blue-600'; borderColor = 'border-emerald-700'; break;
+      case '5.gup':
+      case '6.gup':
+        beltBg = 'bg-emerald-600'; embroideryColor = 'text-blue-900'; borderColor = 'border-emerald-700'; break;
 
-      case '7.gup': // Páratlan: alap a sárga, hímzés a felette lévő (zöld)
-        beltBg = 'bg-yellow-400'; embroideryColor = 'text-emerald-600'; borderColor = 'border-yellow-500'; break;
-      case '8.gup': // Páros: tiszta sárga öv, hímzés zöld betűvel
-        beltBg = 'bg-yellow-400'; embroideryColor = 'text-emerald-600'; borderColor = 'border-yellow-500'; break;
+      case '7.gup':
+      case '8.gup':
+        // Sötétebb, kontrasztosabb fenyőzöld hímzés sárga alapon
+        beltBg = 'bg-yellow-400'; embroideryColor = 'text-emerald-950'; borderColor = 'border-yellow-500'; break;
 
-      case '9.gup': // Páratlan: alap a fehér, hímzés a felette lévő (sárga/narancs)
-        beltBg = 'bg-white'; embroideryColor = 'text-yellow-500'; borderColor = 'border-gray-300'; break;
-      case '10.gup': // Páros: tiszta fehér öv, hímzés fekete betűvel
+      case '9.gup':
+        beltBg = 'bg-white'; embroideryColor = 'text-yellow-600'; borderColor = 'border-gray-300'; break;
+      case '10.gup':
         beltBg = 'bg-white'; embroideryColor = 'text-black'; borderColor = 'border-gray-300'; break;
     }
   }
 
   return (
-    <div className={`border rounded-xl overflow-hidden shadow-md transition-all duration-300 ${borderColor}`}>
-      {/* MAGA AZ ABLAK AZ ÖV, A SZÖVEG PEDIG A HÍMZÉS */}
+    <div className={`border rounded-xl overflow-hidden transition-all duration-300 ${borderColor} ${customShadow}`}>
       <button
-        className={`w-full flex items-center justify-between p-4 sm:p-5 text-left transition-colors uppercase tracking-wider font-black ${beltBg} ${embroideryColor}`}
+        className={`w-full flex items-center justify-between p-4 sm:p-5 text-left transition-colors uppercase tracking-wider font-black font-serif ${beltBg} ${embroideryColor}`}
         onClick={() => setOpen(!open)}
       >
         <div className="flex items-center justify-between flex-1 pr-4">
           <div className="flex items-center gap-6">
-            <span className="text-sm opacity-80 border-r border-current pr-4 min-w-[70px] inline-block">{belt.rank}</span>
+            <span className="text-sm opacity-80 border-r border-current pr-4 min-w-[70px] inline-block font-serif">{belt.rank}</span>
             <span className="text-base sm:text-lg font-serif">{belt.rankEn}</span>
           </div>
           <span className="text-xs font-sans normal-case opacity-75">({belt.members.length} fő)</span>
@@ -175,7 +174,7 @@ function BeltRow({ belt }: { belt: Belt }) {
             {belt.members.map((name) => (
               <div 
                 key={name} 
-                className={`flex items-center gap-2 text-sm font-bold rounded-lg px-4 py-2 border bg-gray-900/40 text-gray-300 border-gray-800`}
+                className="flex items-center gap-2 text-sm font-bold rounded-lg px-4 py-2 border bg-gray-900/40 text-gray-300 border-gray-800"
               >
                 {name === 'Pataki Krisztián' && (
                   <img
@@ -189,12 +188,12 @@ function BeltRow({ belt }: { belt: Belt }) {
             ))}
           </div>
           
-          {/* Eredmények rész ha van */}
+          {/* Eredmények */}
           {belt.results && belt.results.length > 0 && (
             <div className="mt-6 border-t border-gray-900 pt-4 space-y-4">
               {belt.results.map((r) => (
                 <div key={r.name} className="bg-black/20 p-4 rounded-xl border border-gray-900">
-                  <h4 className="text-amber-400 font-extrabold text-sm uppercase tracking-wider mb-2">{r.name} — Kiemelt Eredmények</h4>
+                  <h4 className="text-amber-400 font-extrabold text-sm uppercase tracking-wider mb-2 font-serif">{r.name} — Kiemelt Eredmények</h4>
                   <ul className="space-y-1.5">
                     {r.achievements.map((a, i) => (
                       <li key={i} className="text-gray-400 text-xs flex items-start gap-2">
