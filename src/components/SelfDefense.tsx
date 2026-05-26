@@ -1,4 +1,4 @@
-import { Shield, Target, AlertTriangle, EyeOff, ShieldCheck } from 'lucide-react';
+import { Shield, MapPin, Users, Award, Scroll, Facebook } from 'lucide-react';
 
 export default function SelfDefense() {
   return (
@@ -14,54 +14,88 @@ export default function SelfDefense() {
       </div>
 
       {/* Fő tartalom */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid lg:grid-cols-3 gap-8">
         
-        {/* Bevezető */}
-        <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8 space-y-4">
-          <p className="text-gray-300 leading-relaxed font-semibold text-lg">
-            Napjainkban egyre több hír szól a nők elleni erőszakról, megaláztatásokról. Sok esetben az áldozatok nem tudják, mit tehetnek az ilyen helyzetek elkerülése vagy elhárítása érdekében.
-          </p>
-          <p className="text-gray-400 leading-relaxed text-sm">
-            Tanfolyamaink célja, hogy elméleti és gyakorlati útmutatást nyújtsunk, amelyek segítségével csökkenthető az áldozattá válás esélye, és növelhető a személyes biztonságérzet.
-          </p>
+        {/* Bal és középső oszlop: Szöveges tartalom */}
+        <div className="lg:col-span-2 space-y-10">
+          
+          {/* Civil önvédelem */}
+          <section className="space-y-4">
+            <h2 className="text-2xl font-black text-white flex items-center gap-2 border-b border-gray-800 pb-3 uppercase tracking-tight">
+              <Users className="w-6 h-6 text-neon-orange" /> Civil önvédelem
+            </h2>
+            <p className="text-neon-orange font-bold text-sm">
+              Célja a hatásos közelharc és "túlélő" technikák elsajátítása, melyek képesek elhárítani valós veszélyhelyzeteket.
+            </p>
+            <p className="text-gray-400 text-xs italic">
+              Lásd pl. fojtásból, fogásból, leszorításból szabadulás, támadás visszaverése szűk helyen zárt térben, védekezés például hátrakötözött kézzel csak lábmunkával, egynél több ellenfél, ill. fegyveres támadó elleni hatékony küzdelem stb.
+            </p>
+            <p className="text-gray-300 text-sm leading-relaxed">
+              A leggyakoribb képzési forma, a civileknek oktatott önvédelmi képzés, melynek során olyan technikákkal, mentális felkészítéssel, erőnléttel találkozik a gyakorló, melyeknek a segítségével hazánk jogrendszerének megfelelően tudja megvédeni magát, vagy mások testi épségét. Mivel abból indulunk ki, hogy jogos védelmi helyzetben fogja a gyakorló megvédeni magát, így az is szempont, hogy olyan rendszerrel ismertessük meg az oktatás során, mely hatásos és egyszerű, mégis sikeresen be lehet vele tartani az "arányosság elvét", melyet minden súlyos testi sértéssel végződött incidens után vizsgál a hatóság.
+            </p>
+          </section>
+
+          {/* Hivatásosok képzése */}
+          <section className="space-y-4">
+            <h2 className="text-2xl font-black text-white flex items-center gap-2 border-b border-gray-800 pb-3 uppercase tracking-tight">
+              <Award className="w-6 h-6 text-neon-orange" /> Hivatásos képzés
+            </h2>
+            <p className="text-gray-300 text-sm leading-relaxed">
+              A hivatásosok munkájuk során fokozottan vannak veszélynek kitéve, kiemelten a rendőrök, katonák, tűzoltók, de a mentősök, biztonsági őrök szintén. Nekik is tudunk foglalkozáshoz szabott képzést kínálni, melynek nem csak technikai része van, hanem a mentális felkészítés is komoly szerephez jut. A szakma fortélyaihoz nem tudunk hozzátenni, de ahhoz igen, hogy gyakorlása közben lehetőleg ne legyen semmi bajod. <span className="text-neon-orange font-bold">Mindenkit hazavárnak!</span>
+            </p>
+          </section>
+
+          {/* Ősi íratlan szabályok */}
+          <section className="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 space-y-4">
+            <h3 className="text-xl font-black text-white flex items-center gap-2 text-amber-500 uppercase tracking-wider">
+              <Scroll className="w-5 h-5" /> Ősi íratlan szabályok
+            </h3>
+            <ul className="space-y-3 font-medium text-sm text-gray-300">
+              <li className="flex gap-2"><span className="text-neon-orange">&bull;</span> inkább kitérni, mint elfogadni az értelmetlen provokálást, kihívást</li>
+              <li className="flex gap-2"><span className="text-neon-orange">&bull;</span> inkább lefogni, visszatartani, mint megsebesíteni</li>
+              <li className="flex gap-2"><span className="text-neon-orange">&bull;</span> inkább megsebesíteni, mint megnyomorítani</li>
+              <li className="flex gap-2"><span className="text-neon-orange">&bull;</span> inkább megnyomorítani, mint megölni</li>
+              <li className="flex gap-2"><span className="text-neon-orange">&bull;</span> inkább megölni, mint hogy téged öljön meg</li>
+            </ul>
+          </section>
+
         </div>
 
-        {/* Módszertan és pillérek */}
+        {/* Jobb oszlop: Edzés infó és jelentkezési kártya */}
         <div className="space-y-6">
-          <h2 className="text-2xl font-black text-white flex items-center gap-2 border-b border-gray-800 pb-3">
-            <Target className="w-6 h-6 text-amber-500" /> A képzésünk főbb területei
-          </h2>
-
-          <div className="grid sm:grid-cols-2 gap-6">
-            <div className="bg-gray-900/40 border border-gray-800 p-6 rounded-xl space-y-3">
-              <AlertTriangle className="w-6 h-6 text-amber-500" />
-              <h3 className="text-white font-bold text-base">Megelőzés és felismerés</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                A veszélyes szituációk időben történő felismerése, a környezet tudatos figyelése és a konfliktusok elkerülésének elméleti alapjai.
-              </p>
+          <div className="bg-gray-900 border-2 border-neon-orange/40 rounded-2xl p-6 space-y-4 shadow-[0_0_15px_rgba(255,165,0,0.05)]">
+            <div className="bg-neon-orange text-black font-black text-xs uppercase tracking-widest px-3 py-1 rounded-md inline-block">
+              Lakossági Program
+            </div>
+            <h3 className="text-2xl font-black text-white">Edzések</h3>
+            
+            <div className="space-y-3 text-sm text-gray-300 pt-2">
+              <div className="flex gap-3 items-start">
+                <MapPin className="w-5 h-5 text-neon-orange shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-bold text-white">Tigers Gym</p>
+                  <p className="text-xs text-gray-400">Havanna u. 3.</p>
+                </div>
+              </div>
+              <div className="border-t border-gray-800 pt-3">
+                <p className="font-bold text-white">Minden Kedd 18:00 - 19:00 óráig</p>
+                <p className="text-xs text-gray-400 mt-1 leading-relaxed">
+                  Az Ingyenes <span className="text-neon-orange font-bold">"lendületbe hozzuk"</span> lakossági program keretén belül önvédelmi oktatást indít a Budapesti Tigrisek SE.
+                </p>
+              </div>
             </div>
 
-            <div className="bg-gray-900/40 border border-gray-800 p-6 rounded-xl space-y-3">
-              <EyeOff className="w-6 h-6 text-amber-500" />
-              <h3 className="text-white font-bold text-base">Pszichés felkészítés</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                A támadás okozta sokk és félelem kezelése, a határozott fellépés és a verbális önvédelem (kommunikáció krízishelyzetben).
-              </p>
-            </div>
-
-            <div className="bg-gray-900/40 border border-gray-800 p-6 rounded-xl sm:col-span-2 space-y-3">
-              <ShieldCheck className="w-6 h-6 text-amber-500" />
-              <h3 className="text-white font-bold text-base">Egyszerű, hatékony fizikai technikák</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                Olyan könnyen elsajátítható, anatómiai és biomechanikai alapokon nyugvó szabadulások, ütések, rúgások és hárítások, amelyekhez nincs szükség rendkívüli fizikai erőre vagy előzetes sportmúltra. A technikák a reális, utcai helyzetekben is működnek.
-              </p>
+            <div className="pt-4 border-t border-gray-800">
+              <a 
+                href="https://www.facebook.com/BudapestTigers" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider py-3 rounded-xl transition-all"
+              >
+                <Facebook className="w-4 h-4 fill-current" /> Tigers Gym Facebook
+              </a>
             </div>
           </div>
-        </div>
-
-        {/* Záró megjegyzés */}
-        <div className="text-center text-gray-500 text-xs italic pt-4">
-          A tanfolyamok indulásáról, az edzések pontos időpontjairól és a jelentkezési feltételekről érdeklődjön elérhetőségeinken!
         </div>
 
       </div>
