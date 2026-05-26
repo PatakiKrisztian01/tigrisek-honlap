@@ -74,8 +74,8 @@ export default function Contact() {
               <div className="space-y-3">
                 {[
                   { name: 'ITF – International Taekwondo Federation', url: 'https://itftkd.sport/' },
-                  { name: 'ATF – Asian Taekwondo Federation (ITF Europe)', url: 'https://itfeurope.org/' },
-                  { name: 'Magyar Taekwondo Szövetség', url: 'https://taekwon-do.hu/itfindex.html' },
+                  { name: 'AETF – European Taekwondo Federation (ITF Europe)', url: 'https://itfeurope.org/' },
+                  { name: 'Magyar ITF Taekwon-do Szövetség', url: 'https://taekwon-do.hu/itfindex.html' },
                 ].map((link) => (
                   <a 
                     key={link.name} 
