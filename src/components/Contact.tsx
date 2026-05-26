@@ -48,6 +48,11 @@ export default function Contact() {
             </div>
 
             <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 hover:border-neon-orange/50 transition-all duration-300">
+             <img
+                  src="/patakinezsaniko.png"
+                  alt="Patakiné Zs. Anikó"
+                  className="h-40 object-contain"
+                />
               <h3 className="text-white font-bold text-lg mb-1">Patakiné Zs. Anikó</h3>
               <p className="text-neon-orange text-sm font-bold mb-4">III.Dan — Klubvezető helyettes</p>
               <div className="space-y-2">
