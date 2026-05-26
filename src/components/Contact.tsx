@@ -73,14 +73,20 @@ export default function Contact() {
               <h3 className="text-white font-bold mb-4">Szövetségek</h3>
               <div className="space-y-3">
                 {[
-                  { name: 'ITF – International Taekwondo Federation', url: '#' },
-                  { name: 'ATF – Asian Taekwondo Federation (ITF Europe)', url: '#' },
-                  { name: 'Magyar Taekwondo Szövetség', url: '#' },
+                  { name: 'ITF – International Taekwondo Federation', url: 'https://itftkd.sport/' },
+                  { name: 'ATF – Asian Taekwondo Federation (ITF Europe)', url: 'https://itfeurope.org/' },
+                  { name: 'Magyar Taekwondo Szövetség', url: 'https://taekwon-do.hu/itfindex.html' },
                 ].map((link) => (
-                  <div key={link.name} className="flex items-center gap-2 text-gray-400 text-sm">
-                    <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" />
+                  <a 
+                    key={link.name} 
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-gray-400 hover:text-neon-orange text-sm transition-colors group"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5 flex-shrink-0 text-gray-600 group-hover:text-neon-orange transition-colors" />
                     <span>{link.name}</span>
-                  </div>
+                  </a>
                 ))}
               </div>
             </div>
