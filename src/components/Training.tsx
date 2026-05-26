@@ -198,7 +198,7 @@ export default function Training() {
                 </div>
                 <div className="w-full lg:w-64 flex-shrink-0 bg-gray-800/50 lg:border-l border-gray-700">
                   <img
-                    src="/555717957_25013974758240728_3275706361721851860_n.jpg"
+                    src="/tigersgym.jpg"
                     alt="Technikai edzés"
                     className="w-full h-64 lg:h-full object-cover"
                   />
