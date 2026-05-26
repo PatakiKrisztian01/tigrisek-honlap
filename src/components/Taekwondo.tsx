@@ -7,7 +7,7 @@ const tabs: { id: TabId; label: string }[] = [
   { id: 'overview', label: 'Áttekintés' },
   { id: 'techniques', label: 'Technikák' },
   { id: 'belts', label: 'Övszínek' },
-  { id: 'forms', label: '24 Formagyakorlat' },
+  { id: 'forms', label: 'Formagyakorlatok' },
   { id: 'history', label: 'Történelem' },
   { id: 'founder', label: 'Choi Hong Hi' },
   { id: 'oath', label: 'Eskü' },
@@ -15,32 +15,37 @@ const tabs: { id: TabId; label: string }[] = [
   { id: 'rules', label: 'Szabályok' },
 ];
 
-// A 24 formagyakorlat részletes adatbázisa (ami elveszett)
+// A 2 előkészítő gyakorlat és a 24 hivatalos ITF tull pontos sorrendben
 const formsData = [
-  { num: 1, name: 'Chon-Ji', movements: 19, meaning: 'Szó szerint "Menny és Föld"-et jelent. A Távol-Keleten a világ teremtésének vagy az emberi történelem kezdetének a szimbóluma, ezért ez a kezdő formagyakorlat. Két részből áll: az egyik a Mennyországot, a másik a Földet jelképezi.' },
-  { num: 2, name: 'Dan-Gun', movements: 21, meaning: 'A szent Dan-Gun-ról kapta a nevét, aki a legenda szerint i.e. 2333-ban megalapította Koreát (Gojoseon-t).' },
-  { num: 3, name: 'Do-San', movements: 24, meaning: 'Ahn Chang-ho (1878–1938) függetlenségi harcos és pedagógus írói álneve. A 24 mozdulat az egész életét jelképezi, amit Korea oktatásának és függetlenségének szentelt.' },
-  { num: 4, name: 'Won-Hyo', movements: 28, meaning: 'A neves buddhista szerzetesről kapta a nevét, aki i.sz. 686-ban bevezette a buddhizmust a Silla dinasztiába.' },
-  { num: 5, name: 'Yul-Gok', movements: 38, meaning: 'A nagy koreai filozófus és tudós, Yi I (1536–1584) álneve, akit a "Korea Konfuciusza"-ként is emlegetnek. A 38 mozdulat a 38. szélességi fokra utal, ami a szülőhelye, a diagram pedig a "tudóst" jelképezi.' },
-  { num: 6, name: 'Joong-Gun', movements: 32, meaning: 'Ahn Joong-Gun függetlenségi harcosról kapta a nevét, aki meggyilkolta Hirobumi Ito-t, az első japán főkormányzót Koreában. A 32 mozdulat az életkorát jelzi, amikor 1910-ben kivégezték Lui-Shung börtönében.' },
-  { num: 7, name: 'Toi-Gye', movements: 37, meaning: 'A neves tudós, Yi Hwang (16. század) írói álneve, aki az újkori konfucianizmus szakértője volt. A 37 mozdulat a 37. szélességi fokra utal, ahol született, a diagram pedig a "tudóst" jelenti.' },
-  { num: 8, name: 'Hwa-Rang', movements: 29, meaning: 'A Hwarang katonai ifjúsági csoportról kapta a nevét, amely a 7. század elején alakult a Silla dinasztiában. A 29 mozdulat a 29. gyalogos hadosztályra utal, ahol a Taekwon-do kifejlődött.' },
-  { num: 9, name: 'Choong-Moo', movements: 30, meaning: 'A nagy Yi Sun-Sin admirális posztumusz neve, aki i.sz. 1592-ben feltalálta az első páncélozott hadihajót (Teknőshajó). A gyakorlat bal kezes támadással ér véget, szimbolizálva sajnálatos, korai halálát.' },
-  { num: 10, name: 'Kwang-Gae', movements: 39, meaning: 'Kwang-Gae-Toh-Wang-ról, a Koguryo dinasztia híres királyáról kapta a nevét, aki visszaszerezte az összes elveszített területet, beleértve Mandzsúria nagy részét is. A 39 mozdulat az uralkodásának első két számjegyére utal (i.sz. 391).' },
-  { num: 11, name: 'Po-Eun', movements: 36, meaning: 'Chong Mong-Chu (14. század) költő és tudós álneve, akinek "Nem adom fel a hűségem" című verse minden koreai számára ismert. A diagram egy egyenes vonal, amely a király és a haza iránti rendíthetetlen hűségét szimbolizálja.' },
-  { num: 12, name: 'Ge-Baek', movements: 44, meaning: 'Ge-Baek nagy generalról, Baekje híres hadvezéréről kapta a nevét (i.sz. 660). A diagram egy egyenes vonal, ami a szigorú katonai fegyelmet jelképezi.' },
-  { num: 13, name: 'Eui-Am', movements: 45, meaning: 'Son Byong Hi írói álneve, aki az 1919. március 1-jei koreai függetlenségi mozgalom vezére volt. A 45 mozdulat az életkorára utal, amikor megváltoztatta a Donghak vallás nevét Chondoizmusra.' },
-  { num: 14, name: 'Choong-Jang', movements: 52, meaning: 'Kim Duk-Ryang tábornok álneve, aki a 14. században harcolt a japán invázió ellen. A gyakorlat bal kezes támadással zárul, utalva arra, hogy tragikus módon a börtönben halt meg 25 évesen, mielőtt kibontakoztathatta volna tehetségét.' },
-  { num: 15, name: 'Juche', movements: 45, meaning: 'A Juche filozófiáról (önerőre támaszkodás) kapta a nevét, amely azt hirdeti, hogy az ember ura a saját sorsának. A diagram a Baekdu-hegyet szimbolizálja, ami a koreai nép szent hegye.' },
-  { num: 16, name: 'Sam-Il', movements: 33, meaning: 'Az 1919. március 1-jén kezdődött történelmi koreai függetlenségi mozgalomra utal. A 33 mozdulat a mozgalmat elindító 33 koreai hazafit jelképezi.' },
-  { num: 17, name: 'Yoo-Sin', movements: 68, meaning: 'Kim Yoo-Sin tábornokról, a Silla dinasztia főparancsnokáról kapták a nevét. A 68 mozdulat az i.sz. 668-as évre utal, amikor egyesítette a három királyságot.' },
-  { num: 18, name: 'Choi-Yong', movements: 46, meaning: 'Choi Yong tábornokról, a 14. századi Koryo dinasztia fővezéréről kapta a nevét, aki hűségéről és hazaszeretetéről volt híres.' },
-  { num: 19, name: 'Yon-Gae', movements: 49, meaning: 'Yon Gae Somoon-ról, a Koguryo dinasztia híres tábornokáról kapta a nevét, aki megvédte az országot a Tang dinasztia inváziójától. A 49 mozdulat az i.sz. 649-es év utolsó két számjegyére utal, amikor visszavonulásra kényszerítette a kínai sereget.' },
-  { num: 20, name: 'Se-Jong', movements: 24, meaning: 'A valaha élt legnagyobb koreai királyról, Se-Jong-ról kapta a nevét, aki 1443-ban feltalálta a koreai ábécét (Hangul). A 24 mozdulat a Hangul ábécé 24 betűjére utal.' },
-  { num: 21, name: 'Tong-Il', movements: 56, meaning: 'Korea újraegyesítésének (Tong-Il) szent szimbóluma, amely 1945 óta megosztott. A diagram egy egyenes vonal, ami a homogén koreai nép egységét jelképezi.' },
-  { num: 22, name: 'So-San', movements: 72, meaning: 'Choi Hyun Ung buddhista szerzetes (1520–1604) álneve. A 72 mozdulat az életkorára utal, amikor szerzetes társaival segített visszaverni a japán kalózok és katonák támadását.' },
-  { num: 23, name: 'Se-Jong-2', movements: 42, meaning: 'Szinonimája a feszültség feloldásának és az egyensúly keresésének, szorosan kapcsolódva a királyi adminisztráció fejlődéséhez.' }, // Megjegyzés: Néhol a Ko-Dang vagy Yoo-Sin variációkat váltja fel, az ITF kánon szerint pontosítva
-  { num: 24, name: 'Moon-Moo', movements: 61, meaning: 'Munmu király tiszteletére, aki i.sz. 661-ben lépett a trónra és véglegesen egyesítette a királyságokat. Testét a tengerben temették el, hogy halála után is sárkányként védje Koreát a japán támadásoktól.' }
+  // Előkészítő gyakorlatok
+  { num: 'E1', name: 'Saju Jirugi', movements: 14, type: 'preparatory', meaning: 'Négyirányú ütés. Alapvető előkészítő gyakorlat a kezdő tanítványok részére a koordináció és az egyenes vonalú ütések, állások elsajátítására.' },
+  { num: 'E2', name: 'Saju Makgi', movements: 16, type: 'preparatory', meaning: 'Négyirányú hárítás. A második előkészítő gyakorlat, amely a alapvető védőtechnikák (alsó és középső hárítás) irányváltásokkal történő rögzítését szolgálja.' },
+  
+  // A hivatalos 24 formagyakorlat
+  { num: 1, name: 'Chon-Ji', movements: 19, type: 'official', meaning: 'Szó szerint "Menny és Föld"-et jelent. A Távol-Keleten a világ teremtésének vagy az emberi történelem kezdetének a szimbóluma, ezért ez a kezdő formagyakorlat. Két részből áll: az egyik a Mennyországot, a másik a Földet jelképezi.' },
+  { num: 2, name: 'Dan-Gun', movements: 21, type: 'official', meaning: 'A szent Dan-Gun-ról kapta a nevét, aki a legenda szerint i.e. 2333-ban megalapította Koreát (Gojoseon-t).' },
+  { num: 3, name: 'Do-San', movements: 24, type: 'official', meaning: 'Ahn Chang-ho (1878–1938) függetlenségi harcos és pedagógus írói álneve. A 24 mozdulat az egész életét jelképezi, amit Korea oktatásának és függetlenségének szentelt.' },
+  { num: 4, name: 'Won-Hyo', movements: 28, type: 'official', meaning: 'A neves buddhista szerzetesről kapta a nevét, aki i.sz. 686-ban bevezette a buddhizmust a Silla dinasztiába.' },
+  { num: 5, name: 'Yul-Gok', movements: 38, type: 'official', meaning: 'A nagy koreai filozófus és tudós, Yi I (1536–1584) álneve, akit a "Korea Konfuciusza"-ként is emlegetnek. A 38 mozdulat a 38. szélességi fokra utal, ami a szülőhelye, a diagram pedig a "tudóst" jelképezi.' },
+  { num: 6, name: 'Joong-Gun', movements: 32, type: 'official', meaning: 'Ahn Joong-Gun függetlenségi harcosról kapta a nevét, aki meggyilkolta Hirobumi Ito-t, az első japán főkormányzót Koreában. A 32 mozdulat az életkorát jelzi, amikor 1910-ben kivégezték Lui-Shung börtönében.' },
+  { num: 7, name: 'Toi-Gye', movements: 37, type: 'official', meaning: 'A neves tudós, Yi Hwang (16. század) írói álneve, aki az újkori konfucianizmus szakértője volt. A 37 mozdulat a 37. szélességi fokra utal, ahol született, a diagram pedig a "tudóst" jelenti.' },
+  { num: 8, name: 'Hwa-Rang', movements: 29, type: 'official', meaning: 'A Hwarang katonai ifjúsági csoportról kapta a nevét, amely a 7. század elején alakult a Silla dinasztiában. A 29 mozdulat a 29. gyalogos hadosztályra utal, ahol a Taekwon-do kifejlődött.' },
+  { num: 9, name: 'Choong-Moo', movements: 30, type: 'official', meaning: 'A nagy Yi Sun-Sin admirális posztumusz neve, aki i.sz. 1592-ben feltalálta az első páncélozott hadihajót (Teknőshajó). A gyakorlat bal kezes támadással ér véget, szimbolizálva sajnálatos, korai halálát.' },
+  { num: 10, name: 'Kwang-Gae', movements: 39, type: 'official', meaning: 'Kwang-Gae-Toh-Wang-ról, a Koguryo dinasztia híres királyáról kapta a nevét, aki visszaszerezte az összes elveszített területet, beleértve Mandzsúria nagy részét is. A 39 mozdulat az uralkodásának első két számjegyére utal (i.sz. 391).' },
+  { num: 11, name: 'Po-Eun', movements: 36, type: 'official', meaning: 'Chong Mong-Chu (14. század) költő és tudós álneve, akinek "Nem adom fel a hűségem" című verse minden koreai számára ismert. A diagram egy egyenes vonal, amely a király és a haza iránti rendíthetetlen hűségét szimbolizálja.' },
+  { num: 12, name: 'Ge-Baek', movements: 44, type: 'official', meaning: 'Ge-Baek nagy generálisról, Baekje híres hadvezéréről kapta a nevét (i.sz. 660). A diagram egy egyenes vonal, ami a szigorú katonai fegyelmet jelképezi.' },
+  { num: 13, name: 'Eui-Am', movements: 45, type: 'official', meaning: 'Son Byong Hi írói álneve, aki az 1919. március 1-jei koreai függetlenségi mozgalom vezére volt. A 45 mozdulat az életkorára utal, amikor megváltoztatta a Donghak vallás nevét Chondoizmusra.' },
+  { num: 14, name: 'Choong-Jang', movements: 52, type: 'official', meaning: 'Kim Duk-Ryang tábornok álneve, aki a 14. században harcolt a japán invázió ellen. A gyakorlat bal kezes támadással zárul, utalva arra, hogy tragikus módon a börtönben halt meg 25 évesen.' },
+  { num: 15, name: 'Juche', movements: 45, type: 'official', meaning: 'A Juche filozófiáról (önerőre támaszkodás) kapta a nevét, amely azt hirdeti, hogy az ember ura a saját sorsának. A diagram a Baekdu-hegyet szimbolizálja (Megjegyzés: Bizonyos kánonokban a Ko-Dang váltótullja).' },
+  { num: 16, name: 'Sam-Il', movements: 33, type: 'official', meaning: 'Az 1919. március 1-jén kezdődött történelmi koreai függetlenségi mozgalomra utal. A 33 mozdulat a mozgalmat elindító 33 koreai hazafit jelképezi.' },
+  { num: 17, name: 'Yoo-Sin', movements: 68, type: 'official', meaning: 'Kim Yoo-Sin tábornokról, a Silla dinasztia főparancsnokáról kapták a nevét. A 68 mozdulat az i.sz. 668-as évre utal, amikor egyesítette a három királyságot.' },
+  { num: 18, name: 'Choi-Yong', movements: 46, type: 'official', meaning: 'Choi Yong tábornokról, a 14. századi Koryo dinasztia fővezéréről kapta a nevét, aki hűségéről és hazaszeretetéről volt híres.' },
+  { num: 19, name: 'Yon-Gae', movements: 49, type: 'official', meaning: 'Yon Gae Somoon-ról, a Koguryo dinasztia híres tábornokáról kapta a nevét, aki megvédte az országot a Tang dinasztia inváziójától. A 49 mozdulat az i.sz. 649-es év utolsó két számjegyére utal.' },
+  { num: 20, name: 'Ul-Ji', movements: 42, type: 'official', meaning: 'Ul-Ji Moon Dok tábornokról kapta a nevét, akinek i.sz. 612-ben sikerült megvédenie Koreát a közel egymilliós Sui kínai inváziós sereggel szemben a Salsu folyónál.' },
+  { num: 21, name: 'Moon-Moo', movements: 61, type: 'official', meaning: 'Munmu király tiszteletére, aki i.sz. 661-ben lépett a trónra és véglegesen egyesítette a királyságokat. Testét a tengerben temették el, hogy halála után is sárkányként védje Koreát.' },
+  { num: 22, name: 'So-San', movements: 72, type: 'official', meaning: 'Choi Hyun Ung buddhista szerzetes (1520–1604) álneve. A 72 mozdulat az életkorára utal, amikor szerzetes társaival segített visszaverni a japán kalózok és katonák támadását.' },
+  { num: 23, name: 'Se-Jong', movements: 24, type: 'official', meaning: 'A valaha élt legnagyobb koreai királyról, Se-Jong-ról kapta a nevét, aki 1443-ban feltalálta a koreai ábécét (Hangul). A 24 mozdulat a Hangul ábécé 24 betűjére utal.' },
+  { num: 24, name: 'Tong-Il', movements: 56, type: 'official', meaning: 'Korea újraegyesítésének (Tong-Il) szent szimbóluma, amely 1945 óta megosztott. A diagram egy egyenes vonal, ami a homogén koreai nép egységét jelképezi.' }
 ];
 
 export default function Taekwondo() {
@@ -102,7 +107,7 @@ export default function Taekwondo() {
                 A Taekwon-do szó új keletű, csak az 1950-es évektől kezdte használni Choi Hong Hi a Taekwon-do megalapítója. A Taekwon-do viszonylag új modern harcművészet, a mai technikáinak a túlnyomó többségét a XX. század '50-es '60-as éveiben alakította ki az alapító Koreai mesterek segítségével. Mivel egy dinamikus, fejlődő képes harcművészeti ágazatról van szó, a mai napig is folyamatosan változik, fejlődik.
               </p>
               <p>
-                A Taekwon-do eredete az időszámításunk előtti I. századi társadalmakig vezethető vissza. Ebben az időben a Koreai félszigeten három királyság alakult ki: Silla (ie. 57.), Koguryo (ie. 37.) és Baekje (ie. 18.). Ezek a királyságok évszázadokon keresztül harcban álltak egymással a félsziget feletti uralomért.
+                A Taekwon-do eredete az időszámításunk előtti I. századi társadalmakig vezethető vissza. Ebben az időben a Koreai félszigeten three királyság alakult ki: Silla (ie. 57.), Koguryo (ie. 37.) és Baekje (ie. 18.). Ezek a királyságok évszázadokon keresztül harcban álltak egymással a félsziget feletti uralorért.
               </p>
               <p>
                 Az első máig fenn maradt harcművészeti vonatkozású emlékek ebből az időből származnak: a Koguryu dinasztiabeli Muyong-chong és Kakchu-chong nevű királyi síremlékek falain, illetve mennyezetén lévő falfestmények, melyek egymással küzdő férfiakat ábrázolnak.
@@ -126,19 +131,19 @@ export default function Taekwondo() {
                 Ebben az időben a harcművészeteket elsősorban a hadseregben oktatták, illetve megvoltak a köznépnek is a maga harcművészeti játékai, például a Soo Bak és a Taek Kyon. Máig rendszeresen rendeznek Soo Bak és Taek Kyon versenyeket a Dan-O ünnepek alkalmával (Május 5.-én és Augusztus 15.-én). Valószínűleg ebben az időben érték Kínai hatások is a Koreai harcművészeteket melyek jellegzetességei néhány mai Koreai harcművészeti ágban is megtalálhatóak.
               </p>
               <p>
-                A 19. század végén és a 20. század elején, Koreáért és a környező területekért, három nagyhatalom versenyzett, Kína, Oroszország és Japán. Végül Japán szerezte meg Koreát, és szinte gyarmati sorba taszította. A Koreai népet szinte tökéletesen kizsákmányolták és megpróbálták eljapánosítani. Ekkor a Koreai középosztály, ha iskoláztatni akarta a gyerekeit, csak Japánba tudta elküldeni őket tanulni. Ezek a Japánban tanuló Koreai fiatalok találkoztak a Japán harcművészetekkel, és az akkoriban Japánban elterjedő Okinawai eredetű Karatéval is.
+                A 19. század végén és a 20. század elején, Koreáért és a környező területekért, three nagyhatalom versenyzett, Kína, Oroszország és Japán. Végül Japán szerezte meg Koreát, és szinte gyarmati sorba taszította. A Koreai népet szinte tökéletesen kizsákmányolták és megpróbálták eljapánosítani. Ekkor a Koreai középosztály, ha iskoláztatni akarta a gyerekeit, csak Japánba tudta elküldeni őket tanulni. Ezek a Japánban tanuló Koreai fiatalok találkoztak a Japán harcművészetekkel, és az akkoriban Japánban elterjedő Okinawai eredetű Karatéval is.
               </p>
               <p>
-                Ilyen Koreai fiatalember volt Choi Hong Hi, aki a Taekwon-do alapítója és később az ITF elnöke lett, illetve Choi Yong Sul is, aki Takeda Sogakutól tanult Daito Ryu Aiki Jitsut (az Aikido elődje), majd hazatérve kombinálva Koreai stísuzokkal Yu Kwon Sul néven oktatta, amelyből később a Hapkido lett. Illetve Hyung Yee Choi is, aki Choi Hong Hi rokona volt és Masutatsu Oyama néven Japánban a Kyokushin Karate megalapítója lett.
+                Ilyen Koreai fiatalember volt Choi Hong Hi, aki a Taekwon-do alapítója és később az ITF elnöke lett, illetve Choi Yong Sul is, aki Takeda Sogakutól tanult Daito Ryu Aiki Jitsut (az Aikido elődje), majd hazatérve kombinálva Koreai stílusokkal Yu Kwon Sul néven oktatta, amelyből később a Hapkido lett. Illetve Hyung Yee Choi is, aki Choi Hong Hi rokona volt és Masutatsu Oyama néven Japánban a Kyokushin Karate megalapítója lett.
               </p>
               <p>
-                1945-ben a Japán hadsereg megadta meg magát. Koreába a 38. szélességi körtől délre az Amerikai, attól északra pedig a Szovjet hadsereg vonult be. Az Amerikai zónában a Koreai Köztársaság (Dél-Korea), a Szovjet zónában pedig a Koreai Népi Demokratikus Köztársaság (Észak-Korea) jött létre.
+                1945-ben a Japán hadsereg megadta magát. Koreába a 38. szélességi körtől délre az Amerikai, attól északra pedig a Szovjet hadsereg vonult be. Az Amerikai zónában a Koreai Köztársaság (Dél-Korea), a Szovjet zónában pedig a Koreai Népi Demokratikus Köztársaság (Észak-Korea) jött létre.
               </p>
               <p>
                 1950. Június 25.-én kirobbant a háború a két Koreai állam között. Az Északiak hetek alatt elfoglalták Dél-Korea 90%-át. A Déliek oldalán előbb az Amerikaiak és az ENSZ csapatok kapcsolódtak be a háborúba majd az Északiak oldalán 1 millió Kínai "önkéntes". A háború 1953. Július 27.-én Panmindzsonban fegyverszünettel ért véget. A két Korea területi és politikai megosztottsága máig tart.
               </p>
               <p>
-                A hosszú Japán megszállás után Dél-Koreában, a különböző harcművészeti iskolák (Kwan-ok) egymás után nyitották meg a kapuikat. Ezekben az iskolákban a legtöbb esetben egymás mellett többféle harcművészeti stílust oktattak, illetve ekkor még nem volt éles határvonal a különböző stílusok között. Ezeknek az iskoláknak a közös jellemzője volt, hogy egy jelesebb mester, az iskola vezetője köré tömörültek. Tulajdonképpen ez adta nekik az összetartó erőt. Értelemszerűen ekkor még nem léteztek a stílusoknak sem szervezetei, sem szövetségei. Később ezeket a harcművészeti stílusokat igyekeztek nemzeti szövetségekben tömöríteni. <strong className="text-white">1955. április 11.-én fogadták el hivatalosan a Taekwon-do kifejezést Koreában.</strong>
+                A hosszú Japán megszállás után Dél-Koreában, a különböző harcművészeti iskolák (Kwan-ok) egymás után nyitották meg a kapuikat. Ezekben az iskolákban a legtöbb esetben egymás mellett többféle harcművészeti stílust oktattak, illetve ekkor még nem volt éles határvonal a különböző stílusok között. Ezeknek az iskoláknak a közös jellemzője volt, hogy egy jelesebb mester, az iskola vezetője köré tömörültek. Tulajdonképpen ovo adta nekik az összetartó erőt. Értelemszerűen ekkor még nem léteztek a stílusoknak sem szervezetei, sem szövetségei. Később ezeket a harcművészeti stílusokat igyekeztek nemzeti szövetségekben tömöríteni. <strong className="text-white">1955. április 11.-én fogadták el hivatalosan a Taekwon-do kifejezést Koreában.</strong>
               </p>
             </div>
           </div>
@@ -215,39 +220,64 @@ export default function Taekwondo() {
           </div>
         )}
 
-        {/* Forms - A JAVÍTOTT, SZÖVEGES LEÍRÁST TARTALMAZÓ SZEKCIÓ */}
+        {/* Forms - JAVÍTOTT SORREND + ELŐKÉSZÍTŐK + YOUTUBE LINK */}
         {activeTab === 'forms' && (
           <div>
             <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 mb-6">
-              <h2 className="text-2xl font-black text-white mb-4">24 Formagyakorlat (Tull)</h2>
+              <h2 className="text-2xl font-black text-white mb-4">Formagyakorlatok (Tull)</h2>
               <p className="text-gray-400 mb-2">
-                A 24 tulajdonképpeni tull-okat két előkészítő formagyakorlat előzi meg, melyek célja a tanulók alapvető koordináltságának kialakítása és az egyszerűbb technikák kétoldalas ismételtetésén keresztül rákészítés a nehezebb feladatokra. Ezek a négyirányú ütés (Sajoo Chirugi) és a négyirányú hárítás (Sajoo Makgi).
+                A 24 tulajdonképpeni tull-okat két előkészítő formagyakorlat előzi meg, melyek célja a tanulók alapvető koordináltságának kialakítása és az egyszerűbb technikák kétoldalas ismételtetésén keresztül rákészítés a nehezebb feladatokra. Ezek a négyirányú ütés (Saju Jirugi) és a négyirányú hárítás (Saju Makgi).
               </p>
               <p className="text-gray-400">
-                A tull-ok elnevezéseikkel emléket állítanak a koreai történelem egy-egy kimagasló alakjának, hadvezérének, államférfinek, vagy éppenséggel ismert tudósnak, filozófusnak, nemzetközi költőnek stb.
+                A kártyák képeire kattintva automatikusan elindul egy **YouTube keresés** az adott formagyakorlat pontos nevére és videós anyagaira!
               </p>
             </div>
+            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {formsData.map((form) => (
-                <div key={form.num} className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-neon-orange/40 transition-all duration-300 flex flex-col sm:flex-row">
-                  <a href={`https://tigrisek.hu/images/formagyak/p${form.num}.jpg`} target="_blank" rel="noopener noreferrer" className="sm:w-1/3 relative overflow-hidden block bg-black min-h-[140px] group">
-                    <img 
-                      src={`https://tigrisek.hu/images/formagyak/p${form.num}.jpg`} 
-                      alt={`Formagyakorlat ${form.num}`}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 absolute inset-0" 
-                    />
-                  </a>
-                  <div className="p-5 sm:w-2/3 flex flex-col justify-between">
-                    <div>
-                      <div className="flex justify-between items-center mb-2">
-                        <h3 className="text-xl font-black text-white">{form.num}. {form.name}</h3>
-                        <span className="text-xs bg-gray-800 text-neon-orange px-2 py-1 rounded-md font-bold">{form.movements} mozdulat</span>
+              {formsData.map((form) => {
+                // Biztonságos YouTube keresési link generálása
+                const youtubeSearchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(`ITF Taekwondo ${form.name} tull`)}`;
+                // Kép elérésének kiszámítása (az előkészítőknek egyedi kép vagy p1/p2 lehet, itt az egyszerűség kedvéért ha előkészítő akkor fix kép, ha hivatalos akkor a száma)
+                const imageSrc = form.type === 'preparatory' 
+                  ? `https://tigrisek.hu/images/formagyak/p1.jpg` // Előkészítőknek alapértelmezett kezdő kép
+                  : `https://tigrisek.hu/images/formagyak/p${form.num}.jpg`;
+
+                return (
+                  <div key={form.name} className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-neon-orange/40 transition-all duration-300 flex flex-col sm:flex-row">
+                    <a 
+                      href={youtubeSearchUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="sm:w-1/3 relative overflow-hidden block bg-black min-h-[140px] group cursor-pointer"
+                      title={`Kattints ide a ${form.name} YouTube videóinak megtekintéséhez!`}
+                    >
+                      <img 
+                        src={imageSrc} 
+                        alt={form.name}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 absolute inset-0" 
+                      />
+                      <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-200 flex items-center justify-center">
+                        <span className="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded shadow-md opacity-80 group-hover:opacity-100 transition-opacity">
+                          YouTube 🎬
+                        </span>
                       </div>
-                      <p className="text-gray-400 text-sm leading-relaxed">{form.meaning}</p>
+                    </a>
+                    <div className="p-5 sm:w-2/3 flex flex-col justify-between">
+                      <div>
+                        <div className="flex justify-between items-center mb-2">
+                          <h3 className="text-xl font-black text-white">
+                            {form.type === 'preparatory' ? 'Előkészítő' : `${form.num}.`} {form.name}
+                          </h3>
+                          <span className={`text-xs px-2 py-1 rounded-md font-bold ${form.type === 'preparatory' ? 'bg-gray-850 text-gray-400' : 'bg-gray-880 text-neon-orange'}`}>
+                            {form.movements} mozdulat
+                          </span>
+                        </div>
+                        <p className="text-gray-400 text-sm leading-relaxed">{form.meaning}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         )}
@@ -265,7 +295,7 @@ export default function Taekwondo() {
                 />
                 <div className="space-y-4 text-gray-300 leading-relaxed">
                   <p>
-                    Choi Hong Hi tábornok a Taekwon-do legendás alapítója 1918 november 9.-én született a koreai félsziget észak-keleti részén fekvő Hwa-Dae-ben, Myong-Chun tartományban. Gyermekkorától a szépírás (kalligráfia) művészetét tanulta, és már fiatalon megismerkedett az ősi koreai harcművészettel a Taek-kyon-nal.
+                    Choi Hong Hi tábornok a Taekwon-do legendás alapítója 1918 november 9.-én született a koreai félsziget észak-keleti részén fekvő Hwa-Dae-ben, Myong-Chun tartományban. Gyermekkorától a szépírás (kalligráfia) művészetét tanulta, and már fiatalon megismerkedett az ősi koreai harcművészettel a Taek-kyon-nal.
                   </p>
                   <p>
                     Hét évnyi kalligráfus képzés és intensiv Taek-kyon edzés után felsőfokú tanulmányainak megkezdésére Japánba utazott. Kyoto-ban először főiskolára járt, majd Tokyo-ban a Choong Ang egyetem jogi karának végzése mellett magas fokon elsajátította a shotokan karatét is. Visszatérve Koreába már keményen dolgozott saját új stílusának létrehozásán, emellett a japán megszállás elleni felszabadítási mozgalom szervezője és egyik élharcosa lett, amiért a japánok bebörtönözték és később halálra ítélték. Szerencsére azonban a kivégzés előtt három nappal, 1945 augusztus 15.-én Korea felszabadult és Choi szabad emberként léphetett ki a börtön kapuján.
@@ -312,7 +342,7 @@ export default function Taekwondo() {
                 />
                 <div className="space-y-4 text-gray-300 leading-relaxed">
                   <p>
-                    A Taekwon-do az 1990-es évek végére hihetetlen tömegbázisra tett szert, futótűz sebességével hódítva meg a világot. Napjainkban ez az egyik legnagyobb létszámú harcművészeti ág, melyet öt kontinens több, mint száz tagországában sok millióan űznek.
+                    A Taekwon-do az 1990-es évek végére hihetetlen tömegbázisra tett szert, futótűz sebességével hódítva meg a világot. Napjainkban ovo az egyik legnagyobb létszámú harcművészeti ág, melyet öt kontinens több, mint száz tagországában sok millióan űznek.
                   </p>
                   <p>
                     A Taekwon-do Atyját, vagy ahogy életrajzírói kedvesen említik a "Kis Óriást" 84 éves korában, rövid ideig tartó súlyos betegség után Phenjan-ban, Észak-Koreában érte a halál. A XX. század utolsó nagy harcművész stílusalapítója <strong className="text-white">2002 június 15.-én</strong> örökre eltávozott...
@@ -489,7 +519,7 @@ export default function Taekwondo() {
             <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
               <h3 className="text-neon-orange font-bold text-lg mb-4">Tanítványok figyelmébe!</h3>
               <div className="space-y-3 text-gray-300 leading-relaxed">
-                <p>A tanítvány soha ne fáradjon bele a tanulásba. Bárhol és bármikor gyakoroljon ahol lehetősége nyílik rá: ez a tudás alapja!</p>
+                <p>A tanítvány soha ne fáradjon bele a tanulásba. Bárhol és bármikor gyakoroljon ahol lehetősége nyílik rá: ovo a tudás alapja!</p>
                 <p>Igyekezzék saját mércéjét és technikai felkészültségét mindig a lehető legmagasabbra állítani és tudásával előbbre vinni az egész taekwon-do-sport ügyét. A tanítvány által elért eredmények jelentik az edzők számára a legnagyobb jutalmat fáradozásaikért. A tanuló hozzon áldozatot mesteréért és klubjáért és olyan legyen akire számítani lehet! Ha szükség van rá, versenyezzen és vegyen részt a bemutatókon, magasabb fokozatúak pedig nyújtsanak segítséget az edzésvezetői munkában!</p>
                 <p>A növendék viselkedésében és emberi tulajdonságaiban mutasson jó példát! Legyen szerény, visszafogott és tisztelettudó. Tudásával ne kérkedjen, sporttársait ne bírálja.</p>
                 <p>Legyen hűséges és kitartó, soha ne kritizálja mások előtt mesterét, és az általa képviselt stílust, vagy iskolát.</p>
