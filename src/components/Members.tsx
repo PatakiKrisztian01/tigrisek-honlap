@@ -4,7 +4,6 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 type Belt = {
   rank: string;
   rankEn: string;
-  color: string;
   members: string[];
   results?: { name: string; achievements: string[] }[];
 };
@@ -12,8 +11,7 @@ type Belt = {
 const belts: Belt[] = [
   {
     rank: '6.Dan',
-    rankEn: 'Black Belt',
-    color: 'bg-gray-800 text-gray-100',
+    rankEn: 'Fekete öv — VI. Dan',
     members: ['Pataki Krisztián'],
     results: [
       {
@@ -30,8 +28,7 @@ const belts: Belt[] = [
   },
   {
     rank: '4.Dan',
-    rankEn: 'Black Belt',
-    color: 'bg-gray-800 text-gray-100',
+    rankEn: 'Fekete öv — IV. Dan',
     members: ['Leiti Edmond'],
     results: [
       {
@@ -45,80 +42,67 @@ const belts: Belt[] = [
   },
   {
     rank: '3.Dan',
-    rankEn: 'Black Belt',
-    color: 'bg-gray-800 text-gray-100',
+    rankEn: 'Fekete öv — III. Dan',
     members: ['Kiss Viktor', 'Patakiné Zs. Anikó'],
   },
   {
     rank: '2.Dan',
-    rankEn: 'Black Belt',
-    color: 'bg-gray-800 text-gray-100',
+    rankEn: 'Fekete öv — II. Dan',
     members: ['Almási Zsolt', 'Csáki Máté', 'Dányi Leonetta', 'Höflinger Zsolt', 'Jakab Norbert', 'Kardos Zsolt', 'Kökény Bence', 'Schäfer Péter', 'Takács Ágnes'],
   },
   {
     rank: '1.Dan',
-    rankEn: 'Black Belt',
-    color: 'bg-gray-800 text-gray-100',
+    rankEn: 'Fekete öv — I. Dan',
     members: ['Fodor Andrea', 'Horváth Gergő', 'Králik Csaba', 'Mireisz Tibor', 'Nagy Varga Bence', 'Nagy Varga Csenge', 'Nas Levente', 'Orha Noémi', 'Papp Alexandra', 'Simon Gábor', 'Solymosi Hanna Zoé', 'Tar Balázs', 'Vajler Éva'],
   },
   {
     rank: '1.gup',
-    rankEn: 'Piros-fekete öv',
-    color: 'bg-neon-orange/40 text-neon-orange',
+    rankEn: 'Piros öv — Fekete csík',
     members: ['Borzsák Endre', 'Hegyi Márton', 'Käfer Dóra', 'Kiss Judit', 'Kovács Anna Viola', 'Nas Timur', 'Pribelszki Dóra', 'Trepka Zsolt'],
   },
   {
     rank: '2.gup',
     rankEn: 'Piros öv',
-    color: 'bg-neon-orange/30 text-neon-orange',
     members: ['Béres Dominik', 'Epres Barnabás', 'Héni Petra', 'Horváth Anna Eszter', 'Nijhuis Sam', 'Wieser Melinda'],
   },
   {
     rank: '3.gup',
-    rankEn: 'Kék-piros öv',
-    color: 'bg-sky-900/50 text-sky-100',
+    rankEn: 'Kék öv — Piros csík',
     members: ['Gervai Milán', 'Gódor Julianna', 'Kiss Enikő', 'Nas Mira', 'Nász József Péter', 'Orha Virág', 'Pataki Marcell'],
   },
   {
     rank: '4.gup',
     rankEn: 'Kék öv',
-    color: 'bg-sky-900/40 text-sky-100',
     members: ['Baranyai Réka', 'Hamar Bence', 'Hegedűs István', 'Hegyi Áron', 'Héni Kristóf', 'Horváth Fruzsina', 'Id. Talián István', 'ifj. Talián István', 'Mireisz Zsolt'],
   },
   {
     rank: '5.gup',
-    rankEn: 'Zöld-kék öv',
-    color: 'bg-emerald-900/50 text-emerald-100',
+    rankEn: 'Zöld öv — Kék csík',
     members: ['Balázs Olivér', 'Baltovics Beáta', 'Fekete Lilien', 'Ferencz Botond', 'Fülöp Zoltán', 'Gervai Tamás', 'Kovács Lehel', 'Lovas Ádám', 'Patkós Gábor', 'Szepesi Henriett', 'Szőnyi Csilla', 'Varga Ádám Zsolt', 'Virág József'],
   },
   {
     rank: '6.gup',
     rankEn: 'Zöld öv',
-    color: 'bg-emerald-900/40 text-emerald-100',
     members: ['Bihari Gábor', 'Csáki István', 'Epres Péter', 'Ferencz Orsolya', 'Gondás Lionel Martin', 'Kopsa Alexander', 'Pataki Aida', 'Sidlo Ádám', 'Ványi Nimród'],
   },
   {
     rank: '7.gup',
-    rankEn: 'Sárga-zöld öv',
-    color: 'bg-yellow-900/40 text-yellow-100',
+    rankEn: 'Sárga öv — Zöld csík',
     members: ['Antalicz Viktória', 'Fehérvári Zoltán', 'Gárdonyi Bálint', 'Gazsi Gergő', 'Gervai Bence', 'Horváth Bálint', 'Horváth Zsolt', 'Kovarik Zsombor', 'Néveri Béla', 'Néveri Dávid', 'Pécsi Benedek', 'Pécsi József', 'Pécsi-Kincses Regina', 'Pintér Mold Illés', 'Somodi Márk'],
   },
   {
     rank: '8.gup',
     rankEn: 'Sárga öv',
-    color: 'bg-yellow-900/30 text-yellow-100',
     members: ['Babák Piroska', 'Gazsi Gábor', 'Hajdú Zalán', 'Mireisz Kornél Tibor', 'Somodi Viktor', 'Vajler Ádám'],
   },
   {
     rank: '9.gup',
-    rankEn: 'Narancs öv',
-    color: 'bg-orange-900/40 text-orange-100',
+    rankEn: 'Fehér öv — Sárga csík (Narancs)',
     members: ['Baka Lia', 'Dobos Roland', 'Gárdonyi Ágoston', 'Gránicz Mónika', 'Kerekes Viktor', 'Nijhuis Philip', 'Simon Attila', 'Spitz Benedek', 'Szabó Levente', 'Szép-Magyar Izabella', 'Varga Richárd Norman', 'Veron-Nagy Gergő'],
   },
   {
     rank: '10.gup',
     rankEn: 'Fehér öv',
-    color: 'bg-gray-700/40 text-gray-200',
     members: ['Gazdag Dániel', 'Kenéz Milán', 'Kőhegyi Vitold', 'Laapotti Petra', 'Mészáros Bence', 'Mireisz Kornél'],
   },
 ];
@@ -126,160 +110,95 @@ const belts: Belt[] = [
 function BeltRow({ belt }: { belt: Belt }) {
   const [open, setOpen] = useState(false);
 
+  // DINAMIKUS ÖVSZÍN ÉS HÍMZÉS STÍLUSOK MEGHATÁROZÁSA A KÉRÉS ALAPJÁN
+  let beltBg = 'bg-gray-950';
+  let embroideryColor = 'text-gray-200';
+  let borderColor = 'border-gray-800';
+
+  if (belt.rank.includes('Dan')) {
+    beltBg = 'bg-gray-900 border-y-4 border-gray-950'; // Tradicionális vastag fekete öv hatás
+    embroideryColor = 'text-amber-400 font-extrabold tracking-wide'; // Arany hímzés
+    borderColor = 'border-amber-500/20';
+  } else {
+    switch (belt.rank) {
+      case '1.gup': // Páratlan: alap a piros, hímzés a felette lévő (fekete)
+        beltBg = 'bg-red-600'; embroideryColor = 'text-black'; borderColor = 'border-red-700'; break;
+      case '2.gup': // Páros: tiszta piros öv, hímzés fekete betűvel
+        beltBg = 'bg-red-600'; embroideryColor = 'text-black'; borderColor = 'border-red-700'; break;
+      
+      case '3.gup': // Páratlan: alap a kék, hímzés a felette lévő (piros)
+        beltBg = 'bg-blue-600'; embroideryColor = 'text-red-600'; borderColor = 'border-blue-700'; break;
+      case '4.gup': // Páros: tiszta kék öv, hímzés piros betűvel
+        beltBg = 'bg-blue-600'; embroideryColor = 'text-red-600'; borderColor = 'border-blue-700'; break;
+
+      case '5.gup': // Páratlan: alap a zöld, hímzés a felette lévő (kék)
+        beltBg = 'bg-emerald-600'; embroideryColor = 'text-blue-600'; borderColor = 'border-emerald-700'; break;
+      case '6.gup': // Páros: tiszta zöld öv, hímzés kék betűvel
+        beltBg = 'bg-emerald-600'; embroideryColor = 'text-blue-600'; borderColor = 'border-emerald-700'; break;
+
+      case '7.gup': // Páratlan: alap a sárga, hímzés a felette lévő (zöld)
+        beltBg = 'bg-yellow-400'; embroideryColor = 'text-emerald-600'; borderColor = 'border-yellow-500'; break;
+      case '8.gup': // Páros: tiszta sárga öv, hímzés zöld betűvel
+        beltBg = 'bg-yellow-400'; embroideryColor = 'text-emerald-600'; borderColor = 'border-yellow-500'; break;
+
+      case '9.gup': // Páratlan: alap a fehér, hímzés a felette lévő (sárga/narancs)
+        beltBg = 'bg-white'; embroideryColor = 'text-yellow-500'; borderColor = 'border-gray-300'; break;
+      case '10.gup': // Páros: tiszta fehér öv, hímzés fekete betűvel
+        beltBg = 'bg-white'; embroideryColor = 'text-black'; borderColor = 'border-gray-300'; break;
+    }
+  }
+
   return (
-    <div className="border border-gray-800 rounded-xl overflow-hidden hover:border-gray-700 transition-colors">
+    <div className={`border rounded-xl overflow-hidden shadow-md transition-all duration-300 ${borderColor}`}>
+      {/* MAGA AZ ABLAK AZ ÖV, A SZÖVEG PEDIG A HÍMZÉS */}
       <button
-        className="w-full flex items-center justify-between p-4 sm:p-5 text-left bg-gray-900 hover:bg-gray-800/80 transition-colors"
+        className={`w-full flex items-center justify-between p-4 sm:p-5 text-left transition-colors uppercase tracking-wider font-black ${beltBg} ${embroideryColor}`}
         onClick={() => setOpen(!open)}
       >
-        <div className="flex items-center gap-4 flex-1">
-          {/* Belt rank box */}
-          <div className="flex items-center">
-            {belt.rank.includes('Dan') && (
-              <div className="bg-yellow-600 text-black font-bold px-4 py-2 rounded-full text-xs border border-yellow-700">
-                {belt.rank}
-              </div>
-            )}
-            {belt.rank === '1.gup' && (
-              <div className="bg-red-600 text-black font-bold px-4 py-2 rounded-full text-xs border border-red-700">
-                {belt.rank}
-              </div>
-            )}
-            {belt.rank === '2.gup' && (
-              <div className="bg-red-500 text-black font-bold px-4 py-2 rounded-full text-xs border border-red-600">
-                {belt.rank}
-              </div>
-            )}
-            {belt.rank === '3.gup' && (
-              <div className="bg-blue-600 text-red-400 font-bold px-4 py-2 rounded-full text-xs border border-blue-700">
-                {belt.rank}
-              </div>
-            )}
-            {belt.rank === '4.gup' && (
-              <div className="bg-blue-500 text-red-400 font-bold px-4 py-2 rounded-full text-xs border border-blue-600">
-                {belt.rank}
-              </div>
-            )}
-            {belt.rank === '5.gup' && (
-              <div className="bg-emerald-600 text-blue-400 font-bold px-4 py-2 rounded-full text-xs border border-emerald-700">
-                {belt.rank}
-              </div>
-            )}
-            {belt.rank === '6.gup' && (
-              <div className="bg-emerald-500 text-blue-400 font-bold px-4 py-2 rounded-full text-xs border border-emerald-600">
-                {belt.rank}
-              </div>
-            )}
-            {belt.rank === '7.gup' && (
-              <div className="bg-yellow-600 text-green-600 font-bold px-4 py-2 rounded-full text-xs border border-yellow-700">
-                {belt.rank}
-              </div>
-            )}
-            {belt.rank === '8.gup' && (
-              <div className="bg-yellow-500 text-green-600 font-bold px-4 py-2 rounded-full text-xs border border-yellow-600">
-                {belt.rank}
-              </div>
-            )}
-            {belt.rank === '9.gup' && (
-              <div className="bg-orange-600 text-black font-bold px-4 py-2 rounded-full text-xs border border-orange-700">
-                {belt.rank}
-              </div>
-            )}
-            {belt.rank === '10.gup' && (
-              <div className="bg-gray-600 text-black font-bold px-4 py-2 rounded-full text-xs border border-gray-700">
-                {belt.rank}
-              </div>
-            )}
+        <div className="flex items-center justify-between flex-1 pr-4">
+          <div className="flex items-center gap-6">
+            <span className="text-sm opacity-80 border-r border-current pr-4 min-w-[70px] inline-block">{belt.rank}</span>
+            <span className="text-base sm:text-lg font-serif">{belt.rankEn}</span>
           </div>
-          <div>
-            <span className="text-white font-bold">{belt.rankEn}</span>
-            <span className="text-gray-500 text-sm ml-2">({belt.members.length} fő)</span>
-          </div>
+          <span className="text-xs font-sans normal-case opacity-75">({belt.members.length} fő)</span>
         </div>
         {open ? (
-          <ChevronUp className="w-5 h-5 text-gray-400 flex-shrink-0" />
+          <ChevronUp className="w-5 h-5 flex-shrink-0 opacity-80" />
         ) : (
-          <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" />
+          <ChevronDown className="w-5 h-5 flex-shrink-0 opacity-80" />
         )}
       </button>
 
       {open && (
-        <div className="bg-gray-950/50 border-t border-gray-800 p-4 sm:p-6">
-          <div className="flex flex-wrap gap-3">
-            {belt.members.map((name) => {
-              let bgColor = 'bg-gray-800';
-              let textColor = 'text-gray-300';
-              let borderColor = 'border-gray-700';
-
-              if (belt.rank === '6.Dan' || belt.rank === '4.Dan' || belt.rank === '3.Dan' || belt.rank === '2.Dan' || belt.rank === '1.Dan') {
-                bgColor = 'bg-yellow-600';
-                textColor = 'text-black';
-                borderColor = 'border-yellow-700';
-              } else if (belt.rank === '1.gup') {
-                bgColor = 'bg-red-600';
-                textColor = 'text-black';
-                borderColor = 'border-red-700';
-              } else if (belt.rank === '2.gup') {
-                bgColor = 'bg-red-500';
-                textColor = 'text-black';
-                borderColor = 'border-red-600';
-              } else if (belt.rank === '3.gup') {
-                bgColor = 'bg-blue-600';
-                textColor = 'text-red-400';
-                borderColor = 'border-blue-700';
-              } else if (belt.rank === '4.gup') {
-                bgColor = 'bg-blue-500';
-                textColor = 'text-red-400';
-                borderColor = 'border-blue-600';
-              } else if (belt.rank === '5.gup') {
-                bgColor = 'bg-emerald-600';
-                textColor = 'text-blue-400';
-                borderColor = 'border-emerald-700';
-              } else if (belt.rank === '6.gup') {
-                bgColor = 'bg-emerald-500';
-                textColor = 'text-blue-400';
-                borderColor = 'border-emerald-600';
-              } else if (belt.rank === '7.gup') {
-                bgColor = 'bg-yellow-600';
-                textColor = 'text-green-600';
-                borderColor = 'border-yellow-700';
-              } else if (belt.rank === '8.gup') {
-                bgColor = 'bg-yellow-500';
-                textColor = 'text-green-600';
-                borderColor = 'border-yellow-600';
-              } else if (belt.rank === '9.gup') {
-                bgColor = 'bg-orange-600';
-                textColor = 'text-black';
-                borderColor = 'border-orange-700';
-              } else if (belt.rank === '10.gup') {
-                bgColor = 'bg-gray-600';
-                textColor = 'text-black';
-                borderColor = 'border-gray-700';
-              }
-
-              return (
-                <div key={name} className={`flex items-center gap-2 text-sm font-bold ${textColor} ${bgColor} rounded-lg px-4 py-2 border ${borderColor} inline-block`}>
-                  {name === 'Pataki Krisztián' && (
-                    <img
-                      src="/PatakiKrisztian-removebg-preview.png"
-                      alt={name}
-                      className="w-5 h-5 object-cover rounded"
-                    />
-                  )}
-                  <span>{name}</span>
-                </div>
-              );
-            })}
+        <div className="bg-gray-950 border-t border-gray-900 p-4 sm:p-6">
+          <div className="flex flex-wrap gap-2.5">
+            {belt.members.map((name) => (
+              <div 
+                key={name} 
+                className={`flex items-center gap-2 text-sm font-bold rounded-lg px-4 py-2 border bg-gray-900/40 text-gray-300 border-gray-800`}
+              >
+                {name === 'Pataki Krisztián' && (
+                  <img
+                    src="/PatakiKrisztian-removebg-preview.png"
+                    alt={name}
+                    className="w-5 h-5 object-cover rounded bg-gray-800"
+                  />
+                )}
+                <span>{name}</span>
+              </div>
+            ))}
           </div>
+          
+          {/* Eredmények rész ha van */}
           {belt.results && belt.results.length > 0 && (
-            <div className="mt-6 space-y-4">
+            <div className="mt-6 border-t border-gray-900 pt-4 space-y-4">
               {belt.results.map((r) => (
-                <div key={r.name}>
-                  <h4 className="text-neon-orange font-bold mb-2">{r.name} — Eredmények</h4>
-                  <ul className="space-y-1">
+                <div key={r.name} className="bg-black/20 p-4 rounded-xl border border-gray-900">
+                  <h4 className="text-amber-400 font-extrabold text-sm uppercase tracking-wider mb-2">{r.name} — Kiemelt Eredmények</h4>
+                  <ul className="space-y-1.5">
                     {r.achievements.map((a, i) => (
-                      <li key={i} className="text-gray-400 text-sm flex items-start gap-2">
-                        <span className="text-neon-orange mt-1 flex-shrink-0">›</span>
+                      <li key={i} className="text-gray-400 text-xs flex items-start gap-2">
+                        <span className="text-amber-500 flex-shrink-0">•</span>
                         {a}
                       </li>
                     ))}
@@ -307,7 +226,7 @@ export default function Members() {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Important docs */}
-        <div className="bg-amber-950/30 border border-amber-800/30 rounded-2xl p-6 mb-12">
+        <div className="bg-amber-950/20 border border-amber-900/40 rounded-2xl p-6 mb-12">
           <h3 className="text-amber-400 font-bold text-lg mb-4">Tagoknak — Fontos tudnivalók</h3>
           <ul className="space-y-3 text-gray-300 text-sm">
             <li className="flex items-start gap-3">
@@ -329,7 +248,7 @@ export default function Members() {
 
         {/* Members by rank */}
         <h2 className="text-3xl font-black text-white mb-6">Tagok övszín szerint</h2>
-        <div className="space-y-3">
+        <div className="space-y-4">
           {belts.map((belt) => (
             <BeltRow key={belt.rank} belt={belt} />
           ))}
