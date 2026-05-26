@@ -89,7 +89,7 @@ const tulsData: TulData[] = [
     moves: 32,
     returnFoot: 'bal láb tér vissza',
     meaning: [
-      'A formát Ahn Joong-Gun hazafiról nevezték el, aki meggyilkolta Hirobumi Itót, Korea első japán kormányzóját, aki jelentős szerepet játszott Korea japán megszállásában.',
+      'A formát Ahn Joong-Gun hazafiról nevezték el, aki meggyilkolta Hirobumi Itót, Korea első japán kormányzóját, aki jelentés szerepet játszott Korea japán megszállásában.',
       'A 32 mozdulat Ahn Joong-Gun életkorára utal, amikor 1910-ben kivégezték a Lui-Shung börtönben.',
     ],
     youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Joong-Gun+Tul',
@@ -110,7 +110,7 @@ const tulsData: TulData[] = [
     returnFoot: 'jobb láb tér vissza',
     meaning: [
       'A formát a Hwa-Rang ifjúsági csoportról nevezték el, amely a 7. század elején alakult a Silla-dinasztia idején.',
-      'A 29 mozdulat a 29. gyaloghadosztályra utal, ahol a Taekwon-Do alcanzó teljes fejlődését.',
+      'A 29 mozdulat a 29. gyaloghadosztályra utal, ahol a Taekwon-Do elérte teljes fejlődését.',
     ],
     youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Hwa-Rang+Tul',
   },
@@ -245,7 +245,7 @@ const tulsData: TulData[] = [
     returnFoot: 'bal láb tér vissza',
     meaning: [
       'A formát Ul-Ji Moon Dok tábornokról nevezték el, aki sikeresen megvédte Koreát a Tang-dinasztia közel egymilliós serege ellen Kr. u. 612-ben. Gerillataktikát alkalmazva hatalmas veszteségeket okozott az ellenségnek.',
-      'A diagram az „L” alakban vezetéknevét jelképezi.',
+      'A diagram az L alakban vezetéknevét jelképezi.',
       'A 42 mozdulat a forma megalkotójának életkorára utal.',
     ],
     youtubeUrl: 'https://www.youtube.com/results?search_query=ITF+Taekwondo+Ul-Ji+Tul',
@@ -327,14 +327,14 @@ export default function Taekwondo() {
         {activeTab === 'overview' && (
           <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
             <blockquote className="text-center text-2xl font-light italic text-gray-200 mb-8 border-l-4 border-neon-orange pl-6">
-              "A győzelemért az embernek tudnia kell mindenekelőtt önmagát legyőznie."
+              „A győzelemért az embernek tudnia kell mindenekelőtt önmagát legyőznie.”
             </blockquote>
             <div className="space-y-5 text-gray-300 leading-relaxed">
               <p>
                 A taekwon-do több mint 2000 éves múltra visszatekintő koreai eredetű harcművészet, mely napjainkra az egyik legismertebb és legnépszerűbb modern küzdősporttá fejlődött, és amely őrzi a harcművészetek legnemesebb hagyományait, a harci tudományok szellemét, és gondoskodik ezek életben tartásáról.
               </p>
               <p>
-                A taekwon-do kifejezés három szóképből áll: a "tae" rúgást, a lábtechnikák összességét jelenti, a "kwon" a kéztechnikák összefoglaló neve, a "do" jelentése út, művészet. Szabadon fordítva: a lábbal és kézzel küzdés művészete. Ez az elnevezés több szempontból is jó választásnak bizonyult. Egyrészt hasonlít az ősi taek kyon elnevezéshez, így bizonyos szempontból folytonosságot jelez a régi és az új stílus között, másrészt, pedig híven fejezi ki a sportág jellemzőit.
+                A taekwon-do kifejezés három szóképből áll: a „tae” rúgást, a lábtechnikák összességét jelenti, a „kwon” a kéztechnikák összefoglaló neve, a „do” jelentése út, művészet. Szabadon fordítva: a lábbal és kézzel küzdés művészete. Ez az elnevezés több szempontból is jó választásnak bizonyult. Egyrészt hasonlít az ősi taek kyon elnevezéshez, így bizonyos szempontból folytonosságot jelez a régi és az új stílus között, másrészt, pedig híven fejezi ki a sportág jellemzőit.
               </p>
               <p>
                 A taekwon-do azonban nem csak egyszerűen ütés és rúgás, nemcsak önvédelmi rendszer vagy küzdősport, hanem ennél sokkal több. A koreaiak megközelítésében életút, életforma, mely célja, hogy a taekwon-do gyakorlása révén harmonikusan fejlődjék a szellem, a lélek és a test.
@@ -344,33 +344,4 @@ export default function Taekwondo() {
         )}
 
         {/* History */}
-        {activeTab === 'history' && (
-          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
-            <h2 className="text-2xl font-black text-white mb-6">A Taekwon-do Története</h2>
-            <div className="space-y-4 text-gray-300 leading-relaxed">
-              <p>
-                A Taekwon-do szó új keletű, csak az 1950-es évektől kezdte használni Choi Hong Hi a Taekwon-do megalapítója. A Taekwon-do viszonylag új modern harcművészet, a mai technikáinak a túlnyomó többségét a XX. század '50-es '60-as éveiben alakította ki az alapító Koreai mesterek segítségével. Mivel egy dinamikus, fejlődő képes harcművészeti ágazatról van szó, a mai napig is folyamatosan változik, fejlődik.
-              </p>
-              <p>
-                A Taekwon-do eredete az időszámításunk előtti I. századi társadalmakig vezethető vissza. Ebben az időben a Koreai félszigeten három királyság alakult ki: Silla (ie. 57.), Koguryo (ie. 37.) és Baekje (ie. 18.). Ezek a királyságok évszázadokon keresztül harcban álltak egymással a félsziget feletti uralomért.
-              </p>
-              <p>
-                Az első máig fenn maradt harcművészeti vonatkozású emlékek ebből az időből származnak: a Koguryu dinasztiabeli Muyong-chong és Kakchu-chong nevű királyi síremlékek falain, illetve mennyezetén lévő falfestmények, melyer egymással küzdő férfiakat ábrázolnak.
-              </p>
-              <p>
-                Akkoriban a Koguryo tudott a legdinamikusabban terjeszkedni, ahol már ekkor magas színvonalon oktatták a harcművészeteket. Silla 24. királya Chin Heung Konguryo királyával szövetkezve létrehozta az első elit katonai alakulatot a "Hwarangdo"-t. A Hwarangdo kiképzésben nagy hangsúlyt fektettek mind a fegyveres mind a fegyver nélküli közelharc képzésére. Ha hinni lehet a korabeli történeteknek, már ekkor magas színvonalú láb technika jellemezte a stílust. A Hwarangdo képzésben a testi nevelés mellett a szellemi képzéssel is foglalkoztak. Ezt egy Buddhista tanító Won Kwang konfuciusi tanai alapján tették.
-              </p>
-              <p>
-                A konfucionizmus mind a mai napig jellemzi a Koreai harcművészetek nagy részét. Szemben például a Japán harcművészetekkel, ahol többnyire a Zen Buddhizmus adja a szellemi hátteret.
-              </p>
-              <p>
-                Végül Munmu Vang-nak (661-680) Silla királyának, sikerült egyesítenie a Koreai félszigetet uralma alatt 668-ban, bár még Kínával 735-ig voltak háborúk a határ kérdésében.
-              </p>
-              <p>
-                A Silla által létrehozott egységes Koreai állam végül belülről hullott darabjaira, és az országot egy Van Gon (877-943) nevezetű hadvezérnek sikerült újraegyesítenie 935-ben. Az új állam és a dinasztia Koryo néven 1392-ig állt fenn. Innen ered a Korea elnevezése is az Európai nyelvekben.
-              </p>
-              <p>
-                1392-ben a Koryo dinasztiát felváltotta a Li dinasztia. Melynek első királya Li Szong Gé megfosztotta trónjától a Koryo dinasztia utolsó királyát is és Thedzsó néven ült trónra. A Li dinasztia az országot Csoszonnak nevezte, így ezt a korszakot szokták O-Csoszonnak os megnevezni. Ez a korszak lényegében 1910-ig a Japán megszállás kezdetéig tartott.
-              </p>
-              <p>
-                A harcművészeteket elsősorban a hadseregben oktatták, illetve megvoltak a köznépnek is a maga harcművészeti játékai, például a Soo Bak és a Taek Kyon. Máig rendszeresen rendeznek Soo Bak és Taek Kyon versenyeket a Dan-O ünnepek alkalmával (Május 5.-én és Augusztus 15.-én). Valószínűleg ebben az időben érték Kínai hatások is a Koreai harcművészeteket melyek jellegzetességei néhány mai Koreai harcművészeti ágban is megtal
+        {
