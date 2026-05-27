@@ -1,4 +1,4 @@
-import { Swords, Flame, Award, ShieldAlert, Music, Sparkles, Zap, Brain } from 'lucide-react';
+import { Swords, Flame, Award, Music, Sparkles, Zap, Brain } from 'lucide-react';
 
 interface KickboxProps {
   onNavigate: (section: any) => void;
@@ -7,51 +7,67 @@ interface KickboxProps {
 export default function Kickbox({ onNavigate }: KickboxProps) {
   return (
     <div className="min-h-screen pt-20">
-      {/* Fejléc */}
-      <div className="relative py-16 bg-gradient-to-b from-gray-900 to-black border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-neon-orange text-sm font-bold tracking-wider uppercase mb-2">Szakosztályunk</p>
-          <h1 className="text-5xl font-black text-white flex items-center gap-4">
-            KICK-BOX FORMAGYAKORLAT <Swords className="w-10 h-10 text-neon-orange hidden sm:block" />
-          </h1>
-        </div>
-      </div>
 
-      {/* Hero videó szekció */}
-      <div className="bg-black border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="max-w-4xl mx-auto">
-            <p className="text-neon-orange text-xs font-bold tracking-wider uppercase mb-3">Nézd meg élőben</p>
-            <h2 className="text-2xl font-black text-white mb-6">Így néz ki a formagyakorlat</h2>
-            <div className="relative w-full rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(255,165,0,0.15)] border border-neon-orange/20" style={{ paddingBottom: '56.25%' }}>
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/Tc6S0S_ShQk?start=35&end=51&rel=0&modestbranding=1"
-                title="Kick-box formagyakorlat bemutató"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
+      {/* ── HERO SZEKCIÓ ── */}
+      <div className="relative w-full bg-black overflow-hidden" style={{ minHeight: '560px' }}>
+        {/* Videó háttérként */}
+        <div className="absolute inset-0">
+          <iframe
+            className="w-full h-full"
+            src="https://www.youtube.com/embed/Tc6S0S_ShQk?start=35&end=51&autoplay=1&mute=1&loop=1&playlist=Tc6S0S_ShQk&rel=0&controls=0&modestbranding=1&showinfo=0"
+            title="Kick-box formagyakorlat hero"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', pointerEvents: 'none', transform: 'scale(1.5)' }}
+          />
+        </div>
+        {/* Sötét átfedés */}
+        <div className="absolute inset-0 bg-black/60" />
+        {/* Alul elhalványulás az oldalba */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
+        {/* Neon narancs oldalsó fény */}
+        <div className="absolute inset-0 bg-gradient-to-r from-neon-orange/10 via-transparent to-transparent" />
+
+        {/* Hero szöveg */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center h-full" style={{ minHeight: '560px' }}>
+          <p className="text-neon-orange text-sm font-bold tracking-wider uppercase mb-3">Szakosztályunk</p>
+          <h1 className="text-5xl sm:text-7xl font-black text-white leading-none mb-6 flex items-center gap-4">
+            KICK-BOX<br />
+            <span className="text-neon-orange">FORMAGYAKORLAT</span>
+          </h1>
+          <p className="text-gray-300 text-lg max-w-xl mb-8">
+            Mozgás, erő és művészet — egyetlen koreografált mozdulatsorban.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <button
+              onClick={() => onNavigate('contact')}
+              className="inline-flex items-center gap-2 bg-neon-orange hover:bg-orange-500 text-black font-black px-8 py-4 rounded-xl text-sm uppercase tracking-widest transition-all hover:scale-105 shadow-lg shadow-neon-orange/40"
+            >
+              Ingyenes próbaedzés
+            </button>
+            <button
+              onClick={() => document.getElementById('kickbox-content')?.scrollIntoView({ behavior: 'smooth' })}
+              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold px-8 py-4 rounded-xl text-sm border border-white/20 transition-all"
+            >
+              Tudj meg többet ↓
+            </button>
           </div>
         </div>
       </div>
 
-      {/* Fő tartalom */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      {/* Fejléc eltávolítva — hero váltja ki */}
+
+      {/* ── FŐ TARTALOM ── */}
+      <div id="kickbox-content" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid lg:grid-cols-3 gap-12">
           
-          {/* Bal / Középső hasáb: Ismertető és kategóriák */}
           <div className="lg:col-span-2 space-y-12">
             
-            {/* Mi az a formagyakorlat */}
             <section className="space-y-4">
               <h2 className="text-2xl font-black text-white flex items-center gap-2 border-b border-gray-800 pb-3 uppercase tracking-tight">
                 <Sparkles className="w-6 h-6 text-neon-orange" /> Mozgás és Művészet
               </h2>
-              <p className="text-neon-orange font-bold text-lg italic">
-                Mi is az a formagyakorlat (Forms)?
-              </p>
+              <p className="text-neon-orange font-bold text-lg italic">Mi is az a formagyakorlat (Forms)?</p>
               <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
                 Képzeld el a harcművészetek eleganciáját és a küzdőszportok erejét egyetlen, előre megkoreografált mozdulatsorban! A kick-box formagyakorlatban a versenyzők valós ellenfél nélkül mutatnak be ütések, rúgások, védések és egyéb technikák sorozatát, pont úgy, mintha egy harcban lennének.
               </p>
@@ -60,28 +76,22 @@ export default function Kickbox({ onNavigate }: KickboxProps) {
               </p>
             </section>
 
-            {/* Miért érdemes */}
             <section className="space-y-6">
               <h2 className="text-2xl font-black text-white flex items-center gap-2 border-b border-gray-800 pb-3 uppercase tracking-tight">
                 <Flame className="w-6 h-6 text-neon-orange" /> Miért érdemes Kick-box formagyakorlattal foglalkozni?
               </h2>
-              <p className="text-gray-400 text-sm">
-                Ez a sportág sokkal többet ad, mint gondolnád! Nemcsak tested, de elméd is fejlődik általa:
-              </p>
-
+              <p className="text-gray-400 text-sm">Ez a sportág sokkal többet ad, mint gondolnád! Nemcsak tested, de elméd is fejlődik általa:</p>
               <div className="grid sm:grid-cols-2 gap-6">
                 <div className="bg-gray-900/40 border border-gray-800/80 p-5 rounded-xl space-y-2">
                   <Zap className="w-5 h-5 text-neon-orange" />
                   <h3 className="text-white font-bold text-sm">Teljes körű fizikai fejlődés</h3>
                   <p className="text-gray-400 text-xs leading-relaxed">Növeli az erőt, robbanékonyságot, koordinációt, egyensúlyt és hajlékonyságot.</p>
                 </div>
-
                 <div className="bg-gray-900/40 border border-gray-800/80 p-5 rounded-xl space-y-2">
                   <Brain className="w-5 h-5 text-neon-orange" />
                   <h3 className="text-white font-bold text-sm">Mentális fókusz</h3>
                   <p className="text-gray-400 text-xs leading-relaxed">Javítja a koncentrációt, memóriát, önfegyelmet és a kreatív gondolkodást.</p>
                 </div>
-
                 <div className="bg-gray-900/40 border border-gray-800/80 p-5 rounded-xl space-y-2 sm:col-span-2">
                   <Award className="w-5 h-5 text-neon-orange" />
                   <h3 className="text-white font-bold text-sm">Önkifejezés a mozgásban & Lenyűgöző látvány</h3>
@@ -92,14 +102,11 @@ export default function Kickbox({ onNavigate }: KickboxProps) {
               </div>
             </section>
 
-            {/* Kategóriák */}
             <section className="space-y-4">
               <h2 className="text-2xl font-black text-white flex items-center gap-2 border-b border-gray-800 pb-3 uppercase tracking-tight">
                 <Music className="w-6 h-6 text-neon-orange" /> Kategóriák a WAKO-ban
               </h2>
-              <p className="text-gray-400 text-sm">
-                A formagyakorlatok sokszínűek, és mindenki megtalálhatja a számára megfelelőt:
-              </p>
+              <p className="text-gray-400 text-sm">A formagyakorlatok sokszínűek, és mindenki megtalálhatja a számára megfelelőt:</p>
               <div className="grid sm:grid-cols-2 gap-4 text-sm">
                 <div className="bg-gray-900/30 border border-gray-800 p-4 rounded-lg">
                   <span className="text-white font-bold block mb-1">Hard Style (kemény stílus)</span>
@@ -118,10 +125,8 @@ export default function Kickbox({ onNavigate }: KickboxProps) {
                 </div>
               </div>
             </section>
-
           </div>
 
-          {/* Jobb oldali hasáb: Csatlakozás kártya */}
           <div className="space-y-6">
             <div className="bg-gradient-to-br from-gray-900 to-black border-2 border-neon-orange/40 rounded-2xl p-6 text-center space-y-4 shadow-[0_0_15px_rgba(255,165,0,0.05)]">
               <h3 className="text-xl font-black text-white uppercase tracking-tight">Gyere és próbáld ki!</h3>
