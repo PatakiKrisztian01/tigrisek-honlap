@@ -17,26 +17,6 @@ export default function Kickbox({ onNavigate }: KickboxProps) {
         </div>
       </div>
 
-      {/* Hero videó szekció */}
-      <div className="bg-black border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="max-w-4xl mx-auto">
-            <p className="text-neon-orange text-xs font-bold tracking-wider uppercase mb-3">Nézd meg élőben</p>
-            <h2 className="text-2xl font-black text-white mb-6">Így néz ki a formagyakorlat</h2>
-            <div className="relative w-full rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(255,165,0,0.15)] border border-neon-orange/20" style={{ paddingBottom: '56.25%' }}>
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/Tc6S0S_ShQk?start=35&end=51&rel=0&modestbranding=1"
-                title="Kick-box formagyakorlat bemutató"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Fő tartalom */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid lg:grid-cols-3 gap-12">
