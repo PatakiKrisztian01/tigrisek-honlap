@@ -1,4 +1,4 @@
-import { Clock, MapPin, Users, Swords, Baby, Shield, Mail, Phone, Map } from 'lucide-react';
+import { Clock, MapPin, Users, Swords, Baby, Shield, Mail, Phone, Map, ExternalLink } from 'lucide-react';
 
 const trainers = [
   { name: 'Pataki Krisztián', rank: 'VI.dan', role: 'Klubvezető elnök', image: '/patakikrisztian.png' },
@@ -13,6 +13,34 @@ const videoThumbnails = Array.from({ length: 11 }, (_, i) => {
   const nums = [12, 10, 9, 8, 7, 6, 1, 2, 3, 4, 5];
   return `https://tigrisek.hu/images/video-${nums[i]}.jpg`;
 });
+
+// ── Újrafelhasználható helyszín kártya ──────────────────────────────────────
+function LocationCard({ name, address, mapUrl, accentColor = 'neon-orange' }) {
+  const borderColor = accentColor === 'emerald' ? 'border-emerald-600' : accentColor === 'amber' ? 'border-amber-500' : 'border-neon-orange';
+  const iconColor   = accentColor === 'emerald' ? 'text-emerald-500' : accentColor === 'amber' ? 'text-amber-500' : 'text-neon-orange';
+  const shadowColor = accentColor === 'emerald' ? 'shadow-emerald-600/40' : accentColor === 'amber' ? 'shadow-amber-500/40' : 'shadow-neon-orange/40';
+
+  return (
+    
+      href={mapUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`
+        group flex items-start gap-3 p-4 rounded-xl
+        bg-gray-800/50 border border-gray-700
+        hover:border-neon-orange hover:scale-[1.03] hover:shadow-lg hover:shadow-neon-orange/30
+        transition-all duration-200 cursor-pointer
+      `}
+    >
+      <MapPin className={`w-4 h-4 ${iconColor} flex-shrink-0 mt-0.5 group-hover:text-neon-orange transition-colors`} />
+      <div className="flex-1 min-w-0">
+        {name && <p className="text-gray-300 text-sm font-bold">{name}</p>}
+        <p className="text-gray-400 text-sm">{address}</p>
+      </div>
+      <ExternalLink className="w-3.5 h-3.5 text-gray-600 group-hover:text-neon-orange flex-shrink-0 mt-0.5 transition-colors" />
+    </a>
+  );
+}
 
 export default function Training() {
   return (
@@ -53,7 +81,7 @@ export default function Training() {
                   </div>
                   <img
                     src={t.image}
-                    alt={t.image.replace('/', '').replace('.png', '')}
+                    alt={t.name}
                     className="w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-xl flex-shrink-0 border border-gray-800"
                   />
                 </div>
@@ -76,33 +104,19 @@ export default function Training() {
               <div className="flex flex-col lg:flex-row h-full">
                 <div className="flex-1 p-6 space-y-4">
                   <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 mt-0.5">
-                      <Clock className="w-4 h-4 text-neon-orange" />
-                    </div>
+                    <Clock className="w-4 h-4 text-neon-orange flex-shrink-0 mt-0.5" />
                     <div>
                       <div className="text-white font-bold text-sm">18:00 – 19:30</div>
                       <div className="text-gray-400 text-sm mt-0.5">Küzdelem kicsiknek-nagyoknak</div>
                       <div className="text-neon-orange text-xs font-bold mt-2">fehér öv – fekete öv</div>
                     </div>
                   </div>
-                  <div className="bg-gray-800/50 rounded-xl p-4 border border-gray-700">
-                    <div className="flex items-start gap-2">
-                      <MapPin className="w-4 h-4 text-neon-orange flex-shrink-0 mt-0.5" />
-                      <div>
-                        <p className="text-gray-300 text-sm font-bold">Kondor Béla Általános Iskola</p>
-                        <p className="text-gray-400 text-sm">1181 Budapest, Kondor Béla sétány 7.</p>
-                      </div>
-                    </div>
-                  </div>
-                  <a
-                    href="https://www.openstreetmap.org/?q=Kondor+B%C3%A9la+s%C3%A9t%C3%A1ny+7+Budapest"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-neon-orange hover:text-orange-500 text-xs font-bold transition-colors"
-                  >
-                    <Map className="w-3.5 h-3.5" />
-                    Térkép
-                  </a>
+                  {/* ── KATTINTHATÓ HELYSZÍN KÁRTYA ── */}
+                  <LocationCard
+                    name="Kondor Béla Általános Iskola"
+                    address="1181 Budapest, Kondor Béla sétány 7."
+                    mapUrl="https://www.openstreetmap.org/?q=Kondor+B%C3%A9la+s%C3%A9t%C3%A1ny+7+Budapest"
+                  />
                 </div>
                 <div className="w-full lg:w-64 flex-shrink-0 bg-gray-800/50 lg:border-l border-gray-700">
                   <img
@@ -114,29 +128,20 @@ export default function Training() {
               </div>
             </div>
 
-            {/* Szerda - Péntek - Közös helyszín */}
+            {/* Szerda - Péntek */}
             <div className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden">
               <div className="flex flex-col lg:flex-row h-full">
                 <div className="flex-1 p-6">
                   <h3 className="text-gray-300 text-sm font-bold mb-1">Havanna u. 3.</h3>
                   <p className="text-gray-500 text-xs mb-3">A bázis technikai edzések, csoportokra osztva:</p>
-                  <div className="bg-gray-800/50 rounded-xl p-4 border border-gray-700 mb-4">
-                    <div className="flex items-start gap-2">
-                      <MapPin className="w-4 h-4 text-neon-orange flex-shrink-0 mt-0.5" />
-                      <p className="text-gray-300 text-sm">
-                        1181 Budapest, Havanna u. 3.
-                      </p>
-                    </div>
+
+                  {/* ── KATTINTHATÓ HELYSZÍN KÁRTYA ── */}
+                  <div className="mb-6">
+                    <LocationCard
+                      address="1181 Budapest, Havanna u. 3."
+                      mapUrl="https://www.openstreetmap.org/?q=Havanna+u.+3+Budapest"
+                    />
                   </div>
-                  <a
-                    href="https://www.openstreetmap.org/?q=Havanna+u.+3+Budapest"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-neon-orange hover:text-orange-500 text-xs font-bold transition-colors mb-6"
-                  >
-                    <Map className="w-3.5 h-3.5" />
-                    Térkép
-                  </a>
 
                   <div className="space-y-4">
                     {/* Szerda */}
@@ -146,18 +151,14 @@ export default function Training() {
                       </div>
                       <div className="space-y-3 ml-2">
                         <div className="flex items-start gap-3">
-                          <div className="flex-shrink-0 mt-0.5">
-                            <Clock className="w-4 h-4 text-neon-orange" />
-                          </div>
+                          <Clock className="w-4 h-4 text-neon-orange flex-shrink-0 mt-0.5" />
                           <div>
                             <div className="text-white font-bold text-sm">16:30 – 18:00</div>
                             <div className="text-gray-400 text-sm">Fehér öv sárga csík – zöld övig</div>
                           </div>
                         </div>
                         <div className="flex items-start gap-3">
-                          <div className="flex-shrink-0 mt-0.5">
-                            <Clock className="w-4 h-4 text-neon-orange" />
-                          </div>
+                          <Clock className="w-4 h-4 text-neon-orange flex-shrink-0 mt-0.5" />
                           <div>
                             <div className="text-white font-bold text-sm">18:00 – 19:30</div>
                             <div className="text-gray-400 text-sm">Zöld öv kék csík – piros övig</div>
@@ -173,18 +174,14 @@ export default function Training() {
                       </div>
                       <div className="space-y-3 ml-2">
                         <div className="flex items-start gap-3">
-                          <div className="flex-shrink-0 mt-0.5">
-                            <Clock className="w-4 h-4 text-neon-orange" />
-                          </div>
+                          <Clock className="w-4 h-4 text-neon-orange flex-shrink-0 mt-0.5" />
                           <div>
                             <div className="text-white font-bold text-sm">16:30 – 18:00</div>
                             <div className="text-gray-400 text-sm">Kezdő csoport</div>
                           </div>
                         </div>
                         <div className="flex items-start gap-3">
-                          <div className="flex-shrink-0 mt-0.5">
-                            <Clock className="w-4 h-4 text-neon-orange" />
-                          </div>
+                          <Clock className="w-4 h-4 text-neon-orange flex-shrink-0 mt-0.5" />
                           <div>
                             <div className="text-white font-bold text-sm">18:00 – 19:30</div>
                             <div className="text-gray-400 text-sm">Piros övtől 3.dan-ig</div>
@@ -221,23 +218,17 @@ export default function Training() {
                   </div>
                 </div>
                 <div className="flex items-start gap-3 mb-4">
-                  <div className="flex-shrink-0 mt-0.5">
-                    <Clock className="w-4 h-4 text-emerald-500" />
-                  </div>
+                  <Clock className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
                   <div>
                     <div className="text-white font-bold text-sm">Kedd: 18:00 – 19:00-ig</div>
-                    <div className="text-emerald-500 text-xs font-bold mt-2">Havanna u. 3., 1181 Budapest</div>
                   </div>
                 </div>
-                <a
-                  href="https://www.openstreetmap.org/?q=Havanna+u.+3+Budapest"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-emerald-500 hover:text-emerald-400 text-xs font-bold transition-colors"
-                >
-                  <Map className="w-3.5 h-3.5" />
-                  Térkép
-                </a>
+                {/* ── KATTINTHATÓ HELYSZÍN KÁRTYA ── */}
+                <LocationCard
+                  address="Havanna u. 3., 1181 Budapest"
+                  mapUrl="https://www.openstreetmap.org/?q=Havanna+u.+3+Budapest"
+                  accentColor="emerald"
+                />
               </div>
               <div className="w-full lg:w-64 flex-shrink-0 bg-emerald-600/10 lg:border-l border-emerald-600/30">
                 <img
@@ -266,40 +257,21 @@ export default function Training() {
                 </div>
                 <div className="space-y-3 mb-6">
                   <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 mt-0.5">
-                      <Clock className="w-4 h-4 text-amber-500" />
-                    </div>
-                    <div>
-                      <div className="text-white font-bold text-sm">Kedd: 16:30 – 17:30-ig</div>
-                    </div>
+                    <Clock className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
+                    <div className="text-white font-bold text-sm">Kedd: 16:30 – 17:30-ig</div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 mt-0.5">
-                      <Clock className="w-4 h-4 text-amber-500" />
-                    </div>
-                    <div>
-                      <div className="text-white font-bold text-sm">Csütörtök: 16:30 – 17:30-ig</div>
-                    </div>
+                    <Clock className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
+                    <div className="text-white font-bold text-sm">Csütörtök: 16:30 – 17:30-ig</div>
                   </div>
                 </div>
-                <div className="bg-gray-800/50 rounded-xl p-4 border border-gray-700 mb-4">
-                  <div className="flex items-start gap-2">
-                    <MapPin className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
-                    <div>
-                      <p className="text-gray-300 text-sm font-bold">Kondor Béla Művelődési ház</p>
-                      <p className="text-gray-400 text-sm">Budapest, Kondor Béla stny. 8, 1181</p>
-                    </div>
-                  </div>
-                </div>
-                <a
-                  href="https://www.openstreetmap.org/?q=Kondor+B%C3%A9la+Művelődési+ház+Budapest"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-amber-500 hover:text-amber-400 text-xs font-bold transition-colors"
-                >
-                  <Map className="w-3.5 h-3.5" />
-                  Térkép
-                </a>
+                {/* ── KATTINTHATÓ HELYSZÍN KÁRTYA ── */}
+                <LocationCard
+                  name="Kondor Béla Művelődési ház"
+                  address="Budapest, Kondor Béla stny. 8, 1181"
+                  mapUrl="https://www.openstreetmap.org/?q=Kondor+B%C3%A9la+Művelődési+ház+Budapest"
+                  accentColor="amber"
+                />
               </div>
               <div className="w-full lg:w-64 flex-shrink-0 bg-amber-600/10 lg:border-l border-amber-600/30">
                 <img
@@ -347,14 +319,14 @@ export default function Training() {
             Az első edzés ingyenes! Gyere el és ismerd meg közösségünket. Minden korosztályt szeretettel várunk.
           </p>
           <div className="flex flex-wrap gap-4">
-            <a
+            
               href="mailto:tigrisek@gmail.com"
               className="inline-flex items-center gap-2 bg-neon-orange hover:bg-orange-600 text-black px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:scale-105 shadow-lg shadow-neon-orange/40"
             >
               <Mail className="w-5 h-5" />
               Jelentkezés emailben
             </a>
-            <a
+            
               href="tel:+36709415992"
               className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 border border-gray-700"
             >
