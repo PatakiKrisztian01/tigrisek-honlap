@@ -1,12 +1,12 @@
 import { Clock, MapPin, Users, Swords, Baby, Shield, Mail, Phone, Map } from 'lucide-react';
 
 const trainers = [
-  { name: 'Pataki Krisztián', rank: 'VI.dan', role: 'Klubvezető elnök' },
-  { name: 'Leiti Edmond', rank: 'IV.dan', role: '' },
-  { name: 'Patakiné Zs. Anikó', rank: 'III.dan', role: 'Klubvezető helyettes' },
-  { name: 'Kiss Viktor', rank: 'III.dan', role: '' },
-  { name: 'Höfliger Zsolt', rank: 'II.dan', role: '' },
-  { name: 'Kardos Zsolt', rank: 'II.dan', role: '' },
+  { name: 'Pataki Krisztián', rank: 'VI.dan', role: 'Klubvezető elnök', image: '/patakikrisztian.png' },
+  { name: 'Leiti Edmond', rank: 'IV.dan', role: '', image: '/leitiedmond.png' },
+  { name: 'Patakiné Zs. Anikó', rank: 'III.dan', role: 'Klubvezető helyettes', image: '/patakinezsaniko.png' },
+  { name: 'Kiss Viktor', rank: 'III.dan', role: '', image: '/kissviktor.png' },
+  { name: 'Höfliger Zsolt', rank: 'II.dan', role: '', image: '/hoflingerzsolt.png' },
+  { name: 'Kardos Zsolt', rank: 'II.dan', role: '', image: '/kardoszsolt.png' },
 ];
 
 const videoThumbnails = Array.from({ length: 11 }, (_, i) => {
@@ -45,19 +45,17 @@ export default function Training() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {trainers.map((t) => (
               <div key={t.name} className="bg-gray-900 border border-gray-800 rounded-2xl p-6 hover:border-neon-orange/50 transition-all duration-300">
-                <div className="flex items-start gap-3">
-                  {t.name === 'Pataki Krisztián' && (
-                    <img
-                      src="/PatakiKrisztian-removebg-preview.png"
-                      alt={t.name}
-                      className="w-10 h-10 object-cover rounded-lg flex-shrink-0"
-                    />
-                  )}
-                  <div className="flex-1">
-                    <h3 className="text-white font-bold text-lg">{t.name}</h3>
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-white font-bold text-lg truncate">{t.name}</h3>
                     <p className="text-neon-orange font-bold text-sm">{t.rank}</p>
                     {t.role && <p className="text-gray-500 text-xs mt-1">{t.role}</p>}
                   </div>
+                  <img
+                    src={t.image}
+                    alt={t.image.replace('/', '').replace('.png', '')}
+                    className="w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-xl flex-shrink-0 border border-gray-800"
+                  />
                 </div>
               </div>
             ))}
