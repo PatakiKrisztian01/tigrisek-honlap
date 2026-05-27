@@ -312,7 +312,8 @@ export default function Training() {
             >
               <Mail className="w-5 h-5" />
               Jelentkezés emailben
-            </a>            
+            </a>   
+          
               href="tel:+36709415992"
               className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 border border-gray-700"
             >
