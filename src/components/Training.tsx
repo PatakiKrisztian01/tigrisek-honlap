@@ -16,22 +16,9 @@ const videoThumbnails = Array.from({ length: 11 }, (_, i) => {
 
 // ── Újrafelhasználható helyszín kártya ──────────────────────────────────────
 function LocationCard({ name, address, mapUrl, accentColor = 'neon-orange' }) {
-  const borderColor = accentColor === 'emerald' ? 'border-emerald-600' : accentColor === 'amber' ? 'border-amber-500' : 'border-neon-orange';
-  const iconColor   = accentColor === 'emerald' ? 'text-emerald-500' : accentColor === 'amber' ? 'text-amber-500' : 'text-neon-orange';
-  const shadowColor = accentColor === 'emerald' ? 'shadow-emerald-600/40' : accentColor === 'amber' ? 'shadow-amber-500/40' : 'shadow-neon-orange/40';
-
+  const iconColor = accentColor === 'emerald' ? 'text-emerald-500' : accentColor === 'amber' ? 'text-amber-500' : 'text-neon-orange';
   return (
-    
-      href={mapUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`
-        group flex items-start gap-3 p-4 rounded-xl
-        bg-gray-800/50 border border-gray-700
-        hover:border-neon-orange hover:scale-[1.03] hover:shadow-lg hover:shadow-neon-orange/30
-        transition-all duration-200 cursor-pointer
-      `}
-    >
+    <a href={mapUrl} target="_blank" rel="noopener noreferrer" className="group flex items-start gap-3 p-4 rounded-xl bg-gray-800/50 border border-gray-700 hover:border-neon-orange hover:scale-[1.03] hover:shadow-lg hover:shadow-neon-orange/30 transition-all duration-200 cursor-pointer">
       <MapPin className={`w-4 h-4 ${iconColor} flex-shrink-0 mt-0.5 group-hover:text-neon-orange transition-colors`} />
       <div className="flex-1 min-w-0">
         {name && <p className="text-gray-300 text-sm font-bold">{name}</p>}
