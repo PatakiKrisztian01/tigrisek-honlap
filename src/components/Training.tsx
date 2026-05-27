@@ -97,7 +97,7 @@ export default function Training() {
             <div className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden">
               <div className="flex flex-col lg:flex-row h-full">
                 <div className="flex-1 p-6">
-                  <h3 className="text-gray-300 text-sm font-bold mb-1">Havanna u. 3.</h3>
+                  <h3 className="text-gray-300 text-sm font-bold mb-1">TigersGym</h3>
                   <p className="text-gray-500 text-xs mb-3">A bázis technikai edzések, csoportokra osztva:</p>
                   <div className="mb-6">
                     <LocationCard address="1181 Budapest, Havanna u. 3." mapUrl="https://www.openstreetmap.org/?q=Havanna+u.+3+Budapest" accentColor="neon-orange" />
@@ -166,7 +166,7 @@ export default function Training() {
                   </div>
                   <div>
                     <h2 className="text-2xl font-black text-white">Ingyenes önvédelmi edzések</h2>
-                    <p className="text-emerald-500 font-bold text-sm">18 éves kortól</p>
+                    <p className="text-emerald-500 font-bold text-sm">14 éves kortól</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 mb-4">
