@@ -15,7 +15,12 @@ const videoThumbnails = Array.from({ length: 11 }, (_, i) => {
 });
 
 // ── Újrafelhasználható helyszín kártya ──────────────────────────────────────
-function LocationCard({ name, address, mapUrl, accentColor = 'neon-orange' }) {
+function LocationCard({ name, address, mapUrl, accentColor = 'neon-orange' }: {
+  name?: string;
+  address: string;
+  mapUrl: string;
+  accentColor?: string;
+}) {
   const borderColor = accentColor === 'emerald' ? 'border-emerald-600' : accentColor === 'amber' ? 'border-amber-500' : 'border-neon-orange';
   const iconColor   = accentColor === 'emerald' ? 'text-emerald-500' : accentColor === 'amber' ? 'text-amber-500' : 'text-neon-orange';
   const shadowColor = accentColor === 'emerald' ? 'shadow-emerald-600/40' : accentColor === 'amber' ? 'shadow-amber-500/40' : 'shadow-neon-orange/40';
