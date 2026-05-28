@@ -1,4 +1,4 @@
-import { ArrowRight, Trophy, Users, Calendar, ChevronDown } from 'lucide-react';
+import { ArrowRight, Trophy, Users, Calendar, ChevronDown, Shield, Award, Heart } from 'lucide-react';
 import type { Section } from '../App';
 
 interface HeroProps {
@@ -33,78 +33,109 @@ const newsItems = [
 export default function Hero({ onNavigate }: HeroProps) {
   return (
     <div>
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.pexels.com/photos/8611419/pexels-photo-8611419.jpeg"
-            alt="Taekwondo"
-            className="w-full h-full object-cover object-center"
+      {/* Hero Section hangtalan háttérvideóval */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
+          {/* YouTube beágyazás: start=21, end=79 (1:19), loop, mute, autoplay */}
+          <iframe
+            className="w-full h-full scale-125 object-cover"
+            src="https://www.youtube.com/embed/hzzh0he36QA?autoplay=1&mute=1&loop=1&playlist=hzzh0he36QA&start=21&end=79&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1"
+            title="Budapesti Tigrisek Háttérvideó"
+            allow="autoplay; encrypted-media"
+            style={{ border: 'none', width: '100vw', height: '56.25vw', minHeight: '100vh', minWidth: '177.77vh', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%) scale(1.15)' }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black" />
+          {/* Halványító, sötétítő és lágy elmosó maszk a szövegek olvashatóságáért */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/50 to-gray-950 backdrop-blur-[2px]" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="flex items-center justify-center mb-8">
+          <div className="flex items-center justify-center mb-6">
             <img
               src="/tigrisátlátszó.png"
               alt="Tigrisek Logo"
-              className="h-32 sm:h-40 object-contain drop-shadow-2xl animate-bounce"
-              style={{ animation: 'bounce 3s ease-in-out infinite' }}
+              className="h-28 sm:h-36 object-contain drop-shadow-2xl"
+              style={{ animation: 'bounce 4s ease-in-out infinite' }}
             />
           </div>
-          <div className="inline-flex items-center gap-2 bg-neon-orange/10 border border-neon-orange/40 rounded-full px-4 py-2 mb-8">
+          <div className="inline-flex items-center gap-2 bg-neon-orange/10 border border-neon-orange/40 rounded-full px-4 py-2 mb-6">
             <span className="w-2 h-2 bg-neon-orange rounded-full animate-pulse" />
-            <span className="text-neon-orange text-sm font-medium tracking-wider uppercase">Budapest Tigers Taekwon-do Team</span>
+            <span className="text-neon-orange text-sm font-medium tracking-wider uppercase">Budapest Tigers SE</span>
           </div>
 
-          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black text-white mb-6 leading-none tracking-tight">
-            BUDAPESTI
-            <span className="block text-neon-orange">TIGRISEK SE</span>
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-white mb-4 leading-none tracking-tight uppercase">
+            Légy erősebb <br />
+            <span className="text-neon-orange">testben és lélekben</span>
           </h1>
 
-          {/* Új, összedolgozott, családias és motiváló bemutatkozó szöveg */}
-          <div className="text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed space-y-4">
-            <p className="font-bold text-white text-2xl">Fedezd fel a benned rejlő erőt!</p>
-            <p className="text-base sm:text-lg text-gray-400">
-              Nálunk a Taekwon-do nemcsak látványos önvédelem és küzdőszellem, <br />
-              hanem egy összetartó, családias közösség is 2002 óta. <br />
-              Hiszünk abban, hogy az edzőteremben megszerzett magabiztosság, tisztelet és fegyelem <br />
-              az élet minden területén sikeressé teszi a tanítványainkat. <br />
-              Támogató csapattal várunk minden korosztályt, a teljesen kezdőktől a fekete övesekig. <br />
-              Tartozz te is a Tigrisek családjához!<br />
-            </p>
+          <div className="text-lg sm:text-2xl text-gray-200 max-w-3xl mx-auto mb-10 font-medium leading-relaxed tracking-wide">
+            <p>ITF Taekwon-do és Kick-box edzések gyerekeknek és felnőtteknek,</p>
+            <p className="text-neon-orange font-bold text-base sm:text-lg uppercase mt-2 tracking-widest">kezdőtől fekete övig.</p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
             <button
               onClick={() => onNavigate('training')}
-              className="group flex items-center gap-2 bg-neon-orange hover:bg-orange-600 text-black px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:scale-105 shadow-lg shadow-neon-orange/40"
+              className="w-full sm:w-auto group flex items-center justify-center gap-2 bg-neon-orange hover:bg-orange-600 text-black px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:scale-105 shadow-lg shadow-neon-orange/40"
             >
               Jelentkezem az első ingyenes edzésre
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
             <button
-              onClick={() => onNavigate('taekwondo')}
-              className="flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 border border-neon-orange/30 hover:border-neon-orange"
+              onClick={() => {
+                document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gray-900/80 hover:bg-gray-800 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 border border-neon-orange/30 hover:border-neon-orange"
             >
-              Mi a Taekwon-do?
+              Rólunk
             </button>
           </div>
 
           <a
-            href="#stats"
+            href="#about"
             className="inline-flex flex-col items-center gap-2 text-gray-500 hover:text-neon-orange transition-colors cursor-pointer"
-            onClick={(e) => { e.preventDefault(); document.getElementById('stats')?.scrollIntoView({ behavior: 'smooth' }); }}
+            onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }}
           >
-            <span className="text-sm tracking-wider uppercase">Fedezd fel</span>
+            <span className="text-xs tracking-wider uppercase">Görgess lejjebb</span>
             <ChevronDown className="w-5 h-5 animate-bounce" />
           </a>
         </div>
       </section>
 
+      {/* Rólunk Blokk (A korábbi hero bemutatkozó szöveg áthelyezve ide) */}
+      <section id="about" className="py-24 bg-gray-950 relative overflow-hidden border-b border-gray-900">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <p className="text-neon-orange text-sm font-bold tracking-wider uppercase mb-2">Ismerj meg minket</p>
+          <h2 className="text-4xl font-black text-white mb-8 uppercase tracking-tight">Fedezd fel a benned rejlő erőt!</h2>
+          
+          <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-8 sm:p-12 backdrop-blur-sm">
+            <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto space-y-6">
+              Nálunk a Taekwon-do nemcsak látványos önvédelem és küzdőszellem, hanem egy összetartó, családias közösség is <span className="text-white font-bold">2002 óta</span>. 
+              <br /><br />
+              Hiszünk abban, hogy az edzőteremben megszerzett magabiztosság, tisztelet és fegyelem az élet minden területén sikeressé teszi a tanítványainkat. Támogató csapattal várunk minden korosztályt, a teljesen kezdőktől a fekete övesekig. 
+              <br /><br />
+              <span className="text-neon-orange font-bold text-xl block mt-4">Tartozz te is a Tigrisek családjához!</span>
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12 pt-8 border-t border-gray-800">
+              <div className="flex flex-col items-center gap-2">
+                <Shield className="w-6 h-6 text-neon-orange" />
+                <span className="text-white font-bold text-sm">Biztonságos környezet</span>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <Award className="w-6 h-6 text-neon-orange" />
+                <span className="text-white font-bold text-sm">Profi mesterek</span>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <Heart className="w-6 h-6 text-neon-orange" />
+                <span className="text-white font-bold text-sm">Családias közösség</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Stats */}
-      <section id="stats" className="bg-gray-950 border-y border-gray-800">
+      <section id="stats" className="bg-gray-950 border-b border-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((stat, i) => (
@@ -121,7 +152,7 @@ export default function Hero({ onNavigate }: HeroProps) {
       </section>
 
       {/* Latest News Preview */}
-      <section className="py-20">
+      <section className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-12">
             <div>
@@ -162,7 +193,7 @@ export default function Hero({ onNavigate }: HeroProps) {
       </section>
 
       {/* Quote */}
-      <section className="py-16 border-y border-gray-800 bg-gray-950">
+      <section className="py-16 border-y border-gray-900 bg-gray-950">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="text-5xl text-neon-orange/30 font-serif mb-4">"</div>
           <blockquote className="text-2xl sm:text-3xl font-light text-gray-300 leading-relaxed italic mb-6">
@@ -173,7 +204,7 @@ export default function Hero({ onNavigate }: HeroProps) {
       </section>
 
       {/* Club Leaders */}
-      <section className="py-20">
+      <section className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-neon-orange text-sm font-bold tracking-wider uppercase mb-2">Vezetőség</p>
@@ -192,7 +223,6 @@ export default function Hero({ onNavigate }: HeroProps) {
               <a href="tel:+36709415992" className="text-gray-400 hover:text-neon-orange text-sm transition-colors">+36-70-941-5992</a>
             </div>
             <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 text-center hover:border-neon-orange/50 transition-all duration-300">
-              {/* Kicserélve a helyőrző a feltöltött patakinezsaniko.png képre */}
               <img
                 src="/patakinezsaniko.png"
                 alt="Patakiné Zs. Anikó"
@@ -208,7 +238,7 @@ export default function Hero({ onNavigate }: HeroProps) {
       </section>
 
       {/* Tax 1% Banner */}
-      <section className="py-12 bg-neon-orange/5 border-y border-neon-orange/20">
+      <section className="py-12 bg-neon-orange/5 border-t border-gray-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h3 className="text-white font-black text-2xl mb-3">Ajánld fel adód 1%-át!</h3>
           <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
