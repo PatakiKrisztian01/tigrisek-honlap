@@ -1,4 +1,4 @@
-import { ArrowRight, Trophy, Users, Calendar, ChevronDown, Shield, Award, Heart } from 'lucide-react';
+import { ArrowRight, Trophy, Users, Calendar, Shield, Award, Heart } from 'lucide-react';
 import type { Section } from '../App';
 
 interface HeroProps {
@@ -33,43 +33,43 @@ const newsItems = [
 export default function Hero({ onNavigate }: HeroProps) {
   return (
     <div>
-      {/* Hero Section - Pontosan 480px magas, a menüsor alatt kezdődik */}
-      <section className="relative h-[480px] w-full flex items-center overflow-hidden bg-black">
-        {/* Háttérvideó konténer */}
-        <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
+      {/* Hero Section - A menüsor alatt kezdődik, pontosan 480px magas */}
+      <section className="relative h-[480px] w-full flex items-center overflow-hidden bg-black mt-[0px]">
+        
+        {/* Háttérvideó konténer - Kényszerített teljes kitöltés */}
+        <div className="absolute inset-0 w-full h-full pointer-events-none z-0 flex items-center justify-center overflow-hidden">
           <iframe
-            className="w-full h-full object-cover"
-            src="https://www.youtube.com/embed/hzzh0he36QA?autoplay=1&mute=1&loop=1&playlist=hzzh0he36QA&start=21&end=79&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1"
+            className="absolute w-[100vw] h-[56.25vw] min-h-[480px] min-w-[853px] object-cover pointer-events-none"
+            src="https://www.youtube.com/embed/hzzh0he36QA?autoplay=1&mute=1&loop=1&playlist=hzzh0he36QA&start=21&end=79&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1&enablejsapi=1"
             title="Budapesti Tigrisek Háttérvideó"
             allow="autoplay; encrypted-media"
             style={{ 
-              border: 'none', 
-              width: '100%', 
-              height: '100%',
-              objectFit: 'cover'
+              border: 'none',
+              transform: 'scale(1.35)', /* Kicsit ránagyítunk, hogy biztosan kitöltse a széleket szaggatás nélkül */
             }}
           />
-          {/* Csak sötétítés, semmi elmosás vagy halványítás */}
-          <div className="absolute inset-0 bg-black/40" />
+          
+          {/* ALUL-FELÜL SÖTÉTÍTŐ SZÍNÁTMENET: Fent tiszta fekete, lent tiszta fekete, középen áttetsző */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/30 to-gray-950" />
         </div>
 
         {/* Tartalom: Balra szöveg, Jobbra a logó */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
-            {/* BAL OLDAL: Hero szövegek és gombok */}
+            {/* BAL OLDAL: Szövegek és gombok */}
             <div className="lg:col-span-8 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 bg-neon-orange/10 border border-neon-orange/40 rounded-full px-4 py-1.5 mb-4">
                 <span className="w-2 h-2 bg-neon-orange rounded-full animate-pulse" />
                 <span className="text-neon-orange text-xs sm:text-sm font-semibold tracking-wider uppercase">Budapest Tigers SE</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-4 leading-tight uppercase tracking-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-4 leading-tight uppercase tracking-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">
                 Légy erősebb <br />
                 <span className="text-neon-orange">testben és lélekben</span>
               </h1>
 
-              <div className="text-base sm:text-xl text-gray-200 max-w-2xl mb-6 font-medium">
+              <div className="text-base sm:text-xl text-gray-200 max-w-2xl mb-6 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
                 <p>ITF Taekwon-do és Kick-box edzések gyerekeknek és felnőtteknek,</p>
                 <p className="text-neon-orange font-bold text-sm sm:text-base uppercase mt-1 tracking-widest">kezdőtől fekete övig.</p>
               </div>
@@ -96,7 +96,7 @@ export default function Hero({ onNavigate }: HeroProps) {
               <img
                 src="/tigrisátlátszó.png"
                 alt="Tigrisek Logo"
-                className="h-64 xl:h-72 object-contain drop-shadow-2xl"
+                className="h-64 xl:h-72 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
                 style={{ animation: 'bounce 4s ease-in-out infinite' }}
               />
             </div>
