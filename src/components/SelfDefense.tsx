@@ -6,7 +6,7 @@ export default function SelfDefense() {
       {/* Fejléc */}
       <div className="relative py-16 bg-gradient-to-b from-gray-900 to-black border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-amber-500 text-sm font-bold tracking-wider uppercase mb-2">Szakágunk</p>
+          <p className="text-amber-500 text-sm font-bold tracking-wider uppercase mb-2">A XVIII. kerületieknek ingyenes</p>
           <h1 className="text-5xl font-black text-white flex items-center gap-4">
             ÖNVÉDELEM <Shield className="w-10 h-10 text-amber-500 hidden sm:block" />
           </h1>
@@ -65,7 +65,7 @@ export default function SelfDefense() {
         <div className="space-y-6">
           <div className="bg-gray-900 border-2 border-neon-orange/40 rounded-2xl p-6 space-y-4 shadow-[0_0_15px_rgba(255,165,0,0.05)]">
             <div className="bg-neon-orange text-black font-black text-xs uppercase tracking-widest px-3 py-1 rounded-md inline-block">
-              Lakossági Program
+              Lakossági Program 14 éves kortól!
             </div>
             <h3 className="text-2xl font-black text-white">Edzések</h3>
             
