@@ -33,100 +33,104 @@ const newsItems = [
 export default function Hero({ onNavigate }: HeroProps) {
   return (
     <div>
-      {/* Hero Section hangtalan háttérvideóval */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden pt-20">
+      {/* Hero Section - Pontosan 480px magas, a menüsor alatt kezdődik */}
+      <section className="relative h-[480px] w-full flex items-center overflow-hidden bg-black">
+        {/* Háttérvideó konténer */}
         <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
-          {/* YouTube beágyazás: start=21, end=79 (1:19), loop, mute, autoplay */}
           <iframe
-            className="w-full h-full scale-125 object-cover"
-            src="https://www.youtube.com/embed/hzzh0he36QA?autoplay=1&mute=1&loop=1&playlist=hzzh0he36QA&start=21&end=79&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1"
+            className="w-full h-full object-cover"
+            src="https://www.youtube.com/embed/hzzh0he36QA?autoplay=1&mute=1&loop=1&playlist=hzzh0he36QA&start=21&end=79&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1"
             title="Budapesti Tigrisek Háttérvideó"
             allow="autoplay; encrypted-media"
-            style={{ border: 'none', width: '100vw', height: '56.25vw', minHeight: '100vh', minWidth: '177.77vh', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%) scale(1.15)' }}
+            style={{ 
+              border: 'none', 
+              width: '100%', 
+              height: '100%',
+              objectFit: 'cover'
+            }}
           />
-          {/* Halványító, sötétítő és lágy elmosó maszk a szövegek olvashatóságáért */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/50 to-gray-950 backdrop-blur-[2px]" />
+          {/* Csak sötétítés, semmi elmosás vagy halványítás */}
+          <div className="absolute inset-0 bg-black/40" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="flex items-center justify-center mb-6">
-            <img
-              src="/tigrisátlátszó.png"
-              alt="Tigrisek Logo"
-              className="h-28 sm:h-36 object-contain drop-shadow-2xl"
-              style={{ animation: 'bounce 4s ease-in-out infinite' }}
-            />
-          </div>
-          <div className="inline-flex items-center gap-2 bg-neon-orange/10 border border-neon-orange/40 rounded-full px-4 py-2 mb-6">
-            <span className="w-2 h-2 bg-neon-orange rounded-full animate-pulse" />
-            <span className="text-neon-orange text-sm font-medium tracking-wider uppercase">Budapest Tigers SE</span>
-          </div>
+        {/* Tartalom: Balra szöveg, Jobbra a logó */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            {/* BAL OLDAL: Hero szövegek és gombok */}
+            <div className="lg:col-span-8 text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 bg-neon-orange/10 border border-neon-orange/40 rounded-full px-4 py-1.5 mb-4">
+                <span className="w-2 h-2 bg-neon-orange rounded-full animate-pulse" />
+                <span className="text-neon-orange text-xs sm:text-sm font-semibold tracking-wider uppercase">Budapest Tigers SE</span>
+              </div>
 
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-white mb-4 leading-none tracking-tight uppercase">
-            Légy erősebb <br />
-            <span className="text-neon-orange">testben és lélekben</span>
-          </h1>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-4 leading-tight uppercase tracking-tight">
+                Légy erősebb <br />
+                <span className="text-neon-orange">testben és lélekben</span>
+              </h1>
 
-          <div className="text-lg sm:text-2xl text-gray-200 max-w-3xl mx-auto mb-10 font-medium leading-relaxed tracking-wide">
-            <p>ITF Taekwon-do és Kick-box edzések gyerekeknek és felnőtteknek,</p>
-            <p className="text-neon-orange font-bold text-base sm:text-lg uppercase mt-2 tracking-widest">kezdőtől fekete övig.</p>
+              <div className="text-base sm:text-xl text-gray-200 max-w-2xl mb-6 font-medium">
+                <p>ITF Taekwon-do és Kick-box edzések gyerekeknek és felnőtteknek,</p>
+                <p className="text-neon-orange font-bold text-sm sm:text-base uppercase mt-1 tracking-widest">kezdőtől fekete övig.</p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                <button
+                  onClick={() => onNavigate('training')}
+                  className="w-full sm:w-auto group flex items-center justify-center gap-2 bg-neon-orange hover:bg-orange-600 text-black px-6 py-3.5 rounded-xl font-bold text-base transition-all duration-200 hover:scale-105 shadow-lg shadow-neon-orange/30"
+                >
+                  Ingyenes első edzés
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+                <button
+                  onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gray-900/90 hover:bg-gray-800 text-white px-6 py-3.5 rounded-xl font-bold text-base transition-all duration-200 border border-neon-orange/20 hover:border-neon-orange"
+                >
+                  Rólunk
+                </button>
+              </div>
+            </div>
+
+            {/* JOBB OLDAL: Mozgó tigris logó */}
+            <div className="hidden lg:flex lg:col-span-4 justify-center lg:justify-end">
+              <img
+                src="/tigrisátlátszó.png"
+                alt="Tigrisek Logo"
+                className="h-64 xl:h-72 object-contain drop-shadow-2xl"
+                style={{ animation: 'bounce 4s ease-in-out infinite' }}
+              />
+            </div>
+
           </div>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <button
-              onClick={() => onNavigate('training')}
-              className="w-full sm:w-auto group flex items-center justify-center gap-2 bg-neon-orange hover:bg-orange-600 text-black px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:scale-105 shadow-lg shadow-neon-orange/40"
-            >
-              Jelentkezem az első ingyenes edzésre
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button
-              onClick={() => {
-                document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gray-900/80 hover:bg-gray-800 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 border border-neon-orange/30 hover:border-neon-orange"
-            >
-              Rólunk
-            </button>
-          </div>
-
-          <a
-            href="#about"
-            className="inline-flex flex-col items-center gap-2 text-gray-500 hover:text-neon-orange transition-colors cursor-pointer"
-            onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }}
-          >
-            <span className="text-xs tracking-wider uppercase">Görgess lejjebb</span>
-            <ChevronDown className="w-5 h-5 animate-bounce" />
-          </a>
         </div>
       </section>
 
-      {/* Rólunk Blokk (A korábbi hero bemutatkozó szöveg áthelyezve ide) */}
-      <section id="about" className="py-24 bg-gray-950 relative overflow-hidden border-b border-gray-900">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      {/* Rólunk Blokk (Közvetlenül a Hero alatt) */}
+      <section id="about" className="py-20 bg-gray-950 border-b border-gray-900">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-neon-orange text-sm font-bold tracking-wider uppercase mb-2">Ismerj meg minket</p>
-          <h2 className="text-4xl font-black text-white mb-8 uppercase tracking-tight">Fedezd fel a benned rejlő erőt!</h2>
+          <h2 className="text-3xl sm:text-4xl font-black text-white mb-8 uppercase tracking-tight">Fedezd fel a benned rejlő erőt!</h2>
           
-          <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-8 sm:p-12 backdrop-blur-sm">
-            <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto space-y-6">
+          <div className="bg-gray-900/40 border border-gray-800 rounded-2xl p-8 sm:p-12">
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto space-y-6">
               Nálunk a Taekwon-do nemcsak látványos önvédelem és küzdőszellem, hanem egy összetartó, családias közösség is <span className="text-white font-bold">2002 óta</span>. 
               <br /><br />
               Hiszünk abban, hogy az edzőteremben megszerzett magabiztosság, tisztelet és fegyelem az élet minden területén sikeressé teszi a tanítványainkat. Támogató csapattal várunk minden korosztályt, a teljesen kezdőktől a fekete övesekig. 
               <br /><br />
-              <span className="text-neon-orange font-bold text-xl block mt-4">Tartozz te is a Tigrisek családjához!</span>
+              <span className="text-neon-orange font-bold text-lg block mt-4">Tartozz te is a Tigrisek családjához!</span>
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12 pt-8 border-t border-gray-800">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-10 pt-8 border-t border-gray-800/60">
               <div className="flex flex-col items-center gap-2">
-                <Shield className="w-6 h-6 text-neon-orange" />
+                <Shield className="w-5 h-5 text-neon-orange" />
                 <span className="text-white font-bold text-sm">Biztonságos környezet</span>
               </div>
               <div className="flex flex-col items-center gap-2">
-                <Award className="w-6 h-6 text-neon-orange" />
+                <Award className="w-5 h-5 text-neon-orange" />
                 <span className="text-white font-bold text-sm">Profi mesterek</span>
               </div>
               <div className="flex flex-col items-center gap-2">
-                <Heart className="w-6 h-6 text-neon-orange" />
+                <Heart className="w-5 h-5 text-neon-orange" />
                 <span className="text-white font-bold text-sm">Családias közösség</span>
               </div>
             </div>
@@ -140,10 +144,10 @@ export default function Hero({ onNavigate }: HeroProps) {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((stat, i) => (
               <div key={i} className="text-center group">
-                <div className="inline-flex items-center justify-center w-14 h-14 bg-neon-orange/10 border border-neon-orange/30 rounded-xl mb-3 group-hover:bg-neon-orange/20 transition-colors">
-                  <stat.icon className="w-6 h-6 text-neon-orange" />
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-neon-orange/10 border border-neon-orange/30 rounded-xl mb-3 group-hover:bg-neon-orange/20 transition-colors">
+                  <stat.icon className="w-5 h-5 text-neon-orange" />
                 </div>
-                <div className="text-3xl font-black text-white mb-1">{stat.value}</div>
+                <div className="text-2xl font-black text-white mb-1">{stat.value}</div>
                 <div className="text-gray-500 text-sm font-medium">{stat.label}</div>
               </div>
             ))}
@@ -196,7 +200,7 @@ export default function Hero({ onNavigate }: HeroProps) {
       <section className="py-16 border-y border-gray-900 bg-gray-950">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="text-5xl text-neon-orange/30 font-serif mb-4">"</div>
-          <blockquote className="text-2xl sm:text-3xl font-light text-gray-300 leading-relaxed italic mb-6">
+          <blockquote className="text-xl sm:text-2xl font-light text-gray-300 leading-relaxed italic mb-6">
             A győzelemért az embernek tudnia kell mindenekelőtt önmagát legyőznie.
           </blockquote>
           <p className="text-gray-600 text-sm tracking-wider uppercase">— Choi Hong Hi, az ITF Taekwondo alapítója</p>
