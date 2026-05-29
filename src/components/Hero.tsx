@@ -211,7 +211,6 @@ export default function Hero({ onNavigate }: HeroProps) {
       <section className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="text-neon-orange text-sm font-bold tracking-wider uppercase mb-2">Vezetőség</p>
             <h2 className="text-4xl font-black text-white">Klubvezetők</h2>
           </div>
           <div className="grid sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
