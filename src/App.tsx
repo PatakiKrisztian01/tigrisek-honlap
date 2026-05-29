@@ -3,18 +3,29 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import News from './components/News';
 import Training from './components/Training';
-import Members from './components/Members';
 import Taekwondo from './components/Taekwondo';
+import OvisTkd from './components/OvisTkd'; // Új Ovis TKD komponens importálása
+import Kickbox from './components/Kickbox';
+import SelfDefense from './components/SelfDefense';
+import Members from './components/Members';
+import Calendar from './components/Calendar';
 import Oath from './components/Oath';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
-// Új aloldalak importálása
-import Kickbox from './components/Kickbox';
-import SelfDefense from './components/SelfDefense';
-import Calendar from './components/Calendar';
-
-export type Section = 'home' | 'news' | 'training' | 'members' | 'taekwondo' | 'oath' | 'contact' | 'kickbox' | 'selfdefense' | 'calendar';
+// A kért sorrend szerint rendezett szekció típusok
+export type Section = 
+  | 'home' 
+  | 'news' 
+  | 'training' 
+  | 'taekwondo' 
+  | 'ovistkd' // Új szekció típus
+  | 'kickbox' 
+  | 'selfdefense' 
+  | 'members' 
+  | 'calendar' 
+  | 'oath' 
+  | 'contact';
 
 function App() {
   const [activeSection, setActiveSection] = useState<Section>('home');
@@ -36,18 +47,22 @@ function App() {
       <Navbar activeSection={activeSection} onNavigate={navigate} scrolled={scrolled} />
       
       <main className="flex-grow">
+        {/* Főoldal */}
         {activeSection === 'home' && <Hero onNavigate={navigate} />}
+        
+        {/* Aloldalak a kért új sorrendben */}
         {activeSection === 'news' && <News />}
         {activeSection === 'training' && <Training />}
-        {activeSection === 'members' && <Members />}
         {activeSection === 'taekwondo' && <Taekwondo />}
-        {activeSection === 'oath' && <Oath />}
-        {activeSection === 'contact' && <Contact />}
-        
-        {/* Új szakaszok renderelése */}
+        {activeSection === 'ovistkd' && <OvisTkd onNavigate={navigate} />} {/* Új szakasz renderelése */}
         {activeSection === 'kickbox' && <Kickbox onNavigate={navigate} />}
         {activeSection === 'selfdefense' && <SelfDefense />}
+        {activeSection === 'members' && <Members />}
         {activeSection === 'calendar' && <Calendar />}
+        
+        {/* Egyéb kiegészítő oldalak */}
+        {activeSection === 'oath' && <Oath />}
+        {activeSection === 'contact' && <Contact />}
       </main>
 
       <Footer onNavigate={navigate} />
