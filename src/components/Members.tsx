@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, ExternalLink, Download } from 'lucide-react';
 
 type Belt = {
   rank: string;
@@ -83,7 +83,7 @@ const belts: Belt[] = [
   {
     rank: '6.gup',
     rankEn: 'Zöld öv',
-    members: ['Bihari Gábor', 'Csáki István', 'Epres Péter', 'Ferencz Orsolya', 'Gondás Lionel Martin', 'Kopsa Alexander', 'Pataki Aida', 'Sidlo Ádám', 'Ványi Nimród'],
+    members: ['Bihari Gábor', 'Csáki István', 'Epres Péter', 'Ferencz Orsolya', 'Gondás Lionel Martin', 'Kupi Alina', 'Kopsa Alexander', 'Pataki Aida', 'Sidlo Ádám', 'Ványi Nimród'],
   },
   {
     rank: '7.gup',
@@ -117,7 +117,6 @@ function BeltRow({ belt }: { belt: Belt }) {
   let customClasses = 'hover:border-gray-700';
 
   if (isBlackBelt) {
-    // Tiszta mélyfekete háttér, neon UV narancs keret + finom izzás, hoverre lebegés és erősebb fény
     beltBg = 'bg-black';
     embroideryColor = 'text-amber-400 font-extrabold tracking-wider';
     borderColor = 'border-neon-orange/60';
@@ -151,7 +150,6 @@ function BeltRow({ belt }: { belt: Belt }) {
       >
         <div className="flex items-center justify-between flex-1 pr-4">
           <div className="flex items-center gap-6">
-            {/* HA FEKETE ÖV: Kép jelenik meg, HA SZÍNES ÖV: Marad a számozott gup felirat */}
             {isBlackBelt ? (
               <img 
                 src="/himzes1.png" 
@@ -194,7 +192,6 @@ function BeltRow({ belt }: { belt: Belt }) {
             ))}
           </div>
           
-          {/* Eredmények */}
           {belt.results && belt.results.length > 0 && (
             <div className="mt-6 border-t border-gray-900 pt-4 space-y-4">
               {belt.results.map((r) => (
@@ -233,13 +230,34 @@ export default function Members() {
         {/* Important docs */}
         <div className="bg-amber-950/20 border border-amber-900/40 rounded-2xl p-6 mb-12">
           <h3 className="text-amber-400 font-bold text-lg mb-4">Tagoknak — Fontos tudnivalók</h3>
-          <ul className="space-y-3 text-gray-300 text-sm">
+          <ul className="space-y-4 text-gray-300 text-sm">
             <li className="flex items-start gap-3">
               <span className="text-amber-500 flex-shrink-0 mt-0.5">1.</span>
-              <span>
-                <strong className="text-white">Sportorvosi vizsgálat</strong> — Gyerekeknek fél évente, felnőtteknek évente kötelező.
-                Előre kell időpontot foglalni az OSEI-nél.
-              </span>
+              <div className="space-y-2">
+                <span>
+                  <strong className="text-white">Sportorvosi vizsgálat</strong> — Gyerekeknek fél évente, felnőtteknek évente kötelező.
+                </span>
+                <div className="flex flex-wrap gap-3 pt-1">
+                  <a 
+                    href="https://online.osei.hu/bejelentkezes" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="inline-flex items-center gap-1.5 text-xs text-neon-orange hover:text-orange-400 font-bold underline transition-colors"
+                  >
+                    <span>OSEI online időpontfoglalás</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                  <a 
+                    href="https://osei.hu/images/stories/osei/Sportoli-krdv-20260310-szerkeszthet-.pdf" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="inline-flex items-center gap-1.5 text-xs text-amber-400 hover:text-amber-300 font-bold underline transition-colors"
+                  >
+                    <span>Letöltendő kérdőív vizsgálathoz (PDF)</span>
+                    <Download className="w-3 h-3" />
+                  </a>
+                </div>
+              </div>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-amber-500 flex-shrink-0 mt-0.5">2.</span>
