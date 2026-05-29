@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { dictionary, counting } from '../data/dictionary';
 
-type TabId = 'overview' | 'history' | 'techniques' | 'belts' | 'forms' | 'founder' | 'oath' | 'dictionary' | 'rules';
+type TabId = 'overview' | 'history' | 'techniques' | 'belts' | 'forms' | 'founder' | 'oath' | 'dictionary' | 'rules' | 'theoryapp';
 
 const tabs: { id: TabId; label: string }[] = [
   { id: 'overview', label: 'Áttekintés' },
@@ -13,6 +13,7 @@ const tabs: { id: TabId; label: string }[] = [
   { id: 'oath', label: 'Eskü' },
   { id: 'dictionary', label: 'Szótár' },
   { id: 'rules', label: 'Szabályok' },
+  { id: 'theoryapp', label: 'Elmélet App' }, // Új lapfül
 ];
 
 // A 2 előkészítő gyakorlat és a 24 hivatalos ITF tull pontos sorrendben
@@ -45,7 +46,7 @@ const formsData = [
   { num: 21, name: 'Moon-Moo', movements: 61, type: 'official', meaning: 'Munmu király tiszteletére, aki i.sz. 661-ben lépett a trónra és véglegesen egyesítette a királyságokat. Testét a tengerben temették el, hogy halála után is sárkányként védje Koreát.' },
   { num: 22, name: 'So-San', movements: 72, type: 'official', meaning: 'Choi Hyun Ung buddhista szerzetes (1520–1604) álneve. A 72 mozdulat az életkorára utal, amikor szerzetes társaival segített visszaverni a japán kalózok és katonák támadását.' },
   { num: 23, name: 'Se-Jong', movements: 24, type: 'official', meaning: 'A valaha élt legnagyobb koreai királyról, Se-Jong-ról kapta a nevét, aki 1443-ban feltalálta a koreai ábécét (Hangul). A 24 mozdulat a Hangul ábécé 24 betűjére utal.' },
-  { num: 24, name: 'Tong-Il', movements: 56, type: 'official', meaning: 'Korea újraegyesítésének (Tong-Il) szent szimbóluma, amely 1945 óta megosztott. A diagram egy egyenes vonal, ami a homogén koreai nép egységét jelképezi.' }
+  { num: 24, name: 'Tong-Il', movements: 56, type: 'official', meaning: 'Korea újraegyesítésének (Tong-Il) szent szimbóluma, amely 1945 óta megosztott. A diagram egy egyennes vonal, ami a homogén koreai nép egységét jelképezi.' }
 ];
 
 export default function Taekwondo() {
@@ -86,7 +87,7 @@ export default function Taekwondo() {
             </blockquote>
             <div className="space-y-5 text-gray-300 leading-relaxed">
               <p>
-                A taekwon-do több mint 2000 éves múltra visszatekintő koreai eredetű harcművészet, mely napjainkra az egyik legismertebb és legnépszerűbb modern küzdősporttá fejlődött, és amely őrzi a harcművészetek legnemesebb hagyományait, a harci tudományok szellemét, és gondoskodik ezek életben tartásáról.
+                A taekwon-do több mint 2000 éves múltra visszatekintő koreai eredetű harcművészet, mely napjainkra az egyik legismertebb és legnépszerűbb modern küzdősporttá fejlődött, és amely őrzi a harcművészetek legnemesebb hagyományait, a harci tudományok szellemét, and gondoskodik ezek életben tartásáról.
               </p>
               <p>
                 A taekwon-do kifejezés három szóképből áll: a "tae" rúgást, a lábtechnikák összességét jelenti, a "kwon" a kéztechnikák összefoglaló neve, a "do" jelentése út, művészet. Szabadon fordítva: a lábbal és kézzel küzdés művészete. Ez az elnevezés több szempontból is jó választásnak bizonyult. Egyrészt hasonlít az ősi taek kyon elnevezéshez, így bizonyos szempontból folytonosságot jelez a régi és az új stílus között, másrészt, pedig híven fejezi ki a sportág jellemzőit.
@@ -220,7 +221,7 @@ export default function Taekwondo() {
           </div>
         )}
 
-        {/* Forms - JAVÍTOTT SORREND + ELŐKÉSZÍTŐK + YOUTUBE LINK */}
+        {/* Forms */}
         {activeTab === 'forms' && (
           <div>
             <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 mb-6">
@@ -235,11 +236,9 @@ export default function Taekwondo() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {formsData.map((form) => {
-                // Biztonságos YouTube keresési link generálása
                 const youtubeSearchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(`ITF Taekwondo ${form.name} tull`)}`;
-                // Kép elérésének kiszámítása (az előkészítőknek egyedi kép vagy p1/p2 lehet, itt az egyszerűség kedvéért ha előkészítő akkor fix kép, ha hivatalos akkor a száma)
                 const imageSrc = form.type === 'preparatory' 
-                  ? `https://tigrisek.hu/images/formagyak/p1.jpg` // Előkészítőknek alapértelmezett kezdő kép
+                  ? `https://tigrisek.hu/images/formagyak/p1.jpg` 
                   : `https://tigrisek.hu/images/formagyak/p${form.num}.jpg`;
 
                 return (
@@ -475,7 +474,7 @@ export default function Taekwondo() {
                   1. Belépéskor a tagok kijelentik, hogy semmilyen általuk ismert testi, vagy szervi elváltozásban nem szenvednek. A taekwon-dosok egészségi állapotuk és fizikai teher-bíró képességük ismeretében, saját felelősségükre vesznek részt az edzéseken, bemutatókon edzőtáborokon, vizsgákon és a versenyeken! A rendszeres sportorvosi vizsgálatra eljárnak.
                 </p>
                 <p>
-                  2. A tagok továbbá kijelentik, hogy korábban büntetve nem voltak. Taekwon-do tudásukat kívülálló személyeknek nem adhatják át (csak az edző engedélyével)! A tagok kijelentik, hogy megszerzett Taekwon-do tudásukkal semmilyen körülmények között nem élnek vissza!
+                  2. A tagok továbbá kijelentik, hogy korábban büntetve nem voltak. Taekwon-do tudásukat kívülálló személyeknek nem adhatják át (csak az edző engedélyével)! A tagok kijelentik, hogy megszerzett Taekwon-do tudásukmal semmilyen körülmények között nem élnek vissza!
                 </p>
               </div>
             </div>
@@ -534,7 +533,44 @@ export default function Taekwondo() {
             </div>
           </div>
         )}
-      </div>
-    </div>
-  );
-}
+
+        {/* Theory App Lapfül Tartalma */}
+        {activeTab === 'theoryapp' && (
+          <div className="space-y-6 animate-fadeIn">
+            {/* Fő Kártya */}
+            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8 relative overflow-hidden group">
+              <div className="absolute -right-10 -top-10 w-40 h-40 bg-neon-orange/10 blur-3xl rounded-full group-hover:bg-neon-orange/20 transition-colors duration-500" />
+              
+              <div className="flex flex-col lg:flex-row gap-8 items-center relative z-10">
+                {/* Mobil Telefon Ikon */}
+                <div className="shrink-0">
+                  <div className="w-24 h-24 bg-black border-2 border-neon-orange rounded-2xl flex items-center justify-center shadow-[0_0_20px_rgba(255,165,0,0.2)]">
+                    <svg className="w-10 h-10 text-neon-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                      <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
+                      <path d="M12 18h.01" />
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Szöveges rész */}
+                <div className="flex-grow text-center lg:text-left space-y-3">
+                  <div className="inline-flex items-center gap-1.5 bg-black/50 border border-gray-800 rounded-full px-3 py-1 mb-2">
+                    <svg className="w-3.5 h-3.5 text-neon-orange fill-neon-orange" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                    <span className="text-gray-300 text-xs font-bold uppercase tracking-wider">Edzői Ajánlás</span>
+                  </div>
+                  
+                  <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+                    Taekwon-Do <span className="text-neon-orange">Theory</span> Alkalmazás
+                  </h2>
+                  
+                  <p className="text-gray-400 text-sm sm:text-base leading-relaxed max-w-2xl">
+                    Készülj fel az övvizsgák elméleti kérdéseire interaktívan! Edzéseinken is előszeretettel használjuk és ajánljuk ezt az Android alkalmazást, amely rendszerezetten tartalmazza az ITF Taekwon-do teljes elméleti hátterét, koreai kifejezéseit és formagyakorlatait.
+                  </p>
+                </div>
+
+                {/* Letöltés Gomb */}
+                <div className="shrink-0 w-full lg:w-auto">
+                  <a 
+                    href="
