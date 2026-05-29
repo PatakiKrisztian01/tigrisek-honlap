@@ -93,6 +93,9 @@ export default function Taekwondo() {
                 A taekwon-do kifejezés három szóképből áll: a "tae" rúgást, a lábtechnikák összességét jelenti, a "kwon" a kéztechnikák összefoglaló neve, a "do" jelentése út, művészet. Szabadon fordítva: a lábbal és kézzel küzdés művészete. Ez az elnevezés több szempontból is jó választásnak bizonyult. Egyrészt hasonlít az ősi taek kyon elnevezéshez, így bizonyos szempontból folytonosságot jelez a régi és az új stílus között, másrészt, pedig híven fejezi ki a sportág jellemzőit.
               </p>
               <p>
+               Más megközelítésben a Taekwon-do tudomány, vagyis a test tudományos alkalmazása a harcművészetben. Az ember, aki az anatómia, biomechanika és fizika törvényszerűségeinek ismeretében, testének intenzív edzése során képes elérni a benne rejlő lehetőségek maximumát! De ne feledjük, pusztán a technikák gyakorlása (legyen az bármilyen magasszintű sporttevékenység) még senkit sem tesz harcművésszé. Ez csak a megfelelő lelki töltéssel és szellemi felkészültséggel párosulva, vele szoros egységet alkotva éri el végső célját.
+              </p>
+              <p>
                 A taekwon-do azonban nem csak egyszerűen ütés és rúgás, nemcsak önvédelmi rendszer vagy küzdősport, hanem ennél sokkal több. A koreaiak megközelítésében életút, életforma, mely célja, hogy a taekwon-do gyakorlása révén harmonikusan fejlődjék a szellem, a lélek és a test.
               </p>
             </div>
@@ -153,7 +156,7 @@ export default function Taekwondo() {
         {/* Techniques */}
         {activeTab === 'techniques' && (
           <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
-            <h2 className="text-2xl font-black text-white mb-6">Technikák</h2>
+            <h2 className="text-2xl font-black text-white mb-6">Mozgásanyagok</h2>
             <div className="space-y-6">
               <div>
                 <h3 className="text-white font-bold text-lg mb-3">1. Bázis technika</h3>
