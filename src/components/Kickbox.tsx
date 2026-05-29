@@ -31,7 +31,7 @@ export default function Kickbox({ onNavigate }: KickboxProps) {
         {/* Hero szöveg */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center h-full" style={{ minHeight: '560px' }}>
           <p className="text-neon-orange text-sm font-bold tracking-wider uppercase mb-3">Szakosztályunk</p>
-          <h1 className="text-5xl sm:text-7xl font-black text-white leading-none mb-6 flex items-center gap-4">
+          <h1 className="text-4xl sm:text-5xl font-black text-white leading-tight mb-6">
             KICK-BOX<br />
             <span className="text-neon-orange">FORMAGYAKORLAT</span>
           </h1>
@@ -55,8 +55,6 @@ export default function Kickbox({ onNavigate }: KickboxProps) {
         </div>
       </div>
 
-      {/* Fejléc eltávolítva — hero váltja ki */}
-
       {/* ── FŐ TARTALOM ── */}
       <div id="kickbox-content" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid lg:grid-cols-3 gap-12">
@@ -72,7 +70,7 @@ export default function Kickbox({ onNavigate }: KickboxProps) {
                 Képzeld el a harcművészetek eleganciáját és a küzdőszportok erejét egyetlen, előre megkoreografált mozdulatsorban! A kick-box formagyakorlatban a versenyzők valós ellenfél nélkül mutatnak be ütések, rúgások, védések és egyéb technikák sorozatát, pont úgy, mintha egy harcban lennének.
               </p>
               <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
-                Ez egy nemzetközileg elismert versenyszám a WAKO (World Association of Kickboxing Organizations) keretein belül, komoly szabályrendszerre és magas szintű követelményekkel. A cél nem az ellenfél legyőzése, hanem a technika, az erő, a sebesség, a ritmus és az összhang tökéletes bemutatása. A zsűri ezeket az elemeket értékeli a legapróbb részletekig.
+                Ez egy nemzetközileg elismert versenyszám a WAKO (World Association of Kickboxing Organizations) keretein belül, komoly szabályrendszerre és magas szintű követelményekkel. A цель nem az ellenfél legyőzése, hanem a technika, az erő, a sebesség, a ritmus és az összhang tökéletes bemutatása. A zsűri ezeket az elemeket értékeli a legapróbb részletekig.
               </p>
             </section>
 
@@ -102,29 +100,41 @@ export default function Kickbox({ onNavigate }: KickboxProps) {
               </div>
             </section>
 
-            <section className="space-y-4">
-              <h2 className="text-2xl font-black text-white flex items-center gap-2 border-b border-gray-800 pb-3 uppercase tracking-tight">
-                <Music className="w-6 h-6 text-neon-orange" /> Kategóriák a WAKO-ban
-              </h2>
-              <p className="text-gray-400 text-sm">A formagyakorlatok sokszínűek, és mindenki megtalálhatja a számára megfelelőt:</p>
-              <div className="grid sm:grid-cols-2 gap-4 text-sm">
-                <div className="bg-gray-900/30 border border-gray-800 p-4 rounded-lg">
-                  <span className="text-white font-bold block mb-1">Hard Style (kemény stílus)</span>
-                  <span className="text-gray-400 text-xs">Hagyományos, erőteljes és robbanékony mozdulatok jellemzik.</span>
-                </div>
-                <div className="bg-gray-900/30 border border-gray-800 p-4 rounded-lg">
-                  <span className="text-white font-bold block mb-1">Hard Style Weapons</span>
-                  <span className="text-gray-400 text-xs">Hagyományos fegyverek (pl. bot, kard) látványos és kontrollált használata.</span>
-                </div>
-                <div className="bg-gray-900/30 border border-gray-800 p-4 rounded-lg">
-                  <span className="text-white font-bold block mb-1">Zenés formagyakorlat</span>
-                  <span className="text-gray-400 text-xs">Zenére történő bemutató, ahol a mozdulatok és a zene ritmusa, hangulata tökéletes összhangban van.</span>
-                </div>
-                <div className="bg-gray-900/30 border border-gray-800 p-4 rounded-lg flex items-center">
-                  <span className="text-white font-bold">Zenés fegyveres formagyakorlat</span>
-                </div>
+            {/* WAKO Kategóriák kép és szekció */}
+            <div className="space-y-4">
+              {/* Beépített kép a kategóriák fölé */}
+              <div className="w-full rounded-2xl overflow-hidden border border-gray-850 shadow-md">
+                <img 
+                  src="wako.jpg" 
+                  alt="WAKO Kategóriák" 
+                  className="w-full h-auto object-cover max-h-72"
+                />
               </div>
-            </section>
+
+              <section className="space-y-4">
+                <h2 className="text-2xl font-black text-white flex items-center gap-2 border-b border-gray-800 pb-3 uppercase tracking-tight">
+                  <Music className="w-6 h-6 text-neon-orange" /> Kategóriák a WAKO-ban
+                </h2>
+                <p className="text-gray-400 text-sm">A formagyakorlatok sokszínűek, és mindenki megtalálhatja a számára megfelelőt:</p>
+                <div className="grid sm:grid-cols-2 gap-4 text-sm">
+                  <div className="bg-gray-900/30 border border-gray-800 p-4 rounded-lg">
+                    <span className="text-white font-bold block mb-1">Hard Style (kemény stílus)</span>
+                    <span className="text-gray-400 text-xs">Hagyományos, erőteljes és robbanékony mozdulatok jellemzik.</span>
+                  </div>
+                  <div className="bg-gray-900/30 border border-gray-800 p-4 rounded-lg">
+                    <span className="text-white font-bold block mb-1">Hard Style Weapons</span>
+                    <span className="text-gray-400 text-xs">Hagyományos fegyverek (pl. bot, kard) látványos és kontrollált használata.</span>
+                  </div>
+                  <div className="bg-gray-900/30 border border-gray-800 p-4 rounded-lg">
+                    <span className="text-white font-bold block mb-1">Zenés formagyakorlat</span>
+                    <span className="text-gray-400 text-xs">Zenére történő bemutató, ahol a mozdulatok és a zene ritmusa, hangulata tökéletes összhangban van.</span>
+                  </div>
+                  <div className="bg-gray-900/30 border border-gray-800 p-4 rounded-lg flex items-center">
+                    <span className="text-white font-bold">Zenés fegyveres formagyakorlat</span>
+                  </div>
+                </div>
+              </section>
+            </div>
           </div>
 
           <div className="space-y-6">
