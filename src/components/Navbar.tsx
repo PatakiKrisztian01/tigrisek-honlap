@@ -8,15 +8,17 @@ interface NavbarProps {
   scrolled: boolean;
 }
 
+// A kért pontos sorrend szerint átrendezett és kibővített menüpontok
 const navItems: { label: string; section: Section }[] = [
   { label: 'Főoldal', section: 'home' },
   { label: 'Hírek', section: 'news' },
   { label: 'Edzések', section: 'training' },
+  { label: 'Taekwon-do', section: 'taekwondo' },
+  { label: 'Ovis TKD', section: 'ovistkd' }, // Új menüpont jó helyre beszúrva
   { label: 'Kick-box', section: 'kickbox' },
   { label: 'Önvédelem', section: 'selfdefense' },
-  { label: 'Eseménynaptár', section: 'calendar' },
   { label: 'Tagok', section: 'members' },
-  { label: 'Taekwon-do', section: 'taekwondo' },
+  { label: 'Eseménynaptár', section: 'calendar' },
   { label: 'Kapcsolat', section: 'contact' },
 ];
 
@@ -53,12 +55,13 @@ export default function Navbar({ activeSection, onNavigate, scrolled }: NavbarPr
             </div>
           </button>
 
+          {/* Asztali nézet menüsor - most már dinamikusan az új sorrendben jelenik meg */}
           <nav className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
               <button
                 key={item.section}
                 onClick={() => handleNav(item.section)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                   activeSection === item.section
                     ? 'bg-neon-orange text-black font-bold'
                     : 'text-gray-400 hover:text-white hover:bg-gray-900'
@@ -79,6 +82,7 @@ export default function Navbar({ activeSection, onNavigate, scrolled }: NavbarPr
         </div>
       </div>
 
+      {/* Mobilnézet menüsor */}
       {menuOpen && (
         <div className="lg:hidden border-t border-gray-800 bg-black/98 backdrop-blur-md">
           <div className="max-w-7xl mx-auto px-4 py-3 space-y-1">
