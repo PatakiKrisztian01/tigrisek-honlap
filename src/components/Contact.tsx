@@ -1,6 +1,35 @@
-import { Mail, Phone, ExternalLink } from 'lucide-react';
+import { useState } from 'react';
+import { Mail, Phone, ExternalLink, CheckCircle, Loader2 } from 'lucide-react';
 
 export default function Contact() {
+  // Állapotkezelés: 'idle' (alap), 'submitting' (küldés alatt), 'success' (sikeres)
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('submitting');
+
+    try {
+      // Bekötve a saját Formspree azonosítód
+      const response = await fetch('https://formspree.io/f/xwvzzebv', {
+        method: 'POST',
+        body: new FormData(e.currentTarget),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        setStatus('success');
+      } else {
+        setStatus('idle');
+        alert('Sajnos hiba történt a küldés során. Kérjük, próbáld újra!');
+      }
+    } catch (error) {
+      console.error("Hálózati hiba:", error);
+      setStatus('idle');
+      alert('Hálózati hiba történt. Kérjük, ellenőrizd az internetkapcsolatod!');
+    }
+  };
+
   return (
     <div className="min-h-screen pt-20">
       {/* Page Header */}
@@ -79,7 +108,7 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Social / Federation Links */}
+            {/* Szövetségek */}
             <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6">
               <h3 className="text-white font-bold mb-4">Szövetségek</h3>
               <div className="space-y-3">
@@ -103,59 +132,90 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Contact Form */}
+          {/* Contact Form Kártya */}
           <div>
             <h2 className="text-2xl font-black text-white mb-6">Küldj üzenetet</h2>
-            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  window.location.href = 'mailto:tigrisek@gmail.com';
-                }}
-                className="space-y-5"
-              >
-                <div>
-                  <label className="block text-gray-300 text-sm font-bold mb-2">Neved</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Teljes név"
-                    className="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-neon-orange transition-colors text-sm"
-                  />
+            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8 min-h-[400px] flex flex-col justify-center">
+              
+              {status === 'success' ? (
+                /* Sikeres küldés képernyő */
+                <div className="text-center space-y-4 py-8">
+                  <div className="flex justify-center">
+                    <CheckCircle className="w-16 h-16 text-neon-orange" />
+                  </div>
+                  <h3 className="text-xl font-black text-white uppercase tracking-wide">Üzenet elküldve!</h3>
+                  <p className="text-gray-400 text-sm max-w-xs mx-auto leading-relaxed">
+                    Köszönjük! Az üzeneted sikeresen beérkezett hozzánk. Hamarosan válaszolunk a megadott e-mail címedre.
+                  </p>
+                  <button
+                    onClick={() => setStatus('idle')}
+                    className="mt-4 inline-flex bg-gray-800 hover:bg-gray-750 text-white px-5 py-2.5 rounded-xl text-xs font-bold transition-all border border-gray-700"
+                  >
+                    Új üzenet küldése
+                  </button>
                 </div>
-                <div>
-                  <label className="block text-gray-300 text-sm font-bold mb-2">Email cím</label>
-                  <input
-                    type="email"
-                    required
-                    placeholder="neved@email.hu"
-                    className="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-neon-orange transition-colors text-sm"
-                  />
-                </div>
-                <div>
-                  <label className="block text-gray-300 text-sm font-bold mb-2">Tárgy</label>
-                  <input
-                    type="text"
-                    placeholder="Miben segíthetünk?"
-                    className="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-neon-orange transition-colors text-sm"
-                  />
-                </div>
-                <div>
-                  <label className="block text-gray-300 text-sm font-bold mb-2">Üzenet</label>
-                  <textarea
-                    required
-                    rows={5}
-                    placeholder="Üzeneted..."
-                    className="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-neon-orange transition-colors text-sm resize-none"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-neon-orange hover:bg-orange-600 text-black py-3.5 rounded-xl font-bold transition-all duration-200 hover:scale-[1.02] shadow-lg shadow-neon-orange/40"
-                >
-                  Küldés emailben
-                </button>
-              </form>
+              ) : (
+                /* Az űrlap */
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div>
+                    <label className="block text-gray-300 text-sm font-bold mb-2">Neved</label>
+                    <input
+                      type="text"
+                      name="Név"
+                      required
+                      disabled={status === 'submitting'}
+                      placeholder="Teljes név"
+                      className="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-neon-orange transition-colors text-sm disabled:opacity-50"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-gray-300 text-sm font-bold mb-2">Email cím</label>
+                    <input
+                      type="email"
+                      name="Email"
+                      required
+                      disabled={status === 'submitting'}
+                      placeholder="neved@gmail.com"
+                      className="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-neon-orange transition-colors text-sm disabled:opacity-50"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-gray-300 text-sm font-bold mb-2">Tárgy</label>
+                    <input
+                      type="text"
+                      name="Tárgy"
+                      disabled={status === 'submitting'}
+                      placeholder="Miben segíthetünk?"
+                      className="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-neon-orange transition-colors text-sm disabled:opacity-50"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-gray-300 text-sm font-bold mb-2">Üzenet</label>
+                    <textarea
+                      name="Üzenet"
+                      required
+                      rows={5}
+                      disabled={status === 'submitting'}
+                      placeholder="Üzeneted..."
+                      className="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-neon-orange transition-colors text-sm resize-none disabled:opacity-50"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={status === 'submitting'}
+                    className="w-full bg-neon-orange hover:bg-orange-600 text-black py-3.5 rounded-xl font-black text-sm uppercase tracking-wider transition-all duration-200 hover:scale-[1.01] shadow-lg shadow-neon-orange/40 flex items-center justify-center gap-2 disabled:opacity-70 disabled:hover:scale-100"
+                  >
+                    {status === 'submitting' ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        Küldés folyamatban...
+                      </>
+                    ) : (
+                      'Üzenet küldése'
+                    )}
+                  </button>
+                </form>
+              )}
             </div>
 
             {/* Tax info */}
