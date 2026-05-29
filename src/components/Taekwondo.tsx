@@ -4,8 +4,8 @@ import { dictionary, counting } from '../data/dictionary';
 type TabId = 'overview' | 'history' | 'techniques' | 'belts' | 'forms' | 'founder' | 'oath' | 'dictionary' | 'rules' | 'theoryapp';
 
 const tabs: { id: TabId; label: string }[] = [
-  { id: 'overview', label: 'Áttekintés' },
-  { id: 'techniques', label: 'Technikák' },
+  { id: 'overview', label: 'A Taekwon-do' },
+  { id: 'techniques', label: 'Mozgásanyagok' },
   { id: 'belts', label: 'Övszínek' },
   { id: 'forms', label: 'Formagyakorlatok' },
   { id: 'history', label: 'Történelem' },
@@ -156,7 +156,7 @@ export default function Taekwondo() {
         {/* Techniques */}
         {activeTab === 'techniques' && (
           <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
-            <h2 className="text-2xl font-black text-white mb-6">Mozgásanyagok</h2>
+            <h2 className="text-2xl font-black text-white mb-6">A Taekwon-do mozgásanyagai</h2>
             <div className="space-y-6">
               <div>
                 <h3 className="text-white font-bold text-lg mb-3">1. Bázis technika</h3>
