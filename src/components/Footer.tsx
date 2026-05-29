@@ -8,13 +8,15 @@ const links: { label: string; section: Section }[] = [
   { label: 'Főoldal', section: 'home' },
   { label: 'Hírek', section: 'news' },
   { label: 'Edzések', section: 'training' },
+  { label: 'Taekwon-do', section: 'taekwondo' },
+  { label: 'Ovis Taekwon-do', section: 'ovistkd' },
   { label: 'Kick-box', section: 'kickbox' },
   { label: 'Önvédelem', section: 'selfdefense' },
   { label: 'Eseménynaptár', section: 'calendar' },
   { label: 'Tagok', section: 'members' },
-  { label: 'Taekwon-do', section: 'taekwondo' },
   { label: 'Eskü és Tanai', section: 'oath' },
   { label: 'Kapcsolat', section: 'contact' },
+  { label: 'Adatvédelem', section: 'privacy' },
 ];
 
 export default function Footer({ onNavigate }: FooterProps) {
@@ -49,7 +51,7 @@ export default function Footer({ onNavigate }: FooterProps) {
           {/* Navigation */}
           <div>
             <h4 className="text-gray-300 font-bold text-sm uppercase tracking-wider mb-4">Oldalak</h4>
-            <ul className="space-y-2">
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
               {links.map((link) => (
                 <li key={link.section}>
                   <button
@@ -100,9 +102,17 @@ export default function Footer({ onNavigate }: FooterProps) {
           <p className="text-gray-700 text-xs">
             &copy; {new Date().getFullYear()} Budapesti Tigrisek SE. Minden jog fenntartva.
           </p>
-          <p className="text-gray-800 text-xs">
-            ITF Taekwon-do &mdash; Budapest, Hungary
-          </p>
+          <div className="flex items-center gap-4">
+            <button 
+              onClick={() => onNavigate('privacy')}
+              className="text-gray-700 hover:text-gray-400 text-xs transition-colors"
+            >
+              Adatvédelmi Tájékoztató
+            </button>
+            <p className="text-gray-800 text-xs">
+              ITF Taekwon-do &mdash; Budapest, Hungary
+            </p>
+          </div>
         </div>
       </div>
     </footer>
