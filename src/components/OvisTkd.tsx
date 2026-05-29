@@ -7,24 +7,37 @@ interface OvisTkdProps {
 
 export default function OvisTkd({ onNavigate }: OvisTkdProps) {
   return (
-    <div className="bg-black text-gray-100 min-h-screen pt-24 pb-16">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Cím és Mini Hero */}
-        <div className="text-center lg:text-left mb-12 border-b border-gray-900 pb-8">
-          <div className="inline-flex items-center gap-2 bg-neon-orange/10 border border-neon-orange/40 rounded-full px-4 py-1.5 mb-4">
+    <div className="bg-black text-gray-100 min-h-screen pt-20 pb-16">
+      
+      {/* HERO SZEKCIÓ KÉPPEL (Alul-felül sötétítve, teljes szélességben) */}
+      <div className="relative h-[250px] sm:h-[350px] w-full flex items-center overflow-hidden border-b border-gray-900 mb-12">
+        {/* Háttérkép */}
+        <img 
+          src="/645785912_26451474827824040_4934349288100951462_n.jpg" 
+          alt="Ovis Taekwon-do" 
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        {/* Gradiens sötétítés (fentről lefelé és lentről felfelé) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/40 to-black" />
+
+        {/* Hero tartalom */}
+        <div className="relative max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 text-center lg:text-left z-10">
+          <div className="inline-flex items-center gap-2 bg-neon-orange/20 border border-neon-orange/50 backdrop-blur-sm rounded-full px-4 py-1.5 mb-4">
             <span className="w-2 h-2 bg-neon-orange rounded-full animate-pulse" />
             <span className="text-neon-orange text-xs sm:text-sm font-semibold tracking-wider uppercase">Budapest Tigers SE</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-black text-white uppercase tracking-tight">
+          <h1 className="text-4xl sm:text-6xl font-black text-white uppercase tracking-tight drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">
             Ovis <span className="text-neon-orange">Taekwon-do</span>
           </h1>
         </div>
+      </div>
 
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         {/* Fő elrendezés: Balra a szövegek, Jobbra az infó blokk */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
-          {/* BAL OLDAL - A te szöveged pontosan */}
+          {/* BAL OLDAL - Tartalom blokkok */}
           <div className="lg:col-span-8 space-y-10">
             
             {/* Miért van szükség a sportra */}
@@ -33,7 +46,7 @@ export default function OvisTkd({ onNavigate }: OvisTkdProps) {
                 MIÉRT VAN SZÜKSÉG A SPORTRA?
               </h2>
               <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
-                Sajnos napjainkban felnőttek és gyerekek egyaránt kevesebbet mozognak, mint amennyire szükségük lenne. A mozgáshiány pedig testünket, lelkünket egyaránt megviseli. Még gondos étkezés mellett is gyakori jelenség az elhízás, egyre nehezebb még a kisebb erőfeszítések végrehajtása is. A gyermekeknek szinte minden nap kell sportolniuk, mozogniuk. A kisiskolásoknál közvetlenül kimutatható a tanulás eredményessége, és a rendszeres aktív testmozgás közötti kapcsolat. Például az írástanulással összefüggésbe hozható a gyermekek iskoláskor előtti testnevelése, mert az írás kötött testhelyzetet igényel, aminek fenntartásához megfelelő izmok fejlettsége szükséges.
+                Sajnos napjainkban felnőttek és gyerkőcök egyaránt kevesebbet mozognak, mint amennyire szükségük lenne. A mozgáshiány pedig testünket, lelkünket egyaránt megviseli. Még gondos étkezés mellett is gyakori jelenség az elhízás, egyre nehezebb még a kisebb erőfeszítések végrehajtása is. A gyermekeknek szinte minden nap kell sportolniuk, mozogniuk. A kisiskolásoknál közvetlenül kimutatható a tanulás eredményessége, és a rendszeres aktív testmozgás közötti kapcsolat. Például az írástanulással összefüggésbe hozható a gyermekek iskoláskor előtti testnevelése, mert az írás kötött testhelyzetet igényel, aminek fenntartásához megfelelő izmok fejlettsége szükséges.
               </p>
             </div>
 
@@ -127,6 +140,7 @@ export default function OvisTkd({ onNavigate }: OvisTkdProps) {
                 <div>
                   <h4 className="text-xs font-bold text-gray-500 uppercase tracking-wider">Helyszín</h4>
                   <p className="text-white font-bold text-sm mt-1">Kondor Béla Művelődési ház</p>
+                  <p className="text-gray-400 text-xs mt-0.5">Kondor Béla sétány 8.</p>
                 </div>
               </div>
 
