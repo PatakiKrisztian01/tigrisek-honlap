@@ -573,7 +573,7 @@ export default function Taekwondo() {
                 {/* Letöltés Gomb */}
                 <div className="shrink-0 w-full lg:w-auto">
                   <a 
-                    href="https://play.google.com/store/apps/details?id=ITFTaekwondo.Theory"
+                    href="https://play.google.com/store/apps/details?id=info.vladalas.taekwondotheory"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-3 bg-neon-orange hover:bg-orange-600 text-black px-6 py-4 rounded-xl font-bold transition-all duration-300 shadow-lg shadow-neon-orange/20 w-full whitespace-nowrap"
