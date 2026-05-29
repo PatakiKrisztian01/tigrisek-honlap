@@ -14,9 +14,9 @@ const belts = [
   { rank: '5.gup', rankEn: 'Zöld öv — Kék csík', members: ['Balázs Olivér', 'Baltovics Beáta', 'Fekete Lilien', 'Ferencz Botond', 'Fülöp Zoltán', 'Gervai Tamás', 'Kovács Lehel', 'Lovas Ádám', 'Patkós Gábor', 'Szepesi Henriett', 'Szőnyi Csilla', 'Varga Ádám Zsolt', 'Virág József'] },
   { rank: '6.gup', rankEn: 'Zöld öv', members: ['Bihari Gábor', 'Csáki István', 'Epres Péter', 'Ferencz Orsolya', 'Gondás Lionel Martin', 'Kupi Alina', 'Kopsa Alexander', 'Pataki Aida', 'Sidlo Ádám', 'Ványi Nimród'] },
   { rank: '7.gup', rankEn: 'Sárga öv — Zöld csík', members: ['Antalicz Viktória', 'Fehérvári Zoltán', 'Gárdonyi Bálint', 'Gazsi Gergő', 'Gervai Bence', 'Horváth Bálint', 'Horváth Zsolt', 'Kovarik Zsombor', 'Néveri Béla', 'Néveri Dávid', 'Pécsi Benedek', 'Pécsi József', 'Pécsi-Kincses Regina', 'Pintér Mold Illés', 'Somodi Márk'] },
-  { rank: '8.gup', rankEn: 'Sárga öv', members: ['Babák Piroska', 'Cserni Miranda', 'Gazdagh Boglárka','Gazsi Gábor', 'Hajdú Zalán', 'Mireisz Kornél Tibor', 'Pintér Levente', 'Somodi Viktor', 'Vajler Ádám', 'Veron-Nagy Gergő'] },
-  { rank: '9.gup', rankEn: 'Fehér öv — Sárga csík', members: ['Baka Lia', 'Dobos Roland', 'Gárdonyi Ágoston', 'Gránicz Mónika', 'Hu Linhao Alan', 'Hu Limbo Bower', 'Kerekes Viktor', 'Moravek Sámuel Zolán', 'Nijhuis Philip', 'Simon Attila', 'Spitz Benedek', 'Szabó Levente', 'Szép-Magyar Izabella', 'Varga Richárd Norman'] },
-  { rank: '10.gup', rankEn: 'Fehér öv', members: ['Gazdag Dániel', 'Kenéz Milán', 'Kőhegyi Vitold', 'Laapotti Petra', 'Mészáros Bence', 'Mireisz Kornél', 'Varga Vende', 'Vágány Benedek'] },
+  { rank: '8.gup', rankEn: 'Sárga öv', members: ['Babák Piroska', 'Gazsi Gábor', 'Hajdú Zalán', 'Mireisz Kornél Tibor', 'Somodi Viktor', 'Vajler Ádám'] },
+  { rank: '9.gup', rankEn: 'Fehér öv — Sárga csík', members: ['Baka Lia', 'Dobos Roland', 'Gárdonyi Ágoston', 'Gránicz Mónika', 'Kerekes Viktor', 'Nijhuis Philip', 'Simon Attila', 'Spitz Benedek', 'Szabó Levente', 'Szép-Magyar Izabella', 'Varga Richárd Norman', 'Veron-Nagy Gergő'] },
+  { rank: '10.gup', rankEn: 'Fehér öv', members: ['Gazdag Dániel', 'Kenéz Milán', 'Kőhegyi Vitold', 'Laapotti Petra', 'Mészáros Bence', 'Mireisz Kornél'] },
 ];
 
 function BeltRow({ belt }: { belt: any }) {
@@ -61,6 +61,8 @@ function BeltRow({ belt }: { belt: any }) {
 export default function Members() {
   return (
     <div className="min-h-screen bg-black text-gray-100 pt-20">
+      
+      {/* HERO SZEKCIÓ */}
       <div className="relative h-[300px] w-full flex items-center overflow-hidden border-b border-gray-800">
         <img src="/tigrisek.jpg" alt="Budapest Tigers SE Csapat" className="absolute inset-0 w-full h-full object-cover object-center" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-black/80" />
@@ -71,16 +73,27 @@ export default function Members() {
       </div>
 
       <div className="max-w-4xl mx-auto px-4 py-16">
+        {/* Important docs - visszakerült a linkekkel */}
         <div className="bg-amber-950/20 border border-amber-900/40 rounded-2xl p-6 mb-12">
-          <h3 className="text-amber-400 font-bold mb-4">Tagoknak — Fontos tudnivalók</h3>
+          <h3 className="text-amber-400 font-bold text-lg mb-4">Tagoknak — Fontos tudnivalók</h3>
           <ul className="space-y-4 text-gray-300 text-sm">
             <li className="flex items-start gap-3">
-              <span className="text-amber-500">1.</span>
-              <span><strong>Sportorvosi vizsgálat</strong> — Gyerekeknek fél évente, felnőtteknek évente kötelező.</span>
+              <span className="text-amber-500 flex-shrink-0 mt-0.5">1.</span>
+              <div className="space-y-2">
+                <span><strong className="text-white">Sportorvosi vizsgálat</strong> — Gyerekeknek fél évente, felnőtteknek évente kötelező.</span>
+                <div className="flex flex-wrap gap-3 pt-1">
+                  <a href="https://online.osei.hu/bejelentkezes" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-neon-orange hover:text-orange-400 font-bold underline transition-colors">
+                    <span>OSEI online időpontfoglalás</span> <ExternalLink className="w-3 h-3" />
+                  </a>
+                  <a href="https://osei.hu/images/stories/osei/Sportoli-krdv-20260310-szerkeszthet-.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-amber-400 hover:text-amber-300 font-bold underline transition-colors">
+                    <span>Letöltendő kérdőív vizsgálathoz (PDF)</span> <Download className="w-3 h-3" />
+                  </a>
+                </div>
+              </div>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-amber-500">2.</span>
-              <span><strong>Fejvédő</strong> — Versenyeken kötelező, edzéseken erősen ajánlott.</span>
+              <span className="text-amber-500 flex-shrink-0 mt-0.5">2.</span>
+              <span><strong className="text-white">Fejvédő</strong> — Versenyeken kötelező, edzéseken erősen ajánlott. Versenyzőknek mindkét színből (piros és kék) kell legyen!</span>
             </li>
           </ul>
         </div>
