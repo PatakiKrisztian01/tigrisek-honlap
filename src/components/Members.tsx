@@ -1,16 +1,9 @@
 import { useState } from 'react';
 import { ChevronDown, ChevronUp, ExternalLink, Download } from 'lucide-react';
 
-// A teljes, általad megadott adatsor
 const belts = [
-  {
-    rank: '6.Dan', rankEn: 'Fekete öv — VI. Dan', members: ['Pataki Krisztián'],
-    results: [{ name: 'Pataki Krisztián', achievements: ['2008 Lengyelország EB – tradicionális küzdelem: 1. hely', '2007 Quebec Világbajnokság – tradicionális küzdelem: 3. hely', '2007 Szeged OB – formagyakorlat: 1. hely', '2007 Szeged OB – tradicionális küzdelem: 1. hely', '2006 Constanca EB – formagyakorlat: 3. hely'] }]
-  },
-  {
-    rank: '4.Dan', rankEn: 'Fekete öv — IV. Dan', members: ['Leiti Edmond'],
-    results: [{ name: 'Leiti Edmond', achievements: ['2006 Hatvan Európa Kupa – küzdelem -63kg: 1. hely', '2005 Budapest OB – küzdelem -63kg: 3. hely'] }]
-  },
+  { rank: '6.Dan', rankEn: 'Fekete öv — VI. Dan', members: ['Pataki Krisztián'], results: [{ name: 'Pataki Krisztián', achievements: ['2008 Lengyelország EB – tradicionális küzdelem: 1. hely', '2007 Quebec Világbajnokság – tradicionális küzdelem: 3. hely', '2007 Szeged OB – formagyakorlat: 1. hely', '2007 Szeged OB – tradicionális küzdelem: 1. hely', '2006 Constanca EB – formagyakorlat: 3. hely'] }] },
+  { rank: '4.Dan', rankEn: 'Fekete öv — IV. Dan', members: ['Leiti Edmond'], results: [{ name: 'Leiti Edmond', achievements: ['2006 Hatvan Európa Kupa – küzdelem -63kg: 1. hely', '2005 Budapest OB – küzdelem -63kg: 3. hely'] }] },
   { rank: '3.Dan', rankEn: 'Fekete öv — III. Dan', members: ['Kiss Viktor', 'Patakiné Zs. Anikó'] },
   { rank: '2.Dan', rankEn: 'Fekete öv — II. Dan', members: ['Almási Zsolt', 'Csáki Máté', 'Dányi Leonetta', 'Höflinger Zsolt', 'Jakab Norbert', 'Kardos Zsolt', 'Kökény Bence', 'Schäfer Péter', 'Takács Ágnes'] },
   { rank: '1.Dan', rankEn: 'Fekete öv — I. Dan', members: ['Fodor Andrea', 'Horváth Gergő', 'Králik Csaba', 'Mireisz Tibor', 'Nagy Varga Bence', 'Nagy Varga Csenge', 'Nas Levente', 'Orha Noémi', 'Papp Alexandra', 'Simon Gábor', 'Solymosi Hanna Zoé', 'Tar Balázs', 'Vajler Éva'] },
@@ -21,9 +14,9 @@ const belts = [
   { rank: '5.gup', rankEn: 'Zöld öv — Kék csík', members: ['Balázs Olivér', 'Baltovics Beáta', 'Fekete Lilien', 'Ferencz Botond', 'Fülöp Zoltán', 'Gervai Tamás', 'Kovács Lehel', 'Lovas Ádám', 'Patkós Gábor', 'Szepesi Henriett', 'Szőnyi Csilla', 'Varga Ádám Zsolt', 'Virág József'] },
   { rank: '6.gup', rankEn: 'Zöld öv', members: ['Bihari Gábor', 'Csáki István', 'Epres Péter', 'Ferencz Orsolya', 'Gondás Lionel Martin', 'Kupi Alina', 'Kopsa Alexander', 'Pataki Aida', 'Sidlo Ádám', 'Ványi Nimród'] },
   { rank: '7.gup', rankEn: 'Sárga öv — Zöld csík', members: ['Antalicz Viktória', 'Fehérvári Zoltán', 'Gárdonyi Bálint', 'Gazsi Gergő', 'Gervai Bence', 'Horváth Bálint', 'Horváth Zsolt', 'Kovarik Zsombor', 'Néveri Béla', 'Néveri Dávid', 'Pécsi Benedek', 'Pécsi József', 'Pécsi-Kincses Regina', 'Pintér Mold Illés', 'Somodi Márk'] },
-  { rank: '8.gup', rankEn: 'Sárga öv', members: ['Babák Piroska', 'Gazsi Gábor', 'Hajdú Zalán', 'Mireisz Kornél Tibor', 'Somodi Viktor', 'Vajler Ádám'] },
-  { rank: '9.gup', rankEn: 'Fehér öv — Sárga csík', members: ['Baka Lia', 'Dobos Roland', 'Gárdonyi Ágoston', 'Gránicz Mónika', 'Kerekes Viktor', 'Nijhuis Philip', 'Simon Attila', 'Spitz Benedek', 'Szabó Levente', 'Szép-Magyar Izabella', 'Varga Richárd Norman', 'Veron-Nagy Gergő'] },
-  { rank: '10.gup', rankEn: 'Fehér öv', members: ['Gazdag Dániel', 'Kenéz Milán', 'Kőhegyi Vitold', 'Laapotti Petra', 'Mészáros Bence', 'Mireisz Kornél'] },
+  { rank: '8.gup', rankEn: 'Sárga öv', members: ['Babák Piroska', 'Cserni Miranda', 'Gazdagh Boglárka','Gazsi Gábor', 'Hajdú Zalán', 'Mireisz Kornél Tibor', 'Pintér Levente', 'Somodi Viktor', 'Vajler Ádám', 'Veron-Nagy Gergő'] },
+  { rank: '9.gup', rankEn: 'Fehér öv — Sárga csík', members: ['Baka Lia', 'Dobos Roland', 'Gárdonyi Ágoston', 'Gránicz Mónika', 'Hu Linhao Alan', 'Hu Limbo Bower', 'Kerekes Viktor', 'Moravek Sámuel Zolán', 'Nijhuis Philip', 'Simon Attila', 'Spitz Benedek', 'Szabó Levente', 'Szép-Magyar Izabella', 'Varga Richárd Norman'] },
+  { rank: '10.gup', rankEn: 'Fehér öv', members: ['Gazdag Dániel', 'Kenéz Milán', 'Kőhegyi Vitold', 'Laapotti Petra', 'Mészáros Bence', 'Mireisz Kornél', 'Varga Vende', 'Vágány Benedek'] },
 ];
 
 function BeltRow({ belt }: { belt: any }) {
@@ -67,10 +60,10 @@ function BeltRow({ belt }: { belt: any }) {
 
 export default function Members() {
   return (
-    <div className="min-h-screen bg-black text-gray-100">
+    <div className="min-h-screen bg-black text-gray-100 pt-20">
       <div className="relative h-[300px] w-full flex items-center overflow-hidden border-b border-gray-800">
         <img src="/tigrisek.jpg" alt="Budapest Tigers SE Csapat" className="absolute inset-0 w-full h-full object-cover object-center" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-black/80" />
         <div className="relative max-w-7xl mx-auto px-4 w-full">
           <p className="text-neon-orange text-sm font-bold uppercase mb-2">Csapatunk</p>
           <h1 className="text-5xl font-black text-white uppercase">Tagok</h1>
