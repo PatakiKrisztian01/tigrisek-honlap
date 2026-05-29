@@ -573,4 +573,55 @@ export default function Taekwondo() {
                 {/* Letöltés Gomb */}
                 <div className="shrink-0 w-full lg:w-auto">
                   <a 
-                    href="
+                    href="https://play.google.com/store/apps/details?id=ITFTaekwondo.Theory"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-3 bg-neon-orange hover:bg-orange-600 text-black px-6 py-4 rounded-xl font-bold transition-all duration-300 shadow-lg shadow-neon-orange/20 w-full whitespace-nowrap"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" x2="12" y1="15" y2="3" />
+                    </svg>
+                    Letöltés Androidra
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Részletes Funkciók Kártya */}
+            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+              <h3 className="text-white font-bold text-lg mb-6">Miben segít az applikáció az edzéseken kívül?</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+                <div className="bg-black/40 border border-gray-850 p-5 rounded-xl space-y-2">
+                  <h4 className="text-neon-orange font-bold text-base flex items-center gap-2">
+                    <span>📖</span> Övvizsga Anyagok
+                  </h4>
+                  <p className="text-gray-400 leading-relaxed">
+                    Szintekre bontott kérdés-felelet adatbázis, ami segít lépésről lépésre memorizálni a vizsgakövetelményeket.
+                  </p>
+                </div>
+                <div className="bg-black/40 border border-gray-850 p-5 rounded-xl space-y-2">
+                  <h4 className="text-neon-orange font-bold text-base flex items-center gap-2">
+                    <span>🥋</span> Tull-ok Jelentése
+                  </h4>
+                  <p className="text-gray-400 leading-relaxed">
+                    A 24 formagyakorlat pontos történelmi háttere, mozdulatszámai és diagramjai azonnal kéznél vannak a zsebedben.
+                  </p>
+                </div>
+                <div className="bg-black/40 border border-gray-850 p-5 rounded-xl space-y-2">
+                  <h4 className="text-neon-orange font-bold text-base flex items-center gap-2">
+                    <span>🗣️</span> Koreai Szakszavak
+                  </h4>
+                  <p className="text-gray-400 leading-relaxed">
+                    A teremben használt vezényszavak, rúgások, ütések és állások koreai elnevezéseinek pontos gyűjteménye.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
