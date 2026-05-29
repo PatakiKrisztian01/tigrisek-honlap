@@ -382,24 +382,90 @@ export default function Taekwondo() {
           </div>
         )}
 
-        {/* Oath */}
-        {activeTab === 'oath' && (
-          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
-            <h2 className="text-2xl font-black text-white mb-6">Eskü</h2>
-            <p className="text-gray-400 mb-6">Az edzések elején és versenyeken a taekwon-do-sok a következő esküt mondják:</p>
-            <div className="space-y-3 mb-8">
-              {[
-                'Betartom a Taekwon-do alapelveit.',
-                'Tisztelem az instruktort és idősebb tagjait.',
-                'Soha nem élek vissza a Taekwon-dóval.',
-                'Igazságos és becsületes emberi életet élek.',
-                'Taekwon-dót egy erőteljesebb, békésebb világ érdekében gyakorlom.',
-              ].map((point, i) => (
-                <p key={i} className="text-gray-300"><span className="text-neon-orange font-bold">{i + 1}.</span> {point}</p>
-              ))}
-            </div>
+       {/* Oath & Tenets */}
+{activeTab === 'oath' && (
+  <div className="space-y-12">
+    {/* Eskü Szekció */}
+    <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
+      <h2 className="text-2xl font-black text-white mb-2 uppercase tracking-wide">Taekwondo eskü</h2>
+      <p className="text-gray-400 mb-6 text-sm">Az edzések elején és versenyeken a taekwon-do-sok a következő esküt mondják:</p>
+      
+      <div className="space-y-3.5">
+        {[
+          'A Taekwondo tanításainak mindenkor eleget teszek!',
+          'Tiszteletet adok mesteremnek és valamennyi társamnak!',
+          'Soha nem élek vissza Taekwondo tudásommal!',
+          'Ha kell, segítek a bajbajutottakon!',
+          'Minden erőmmel a békét építem!',
+        ].map((point, i) => (
+          <div key={i} className="flex items-start gap-3 bg-black/40 border border-gray-800/60 rounded-xl p-3.5 hover:border-neon-orange/20 transition-colors">
+            <span className="text-neon-orange font-mono font-black text-lg leading-none">{i + 1}.</span>
+            <p className="text-gray-250 text-sm sm:text-base font-medium">{point}</p>
           </div>
-        )}
+        ))}
+      </div>
+    </div>
+
+    {/* Tanai Szekció */}
+    <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
+      <div className="mb-8">
+        <p className="text-neon-orange text-xs font-bold tracking-widest uppercase mb-1">Taekwon-do Jungshin</p>
+        <h2 className="text-3xl font-black text-white uppercase tracking-wide">Taekwon-do Tanai</h2>
+      </div>
+
+      {/* Az 5 Alapelv részletes leírása */}
+      <div className="space-y-8">
+        {[
+          {
+            title: 'Udvariasság',
+            korean: 'Ye Ui',
+            text: 'A mesterek felé köszönésként mindenhol és mindenkor meghajlás kötelező! A taekwondosok előzékenyen és udvariasan viselkedjenek mindenkivel szemben. Vitás helyzeteknél alkalmazzák a kölcsönös engedmény alapelvét. Ne legyenek önzőek vagy irigyek, tudjanak örülni társaik örömének is. A közös érdekeket mindig helyezzék az egyéni szempontok elé! Tegyenek különbséget mester és tanítvány vagy rangidős és kezdő között. A magasabb fokozatúakban becsüljék a nagyobb tudást, szakmai tapasztalatot s tartsák be feléjük a kötelező tiszteletadás szabályait. Csak azok várjanak el tiszteletet és megbecsülést, akik ehhez méltóan viselkednek, és akik maguk is képesek arra, hogy tiszteljenek másokat. A tiszteletadással visszaélni szigorúan tilos!'
+          },
+          {
+            title: 'Becsületesség',
+            korean: 'Yom Chi',
+            text: 'A Taekwon-dos tartsa be adott szavát, és ígéretét soha ne szegje meg. Bármilyen egyéni sikereket ér el az életben, soha ne feledkezzék meg azokról, akikkel együtt kezdett és segítették, és akiknek ezért a belé fektetett munkáért nagyon sokat köszönhet. A taekwondos soha semmilyen körülmények között se hazudjon! Legyen hűséges hazájához, a Taekwondohoz, mesteréhez és sporttársaihoz. Minden esetben maradjon szerény, nyílt és természetes. Igyekezzen a Taekwondo érdekeit a saját érdekei elé helyezni. A taekwondos ne felejtse el, hogy mindenkor és minden helyzetben a Taekwondot képviseli. Viselkedésével a kívülálló képet kap a Taekwondoról.'
+          },
+          {
+            title: 'Állhatatosság',
+            korean: 'In Nae',
+            text: '"A türelem megismeréshez és boldoguláshoz vezet." Csak akinek van megfelelő kitartása, az remélheti, hogy vágyai egyszer teljesülni fognak. A taekwondos legyen türelmes, ne hajszolja az övfokozatokat, várja ki a kötelező várakozási időket, és minden alkalmat ragadjon meg saját elméleti és gyakorlati tudásának gyarapítására. Rendszeresen járjon edzésre, mert a hébe-hóba lejáró tanítványról senki sem hiszi el, hogy egyszer fekete öves mester akar lenni. Csak az járjon edzésre, aki örömmel teszi azt.'
+          },
+          {
+            title: 'Önuralom',
+            korean: 'Guk Gi',
+            text: 'A sportbeli ellenfeleken kívül a mindennapok nehézségeit és akadályait is le kell küzdeni, amire csak az lesz képes, aki nagyfokú önuralommal és önfegyelemmel rendelkezik. A taekwondos soha ne elégedjen meg önmagával, ugyanakkor önfegyelemmel viselje a kudarc és a siker élményét.'
+          },
+          {
+            title: 'Rettenthetetlen küzdőszellem',
+            korean: 'Baekjul Boolgool',
+            text: 'A Taekwon-dos legyen bátor és elszánt. Ne keresse a veszélyt, de ne is hátráljon meg előle. Ha igazságtalansággal találkozik, szálljon síkra a gyengébb védelmében. Amennyiben pedig harcra kerülne a sor, függetlenül az ellenfél erejétől, félelem és tétovázás nélkül álljon helyt. A taekwondosnak a küzdelemben mindent el kell követnie szabályos keretek között a győzelem érdekében. Az életben ne keresse a veszélyt, ne kezdeményezzen verekedést. Ha vele szemben kezdeményeznek, akkor próbálja meg elkerülni azt. Ha harcra kerül a sor, akkor viszont ne hátráljon meg. Ha igazságtalansággal találkozik, szálljon szembe a gyengébb védelmében.'
+          }
+        ].map((tenet, idx) => (
+          <div key={idx} className="border-l-2 border-neon-orange/40 pl-4 sm:pl-6 space-y-2">
+            <div className="flex flex-wrap items-baseline gap-2">
+              <span className="text-gray-500 font-mono text-sm font-bold">{idx + 1}.</span>
+              <h3 className="text-white font-bold text-lg sm:text-xl tracking-wide">{tenet.title}</h3>
+              <span className="text-neon-orange/80 text-xs font-mono font-bold sm:ml-1">— {tenet.korean}</span>
+            </div>
+            <p className="text-gray-400 text-sm leading-relaxed text-justify">{tenet.text}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Kép Szekció */}
+      <div className="mt-12 pt-8 border-t border-gray-800">
+        <div className="relative rounded-xl overflow-hidden border border-gray-800 bg-black/50 group">
+          <img 
+            src="/tenets.jpg" 
+            alt="Taekwon-do Tanai illusztráció" 
+            className="w-full h-auto max-h-[450px] object-contain mx-auto transition-transform duration-500 group-hover:scale-[1.01]"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+)}
 
         {/* Dictionary */}
         {activeTab === 'dictionary' && (
