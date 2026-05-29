@@ -11,6 +11,7 @@ import Members from './components/Members';
 import Calendar from './components/Calendar';
 import Oath from './components/Oath';
 import Contact from './components/Contact';
+import Privacy from './components/Privacy'; // Adatvédelmi tájékoztató importálása
 import Footer from './components/Footer';
 
 // A kért sorrend szerint rendezett szekció típusok
@@ -25,7 +26,8 @@ export type Section =
   | 'members' 
   | 'calendar' 
   | 'oath' 
-  | 'contact';
+  | 'contact'
+  | 'privacy'; // Új adatvédelmi szekció
 
 function App() {
   const [activeSection, setActiveSection] = useState<Section>('home');
@@ -63,6 +65,7 @@ function App() {
         {/* Egyéb kiegészítő oldalak */}
         {activeSection === 'oath' && <Oath />}
         {activeSection === 'contact' && <Contact />}
+        {activeSection === 'privacy' && <Privacy />} {/* Adatvédelmi oldal renderelése */}
       </main>
 
       <Footer onNavigate={navigate} />
