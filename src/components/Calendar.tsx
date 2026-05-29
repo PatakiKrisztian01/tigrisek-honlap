@@ -1,4 +1,4 @@
-import { Calendar as CalendarIcon, MapPin, Trophy, GraduationCap, Users } from 'lucide-react';
+import { Calendar as CalendarIcon, MapPin } from 'lucide-react';
 
 const events = [
   {
@@ -48,6 +48,12 @@ const events = [
     title: "Mighty Fist Eagles Cup Nemzetközi Bajnokság",
     location: "Monor",
     type: "Verseny"
+  },
+  {
+    date: "November",
+    title: "Országos Színesöves Őszi Vizsgák (10-3. Gup)",
+    location: "Budapest",
+    type: "Vizsga"
   }
 ];
 
@@ -57,9 +63,10 @@ export default function Calendar() {
       {/* Fejléc */}
       <div className="relative py-16 bg-gradient-to-b from-gray-900 to-black border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-sky-400 text-sm font-bold tracking-wider uppercase mb-2">Szövetségi és Egyesületi Programok</p>
-          <h1 className="text-5xl font-black text-white flex items-center gap-4">
-            ESEMÉNYNAPTÁR <CalendarIcon className="w-10 h-10 text-sky-400 hidden sm:block" />
+          <p className="text-neon-orange text-sm font-bold tracking-wider uppercase mb-2">Szövetségi és Egyesületi Programok</p>
+          {/* text-3xl mobilon, text-5xl nagyobb kijelzőkön, hogy garantáltan kiférjen */}
+          <h1 className="text-3xl sm:text-5xl font-black text-white flex items-center gap-4 tracking-tight sm:tracking-normal">
+            ESEMÉNYNAPTÁR <CalendarIcon className="w-8 h-8 sm:w-10 sm:h-10 text-neon-orange hidden sm:block" />
           </h1>
         </div>
       </div>
@@ -68,7 +75,7 @@ export default function Calendar() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden shadow-[0_0_30px_rgba(0,0,0,0.5)]">
           
-          <div className="p-6 border-b border-gray-800 bg-black/20 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div className="p-6 border-b border-gray-800 bg-black/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <h2 className="text-xl font-black text-white uppercase tracking-tight">Hivatalos Eseménynaptár</h2>
               <p className="text-gray-400 text-xs mt-1">A Magyar ITF Taekwon-do Szövetség és saját eseményeink menetrendje.</p>
@@ -77,7 +84,7 @@ export default function Calendar() {
               href="https://www.taekwon-do.hu/szovetseg/esemeny.htm" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex text-xs text-sky-400 hover:text-white border border-sky-500/30 px-3 py-1.5 rounded-lg bg-sky-500/5 transition-all self-start sm:self-center"
+              className="inline-flex text-xs text-white hover:text-neon-orange border border-neon-orange/30 hover:border-neon-orange px-3 py-1.5 rounded-lg bg-neon-orange/5 transition-all self-start sm:self-center font-bold"
             >
               Hivatalos szövetségi forrás &rarr;
             </a>
@@ -89,9 +96,9 @@ export default function Calendar() {
                 key={idx} 
                 className="p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-gray-850/30 transition-colors"
               >
-                {/* Dátum */}
+                {/* Dátum (Fehér szín, Narancs hangsúllyal) */}
                 <div className="min-w-[140px] flex items-center gap-3">
-                  <div className="text-sm font-mono font-black text-sky-400 uppercase tracking-wider">
+                  <div className="text-sm font-mono font-black text-white border-l-2 border-neon-orange pl-3 uppercase tracking-wider">
                     {event.date}
                   </div>
                 </div>
@@ -104,7 +111,7 @@ export default function Calendar() {
                         ? 'bg-neon-orange/10 text-neon-orange border-neon-orange/20' 
                         : event.type === 'Vizsga' 
                         ? 'bg-amber-500/10 text-amber-400 border-amber-500/20'
-                        : 'bg-sky-500/10 text-sky-400 border-sky-500/20'
+                        : 'bg-gray-800 text-gray-300 border-gray-700'
                     }`}>
                       {event.type}
                     </span>
