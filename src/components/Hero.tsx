@@ -32,24 +32,27 @@ const newsItems = [
 
 export default function Hero({ onNavigate }: HeroProps) {
   return (
-    <div className="pt-20"> {/* Ez tolja le a menüsor alá */}
-      <section className="relative h-[480px] w-full flex items-center overflow-hidden bg-black">
+    <div>
+      {/* Hero Section - A menüsor alatt kezdődik, 480px magas */}
+      <section className="relative h-[480px] w-full flex items-center overflow-hidden bg-black mt-[0px]">
         
-        {/* Videó háttér */}
+        {/* Helyi WebM videó konténer */}
         <div className="absolute inset-0 w-full h-full z-0">
-  <video
-    autoPlay
-    loop
-    muted
-    playsInline
-    className="absolute inset-0 w-full h-full object-cover"
-  >
-    <source src="/matrix.webm" type="video/webm" />
-  </video>
-  
-  {/* Felül fekete, középen átlátszó, alul sötétkék */}
-  <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-gray-950" />
-</div>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/matrix.webm" type="video/webm" />
+            Your browser does not support the video tag.
+          </video>
+          
+          {/* Sötétítő réteg */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-gray-950" />
+        </div>
+
         {/* Tartalom: Balra szöveg, Jobbra a logó */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -85,10 +88,10 @@ export default function Hero({ onNavigate }: HeroProps) {
             {/* JOBB OLDAL: Mozgó tigris logó */}
             <div className="hidden lg:flex lg:col-span-4 justify-center lg:justify-end">
               <img
-                src="/tigrislogo.webp"
+                src="/tigrisátlátszó.png"
                 alt="Tigrisek Logo"
                 className="h-64 xl:h-72 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
-                style={{ animation: 'float 6s ease-in-out infinite' }}
+                style={{ animation: 'bounce 4s ease-in-out infinite' }}
               />
             </div>
           </div>

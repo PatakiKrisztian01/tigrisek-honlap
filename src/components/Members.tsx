@@ -60,18 +60,10 @@ function BeltRow({ belt }: { belt: Belt }) {
 
 export default function Members() {
   return (
-    <div className="bg-black text-gray-100 min-h-screen pt-20 pb-16">
-      
-      {/* HERO SZEKCIÓ KÉPPEL (Alul-felül sötétítve, teljes szélességben) */}
-      <div className="relative h-[250px] sm:h-[350px] w-full flex items-center overflow-hidden border-b border-gray-900 mb-12">
-        {/* Háttérkép */}
-        <img 
-          src="/tigrisek.webp" 
-          alt="Budapesti Tigrisek SE" 
-          className="absolute inset-0 w-full h-full object-cover object-center"
-        />
-        {/* Gradiens sötétítés (fentről lefelé és lentről felfelé) */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/40 to-black" />
+    <div className="min-h-screen pt-20">
+      <div className="relative h-[300px] w-full flex items-center overflow-hidden border-b border-gray-800">
+        <img src="/tigrisek.jpg" alt="Budapest Tigers SE" className="absolute inset-0 w-full h-full object-cover object-center" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-black/80" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full"><p className="text-neon-orange text-sm font-bold tracking-wider uppercase mb-2">Csapatunk</p><h1 className="text-5xl font-black text-white">Tagok</h1></div>
       </div>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

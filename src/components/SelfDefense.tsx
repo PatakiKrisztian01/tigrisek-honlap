@@ -2,18 +2,17 @@ import { Shield, MapPin, Users, Award, Scroll, ExternalLink } from 'lucide-react
 
 export default function SelfDefense() {
   return (
-    <div className="bg-black text-gray-100 min-h-screen pt-20 pb-16">
+    <div className="min-h-screen bg-black pt-20">
       
-      {/* HERO SZEKCIÓ KÉPPEL (Alul-felül sötétítve, teljes szélességben) */}
-      <div className="relative h-[250px] sm:h-[350px] w-full flex items-center overflow-hidden border-b border-gray-900 mb-12">
-        {/* Háttérkép */}
+      {/* HERO SZEKCIÓ - A kép a menü alatt kezdődik */}
+      <div className="relative h-[300px] w-full flex items-center overflow-hidden border-b border-gray-800">
         <img 
           src="/selfdefense.webp" 
-          alt="Ingyenes önvédelem" 
+          alt="Budapest Tigers SE Önvédelem" 
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        {/* Gradiens sötétítés (fentről lefelé és lentről felfelé) */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/40 to-black" />
+        {/* Sötétítés a kép tetején és alján */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-black/80" />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <p className="text-amber-500 text-sm font-bold tracking-wider uppercase mb-2">A XVIII. kerületieknek ingyenes</p>

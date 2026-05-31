@@ -7,9 +7,10 @@ interface KickboxProps {
 export default function Kickbox({ onNavigate }: KickboxProps) {
   return (
     <div className="min-h-screen pt-20">
-      {/* Hero Szekció - Fix 480px magasra állítva, mint a Hero */}
-      <div className="relative w-full bg-black overflow-hidden h-[480px]">
-        
+
+      {/* ── HERO SZEKCIÓ ── */}
+      <div className="relative w-full bg-black overflow-hidden" style={{ minHeight: '560px' }}>
+        {/* Videó háttérként */}
         <div className="absolute inset-0 w-full h-full z-0">
           <video
             autoPlay
@@ -19,11 +20,17 @@ export default function Kickbox({ onNavigate }: KickboxProps) {
             className="absolute inset-0 w-full h-full object-cover"
           >
             <source src="/kickbox.webm" type="video/webm" />
+            Your browser does not support the video tag.
           </video>
           
-          {/* Sötétítés: felül fekete, középen átlátszó, alul fekete */}
-         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
+          {/* Sötét átfedés */}
+          <div className="absolute inset-0 bg-black/60" />
+          {/* Alul elhalványulás az oldalba */}
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
+          {/* Neon narancs oldalsó fény */}
+          <div className="absolute inset-0 bg-gradient-to-r from-neon-orange/10 via-transparent to-transparent" />
         </div>
+
         {/* Hero szöveg */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center h-full" style={{ minHeight: '560px' }}>
           <p className="text-neon-orange text-sm font-bold tracking-wider uppercase mb-3">Szakosztályunk</p>
@@ -40,6 +47,12 @@ export default function Kickbox({ onNavigate }: KickboxProps) {
               className="inline-flex items-center gap-2 bg-neon-orange hover:bg-orange-500 text-black font-black px-8 py-4 rounded-xl text-sm uppercase tracking-widest transition-all hover:scale-105 shadow-lg shadow-neon-orange/40"
             >
               Ingyenes próbaedzés
+            </button>
+            <button
+              onClick={() => document.getElementById('kickbox-content')?.scrollIntoView({ behavior: 'smooth' })}
+              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold px-8 py-4 rounded-xl text-sm border border-white/20 transition-all"
+            >
+              Tudj meg többet ↓
             </button>
           </div>
         </div>
@@ -101,7 +114,7 @@ export default function Kickbox({ onNavigate }: KickboxProps) {
 
               <section className="space-y-4">
                 <h2 className="text-2xl font-black text-white flex items-center gap-2 border-b border-gray-800 pb-3 uppercase tracking-tight">
-                  Kategóriák a WAKO-ban
+                  <Music className="w-6 h-6 text-neon-orange" /> Kategóriák a WAKO-ban
                 </h2>
                 <p className="text-gray-400 text-sm">A formagyakorlatok sokszínűek, és mindenki megtalálhatja a számára megfelelőt:</p>
                 <div className="grid sm:grid-cols-2 gap-4 text-sm">
