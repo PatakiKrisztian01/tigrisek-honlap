@@ -11,22 +11,25 @@ export default function Kickbox({ onNavigate }: KickboxProps) {
       {/* ── HERO SZEKCIÓ ── */}
       <div className="relative w-full bg-black overflow-hidden" style={{ minHeight: '560px' }}>
         {/* Videó háttérként */}
-        <div className="absolute inset-0">
-          <iframe
-            className="w-full h-full"
-            src="https://www.youtube.com/embed/Tc6S0S_ShQk?start=35&end=51&autoplay=1&mute=1&loop=1&playlist=Tc6S0S_ShQk&rel=0&controls=0&modestbranding=1&showinfo=0"
-            title="Kick-box formagyakorlat hero"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', pointerEvents: 'none', transform: 'scale(1.5)' }}
-          />
+        <div className="absolute inset-0 w-full h-full z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/kickbox.webm" type="video/webm" />
+            Your browser does not support the video tag.
+          </video>
+          
+          {/* Sötét átfedés */}
+          <div className="absolute inset-0 bg-black/60" />
+          {/* Alul elhalványulás az oldalba */}
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
+          {/* Neon narancs oldalsó fény */}
+          <div className="absolute inset-0 bg-gradient-to-r from-neon-orange/10 via-transparent to-transparent" />
         </div>
-        {/* Sötét átfedés */}
-        <div className="absolute inset-0 bg-black/60" />
-        {/* Alul elhalványulás az oldalba */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
-        {/* Neon narancs oldalsó fény */}
-        <div className="absolute inset-0 bg-gradient-to-r from-neon-orange/10 via-transparent to-transparent" />
 
         {/* Hero szöveg */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center h-full" style={{ minHeight: '560px' }}>
@@ -70,7 +73,7 @@ export default function Kickbox({ onNavigate }: KickboxProps) {
                 Képzeld el a harcművészetek eleganciáját és a küzdőszportok erejét egyetlen, előre megkoreografált mozdulatsorban! A kick-box formagyakorlatban a versenyzők valós ellenfél nélkül mutatnak be ütések, rúgások, védések és egyéb technikák sorozatát, pont úgy, mintha egy harcban lennének.
               </p>
               <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
-                Ez egy nemzetközileg elismert versenyszám a WAKO (World Association of Kickboxing Organizations) keretein belül, komoly szabályrendszerre és magas szintű követelményekkel. A цель nem az ellenfél legyőzése, hanem a technika, az erő, a sebesség, a ritmus és az összhang tökéletes bemutatása. A zsűri ezeket az elemeket értékeli a legapróbb részletekig.
+                Ez egy nemzetközileg elismert versenyszám a WAKO (World Association of Kickboxing Organizations) keretein belül, komoly szabályrendszerre és magas szintű követelményekkel. A cél nem az ellenfél legyőzése, hanem a technika, az erő, a sebesség, a ritmus és az összhang tökéletes bemutatása. A zsűri ezeket az elemeket értékeli a legapróbb részletekig.
               </p>
             </section>
 
@@ -100,9 +103,7 @@ export default function Kickbox({ onNavigate }: KickboxProps) {
               </div>
             </section>
 
-            {/* WAKO Kategóriák kép és szekció */}
             <div className="space-y-4">
-              {/* Beépített kép a kategóriák fölé */}
               <div className="w-full rounded-2xl overflow-hidden border border-gray-850 shadow-md">
                 <img 
                   src="wako.jpg" 
