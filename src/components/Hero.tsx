@@ -82,13 +82,7 @@ export default function Hero({ onNavigate }: HeroProps) {
                   Ingyenes első edzés
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button
-                  onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gray-900/90 hover:bg-gray-800 text-white px-6 py-3.5 rounded-xl font-bold text-base transition-all duration-200 border border-neon-orange/20 hover:border-neon-orange"
-                >
-                  Rólunk
-                </button>
-              </div>
+                </div>
             </div>
 
             {/* JOBB OLDAL: Mozgó tigris logó */}
