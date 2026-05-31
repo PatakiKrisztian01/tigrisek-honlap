@@ -7,7 +7,7 @@ export default function SelfDefense() {
       {/* HERO SZEKCIÓ - A kép a menü alatt kezdődik */}
       <div className="relative h-[300px] w-full flex items-center overflow-hidden border-b border-gray-800">
         <img 
-          src="/selfdefense.jpg" 
+          src="/selfdefense.webp" 
           alt="Budapest Tigers SE Önvédelem" 
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
