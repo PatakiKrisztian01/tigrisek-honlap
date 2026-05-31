@@ -33,31 +33,31 @@ const newsItems = [
 export default function Hero({ onNavigate }: HeroProps) {
   return (
     <div>
-      {/* Hero Section - A menüsor alatt kezdődik, pontosan 480px magas */}
+      {/* Hero Section - A menüsor alatt kezdődik, 480px magas */}
       <section className="relative h-[480px] w-full flex items-center overflow-hidden bg-black mt-[0px]">
         
-        {/* Háttérvideó konténer - Kényszerített teljes kitöltés */}
-        <div className="absolute inset-0 w-full h-full pointer-events-none z-0 flex items-center justify-center overflow-hidden">
-          <iframe
-            className="absolute w-[100vw] h-[56.25vw] min-h-[480px] min-w-[853px] object-cover pointer-events-none"
-            src="https://www.youtube.com/embed/hzzh0he36QA?autoplay=1&mute=1&loop=1&playlist=hzzh0he36QA&start=21&end=79&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1&enablejsapi=1"
-            title="Budapesti Tigrisek Háttérvideó"
-            allow="autoplay; encrypted-media"
-            style={{ 
-              border: 'none',
-              transform: 'scale(1.35)', /* Kicsit ránagyítunk, hogy biztosan kitöltse a széleket szaggatás nélkül */
-            }}
-          />
+        {/* Helyi WebM videó konténer */}
+        <div className="absolute inset-0 w-full h-full z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/matrix.webm" type="video/webm" />
+            Your browser does not support the video tag.
+          </video>
           
-          {/* ALUL-FELÜL SÖTÉTÍTŐ SZÍNÁTMENET: Fent tiszta fekete, lent tiszta fekete, középen áttetsző */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/30 to-gray-950" />
+          {/* Sötétítő réteg */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-gray-950" />
         </div>
 
         {/* Tartalom: Balra szöveg, Jobbra a logó */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
-            {/* BAL OLDAL: Szövegek és gombok */}
+            {/* BAL OLDAL: Szövegek */}
             <div className="lg:col-span-8 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 bg-neon-orange/10 border border-neon-orange/40 rounded-full px-4 py-1.5 mb-4">
                 <span className="w-2 h-2 bg-neon-orange rounded-full animate-pulse" />
@@ -82,7 +82,7 @@ export default function Hero({ onNavigate }: HeroProps) {
                   Ingyenes első edzés
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
-                </div>
+              </div>
             </div>
 
             {/* JOBB OLDAL: Mozgó tigris logó */}
@@ -94,12 +94,11 @@ export default function Hero({ onNavigate }: HeroProps) {
                 style={{ animation: 'bounce 4s ease-in-out infinite' }}
               />
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* Rólunk Blokk (Közvetlenül a Hero alatt) */}
+      {/* Rólunk Blokk */}
       <section id="about" className="py-20 bg-gray-950 border-b border-gray-900">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-neon-orange text-sm font-bold tracking-wider uppercase mb-2">Ismerj meg minket</p>
@@ -177,15 +176,6 @@ export default function Hero({ onNavigate }: HeroProps) {
                 <p className="text-gray-400 text-sm leading-relaxed">{item.excerpt}</p>
               </article>
             ))}
-          </div>
-
-          <div className="mt-6 sm:hidden">
-            <button
-              onClick={() => onNavigate('news')}
-              className="flex items-center gap-2 text-gray-400 hover:text-neon-orange transition-colors text-sm font-bold"
-            >
-              Összes hír <ArrowRight className="w-4 h-4" />
-            </button>
           </div>
         </div>
       </section>
