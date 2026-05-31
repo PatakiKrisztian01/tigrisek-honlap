@@ -41,12 +41,6 @@ export default function Kickbox({ onNavigate }: KickboxProps) {
             >
               Ingyenes próbaedzés
             </button>
-            <button
-              onClick={() => document.getElementById('kickbox-content')?.scrollIntoView({ behavior: 'smooth' })}
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold px-8 py-4 rounded-xl text-sm border border-white/20 transition-all"
-            >
-              Tudj meg többet ↓
-            </button>
           </div>
         </div>
       </div>
@@ -107,7 +101,7 @@ export default function Kickbox({ onNavigate }: KickboxProps) {
 
               <section className="space-y-4">
                 <h2 className="text-2xl font-black text-white flex items-center gap-2 border-b border-gray-800 pb-3 uppercase tracking-tight">
-                  <Music className="w-6 h-6 text-neon-orange" /> Kategóriák a WAKO-ban
+                  Kategóriák a WAKO-ban
                 </h2>
                 <p className="text-gray-400 text-sm">A formagyakorlatok sokszínűek, és mindenki megtalálhatja a számára megfelelőt:</p>
                 <div className="grid sm:grid-cols-2 gap-4 text-sm">
