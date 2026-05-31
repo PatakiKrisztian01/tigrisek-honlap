@@ -21,13 +21,8 @@ export default function Kickbox({ onNavigate }: KickboxProps) {
             <source src="/kickbox.webm" type="video/webm" />
           </video>
           
-          {/* Sötétítés: Mostantól felülről is sötétít (gradient) */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/80" />
-          
-          {/* Alsó elhalványulás */}
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
-          {/* Neon fény */}
-          <div className="absolute inset-0 bg-gradient-to-r from-neon-orange/10 via-transparent to-transparent" />
+          {/* Sötétítés: felül fekete, középen átlátszó, alul fekete */}
+         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
         </div>
         {/* Hero szöveg */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center h-full" style={{ minHeight: '560px' }}>
