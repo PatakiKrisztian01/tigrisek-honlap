@@ -109,6 +109,43 @@ export default function Training() {
           </div>
         </div>
 
+        {/* Önvédelmi edzések */}
+        <div className="mb-16">
+          <div className="bg-gray-900 border border-emerald-600/30 rounded-2xl overflow-hidden">
+            <div className="flex flex-col lg:flex-row h-full">
+              <div className="flex-1 p-6 lg:p-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 bg-emerald-600/10 border border-emerald-600/30 rounded-xl flex items-center justify-center flex-shrink-0"><Shield className="w-6 h-6 text-emerald-500" /></div>
+                  <div><h2 className="text-2xl font-black text-white">Ingyenes önvédelmi edzések</h2><p className="text-emerald-500 font-bold text-sm">14 éves kortól</p></div>
+                </div>
+                <div className="flex items-start gap-3 mb-4"><Clock className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" /><div className="text-white font-bold text-sm">Kedd: 18:00 – 19:00-ig</div></div>
+                <LocationCard address="Havanna u. 3., 1181 Budapest" mapUrl="https://www.google.com/maps/search/?api=1&query=Havanna+u.+3+Budapest" accentColor="emerald" />
+              </div>
+              <div className="w-full lg:w-64 flex-shrink-0 bg-emerald-600/10 lg:border-l border-emerald-600/30"><img src="/555717957_25013974758240728_3275706361721851860_n.jpg" alt="Önvédelmi edzés" className="w-full h-64 lg:h-full object-cover" /></div>
+            </div>
+          </div>
+        </div>
+
+        {/* Ovis edzések */}
+        <div className="mb-16">
+          <div className="bg-gray-900 border border-amber-600/30 rounded-2xl overflow-hidden">
+            <div className="flex flex-col lg:flex-row h-full">
+              <div className="flex-1 p-6 lg:p-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 bg-amber-600/10 border border-amber-600/30 rounded-xl flex items-center justify-center flex-shrink-0"><Baby className="w-6 h-6 text-amber-500" /></div>
+                  <div><h2 className="text-2xl font-black text-white">Ovis edzések</h2><p className="text-amber-500 font-bold text-sm">4 éves kortól</p></div>
+                </div>
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-start gap-3"><Clock className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" /><div className="text-white font-bold text-sm">Kedd: 16:30 – 17:30-ig</div></div>
+                  <div className="flex items-start gap-3"><Clock className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" /><div className="text-white font-bold text-sm">Csütörtök: 16:30 – 17:30-ig</div></div>
+                </div>
+                <LocationCard name="Kondor Béla Művelődési ház" address="Budapest, Kondor Béla stny. 8, 1181" mapUrl="https://www.google.com/maps/search/?api=1&query=Kondor+Béla+Művelődési+ház+Budapest" accentColor="amber" />
+              </div>
+              <div className="w-full lg:w-64 flex-shrink-0 bg-amber-600/10 lg:border-l border-amber-600/30"><img src="/645785912_26451474827824040_4934349288100951462_n.jpg" alt="Ovis edzés" className="w-full h-64 lg:h-full object-cover" /></div>
+            </div>
+          </div>
+        </div>
+
         <div className="mb-16">
           <h2 className="text-3xl font-black text-white mb-8">Bemutató videó</h2>
           <div className="aspect-video w-full max-w-4xl mx-auto overflow-hidden">
