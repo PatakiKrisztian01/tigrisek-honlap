@@ -32,11 +32,10 @@ const newsItems = [
 
 export default function Hero({ onNavigate }: HeroProps) {
   return (
-    <div>
-      {/* Hero Section - A menüsor alatt kezdődik, 480px magas */}
-      <section className="relative h-[480px] w-full flex items-center overflow-hidden bg-black mt-[0px]">
+    <div className="pt-20"> {/* Ez tolja le a menüsor alá */}
+      <section className="relative h-[480px] w-full flex items-center overflow-hidden bg-black">
         
-        {/* Helyi WebM videó konténer */}
+        {/* Videó háttér */}
         <div className="absolute inset-0 w-full h-full z-0">
           <video
             autoPlay
@@ -46,13 +45,11 @@ export default function Hero({ onNavigate }: HeroProps) {
             className="absolute inset-0 w-full h-full object-cover"
           >
             <source src="/matrix.webm" type="video/webm" />
-            Your browser does not support the video tag.
           </video>
           
-          {/* Sötétítő réteg */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-gray-950" />
+          {/* Sötétítés: Felülről is sötétedik, hogy a szöveg olvasható legyen */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80" />
         </div>
-
         {/* Tartalom: Balra szöveg, Jobbra a logó */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
