@@ -7,10 +7,9 @@ interface KickboxProps {
 export default function Kickbox({ onNavigate }: KickboxProps) {
   return (
     <div className="min-h-screen pt-20">
-
-      {/* ── HERO SZEKCIÓ ── */}
-      <div className="relative w-full bg-black overflow-hidden" style={{ minHeight: '560px' }}>
-        {/* Videó háttérként */}
+      {/* Hero Szekció - Fix 480px magasra állítva, mint a Hero */}
+      <div className="relative w-full bg-black overflow-hidden h-[480px]">
+        
         <div className="absolute inset-0 w-full h-full z-0">
           <video
             autoPlay
@@ -20,17 +19,16 @@ export default function Kickbox({ onNavigate }: KickboxProps) {
             className="absolute inset-0 w-full h-full object-cover"
           >
             <source src="/kickbox.webm" type="video/webm" />
-            Your browser does not support the video tag.
           </video>
           
-          {/* Sötét átfedés */}
-          <div className="absolute inset-0 bg-black/60" />
-          {/* Alul elhalványulás az oldalba */}
+          {/* Sötétítés: Mostantól felülről is sötétít (gradient) */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/80" />
+          
+          {/* Alsó elhalványulás */}
           <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
-          {/* Neon narancs oldalsó fény */}
+          {/* Neon fény */}
           <div className="absolute inset-0 bg-gradient-to-r from-neon-orange/10 via-transparent to-transparent" />
         </div>
-
         {/* Hero szöveg */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center h-full" style={{ minHeight: '560px' }}>
           <p className="text-neon-orange text-sm font-bold tracking-wider uppercase mb-3">Szakosztályunk</p>
