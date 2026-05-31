@@ -46,9 +46,8 @@ export default function Hero({ onNavigate }: HeroProps) {
           >
             <source src="/matrix.webm" type="video/webm" />
           </video>
-          
-          {/* Sötétítés: Felülről is sötétedik, hogy a szöveg olvasható legyen */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80" />
+          {/* Sötétítés: felül fekete, középen átlátszó, alul fekete */}
+         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
         </div>
         {/* Tartalom: Balra szöveg, Jobbra a logó */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
