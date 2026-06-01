@@ -48,8 +48,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             <source src="/matrix.webm" type="video/webm" />
             Your browser does not support the video tag.
           </video>
-          
-          {/* Sötétítő réteg */}
+                  {/* Sötétítő réteg */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-gray-950" />
         </div>
 
