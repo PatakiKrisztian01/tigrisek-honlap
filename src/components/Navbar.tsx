@@ -8,13 +8,12 @@ interface NavbarProps {
   scrolled: boolean;
 }
 
-// A kért pontos sorrend szerint átrendezett és kibővített menüpontok
 const navItems: { label: string; section: Section }[] = [
   { label: 'Főoldal', section: 'home' },
   { label: 'Hírek', section: 'news' },
   { label: 'Edzések', section: 'training' },
   { label: 'Taekwon-do', section: 'taekwondo' },
-  { label: 'Ovis TKD', section: 'ovistkd' }, // Új menüpont jó helyre beszúrva
+  { label: 'Ovis TKD', section: 'ovistkd' },
   { label: 'Kick-box', section: 'kickbox' },
   { label: 'Önvédelem', section: 'selfdefense' },
   { label: 'Tagok', section: 'members' },
@@ -39,13 +38,14 @@ export default function Navbar({ activeSection, onNavigate, scrolled }: NavbarPr
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        {/* A magasságot xl kijelzőn növeljük meg, amikor kibomlik a teljes menü */}
+        <div className="flex items-center justify-between h-16 xl:h-20">
           <button
             onClick={() => handleNav('home')}
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-3 group shrink-0" // A shrink-0 megakadályozza, hogy a logó összenyomódjon
           >
             <img
-              src="/tigrisátlátszó.png"
+              src="/tigrislogo.webp"
               alt="Tigrisek Logo"
               className="w-10 h-10 group-hover:scale-110 transition-transform"
             />
@@ -55,13 +55,13 @@ export default function Navbar({ activeSection, onNavigate, scrolled }: NavbarPr
             </div>
           </button>
 
-          {/* Asztali nézet menüsor - most már dinamikusan az új sorrendben jelenik meg */}
-          <nav className="hidden lg:flex items-center gap-1">
+          {/* Átírva lg:hidden-ről xl:flex-re, mert 10 menüpont csak nagy kijelzőn (1280px+) fér el kényelmesen */}
+          <nav className="hidden xl:flex items-center gap-0.5 2xl:gap-1">
             {navItems.map((item) => (
               <button
                 key={item.section}
                 onClick={() => handleNav(item.section)}
-                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                className={`px-2.5 py-2 rounded-lg text-xs 2xl:text-sm font-medium transition-all duration-200 whitespace-nowrap ${
                   activeSection === item.section
                     ? 'bg-neon-orange text-black font-bold'
                     : 'text-gray-400 hover:text-white hover:bg-gray-900'
@@ -72,8 +72,9 @@ export default function Navbar({ activeSection, onNavigate, scrolled }: NavbarPr
             ))}
           </nav>
 
+          {/* A gomb most már xl-ig látható marad, nem csak lg-ig */}
           <button
-            className="lg:hidden p-2 rounded-lg text-gray-400 hover:text-neon-orange hover:bg-gray-900 transition-colors"
+            className="xl:hidden p-2 rounded-lg text-gray-400 hover:text-neon-orange hover:bg-gray-900 transition-colors"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menu"
           >
@@ -82,9 +83,9 @@ export default function Navbar({ activeSection, onNavigate, scrolled }: NavbarPr
         </div>
       </div>
 
-      {/* Mobilnézet menüsor */}
+      {/* Mobil- és tablet nézet menüsor (xl méret alatt jelenik meg) */}
       {menuOpen && (
-        <div className="lg:hidden border-t border-gray-800 bg-black/98 backdrop-blur-md">
+        <div className="xl:hidden border-t border-gray-800 bg-black/98 backdrop-blur-md max-h-[calc(100vh-4rem)] overflow-y-auto">
           <div className="max-w-7xl mx-auto px-4 py-3 space-y-1">
             {navItems.map((item) => (
               <button
