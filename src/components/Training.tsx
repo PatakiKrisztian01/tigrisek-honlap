@@ -82,7 +82,7 @@ export default function Training() {
                   <LocationCard name="Kondor Béla Általános Iskola" address="1181 Budapest, Kondor Béla sétány 7." mapUrl="https://www.openstreetmap.org/?q=Kondor+B%C3%A9la+s%C3%A9t%C3%A1ny+7+Budapest" accentColor="neon-orange" />
                 </div>
                 <div className="w-full lg:w-64 flex-shrink-0 bg-gray-800/50 lg:border-l border-gray-700">
-                  <img src="/502521670_122172432698301880_4038565149120948853_n.jpg" alt="Küzdelmi edzés" className="w-full h-64 lg:h-full object-cover" />
+                  <img src="/kondor.webp" alt="Küzdelmi edzés" className="w-full h-64 lg:h-full object-cover" />
                 </div>
               </div>
             </div>
@@ -129,7 +129,7 @@ export default function Training() {
                   </div>
                 </div>
                 <div className="w-full lg:w-64 flex-shrink-0 bg-gray-800/50 lg:border-l border-gray-700">
-                  <img src="/tigersgym.jpg" alt="Technikai edzés" className="w-full h-64 lg:h-full object-cover" />
+                  <img src="/tigersgym.webp" alt="Technikai edzés" className="w-full h-64 lg:h-full object-cover" />
                 </div>
               </div>
             </div>
@@ -147,7 +147,7 @@ export default function Training() {
                 <div className="flex items-start gap-3 mb-4"><Clock className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" /><div className="text-white font-bold text-sm">Kedd: 18:00 – 19:00-ig</div></div>
                 <LocationCard address="Havanna u. 3., 1181 Budapest" mapUrl="https://www.openstreetmap.org/?q=Havanna+u.+3+Budapest" accentColor="emerald" />
               </div>
-              <div className="w-full lg:w-64 flex-shrink-0 bg-emerald-600/10 lg:border-l border-emerald-600/30"><img src="/555717957_25013974758240728_3275706361721851860_n.jpg" alt="Önvédelmi edzés" className="w-full h-64 lg:h-full object-cover" /></div>
+              <div className="w-full lg:w-64 flex-shrink-0 bg-emerald-600/10 lg:border-l border-emerald-600/30"><img src="/onvedelem.webp" alt="Önvédelmi edzés" className="w-full h-64 lg:h-full object-cover" /></div>
             </div>
           </div>
         </div>
@@ -166,7 +166,7 @@ export default function Training() {
                 </div>
                 <LocationCard name="Kondor Béla Művelődési ház" address="Budapest, Kondor Béla stny. 8, 1181" mapUrl="https://www.openstreetmap.org/?q=Kondor+B%C3%A9la+M%C5%B1vel%C5%91d%C3%A9si+h%C3%A1z+Budapest" accentColor="amber" />
               </div>
-              <div className="w-full lg:w-64 flex-shrink-0 bg-amber-600/10 lg:border-l border-amber-600/30"><img src="/645785912_26451474827824040_4934349288100951462_n.jpg" alt="Ovis edzés" className="w-full h-64 lg:h-full object-cover" /></div>
+              <div className="w-full lg:w-64 flex-shrink-0 bg-amber-600/10 lg:border-l border-amber-600/30"><img src="/ovis.webp" alt="Ovis edzés" className="w-full h-64 lg:h-full object-cover" /></div>
             </div>
           </div>
         </div>
