@@ -87,10 +87,10 @@ export default function Hero({ onNavigate }: HeroProps) {
             {/* JOBB OLDAL: Mozgó tigris logó */}
             <div className="hidden lg:flex lg:col-span-4 justify-center lg:justify-end">
               <img
-                src="/tigrisátlátszó.png"
+                src="/tigrislogo.webp"
                 alt="Tigrisek Logo"
                 className="h-64 xl:h-72 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
-                style={{ animation: 'bounce 4s ease-in-out infinite' }}
+                style={{ animation: 'bounce 6s ease-in-out infinite' }}
               />
             </div>
           </div>
