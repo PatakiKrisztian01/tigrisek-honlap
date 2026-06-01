@@ -28,7 +28,7 @@ export default function Footer({ onNavigate }: FooterProps) {
           <div>
             <button onClick={() => onNavigate('home')} className="flex items-center gap-3 mb-4 group">
               <img
-                src="/tigrisátlátszó.png"
+                src="/tigrislogo.webp"
                 alt="Tigrisek Logo"
                 className="w-10 h-10 group-hover:scale-110 transition-transform object-contain"
               />
