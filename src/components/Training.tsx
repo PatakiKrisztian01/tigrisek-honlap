@@ -4,9 +4,9 @@ const trainers = [
   { name: 'Pataki Krisztián', rank: 'VI.dan', role: 'Klubvezető elnök', image: '/patakikrisztian.png' },
   { name: 'Leiti Edmond', rank: 'IV.dan', role: '', image: '/leitiedmond.png' },
   { name: 'Patakiné Zs. Anikó', rank: 'III.dan', role: 'Klubvezető helyettes', image: '/patakinezsaniko.png' },
-  { name: 'Kiss Viktor', rank: 'III.dan', role: '', image: '/kissviktor.png' },
+  { name: 'Kiss Viktor', rank: 'III.dan', role: '', image: '/kissviktor.webp' },
   { name: 'Höfliger Zsolt', rank: 'II.dan', role: '', image: '/hoflingerzsolt.png' },
-  { name: 'Kardos Zsolt', rank: 'II.dan', role: '', image: '/kardoszsolt.png' },
+  { name: 'Kardos Zsolt', rank: 'II.dan', role: '', image: '/kardoszsolt.webp' },
 ];
 
 function LocationCard({ name, address, mapUrl, accentColor }) {
