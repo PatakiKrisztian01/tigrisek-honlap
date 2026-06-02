@@ -1,11 +1,11 @@
 import { Clock, MapPin, Baby, Shield, Mail, Phone, ExternalLink } from 'lucide-react';
 
 const trainers = [
-  { name: 'Pataki Krisztián', rank: 'VI.dan', role: 'Klubvezető elnök', image: '/patakikrisztian.png' },
-  { name: 'Leiti Edmond', rank: 'IV.dan', role: '', image: '/leitiedmond.png' },
-  { name: 'Patakiné Zs. Anikó', rank: 'III.dan', role: 'Klubvezető helyettes', image: '/patakinezsaniko.png' },
+  { name: 'Pataki Krisztián', rank: 'VI.dan', role: 'Klubvezető elnök', image: '/patakikrisztian.webp' },
+  { name: 'Leiti Edmond', rank: 'IV.dan', role: '', image: '/leitiedmond.webp' },
+  { name: 'Patakiné Zs. Anikó', rank: 'III.dan', role: 'Klubvezető helyettes', image: '/patakinezsaniko.webp' },
   { name: 'Kiss Viktor', rank: 'III.dan', role: '', image: '/kissviktor.webp' },
-  { name: 'Höfliger Zsolt', rank: 'II.dan', role: '', image: '/hoflingerzsolt.png' },
+  { name: 'Höfliger Zsolt', rank: 'II.dan', role: '', image: '/hoflingerzsolt.webp' },
   { name: 'Kardos Zsolt', rank: 'II.dan', role: '', image: '/kardoszsolt.webp' },
 ];
 
