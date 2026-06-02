@@ -17,13 +17,13 @@ const belts: Belt[] = [
   { rank: '1.gup', rankEn: 'Piros öv — Fekete csík', members: ['Borzsák Endre', 'Hegyi Márton', 'Käfer Dóra', 'Kiss Judit', 'Kovács Anna Viola', 'Nas Timur', 'Pribelszki Dóra', 'Trepka Zsolt'] },
   { rank: '2.gup', rankEn: 'Piros öv', members: ['Béres Dominik', 'Epres Barnabás', 'Héni Petra', 'Horváth Anna Eszter', 'Nijhuis Sam', 'Wieser Melinda'] },
   { rank: '3.gup', rankEn: 'Kék öv — Piros csík', members: ['Gervai Milán', 'Gódor Julianna', 'Kiss Enikő', 'Nas Mira', 'Nász József Péter', 'Orha Virág', 'Pataki Marcell'] },
-  { rank: '4.gup', rankEn: 'Kék öv', members: ['Baranyai Réka', 'Hamar Bence', 'Hegedűs István', 'Hegyi Áron', 'Héni Kristóf', 'Horváth Fruzsina', 'Id. Talián István', 'ifj. Talián István', 'Mireisz Zsolt'] },
-  { rank: '5.gup', rankEn: 'Zöld öv — Kék csík', members: ['Balázs Olivér', 'Baltovics Beáta', 'Fekete Lilien', 'Ferencz Botond', 'Fülöp Zoltán', 'Gervai Tamás', 'Kovács Lehel', 'Lovas Ádám', 'Patkós Gábor', 'Szepesi Henriett', 'Szőnyi Csilla', 'Varga Ádám Zsolt', 'Virág József'] },
-  { rank: '6.gup', rankEn: 'Zöld öv', members: ['Bihari Gábor', 'Csáki István', 'Epres Péter', 'Ferencz Orsolya', 'Gondás Lionel Martin', 'Kupi Alina', 'Kopsa Alexander', 'Pataki Aida', 'Sidlo Ádám', 'Ványi Nimród'] },
-  { rank: '7.gup', rankEn: 'Sárga öv — Zöld csík', members: ['Antalicz Viktória', 'Fehérvári Zoltán', 'Gárdonyi Bálint', 'Gazsi Gergő', 'Gervai Bence', 'Horváth Bálint', 'Horváth Zsolt', 'Kovarik Zsombor', 'Néveri Béla', 'Néveri Dávid', 'Pécsi Benedek', 'Pécsi József', 'Pécsi-Kincses Regina', 'Pintér Mold Illés', 'Somodi Márk'] },
-  { rank: '8.gup', rankEn: 'Sárga öv', members: ['Babák Piroska', 'Gazsi Gábor', 'Hajdú Zalán', 'Mireisz Kornél Tibor', 'Somodi Viktor', 'Vajler Ádám'] },
-  { rank: '9.gup', rankEn: 'Fehér öv — Sárga csík', members: ['Baka Lia', 'Dobos Roland', 'Gárdonyi Ágoston', 'Gránicz Mónika', 'Kerekes Viktor', 'Nijhuis Philip', 'Simon Attila', 'Spitz Benedek', 'Szabó Levente', 'Szép-Magyar Izabella', 'Varga Richárd Norman', 'Veron-Nagy Gergő'] },
-  { rank: '10.gup', rankEn: 'Fehér öv', members: ['Gazdag Dániel', 'Kenéz Milán', 'Kőhegyi Vitold', 'Laapotti Petra', 'Mészáros Bence', 'Mireisz Kornél'] },
+  { rank: '4.gup', rankEn: 'Kék öv', members: ['Baranyai Réka', 'Fekete Lilien', 'Hamar Bence', 'Hegedűs István', 'Hegyi Áron', 'Héni Kristóf', 'Horváth Fruzsina', 'Id. Talián István', 'ifj. Talián István', 'Mireisz Zsolt'] },
+  { rank: '5.gup', rankEn: 'Zöld öv — Kék csík', members: ['Balázs Olivér', 'Baltovics Beáta', 'Ferencz Botond', 'Fülöp Zoltán', 'Gervai Tamás', 'Kopsa Alexander', 'Kovács Lehel', 'Lovas Ádám', 'Patkós Gábor', 'Pintér Mold Illés', 'Szepesi Henriett', 'Ványi Nimród', 'Varga Ádám Zsolt', 'Virág József'] },
+  { rank: '6.gup', rankEn: 'Zöld öv', members: ['Bihari Gábor', 'Csáki István', 'Epres Péter', 'Ferencz Orsolya', 'Gondás Lionel Martin', 'Kupi Alina', 'Mireisz Kornél', 'Pataki Aida', 'Sidlo Ádám'] },
+  { rank: '7.gup', rankEn: 'Sárga öv — Zöld csík', members: ['Antalicz Viktória', 'Hajdú Zalán', 'Fehérvári Zoltán', 'Gárdonyi Bálint', 'Gazsi Gergő', 'Gervai Bence', 'Horváth Bálint', 'Nijhuis Philip', 'Horváth Zsolt', 'Kovarik Zsombor', 'Néveri Béla', 'Néveri Dávid', 'Pécsi Benedek', 'Pécsi József', 'Pécsi-Kincses Regina', 'Somodi Márk'] },
+  { rank: '8.gup', rankEn: 'Sárga öv', members: ['Babák Piroska', 'Gazsi Gábor', 'Mireisz Kornél Tibor', 'Somodi Viktor', 'Vajler Ádám', 'Veron-Nagy Gergő'] },
+  { rank: '9.gup', rankEn: 'Fehér öv — Sárga csík', members: ['Cserni Miranda', 'Pintér Levente', 'Gárdonyi Ágoston', 'Hu Linhao Alen', 'Hu Linbo Bower', 'Simon Attila', 'Spitz Benedek', 'Szabó Levente', 'Szép-Magyar Izabella', 'Moravek Sámuel Zoltán'] },
+  { rank: '10.gup', rankEn: 'Fehér öv', members: ['Varga Vendel', 'Vágány Benedek', 'Hu Shanyan Emi', 'Laapotti Petra', 'Hu Zhenqi Leo', 'Csutak Nimród Balázs'] },
 ];
 
 function BeltRow({ belt }: { belt: Belt }) {
