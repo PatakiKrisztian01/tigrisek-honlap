@@ -43,14 +43,14 @@ function BeltRow({ belt }: { belt: Belt }) {
     <div className={`border rounded-xl overflow-hidden transition-all duration-300 ${borderColor} ${customClasses}`}>
       <button className={`w-full flex items-center justify-between p-4 sm:p-5 text-left transition-all uppercase tracking-wider font-black font-serif ${beltBg} ${embroideryColor}`} onClick={() => setOpen(!open)}>
         <div className="flex items-center justify-between flex-1 pr-4">
-          <div className="flex items-center gap-6">{isBlackBelt ? <img src="/himzes1.png" alt="Taekwon-do hímzés" className="w-10 h-10 object-contain flex-shrink-0" /> : <span className="text-sm opacity-80 border-r border-current pr-4 min-w-[70px] inline-block font-serif">{belt.rank}</span>} <span className="text-base sm:text-lg font-serif">{belt.rankEn}</span></div>
+          <div className="flex items-center gap-6">{isBlackBelt ? <img src="/himzes1.webp" alt="Taekwon-do hímzés" className="w-10 h-10 object-contain flex-shrink-0" /> : <span className="text-sm opacity-80 border-r border-current pr-4 min-w-[70px] inline-block font-serif">{belt.rank}</span>} <span className="text-base sm:text-lg font-serif">{belt.rankEn}</span></div>
           <span className="text-xs font-sans normal-case opacity-75">({belt.members.length} fő)</span>
         </div>
         {open ? <ChevronUp className="w-5 h-5 opacity-80" /> : <ChevronDown className="w-5 h-5 opacity-80" />}
       </button>
       {open && (
         <div className="bg-gray-950 border-t border-gray-900 p-4 sm:p-6">
-          <div className="flex flex-wrap gap-2.5"> {belt.members.map((name) => ( <div key={name} className="flex items-center gap-2 text-sm font-bold rounded-lg px-4 py-2 border bg-gray-900/40 text-gray-300 border-gray-800">{name === 'Pataki Krisztián' && <img src="/PatakiKrisztian-removebg-preview.png" alt={name} className="w-5 h-5 object-cover rounded bg-gray-800" />} <span>{name}</span></div> ))} </div>
+          <div className="flex flex-wrap gap-2.5"> {belt.members.map((name) => ( <div key={name} className="flex items-center gap-2 text-sm font-bold rounded-lg px-4 py-2 border bg-gray-900/40 text-gray-300 border-gray-800">{name === 'Pataki Krisztián' && <img src="/patakikrisztian.webp" alt={name} className="w-5 h-5 object-cover rounded bg-gray-800" />} <span>{name}</span></div> ))} </div>
           {belt.results && belt.results.length > 0 && ( <div className="mt-6 border-t border-gray-900 pt-4 space-y-4"> {belt.results.map((r) => ( <div key={r.name} className="bg-black/20 p-4 rounded-xl border border-gray-900"> <h4 className="text-amber-400 font-extrabold text-sm uppercase tracking-wider mb-2 font-serif">{r.name} — Kiemelt Eredmények</h4> <ul className="space-y-1.5"> {r.achievements.map((a, i) => ( <li key={i} className="text-gray-400 text-xs flex items-start gap-2"><span className="text-amber-500 flex-shrink-0">•</span>{a}</li> ))} </ul> </div> ))} </div> )}
         </div>
       )}
@@ -62,7 +62,7 @@ export default function Members() {
   return (
     <div className="min-h-screen pt-20">
       <div className="relative h-[300px] w-full flex items-center overflow-hidden border-b border-gray-800">
-        <img src="/tigrisek.jpg" alt="Budapest Tigers SE" className="absolute inset-0 w-full h-full object-cover object-center" />
+        <img src="/tigrisek.webp" alt="Budapest Tigers SE" className="absolute inset-0 w-full h-full object-cover object-center" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-black/80" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full"><p className="text-neon-orange text-sm font-bold tracking-wider uppercase mb-2">Csapatunk</p><h1 className="text-5xl font-black text-white">Tagok</h1></div>
       </div>
