@@ -63,20 +63,20 @@ export default function Home({ onNavigate }: HomeProps) {
                 <span className="text-neon-orange text-xs sm:text-sm font-semibold tracking-wider uppercase">Budapest Tigers SE</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-4 leading-tight uppercase tracking-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white mb-4 leading-tight uppercase tracking-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">
                 Légy erősebb <br />
                 <span className="text-neon-orange">testben és lélekben</span>
               </h1>
 
-              <div className="text-base sm:text-xl text-gray-200 max-w-2xl mb-6 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+              <div className="text-sm sm:text-lg lg:text-xl text-gray-200 max-w-2xl mb-6 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
                 <p>ITF Taekwon-do és Kick-box edzések gyerekeknek és felnőtteknek,</p>
-                <p className="text-neon-orange font-bold text-sm sm:text-base uppercase mt-1 tracking-widest">kezdőtől fekete övig.</p>
+                <p className="text-neon-orange font-bold text-xs sm:text-sm lg:text-base uppercase mt-1 tracking-widest">kezdőtől fekete övig.</p>
               </div>
 
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                 <Link
                   to="/edzesek"
-                  className="w-full sm:w-auto group flex items-center justify-center gap-2 bg-neon-orange hover:bg-orange-600 text-black px-6 py-3.5 rounded-xl font-bold text-base transition-all duration-200 hover:scale-105 shadow-lg shadow-neon-orange/30"
+                  className="w-full sm:w-auto group flex items-center justify-center gap-2 bg-neon-orange hover:bg-orange-600 text-black px-6 py-3.5 rounded-xl font-bold text-sm sm:text-base transition-all duration-200 hover:scale-105 shadow-lg shadow-neon-orange/30"
                 >
                   Ingyenes első edzés
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
