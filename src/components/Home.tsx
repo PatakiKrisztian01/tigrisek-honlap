@@ -30,9 +30,9 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section - A menüsor alatt kezdődik, 480px magas */}
-      <section className="relative h-[480px] w-full flex items-center overflow-hidden bg-black pt-20">
-
-        {/* Helyi WebM videó konténer */}
+      {/* Hero Section - A menüsor alatt kezdődik */}
+      <div className="relative w-full bg-black overflow-hidden" style={{ minHeight: '400px', marginTop: '80px' }}>
+        {/* Videó háttérként */}
         <div className="absolute inset-0 w-full h-full z-0">
           <video
             autoPlay
@@ -44,12 +44,19 @@ export default function Home() {
             <source src="/matrix.webm" type="video/webm" />
             Your browser does not support the video tag.
           </video>
-                  {/* Sötétítő réteg */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-gray-950" />
+
+          {/* Sötét átfedés */}
+          <div className="absolute inset-0 bg-black/60" />
+          {/* Felül elhalványulás */}
+          <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-black to-transparent" />
+          {/* Alul elhalványulás */}
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black to-transparent" />
+          {/* Neon narancs oldalsó fény */}
+          <div className="absolute inset-0 bg-gradient-to-r from-neon-orange/10 via-transparent to-transparent" />
         </div>
 
-        {/* Tartalom: Balra szöveg, Jobbra a logó */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        {/* Hero szöveg és tartalom */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center h-full" style={{ minHeight: '400px' }}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
             {/* BAL OLDAL: Szövegek */}
@@ -59,20 +66,20 @@ export default function Home() {
                 <span className="text-neon-orange text-xs sm:text-sm font-semibold tracking-wider uppercase">Budapest Tigers SE</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-4 leading-tight uppercase tracking-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white mb-4 leading-tight uppercase tracking-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">
                 Légy erősebb <br />
                 <span className="text-neon-orange">testben és lélekben</span>
               </h1>
 
-              <div className="text-base sm:text-xl text-gray-200 max-w-2xl mb-6 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+              <div className="text-sm sm:text-lg lg:text-xl text-gray-200 max-w-2xl mb-6 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
                 <p>ITF Taekwon-do és Kick-box edzések gyerekeknek és felnőtteknek,</p>
-                <p className="text-neon-orange font-bold text-sm sm:text-base uppercase mt-1 tracking-widest">kezdőtől fekete övig.</p>
+                <p className="text-neon-orange font-bold text-xs sm:text-sm lg:text-base uppercase mt-1 tracking-widest">kezdőtől fekete övig.</p>
               </div>
 
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                 <Link
                   to="/edzesek"
-                  className="w-full sm:w-auto group flex items-center justify-center gap-2 bg-neon-orange hover:bg-orange-600 text-black px-6 py-3.5 rounded-xl font-bold text-base transition-all duration-200 hover:scale-105 shadow-lg shadow-neon-orange/30"
+                  className="w-full sm:w-auto group flex items-center justify-center gap-2 bg-neon-orange hover:bg-orange-600 text-black px-6 py-3.5 rounded-xl font-bold text-sm sm:text-base transition-all duration-200 hover:scale-105 shadow-lg shadow-neon-orange/30"
                 >
                   Ingyenes első edzés
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -83,7 +90,7 @@ export default function Home() {
             {/* JOBB OLDAL: Mozgó tigris logó */}
             <div className="hidden lg:flex lg:col-span-4 justify-center lg:justify-end">
               <img
-                src="/tigrislogo.webp"
+                src="/tigrisátlátszó.png"
                 alt="Tigrisek Logo"
                 className="h-64 xl:h-72 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
                 style={{ animation: 'float 6s ease-in-out infinite' }}
@@ -91,7 +98,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* Rólunk Blokk */}
       <section id="about" className="py-20 bg-gray-950 border-b border-gray-900">
