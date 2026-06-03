@@ -103,7 +103,7 @@ export default function Kickbox() {
             <div className="space-y-4">
               <div className="w-full rounded-2xl overflow-hidden border border-gray-850 shadow-md">
                 <img 
-                  src="wako.jpg" 
+                  src="wako.webp" 
                   alt="WAKO Kategóriák" 
                   className="w-full h-auto object-cover max-h-72"
                 />
@@ -111,7 +111,7 @@ export default function Kickbox() {
 
               <section className="space-y-4">
                 <h2 className="text-2xl font-black text-white flex items-center gap-2 border-b border-gray-800 pb-3 uppercase tracking-tight">
-                  <Music className="w-6 h-6 text-neon-orange" /> Kategóriák a WAKO-ban
+                  Kategóriák a WAKO-ban
                 </h2>
                 <p className="text-gray-400 text-sm">A formagyakorlatok sokszínűek, és mindenki megtalálhatja a számára megfelelőt:</p>
                 <div className="grid sm:grid-cols-2 gap-4 text-sm">
