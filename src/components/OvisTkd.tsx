@@ -1,11 +1,7 @@
 import { ArrowRight, Clock, MapPin, Phone, ShieldCheck, Star } from 'lucide-react';
-import type { Section } from '../App';
+import { Link } from 'react-router-dom';
 
-interface OvisTkdProps {
-  onNavigate: (section: Section) => void;
-}
-
-export default function OvisTkd({ onNavigate }: OvisTkdProps) {
+export default function OvisTkd() {
   return (
     <div className="bg-black text-gray-100 min-h-screen pt-20 pb-16">
       
@@ -157,13 +153,13 @@ export default function OvisTkd({ onNavigate }: OvisTkdProps) {
 
             {/* Jelentkezés gomb */}
             <div className="mt-8">
-              <button
-                onClick={() => onNavigate('contact')}
+              <Link
+                to="/kapcsolat"
                 className="w-full group flex items-center justify-center gap-2 bg-neon-orange hover:bg-orange-600 text-black py-3 rounded-xl font-bold text-sm transition-all duration-200"
               >
                 Kapcsolatfelvétel
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </Link>
             </div>
           </div>
 

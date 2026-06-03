@@ -1,34 +1,29 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import type { Section } from '../App';
+import { Link, useLocation } from 'react-router-dom';
 
-interface NavbarProps {
-  activeSection: Section;
-  onNavigate: (section: Section) => void;
-  scrolled: boolean;
-}
-
-// A kért pontos sorrend szerint átrendezett és kibővített menüpontok
-const navItems: { label: string; section: Section }[] = [
-  { label: 'Főoldal', section: 'home' },
-  { label: 'Hírek', section: 'news' },
-  { label: 'Edzések', section: 'training' },
-  { label: 'Taekwon-do', section: 'taekwondo' },
-  { label: 'Ovis TKD', section: 'ovistkd' }, // Új menüpont jó helyre beszúrva
-  { label: 'Kick-box', section: 'kickbox' },
-  { label: 'Önvédelem', section: 'selfdefense' },
-  { label: 'Tagok', section: 'members' },
-  { label: 'Eseménynaptár', section: 'calendar' },
-  { label: 'Kapcsolat', section: 'contact' },
+const navItems = [
+  { label: 'Főoldal', path: '/' },
+  { label: 'Hírek', path: '/hirek' },
+  { label: 'Edzések', path: '/edzesek' },
+  { label: 'Taekwon-do', path: '/taekwondo' },
+  { label: 'Ovis TKD', path: '/ovistkd' },
+  { label: 'Kick-box', path: '/kickbox' },
+  { label: 'Önvédelem', path: '/onvedelem' },
+  { label: 'Tagok', path: '/tagok' },
+  { label: 'Eseménynaptár', path: '/naptar' },
+  { label: 'Kapcsolat', path: '/kapcsolat' },
 ];
 
-export default function Navbar({ activeSection, onNavigate, scrolled }: NavbarProps) {
+export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
-  const handleNav = (section: Section) => {
-    onNavigate(section);
-    setMenuOpen(false);
-  };
+  const handleScroll = () => setScrolled(window.scrollY > 60);
+  window.addEventListener('scroll', handleScroll);
+
+  const isActive = (path: string) => location.pathname === path;
 
   return (
     <header
@@ -40,8 +35,8 @@ export default function Navbar({ activeSection, onNavigate, scrolled }: NavbarPr
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          <button
-            onClick={() => handleNav('home')}
+          <Link
+            to="/"
             className="flex items-center gap-3 group"
           >
             <img
@@ -53,22 +48,22 @@ export default function Navbar({ activeSection, onNavigate, scrolled }: NavbarPr
               <div className="text-white font-bold text-xs leading-tight">BUDAPESTI</div>
               <div className="text-neon-orange font-black text-sm leading-tight tracking-wider">TIGRISEK SE</div>
             </div>
-          </button>
+          </Link>
 
-          {/* Asztali nézet menüsor - most már dinamikusan az új sorrendben jelenik meg */}
+          {/* Asztali nézet menüsor */}
           <nav className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
-              <button
-                key={item.section}
-                onClick={() => handleNav(item.section)}
+              <Link
+                key={item.path}
+                to={item.path}
                 className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                  activeSection === item.section
+                  isActive(item.path)
                     ? 'bg-neon-orange text-black font-bold'
                     : 'text-gray-400 hover:text-white hover:bg-gray-900'
                 }`}
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
           </nav>
 
@@ -87,17 +82,18 @@ export default function Navbar({ activeSection, onNavigate, scrolled }: NavbarPr
         <div className="lg:hidden border-t border-gray-800 bg-black/98 backdrop-blur-md">
           <div className="max-w-7xl mx-auto px-4 py-3 space-y-1">
             {navItems.map((item) => (
-              <button
-                key={item.section}
-                onClick={() => handleNav(item.section)}
-                className={`w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
-                  activeSection === item.section
+              <Link
+                key={item.path}
+                to={item.path}
+                onClick={() => setMenuOpen(false)}
+                className={`w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 block ${
+                  isActive(item.path)
                     ? 'bg-neon-orange text-black font-bold'
                     : 'text-gray-400 hover:text-white hover:bg-gray-900'
                 }`}
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
           </div>
         </div>
