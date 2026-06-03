@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section - A menüsor alatt kezdődik, 480px magas */}
-      <section className="relative h-[480px] w-full flex items-center overflow-hidden bg-black pt-[80px]">
+      <section className="relative h-[480px] w-full flex items-center overflow-hidden bg-black pt-20">
 
         {/* Helyi WebM videó konténer */}
         <div className="absolute inset-0 w-full h-full z-0">
