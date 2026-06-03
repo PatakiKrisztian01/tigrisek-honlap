@@ -33,10 +33,9 @@ const newsItems = [
 export default function Home({ onNavigate }: HomeProps) {
   return (
     <div>
-      {/* Hero Section - A menüsor alatt kezdődik, 480px magas */}
-      <section className="relative h-[480px] w-full flex items-center overflow-hidden bg-black mt-[0px]">
-
-        {/* Helyi WebM videó konténer */}
+      {/* Hero Section - A menüsor alatt kezdődik */}
+      <div className="relative w-full bg-black overflow-hidden pt-16" style={{ minHeight: '600px' }}>
+        {/* Videó háttérként */}
         <div className="absolute inset-0 w-full h-full z-0">
           <video
             autoPlay
@@ -48,12 +47,17 @@ export default function Home({ onNavigate }: HomeProps) {
             <source src="/matrix.webm" type="video/webm" />
             Your browser does not support the video tag.
           </video>
-                  {/* Sötétítő réteg */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-gray-950" />
+
+          {/* Sötét átfedés */}
+          <div className="absolute inset-0 bg-black/60" />
+          {/* Alul elhalványulás az oldalba */}
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
+          {/* Neon narancs oldalsó fény */}
+          <div className="absolute inset-0 bg-gradient-to-r from-neon-orange/10 via-transparent to-transparent" />
         </div>
 
-        {/* Tartalom: Balra szöveg, Jobbra a logó */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        {/* Hero szöveg és tartalom */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center h-full" style={{ minHeight: '600px' }}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
             {/* BAL OLDAL: Szövegek */}
@@ -95,7 +99,7 @@ export default function Home({ onNavigate }: HomeProps) {
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* Rólunk Blokk */}
       <section id="about" className="py-20 bg-gray-950 border-b border-gray-900">
