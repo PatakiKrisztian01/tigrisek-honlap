@@ -1,33 +1,31 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import type { Section } from '../App';
+import { Link, useLocation } from 'react-router-dom';
 
-interface NavbarProps {
-  activeSection: Section;
-  onNavigate: (section: Section) => void;
-  scrolled: boolean;
-}
-
-const navItems: { label: string; section: Section }[] = [
-  { label: 'Főoldal', section: 'home' },
-  { label: 'Hírek', section: 'news' },
-  { label: 'Edzések', section: 'training' },
-  { label: 'Taekwon-do', section: 'taekwondo' },
-  { label: 'Ovis TKD', section: 'ovistkd' },
-  { label: 'Kick-box', section: 'kickbox' },
-  { label: 'Önvédelem', section: 'selfdefense' },
-  { label: 'Tagok', section: 'members' },
-  { label: 'Eseménynaptár', section: 'calendar' },
-  { label: 'Kapcsolat', section: 'contact' },
+const navItems = [
+  { label: 'Főoldal', path: '/' },
+  { label: 'Hírek', path: '/hirek' },
+  { label: 'Edzések', path: '/edzesek' },
+  { label: 'Taekwon-do', path: '/taekwondo' },
+  { label: 'Ovis TKD', path: '/ovistkd' },
+  { label: 'Kick-box', path: '/kickbox' },
+  { label: 'Önvédelem', path: '/onvedelem' },
+  { label: 'Tagok', path: '/tagok' },
+  { label: 'Eseménynaptár', path: '/naptar' },
+  { label: 'Kapcsolat', path: '/kapcsolat' },
 ];
 
-export default function Navbar({ activeSection, onNavigate, scrolled }: NavbarProps) {
+export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
-  const handleNav = (section: Section) => {
-    onNavigate(section);
-    setMenuOpen(false);
-  };
+  if (typeof window !== 'undefined') {
+    const handleScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', handleScroll);
+  }
+
+  const isActive = (path: string) => location.pathname === path;
 
   return (
     <header
@@ -38,11 +36,10 @@ export default function Navbar({ activeSection, onNavigate, scrolled }: NavbarPr
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* A magasságot xl kijelzőn növeljük meg, amikor kibomlik a teljes menü */}
         <div className="flex items-center justify-between h-16 xl:h-20">
-          <button
-            onClick={() => handleNav('home')}
-            className="flex items-center gap-3 group shrink-0" // A shrink-0 megakadályozza, hogy a logó összenyomódjon
+          <Link
+            to="/"
+            className="flex items-center gap-3 group shrink-0"
           >
             <img
               src="/tigrislogo.webp"
@@ -53,26 +50,24 @@ export default function Navbar({ activeSection, onNavigate, scrolled }: NavbarPr
               <div className="text-white font-bold text-xs leading-tight">BUDAPESTI</div>
               <div className="text-neon-orange font-black text-sm leading-tight tracking-wider">TIGRISEK SE</div>
             </div>
-          </button>
+          </Link>
 
-          {/* Átírva lg:hidden-ről xl:flex-re, mert 10 menüpont csak nagy kijelzőn (1280px+) fér el kényelmesen */}
           <nav className="hidden xl:flex items-center gap-0.5 2xl:gap-1">
             {navItems.map((item) => (
-              <button
-                key={item.section}
-                onClick={() => handleNav(item.section)}
+              <Link
+                key={item.path}
+                to={item.path}
                 className={`px-2.5 py-2 rounded-lg text-xs 2xl:text-sm font-medium transition-all duration-200 whitespace-nowrap ${
-                  activeSection === item.section
+                  isActive(item.path)
                     ? 'bg-neon-orange text-black font-bold'
                     : 'text-gray-400 hover:text-white hover:bg-gray-900'
                 }`}
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
           </nav>
 
-          {/* A gomb most már xl-ig látható marad, nem csak lg-ig */}
           <button
             className="xl:hidden p-2 rounded-lg text-gray-400 hover:text-neon-orange hover:bg-gray-900 transition-colors"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -83,22 +78,22 @@ export default function Navbar({ activeSection, onNavigate, scrolled }: NavbarPr
         </div>
       </div>
 
-      {/* Mobil- és tablet nézet menüsor (xl méret alatt jelenik meg) */}
       {menuOpen && (
         <div className="xl:hidden border-t border-gray-800 bg-black/98 backdrop-blur-md max-h-[calc(100vh-4rem)] overflow-y-auto">
           <div className="max-w-7xl mx-auto px-4 py-3 space-y-1">
             {navItems.map((item) => (
-              <button
-                key={item.section}
-                onClick={() => handleNav(item.section)}
-                className={`w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
-                  activeSection === item.section
+              <Link
+                key={item.path}
+                to={item.path}
+                onClick={() => setMenuOpen(false)}
+                className={`w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 block ${
+                  isActive(item.path)
                     ? 'bg-neon-orange text-black font-bold'
                     : 'text-gray-400 hover:text-white hover:bg-gray-900'
                 }`}
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
           </div>
         </div>

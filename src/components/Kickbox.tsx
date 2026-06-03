@@ -1,10 +1,7 @@
 import { Swords, Flame, Award, Music, Sparkles, Zap, Brain } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-interface KickboxProps {
-  onNavigate: (section: any) => void;
-}
-
-export default function Kickbox({ onNavigate }: KickboxProps) {
+export default function Kickbox() {
   return (
     <div className="min-h-screen pt-20">
 
@@ -42,12 +39,12 @@ export default function Kickbox({ onNavigate }: KickboxProps) {
             Mozgás, erő és művészet — egyetlen koreografált mozdulatsorban.
           </p>
           <div className="flex flex-wrap gap-4">
-            <button
-              onClick={() => onNavigate('contact')}
+            <Link
+              to="/kapcsolat"
               className="inline-flex items-center gap-2 bg-neon-orange hover:bg-orange-500 text-black font-black px-8 py-4 rounded-xl text-sm uppercase tracking-widest transition-all hover:scale-105 shadow-lg shadow-neon-orange/40"
             >
               Ingyenes próbaedzés
-            </button>
+            </Link>
             <button
               onClick={() => document.getElementById('kickbox-content')?.scrollIntoView({ behavior: 'smooth' })}
               className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold px-8 py-4 rounded-xl text-sm border border-white/20 transition-all"
@@ -147,9 +144,9 @@ export default function Kickbox({ onNavigate }: KickboxProps) {
                 <p>Nincs szükség előképzettségre, csak elhivatottságra és a mozgás szeretetére! Tapasztalt edzőink segítenek elsajátítani a technikákat és kihozni belőled a maximumot.</p>
                 <p className="text-white font-bold text-center pt-1">Készen állsz egy új kihívásra?</p>
               </div>
-              <button onClick={() => onNavigate('contact')} className="w-full bg-neon-orange text-black font-black text-xs uppercase tracking-widest py-3.5 rounded-xl transition-all hover:bg-white hover:scale-[1.02]">
+              <Link to="/kapcsolat" className="w-full bg-neon-orange text-black font-black text-xs uppercase tracking-widest py-3.5 rounded-xl transition-all hover:bg-white hover:scale-[1.02]">
                 Jelentkezz egy ingyenes próbaedzésre!
-              </button>
+              </Link>
             </div>
           </div>
 

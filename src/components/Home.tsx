@@ -1,9 +1,5 @@
 import { ArrowRight, Trophy, Users, Calendar, Shield, Award, Heart } from 'lucide-react';
-import type { Section } from '../App';
-
-interface HeroProps {
-  onNavigate: (section: Section) => void;
-}
+import { Link } from 'react-router-dom';
 
 const stats = [
   { icon: Calendar, value: '24 év', label: 'Tapasztalat' },
@@ -30,12 +26,12 @@ const newsItems = [
   },
 ];
 
-export default function Hero({ onNavigate }: HeroProps) {
+export default function Home() {
   return (
     <div>
       {/* Hero Section - A menüsor alatt kezdődik, 480px magas */}
       <section className="relative h-[480px] w-full flex items-center overflow-hidden bg-black mt-[0px]">
-        
+
         {/* Helyi WebM videó konténer */}
         <div className="absolute inset-0 w-full h-full z-0">
           <video
@@ -55,7 +51,7 @@ export default function Hero({ onNavigate }: HeroProps) {
         {/* Tartalom: Balra szöveg, Jobbra a logó */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
+
             {/* BAL OLDAL: Szövegek */}
             <div className="lg:col-span-8 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 bg-neon-orange/10 border border-neon-orange/40 rounded-full px-4 py-1.5 mb-4">
@@ -74,13 +70,13 @@ export default function Hero({ onNavigate }: HeroProps) {
               </div>
 
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                <button
-                  onClick={() => onNavigate('training')}
+                <Link
+                  to="/edzesek"
                   className="w-full sm:w-auto group flex items-center justify-center gap-2 bg-neon-orange hover:bg-orange-600 text-black px-6 py-3.5 rounded-xl font-bold text-base transition-all duration-200 hover:scale-105 shadow-lg shadow-neon-orange/30"
                 >
                   Ingyenes első edzés
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
+                </Link>
               </div>
             </div>
 
@@ -90,7 +86,7 @@ export default function Hero({ onNavigate }: HeroProps) {
                 src="/tigrislogo.webp"
                 alt="Tigrisek Logo"
                 className="h-64 xl:h-72 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
-                style={{ animation: 'bounce 6s ease-in-out infinite' }}
+                style={{ animation: 'float 6s ease-in-out infinite' }}
               />
             </div>
           </div>
@@ -102,12 +98,12 @@ export default function Hero({ onNavigate }: HeroProps) {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-neon-orange text-sm font-bold tracking-wider uppercase mb-2">Ismerj meg minket</p>
           <h2 className="text-3xl sm:text-4xl font-black text-white mb-8 uppercase tracking-tight">Fedezd fel a benned rejlő erőt!</h2>
-          
+
           <div className="bg-gray-900/40 border border-gray-800 rounded-2xl p-8 sm:p-12">
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto space-y-6">
-              Nálunk a Taekwon-do nemcsak látványos önvédelem és küzdőszellem, hanem egy összetartó, családias közösség is <span className="text-white font-bold">2002 óta</span>. 
+              Nálunk a Taekwon-do nemcsak látványos önvédelem és küzdőszellem, hanem egy összetartó, családias közösség is <span className="text-white font-bold">2002 óta</span>.
               <br /><br />
-              Hiszünk abban, hogy az edzőteremben megszerzett magabiztosság, tisztelet és fegyelem az élet minden területén sikeressé teszi a tanítványainkat. Támogató csapattal várunk minden korosztályt, a teljesen kezdőktől a fekete övesekig. 
+              Hiszünk abban, hogy az edzőteremben megszerzett magabiztosság, tisztelet és fegyelem az élet minden területén sikeressé teszi a tanítványainkat. Támogató csapattal várunk minden korosztályt, a teljesen kezdőktől a fekete övesekig.
               <br /><br />
               <span className="text-neon-orange font-bold text-lg block mt-4">Tartozz te is a Tigrisek családjához!</span>
             </p>
@@ -155,25 +151,25 @@ export default function Hero({ onNavigate }: HeroProps) {
               <p className="text-neon-orange text-sm font-bold tracking-wider uppercase mb-2">Legfrissebb</p>
               <h2 className="text-4xl font-black text-white">Hírek</h2>
             </div>
-            <button
-              onClick={() => onNavigate('news')}
+            <Link
+              to="/hirek"
               className="hidden sm:flex items-center gap-2 text-gray-400 hover:text-neon-orange transition-colors text-sm font-bold"
             >
               Összes hír <ArrowRight className="w-4 h-4" />
-            </button>
+            </Link>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             {newsItems.map((item, i) => (
-              <article
-                key={i}
-                className="bg-gray-900 border border-gray-800 rounded-2xl p-6 hover:border-neon-orange/50 transition-all duration-300 hover:-translate-y-1 cursor-pointer group"
-                onClick={() => onNavigate('news')}
-              >
-                <time className="text-neon-orange text-xs font-bold tracking-wider uppercase mb-3 block">{item.date}</time>
-                <h3 className="text-white font-bold text-lg mb-3 group-hover:text-neon-orange transition-colors">{item.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{item.excerpt}</p>
-              </article>
+              <Link key={i} to="/hirek">
+                <article
+                  className="bg-gray-900 border border-gray-800 rounded-2xl p-6 hover:border-neon-orange/50 transition-all duration-300 hover:-translate-y-1 cursor-pointer group h-full"
+                >
+                  <time className="text-neon-orange text-xs font-bold tracking-wider uppercase mb-3 block">{item.date}</time>
+                  <h3 className="text-white font-bold text-lg mb-3 group-hover:text-neon-orange transition-colors">{item.title}</h3>
+                  <p className="text-gray-400 text-sm leading-relaxed">{item.excerpt}</p>
+                </article>
+              </Link>
             ))}
           </div>
         </div>
