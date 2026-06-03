@@ -9,7 +9,7 @@ export default function OvisTkd() {
       <div className="relative h-[250px] sm:h-[350px] w-full flex items-center overflow-hidden border-b border-gray-900 mb-12">
         {/* Háttérkép */}
         <img 
-          src="/645785912_26451474827824040_4934349288100951462_n.jpg" 
+          src="/ovis.webp" 
           alt="Ovis Taekwon-do" 
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
