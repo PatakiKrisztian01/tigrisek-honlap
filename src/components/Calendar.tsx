@@ -63,8 +63,7 @@ export default function Calendar() {
       {/* Fejléc */}
       <div className="relative py-16 bg-gradient-to-b from-gray-900 to-black border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-neon-orange text-sm font-bold tracking-wider uppercase mb-2">Szövetségi és Egyesületi Programok</p>
-          {/* text-3xl mobilon, text-5xl nagyobb kijelzőkön, hogy garantáltan kiférjen */}
+          <p className="text-neon-orange text-xs sm:text-sm font-bold tracking-wider uppercase mb-2">Szövetségi és Egyesületi Programok</p>
           <h1 className="text-3xl sm:text-5xl font-black text-white flex items-center gap-4 tracking-tight sm:tracking-normal">
             ESEMÉNYNAPTÁR <CalendarIcon className="w-8 h-8 sm:w-10 sm:h-10 text-neon-orange hidden sm:block" />
           </h1>

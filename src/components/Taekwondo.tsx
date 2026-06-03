@@ -57,8 +57,8 @@ export default function Taekwondo() {
     <div className="min-h-screen pt-20">
       <div className="relative py-16 bg-gradient-to-b from-gray-900 to-black border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-neon-orange text-sm font-bold tracking-wider uppercase mb-2">Tudástár</p>
-          <h1 className="text-5xl font-black text-white">Taekwon-do</h1>
+          <p className="text-neon-orange text-xs sm:text-sm font-bold tracking-wider uppercase mb-2">Tudástár</p>
+          <h1 className="text-3xl sm:text-5xl font-black text-white">Taekwon-do</h1>
         </div>
       </div>
 

@@ -15,9 +15,9 @@ export default function SelfDefense() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-black/80" />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <p className="text-amber-500 text-sm font-bold tracking-wider uppercase mb-2">A XVIII. kerületieknek ingyenes</p>
-          <h1 className="text-5xl font-black text-white flex items-center gap-4">
-            ÖNVÉDELEM <Shield className="w-10 h-10 text-amber-500 hidden sm:block" />
+          <p className="text-neon-orange text-xs sm:text-sm font-bold tracking-wider uppercase mb-2">A XVIII. kerületieknek ingyenes</p>
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white flex items-center gap-4">
+            ÖNVÉDELEM <Shield className="w-8 sm:w-10 h-8 sm:h-10 text-neon-orange hidden sm:block" />
           </h1>
         </div>
       </div>

@@ -43,7 +43,7 @@ Segíts, hogy harcosaink méltó körülmények között készülhessenek! Kösz
 ];
 
 const categoryColors: Record<string, string> = {
-  Közlemény: 'bg-amber-600/20 text-amber-400 border-amber-600/30',
+  Közlemény: 'bg-neon-orange/20 text-neon-orange border-neon-orange/30',
   Verseny: 'bg-neon-orange/20 text-neon-orange border-neon-orange/30',
   Bajnokság: 'bg-sky-600/20 text-sky-400 border-sky-600/30',
 };
@@ -54,8 +54,8 @@ export default function News() {
       {/* Page Header */}
       <div className="relative py-16 bg-gradient-to-b from-gray-900 to-black border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-neon-orange text-sm font-bold tracking-wider uppercase mb-2">Legfrissebb</p>
-          <h1 className="text-5xl font-black text-white">Hírek</h1>
+          <p className="text-neon-orange text-xs sm:text-sm font-bold tracking-wider uppercase mb-2">Legfrissebb</p>
+          <h1 className="text-3xl sm:text-5xl font-black text-white">Hírek</h1>
         </div>
       </div>
 

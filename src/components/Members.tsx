@@ -30,7 +30,7 @@ function BeltRow({ belt }: { belt: Belt }) {
   const [open, setOpen] = useState(false);
   const isBlackBelt = belt.rank.includes('Dan');
   let beltBg = 'bg-gray-950'; let embroideryColor = 'text-gray-200'; let borderColor = 'border-gray-800'; let customClasses = 'hover:border-gray-700';
-  if (isBlackBelt) { beltBg = 'bg-black'; embroideryColor = 'text-amber-400 font-extrabold tracking-wider'; borderColor = 'border-neon-orange/60'; customClasses = 'hover:border-neon-orange hover:-translate-y-1 shadow-[0_0_15px_rgba(255,90,0,0.15)] hover:shadow-[0_0_25px_rgba(255,90,0,0.35)]'; }
+  if (isBlackBelt) { beltBg = 'bg-black'; embroideryColor = 'text-neon-orange font-extrabold tracking-wider'; borderColor = 'border-neon-orange/60'; customClasses = 'hover:border-neon-orange hover:-translate-y-1 shadow-[0_0_15px_rgba(255,90,0,0.15)] hover:shadow-[0_0_25px_rgba(255,90,0,0.35)]'; }
   else { switch (belt.rank) {
       case '1.gup': case '2.gup': beltBg = 'bg-red-600'; embroideryColor = 'text-black'; borderColor = 'border-red-700'; break;
       case '3.gup': case '4.gup': beltBg = 'bg-blue-600'; embroideryColor = 'text-red-200'; borderColor = 'border-blue-700'; break;
@@ -51,7 +51,7 @@ function BeltRow({ belt }: { belt: Belt }) {
       {open && (
         <div className="bg-gray-950 border-t border-gray-900 p-4 sm:p-6">
           <div className="flex flex-wrap gap-2.5"> {belt.members.map((name) => ( <div key={name} className="flex items-center gap-2 text-sm font-bold rounded-lg px-4 py-2 border bg-gray-900/40 text-gray-300 border-gray-800">{name === 'Pataki Krisztián' && <img src="/PatakiKrisztian-removebg-preview.png" alt={name} className="w-5 h-5 object-cover rounded bg-gray-800" />} <span>{name}</span></div> ))} </div>
-          {belt.results && belt.results.length > 0 && ( <div className="mt-6 border-t border-gray-900 pt-4 space-y-4"> {belt.results.map((r) => ( <div key={r.name} className="bg-black/20 p-4 rounded-xl border border-gray-900"> <h4 className="text-amber-400 font-extrabold text-sm uppercase tracking-wider mb-2 font-serif">{r.name} — Kiemelt Eredmények</h4> <ul className="space-y-1.5"> {r.achievements.map((a, i) => ( <li key={i} className="text-gray-400 text-xs flex items-start gap-2"><span className="text-amber-500 flex-shrink-0">•</span>{a}</li> ))} </ul> </div> ))} </div> )}
+          {belt.results && belt.results.length > 0 && ( <div className="mt-6 border-t border-gray-900 pt-4 space-y-4"> {belt.results.map((r) => ( <div key={r.name} className="bg-black/20 p-4 rounded-xl border border-gray-900"> <h4 className="text-neon-orange font-extrabold text-sm uppercase tracking-wider mb-2 font-serif">{r.name} — Kiemelt Eredmények</h4> <ul className="space-y-1.5"> {r.achievements.map((a, i) => ( <li key={i} className="text-gray-400 text-xs flex items-start gap-2"><span className="text-neon-orange flex-shrink-0">•</span>{a}</li> ))} </ul> </div> ))} </div> )}
         </div>
       )}
     </div>
@@ -64,14 +64,14 @@ export default function Members() {
       <div className="relative h-[300px] w-full flex items-center overflow-hidden border-b border-gray-800">
         <img src="/tigrisek.jpg" alt="Budapest Tigers SE" className="absolute inset-0 w-full h-full object-cover object-center" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-black/80" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full"><p className="text-neon-orange text-sm font-bold tracking-wider uppercase mb-2">Csapatunk</p><h1 className="text-5xl font-black text-white">Tagok</h1></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full"><p className="text-neon-orange text-xs sm:text-sm font-bold tracking-wider uppercase mb-2">Csapatunk</p><h1 className="text-3xl sm:text-5xl font-black text-white">Tagok</h1></div>
       </div>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="bg-amber-950/20 border border-amber-900/40 rounded-2xl p-6 mb-12">
-          <h3 className="text-amber-400 font-bold text-lg mb-4">Tagoknak — Fontos tudnivalók</h3>
+        <div className="bg-neon-orange/10 border border-neon-orange/30 rounded-2xl p-6 mb-12">
+          <h3 className="text-neon-orange font-bold text-lg mb-4">Tagoknak — Fontos tudnivalók</h3>
           <ul className="space-y-4 text-gray-300 text-sm">
-            <li className="flex items-start gap-3"><span className="text-amber-500 flex-shrink-0 mt-0.5">1.</span><div className="space-y-2"><span><strong className="text-white">Sportorvosi vizsgálat</strong> — Gyerekeknek fél évente, felnőtteknek évente kötelező.</span><div className="flex flex-wrap gap-3 pt-1"><a href="https://online.osei.hu/bejelentkezes" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-neon-orange hover:text-orange-400 font-bold underline transition-colors"><span>OSEI online időpontfoglalás</span> <ExternalLink className="w-3 h-3" /></a><a href="https://osei.hu/images/stories/osei/Sportoli-krdv-20260310-szerkeszthet-.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-amber-400 hover:text-amber-300 font-bold underline transition-colors"><span>Letöltendő kérdőív vizsgálathoz (PDF)</span> <Download className="w-3 h-3" /></a></div></div></li>
-            <li className="flex items-start gap-3"><span className="text-amber-500 flex-shrink-0 mt-0.5">2.</span><span><strong className="text-white">Fejvédő</strong> — Versenyeken kötelező, edzéseken erősen ajánlott. Versenyzőknek mindkét színből (piros és kék) kell legyen!</span></li>
+            <li className="flex items-start gap-3"><span className="text-neon-orange flex-shrink-0 mt-0.5">1.</span><div className="space-y-2"><span><strong className="text-white">Sportorvosi vizsgálat</strong> — Gyerekeknek fél évente, felnőtteknek évente kötelező.</span><div className="flex flex-wrap gap-3 pt-1"><a href="https://online.osei.hu/bejelentkezes" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-neon-orange hover:text-orange-400 font-bold underline transition-colors"><span>OSEI online időpontfoglalás</span> <ExternalLink className="w-3 h-3" /></a><a href="https://osei.hu/images/stories/osei/Sportoli-krdv-20260310-szerkeszthet-.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-neon-orange hover:text-orange-400 font-bold underline transition-colors"><span>Letöltendő kérdőív vizsgálathoz (PDF)</span> <Download className="w-3 h-3" /></a></div></div></li>
+            <li className="flex items-start gap-3"><span className="text-neon-orange flex-shrink-0 mt-0.5">2.</span><span><strong className="text-white">Fejvédő</strong> — Versenyeken kötelező, edzéseken erősen ajánlott. Versenyzőknek mindkét színből (piros és kék) kell legyen!</span></li>
           </ul>
         </div>
         <h2 className="text-3xl font-black text-white mb-6">Tagok övszín szerint</h2>

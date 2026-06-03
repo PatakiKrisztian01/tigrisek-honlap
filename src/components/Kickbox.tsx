@@ -30,12 +30,12 @@ export default function Kickbox() {
 
         {/* Hero szöveg */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center h-full" style={{ minHeight: '560px' }}>
-          <p className="text-neon-orange text-sm font-bold tracking-wider uppercase mb-3">Szakosztályunk</p>
-          <h1 className="text-4xl sm:text-5xl font-black text-white leading-tight mb-6">
+          <p className="text-neon-orange text-xs sm:text-sm font-bold tracking-wider uppercase mb-3">Szakosztályunk</p>
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
             KICK-BOX<br />
             <span className="text-neon-orange">FORMAGYAKORLAT</span>
           </h1>
-          <p className="text-gray-300 text-lg max-w-xl mb-8">
+          <p className="text-gray-300 text-sm sm:text-lg max-w-xl mb-8">
             Mozgás, erő és művészet — egyetlen koreografált mozdulatsorban.
           </p>
           <div className="flex flex-wrap gap-4">

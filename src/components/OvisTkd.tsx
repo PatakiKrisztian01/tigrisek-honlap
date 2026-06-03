@@ -22,7 +22,7 @@ export default function OvisTkd() {
             <span className="w-2 h-2 bg-neon-orange rounded-full animate-pulse" />
             <span className="text-neon-orange text-xs sm:text-sm font-semibold tracking-wider uppercase">Budapest Tigers SE</span>
           </div>
-          <h1 className="text-4xl sm:text-6xl font-black text-white uppercase tracking-tight drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">
             Ovis <span className="text-neon-orange">Taekwon-do</span>
           </h1>
         </div>
