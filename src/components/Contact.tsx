@@ -70,7 +70,7 @@ export default function Contact() {
                   </div>
                 </div>
                 <img
-                  src="/PatakiKrisztian-removebg-preview.png"
+                  src="/patakikrisztian.webp"
                   alt="Pataki Krisztián"
                   className="h-40 w-31 sm:h-40 sm:w-32 object-contain flex-shrink-0"
                 />
@@ -101,7 +101,7 @@ export default function Contact() {
                   </div>
                 </div>
                 <img
-                  src="/patakinezsaniko.png"
+                  src="/patakinezsaniko.webp"
                   alt="Patakiné Zs. Anikó"
                   className="h-36 w-28 sm:h-40 sm:w-32 object-contain flex-shrink-0"
                 />
