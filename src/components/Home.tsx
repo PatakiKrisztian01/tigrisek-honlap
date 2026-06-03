@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section - A menüsor alatt kezdődik, 480px magas */}
-      <section className="relative h-[480px] w-full flex items-center overflow-hidden bg-black mt-[0px]">
+      <section className="relative h-[480px] w-full flex items-center overflow-hidden bg-black pt-[0px]">
 
         {/* Helyi WebM videó konténer */}
         <div className="absolute inset-0 w-full h-full z-0">
@@ -206,7 +206,7 @@ export default function Home() {
             </div>
             <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 text-center hover:border-neon-orange/50 transition-all duration-300">
               <img
-                src="/patakinezsaniko.png"
+                src="/patakinezsaniko.webp"
                 alt="Patakiné Zs. Anikó"
                 className="w-20 h-20 mx-auto mb-4 object-contain"
               />
