@@ -34,7 +34,7 @@ export default function Home({ onNavigate }: HomeProps) {
   return (
     <div>
       {/* Hero Section - A menüsor alatt kezdődik */}
-      <div className="relative w-full bg-black overflow-hidden pt-16" style={{ minHeight: '600px' }}>
+      <div className="relative w-full bg-black overflow-hidden" style={{ minHeight: '400px', marginTop: '80px' }}>
         {/* Videó háttérként */}
         <div className="absolute inset-0 w-full h-full z-0">
           <video
@@ -50,14 +50,16 @@ export default function Home({ onNavigate }: HomeProps) {
 
           {/* Sötét átfedés */}
           <div className="absolute inset-0 bg-black/60" />
-          {/* Alul elhalványulás az oldalba */}
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
+          {/* Felül elhalványulás */}
+          <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-black to-transparent" />
+          {/* Alul elhalványulás */}
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black to-transparent" />
           {/* Neon narancs oldalsó fény */}
           <div className="absolute inset-0 bg-gradient-to-r from-neon-orange/10 via-transparent to-transparent" />
         </div>
 
         {/* Hero szöveg és tartalom */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center h-full" style={{ minHeight: '600px' }}>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center h-full" style={{ minHeight: '400px' }}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
             {/* BAL OLDAL: Szövegek */}
