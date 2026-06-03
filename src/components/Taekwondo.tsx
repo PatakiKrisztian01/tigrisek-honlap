@@ -457,7 +457,7 @@ export default function Taekwondo() {
       <div className="mt-12 pt-8 border-t border-gray-800">
         <div className="relative rounded-xl overflow-hidden border border-gray-800 bg-black/50 group">
           <img 
-            src="/tenets.jpg" 
+            src="/tenets.webp" 
             alt="Taekwon-do Tanai illusztráció" 
             className="w-full h-auto max-h-[450px] object-contain mx-auto transition-transform duration-500 group-hover:scale-[1.01]"
           />
