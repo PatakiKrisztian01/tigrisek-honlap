@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 export default function Kickbox() {
   return (
-    <div className="min-h-screen pt-20">
-
-      {/* ── HERO SZEKCIÓ ── */}
-      <div className="relative w-full bg-black overflow-hidden" style={{ minHeight: '560px' }}>
+     <div>
+      {/* Hero Section - A menüsor alatt kezdődik, 480px magas */}
+      {/* Hero Section - A menüsor alatt kezdődik */}
+      <div className="relative w-full bg-black overflow-hidden" style={{ minHeight: '400px', marginTop: '80px' }}>
         {/* Videó háttérként */}
         <div className="absolute inset-0 w-full h-full z-0">
           <video
@@ -19,14 +19,17 @@ export default function Kickbox() {
             <source src="/kickbox.webm" type="video/webm" />
             Your browser does not support the video tag.
           </video>
-          
+
           {/* Sötét átfedés */}
-          <div className="absolute inset-0 bg-black/60" />
-          {/* Alul elhalványulás az oldalba */}
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
+          <div className="absolute inset-0 bg-black/20" />
+          {/* Felül elhalványulás */}
+          <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-black to-transparent" />
+          {/* Alul elhalványulás */}
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black to-transparent" />
           {/* Neon narancs oldalsó fény */}
           <div className="absolute inset-0 bg-gradient-to-r from-neon-orange/10 via-transparent to-transparent" />
         </div>
+
 
         {/* Hero szöveg */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center h-full" style={{ minHeight: '560px' }}>
