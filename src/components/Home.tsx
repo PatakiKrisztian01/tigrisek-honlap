@@ -46,7 +46,7 @@ export default function Home() {
           </video>
 
           {/* Sötét átfedés */}
-          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-black/40" />
           {/* Felül elhalványulás */}
           <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-black to-transparent" />
           {/* Alul elhalványulás */}
