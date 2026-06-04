@@ -202,7 +202,7 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
             <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 text-center hover:border-neon-orange/50 transition-all duration-300">
               <img
-                src="/PatakiKrisztian-removebg-preview.png"
+                src="/patakikrisztian.webp"
                 alt="Pataki Krisztián"
                 className="w-20 h-20 mx-auto mb-4 object-contain"
               />
