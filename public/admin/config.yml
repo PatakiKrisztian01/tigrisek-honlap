@@ -1,8 +1,6 @@
 backend:
-  name: github
-  repo: owner/repo
+  name: git-gateway
   branch: main
-  base_url: https://api.netlify.com
 
 media_folder: public/images/news
 public_folder: /images/news
