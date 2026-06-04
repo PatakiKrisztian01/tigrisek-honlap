@@ -1,46 +1,13 @@
 import { Calendar, Facebook, ExternalLink } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
-const newsItems = [
-  {
-    date: '2026. Április 1.',
-    category: 'Közlemény',
-    title: 'Ajánld fel adód 1%-át a Tigriseknek!',
-    body: `Most Te is segíthetsz nekünk, ráadásul ez Neked egyetlen forintodba sem kerül! Ajánld fel adód 1%-át a Tigrisek javára, és légy részese Te is a közösségünk sikereinek!
-
-Adószámunk: 18012020-1-43
-
-Pár kattintás az egész az Ügyfélkapun keresztül:
-1. Kattints a NAV eSZJA oldalára: eszja.nav.gov.hu
-2. Lépj be és válaszd az 1+1%-os nyilatkozatot.
-3. Illeszd be az adószámunkat!
-
-Segíts, hogy harcosaink méltó körülmények között készülhessenek! Köszönjük a bizalmat és a támogatást!`,
-  },
-  {
-    date: '2025',
-    category: 'Verseny',
-    title: 'Danvizsga',
-    body: 'Gratulálunk minden versenyzőnknek, aki sikeresen teljesítette a danvizsgát! Kemény edzésmunkájuk meghozta gyümölcsét.',
-  },
-  {
-    date: '2025',
-    category: 'Verseny',
-    title: 'WAKO Kickbox Világkupa – Jesolo',
-    body: 'Csapatunk versenyzői kiemelkedő eredményeket értek el a jesolói Kickbox Világkupán. Büszkék vagyunk rájuk!',
-  },
-  {
-    date: '2025',
-    category: 'Bajnokság',
-    title: 'Magyarbajnokság',
-    body: 'Tigrisek versenyzői ismét bizonyítottak az Országos Bajnokságon. Gratulálunk minden résztvevőnek és érmeseinknek!',
-  },
-  {
-    date: '2025',
-    category: 'Bajnokság',
-    title: 'Diákolimpia',
-    body: 'Fiatal sportolóink remekül szerepeltek a Diákolimpián. A jövő bajnokai egyre erősebbek!',
-  },
-];
+interface NewsItem {
+  title: string;
+  date: string;
+  category: string;
+  image: string;
+  body: string;
+}
 
 const categoryColors: Record<string, string> = {
   Közlemény: 'bg-amber-600/20 text-amber-400 border-amber-600/30',
@@ -49,6 +16,26 @@ const categoryColors: Record<string, string> = {
 };
 
 export default function News() {
+  const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await fetch('/data/news/index.json');
+        const slugs: string[] = await res.json();
+        const items = await Promise.all(
+          slugs.map(async (slug) => {
+            const r = await fetch(`/data/news/${slug}.json`);
+            return r.json() as Promise<NewsItem>;
+          })
+        );
+        setNewsItems(items);
+      } catch {
+        setNewsItems([]);
+      }
+    })();
+  }, []);
+
   return (
     <div className="min-h-screen pt-20">
       {/* Page Header */}
@@ -70,6 +57,15 @@ export default function News() {
                   key={i}
                   className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-neon-orange/50 transition-all duration-300 group"
                 >
+                  {item.image && (
+                    <div className="w-full h-48 sm:h-56 overflow-hidden">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                  )}
                   <div className="p-6 sm:p-8">
                     <div className="flex flex-wrap items-center gap-3 mb-4">
                       <span className={`inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full border ${categoryColors[item.category] ?? 'bg-gray-800 text-gray-300 border-gray-700'}`}>
@@ -101,18 +97,18 @@ export default function News() {
                 <Facebook className="w-6 h-6 text-blue-500 fill-current" />
                 <h2 className="text-2xl font-black text-white">Facebook hírfolyam</h2>
               </div>
-              
+
               <div className="bg-gray-900 border border-gray-800 rounded-2xl p-4 text-center space-y-4 shadow-xl">
                 {/* Hivatalos, beágyazott Facebook hírfolyam doboz */}
                 <div className="w-full overflow-hidden rounded-xl bg-white flex justify-center">
-                  <iframe 
-                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FBudapestTigers&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
-                    width="340" 
-                    height="500" 
-                    style={{ border: 'none', overflow: 'hidden' }} 
-                    scrolling="no" 
-                    frameBorder="0" 
-                    allowFullScreen={true} 
+                  <iframe
+                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FBudapestTigers&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+                    width="340"
+                    height="500"
+                    style={{ border: 'none', overflow: 'hidden' }}
+                    scrolling="no"
+                    frameBorder="0"
+                    allowFullScreen={true}
                     allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                     title="Budapest Tigers Facebook Feed"
                     className="w-full max-w-[340px]"

@@ -1,0 +1,40 @@
+backend:
+  name: github
+  repo: owner/repo
+  branch: main
+  base_url: https://api.netlify.com
+
+media_folder: public/images/news
+public_folder: /images/news
+
+collections:
+  - name: news
+    label: Hírek
+    folder: public/data/news
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: json
+    format: json
+    fields:
+      - label: Cím
+        name: title
+        widget: string
+      - label: Dátum
+        name: date
+        widget: string
+      - label: Kategória
+        name: category
+        widget: select
+        options:
+          - Közlemény
+          - Verseny
+          - Bajnokság
+      - label: Kép
+        name: image
+        widget: image
+        required: false
+        media_folder: /images/news
+      - label: Tartalom
+        name: body
+        widget: text
