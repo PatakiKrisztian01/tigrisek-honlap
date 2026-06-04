@@ -7,44 +7,6 @@
     <title>Tigrisek SE - Tartalom kezelő</title>
   </head>
   <body>
-    <!-- A CMS manuális indítása -->
-    <script>
-      window.CMS_MANUAL_INIT = true;
-    </script>
-    <!-- A Decap CMS betöltése -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-    <!-- A konfiguráció megadása -->
-    <script>
-      CMS.init({
-        config: {
-          backend: {
-            name: "github",
-            repo: "PatakiKrisztian01/tigrisek-honlap",
-            branch: "main",
-          },
-          media_folder: "public/images/news",
-          public_folder: "/images/news",
-          collections: [
-            {
-              name: "news",
-              label: "Hírek",
-              folder: "public/data/news",
-              create: true,
-              delete: true,
-              slug: "{{slug}}",
-              extension: "json",
-              format: "json",
-              fields: [
-                {label: "Cím", name: "title", widget: "string"},
-                {label: "Dátum", name: "date", widget: "string"},
-                {label: "Kategória", name: "category", widget: "select", options: ["Közlemény", "Verseny", "Bajnokság"]},
-                {label: "Kép", name: "image", widget: "image", required: false},
-                {label: "Tartalom", name: "body", widget: "text"}
-              ]
-            }
-          ]
-        }
-      });
-    </script>
   </body>
 </html>
