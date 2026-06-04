@@ -2,8 +2,7 @@ backend:
   name: github
   repo: PatakiKrisztian01/tigrisek-honlap
   branch: main
-  base_url: https://tigrisek-honlap.vercel.app # Ez kényszeríti rá a Vercelre
-  auth_endpoint: api/auth # Ez a híd a GitHub és a Vercel között
+  auth_endpoint: https://api.github.com/login/oauth/authorize # Ez a közvetlen GitHub út
 
 media_folder: public/images/news
 public_folder: /images/news
