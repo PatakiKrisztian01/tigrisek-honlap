@@ -2,7 +2,6 @@ backend:
   name: github
   repo: PatakiKrisztian01/tigrisek-honlap
   branch: main
-  auth_endpoint: https://github.com/login/oauth/authorize
 
 media_folder: public/images/news
 public_folder: /images/news
