@@ -1,6 +1,7 @@
 import { Calendar, Facebook, ExternalLink } from 'lucide-react';
 import { useState, useEffect } from 'react';
-
+import { useNavigate } from 'react-router-dom';
+ 
 interface NewsItem {
   title: string;
   date: string;
@@ -8,34 +9,37 @@ interface NewsItem {
   image: string;
   body: string;
 }
-
+ 
 const categoryColors: Record<string, string> = {
   Közlemény: 'bg-amber-600/20 text-amber-400 border-amber-600/30',
   Verseny: 'bg-neon-orange/20 text-neon-orange border-neon-orange/30',
   Bajnokság: 'bg-sky-600/20 text-sky-400 border-sky-600/30',
 };
-
+ 
 export default function News() {
   const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
-
+  const [slugs, setSlugs] = useState<string[]>([]);
+  const navigate = useNavigate();
+ 
   useEffect(() => {
     (async () => {
       try {
         const res = await fetch('/data/news/index.json');
-        const slugs: string[] = await res.json();
+        const slugList: string[] = await res.json();
         const items = await Promise.all(
-          slugs.map(async (slug) => {
+          slugList.map(async (slug) => {
             const r = await fetch(`/data/news/${slug}.json`);
             return r.json() as Promise<NewsItem>;
           })
         );
+        setSlugs(slugList);
         setNewsItems(items);
       } catch {
         setNewsItems([]);
       }
     })();
   }, []);
-
+ 
   return (
     <div className="min-h-screen pt-20">
       {/* Page Header */}
@@ -45,7 +49,7 @@ export default function News() {
           <h1 className="text-5xl font-black text-white">Hírek</h1>
         </div>
       </div>
-
+ 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid lg:grid-cols-3 gap-8">
           {/* News List */}
@@ -55,7 +59,8 @@ export default function News() {
               {newsItems.map((item, i) => (
                 <article
                   key={i}
-                  className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-neon-orange/50 transition-all duration-300 group"
+                  onClick={() => navigate(`/hirek/${slugs[i]}`)}
+                  className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-neon-orange/50 transition-all duration-300 group cursor-pointer"
                 >
                   {item.image && (
                     <div className="w-full h-48 sm:h-56 overflow-hidden">
@@ -76,30 +81,33 @@ export default function News() {
                         {item.date}
                       </span>
                     </div>
-
+ 
                     <h2 className="text-white font-black text-xl sm:text-2xl mb-4 group-hover:text-neon-orange transition-colors">
                       {item.title}
                     </h2>
-
-                    <p className="text-gray-400 text-sm leading-relaxed whitespace-pre-line">
+ 
+                    <p className="text-gray-400 text-sm leading-relaxed whitespace-pre-line line-clamp-3">
                       {item.body}
                     </p>
+ 
+                    <div className="mt-4 text-neon-orange text-sm font-bold">
+                      Tovább olvasom →
+                    </div>
                   </div>
                 </article>
               ))}
             </div>
           </div>
-
-          {/* ÉLŐ FACEBOOK HÍRFOLYAM SIDEBAR */}
+ 
+          {/* Facebook sidebar */}
           <div className="lg:col-span-1">
             <div className="sticky top-24">
               <div className="flex items-center gap-2 mb-6">
                 <Facebook className="w-6 h-6 text-blue-500 fill-current" />
                 <h2 className="text-2xl font-black text-white">Facebook hírfolyam</h2>
               </div>
-
+ 
               <div className="bg-gray-900 border border-gray-800 rounded-2xl p-4 text-center space-y-4 shadow-xl">
-                {/* Hivatalos, beágyazott Facebook hírfolyam doboz */}
                 <div className="w-full overflow-hidden rounded-xl bg-white flex justify-center">
                   <iframe
                     src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FBudapestTigers&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
@@ -114,7 +122,7 @@ export default function News() {
                     className="w-full max-w-[340px]"
                   ></iframe>
                 </div>
-
+ 
                 <div className="pt-2">
                   <a
                     href="https://www.facebook.com/BudapestTigers"
@@ -134,3 +142,4 @@ export default function News() {
     </div>
   );
 }
+ 
