@@ -103,39 +103,66 @@ export default function Kickbox() {
               </div>
             </section>
 
-            <div className="space-y-4">
-              <div className="w-full rounded-2xl overflow-hidden border border-gray-850 shadow-md">
+            {/* KÉPEK SZEKCIÓ - Átalakítva 2 oszlopos izzó narancs keretes linkekké */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+              {/* WAKO Kép és Link */}
+              <a 
+                href="https://www.wako.sport/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group block relative rounded-2xl overflow-hidden border-2 border-neon-orange/60 shadow-[0_0_15px_rgba(255,165,0,0.15)] transition-all duration-300 hover:scale-[1.03] hover:border-neon-orange hover:shadow-[0_0_25px_rgba(255,165,0,0.35)]"
+              >
                 <img 
                   src="wako.webp" 
                   alt="WAKO Kategóriák" 
-                  className="w-full h-auto object-cover max-h-72"
+                  className="w-full h-full object-cover max-h-52 sm:max-h-64 transition-transform duration-500 group-hover:scale-105"
                 />
-              </div>
-
-              <section className="space-y-4">
-                <h2 className="text-2xl font-black text-white flex items-center gap-2 border-b border-gray-800 pb-3 uppercase tracking-tight">
-                  Kategóriák a WAKO-ban
-                </h2>
-                <p className="text-gray-400 text-sm">A formagyakorlatok sokszínűek, és mindenki megtalálhatja a számára megfelelőt:</p>
-                <div className="grid sm:grid-cols-2 gap-4 text-sm">
-                  <div className="bg-gray-900/30 border border-gray-800 p-4 rounded-lg">
-                    <span className="text-white font-bold block mb-1">Hard Style (kemény stílus)</span>
-                    <span className="text-gray-400 text-xs">Hagyományos, erőteljes és robbanékony mozdulatok jellemzik.</span>
-                  </div>
-                  <div className="bg-gray-900/30 border border-gray-800 p-4 rounded-lg">
-                    <span className="text-white font-bold block mb-1">Hard Style Weapons</span>
-                    <span className="text-gray-400 text-xs">Hagyományos fegyverek (pl. bot, kard) látványos és kontrollált használata.</span>
-                  </div>
-                  <div className="bg-gray-900/30 border border-gray-800 p-4 rounded-lg">
-                    <span className="text-white font-bold block mb-1">Zenés formagyakorlat</span>
-                    <span className="text-gray-400 text-xs">Zenére történő bemutató, ahol a mozdulatok és a zene ritmusa, hangulata tökéletes összhangban van.</span>
-                  </div>
-                  <div className="bg-gray-900/30 border border-gray-800 p-4 rounded-lg flex items-center">
-                    <span className="text-white font-bold">Zenés fegyveres formagyakorlat</span>
-                  </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                  <span className="text-white text-xs font-bold tracking-wider uppercase bg-neon-orange/80 px-2.5 py-1 rounded">Megnyitás: wako.sport ↗</span>
                 </div>
-              </section>
+              </a>
+
+              {/* MKBSZ Kép és Link */}
+              <a 
+                href="https://kick-box.hu/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group block relative rounded-2xl overflow-hidden border-2 border-neon-orange/60 shadow-[0_0_15px_rgba(255,165,0,0.15)] transition-all duration-300 hover:scale-[1.03] hover:border-neon-orange hover:shadow-[0_0_25px_rgba(255,165,0,0.35)]"
+              >
+                <img 
+                  src="MKBSZ.webp" 
+                  alt="MKBSZ Szövetség" 
+                  className="w-full h-full object-cover max-h-52 sm:max-h-64 transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                  <span className="text-white text-xs font-bold tracking-wider uppercase bg-neon-orange/80 px-2.5 py-1 rounded">Megnyitás: kick-box.hu ↗</span>
+                </div>
+              </a>
             </div>
+
+            <section className="space-y-4">
+              <h2 className="text-2xl font-black text-white flex items-center gap-2 border-b border-gray-800 pb-3 uppercase tracking-tight">
+                Kategóriák a WAKO-ban
+              </h2>
+              <p className="text-gray-400 text-sm">A formagyakorlatok sokszínűek, és mindenki megtalálhatja a számára megfelelőt:</p>
+              <div className="grid sm:grid-cols-2 gap-4 text-sm">
+                <div className="bg-gray-900/30 border border-gray-800 p-4 rounded-lg">
+                  <span className="text-white font-bold block mb-1">Hard Style (kemény stílus)</span>
+                  <span className="text-gray-400 text-xs">Hagyományos, erőteljes és robbanékony mozdulatok jellemzik.</span>
+                </div>
+                <div className="bg-gray-900/30 border border-gray-800 p-4 rounded-lg">
+                  <span className="text-white font-bold block mb-1">Hard Style Weapons</span>
+                  <span className="text-gray-400 text-xs">Hagyományos fegyverek (pl. bot, kard) látványos és kontrollált használata.</span>
+                </div>
+                <div className="bg-gray-900/30 border border-gray-800 p-4 rounded-lg">
+                  <span className="text-white font-bold block mb-1">Zenés formagyakorlat</span>
+                  <span className="text-gray-400 text-xs">Zenére történő bemutató, ahol a mozdulatok és a zene ritmusa, hangulata tökéletes összhangban van.</span>
+                </div>
+                <div className="bg-gray-900/30 border border-gray-800 p-4 rounded-lg flex items-center">
+                  <span className="text-white font-bold">Zenés fegyveres formagyakorlat</span>
+                </div>
+              </div>
+            </section>
           </div>
 
           <div className="space-y-6">
