@@ -3,6 +3,7 @@ backend:
   repo: PatakiKrisztian01/tigrisek-honlap
   branch: main
   base_url: https://tigrisek-oauth.vercel.app
+  auth_endpoint: /api/auth
 
 media_folder: public/images/news
 public_folder: /images/news
