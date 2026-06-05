@@ -21,7 +21,8 @@ collections:
         widget: string
       - label: Dátum
         name: date
-        widget: string
+        widget: datetime
+        format: "YYYY-MM-DD"
       - label: Kategória
         name: category
         widget: select
@@ -33,7 +34,17 @@ collections:
         name: image
         widget: image
         required: false
-        media_folder: /images/news
       - label: Tartalom
         name: body
-        widget: text
+        widget: markdown
+      # --- SEO MEZŐK HOZZÁADVA ---
+      - label: "SEO Cím (Title)"
+        name: "seo_title"
+        widget: "string"
+        required: false
+        hint: "Ez jelenik meg a Google találati listáján (max 60 karakter)."
+      - label: "SEO Leírás (Description)"
+        name: "seo_description"
+        widget: "text"
+        required: false
+        hint: "Rövid összefoglaló a keresőknek (max 160 karakter)."
