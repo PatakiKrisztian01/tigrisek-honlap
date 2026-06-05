@@ -2,6 +2,7 @@ backend:
   name: github
   repo: PatakiKrisztian01/tigrisek-honlap
   branch: main
+  base_url: https://tigrisek-oauth.vercel.app
 
 media_folder: public/images/news
 public_folder: /images/news
