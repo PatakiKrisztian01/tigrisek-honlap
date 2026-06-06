@@ -13,7 +13,7 @@ const belts: Belt[] = [
   { rank: 'IV. Dan', rankEn: '', members: ['Leiti Edmond'], results: [{ name: 'Leiti Edmond', achievements: ['2006 Hatvan Európa Kupa – küzdelem -63kg: 1. hely', '2005 Budapest OB – küzdelem -63kg: 3. hely'] }] },
   { rank: 'III. Dan', rankEn: '', members: ['Kiss Viktor', 'Patakiné Zs. Anikó'] },
   { rank: 'II. Dan', rankEn: '', members: ['Almási Zsolt', 'Csáki Máté', 'Dányi Leonetta', 'Höflinger Zsolt', 'Jakab Norbert', 'Kardos Zsolt', 'Kökény Bence', 'Schäfer Péter', 'Takács Ágnes'] },
-  { rank: 'I. Dan', rankEn: '', members: ['Fodor Andrea', 'Horváth Gergő', 'Králik Csaba', 'Mireisz Tibor', 'Nagy Varga Bence', 'Nagy Varga Csenge', 'Nas Levente', 'Orha Noémi', 'Papp Alexandra', 'Simon Gábor', 'Solymosi Hanna Zoé', 'Tar Balázs', 'Vajler Éva'] },
+  { rank: '1.Dan', rankEn: '', members: ['Fodor Andrea', 'Horváth Gergő', 'Králik Csaba', 'Mireisz Tibor', 'Nagy Varga Bence', 'Nagy Varga Csenge', 'Nas Levente', 'Orha Noémi', 'Papp Alexandra', 'Simon Gábor', 'Solymosi Hanna Zoé', 'Tar Balázs', 'Vajler Éva'] },
   { rank: '1.gup', rankEn: '', members: ['Borzsák Endre', 'Hegyi Márton', 'Käfer Dóra', 'Kiss Judit', 'Kovács Anna Viola', 'Nas Timur', 'Pribelszki Dóra', 'Trepka Zsolt'] },
   { rank: '2.gup', rankEn: '', members: ['Béres Dominik', 'Epres Barnabás', 'Héni Petra', 'Horváth Anna Eszter', 'Nijhuis Sam', 'Wieser Melinda'] },
   { rank: '3.gup', rankEn: '', members: ['Gervai Milán', 'Gódor Julianna', 'Kiss Enikő', 'Nas Mira', 'Nász József Péter', 'Orha Virág', 'Pataki Marcell'] },
@@ -82,22 +82,33 @@ function BeltRow({ belt }: { belt: Belt }) {
 
 export default function Members() {
   return (
-    <div className="max-w-4xl mx-auto px-6 py-16 text-white">
-      <h2 className="text-3xl font-black mb-8">Tagok</h2>
-      <div className="space-y-4 mb-16"> {belts.map((belt) => <BeltRow key={belt.rank} belt={belt} />)} </div>
-      <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
-        <h3 className="font-black text-xl mb-6 flex items-center gap-3"><span className="w-2 h-6 bg-orange-500 rounded-full"></span>Tagoknak — Fontos tudnivalók</h3>
-        <ul className="space-y-6 text-sm text-gray-400">
-          <li className="flex items-start gap-4">
-            <span className="text-orange-500 font-bold text-lg">01.</span>
-            <div><p><strong className="text-white">Sportorvosi vizsgálat</strong> — Gyerekeknek fél évente, felnőtteknek évente kötelező.</p>
-              <div className="flex gap-4 pt-2"><a href="https://online.osei.hu/bejelentkezes" className="text-orange-500 underline">OSEI időpont</a><a href="https://osei.hu/images/stories/osei/Sportoli-krdv-20260310-szerkeszthet-.pdf" className="text-gray-300 underline">Kérdőív letöltése</a></div></div>
-          </li>
-          <li className="flex items-start gap-4">
-            <span className="text-orange-500 font-bold text-lg">02.</span>
-            <p><strong className="text-white">Fejvédő</strong> — Versenyeken kötelező, edzéseken ajánlott. Versenyzőknek mindkét színből (piros és kék) kell rendelkezniük.</p>
-          </li>
-        </ul>
+    <div className="min-h-screen bg-black">
+      {/* Visszahozott Hero szekció */}
+      <div className="relative h-[300px] w-full flex items-center border-b border-gray-800">
+        <img src="/tigrisek.webp" className="absolute inset-0 w-full h-full object-cover" alt="Tigrisek" />
+        <div className="absolute inset-0 bg-black/70" />
+        <div className="relative max-w-4xl mx-auto px-6 w-full">
+            <h1 className="text-5xl font-black text-white uppercase tracking-tighter">Tagjaink</h1>
+        </div>
+      </div>
+
+      <div className="max-w-4xl mx-auto px-6 py-16 text-white">
+        <div className="space-y-4 mb-16"> {belts.map((belt) => <BeltRow key={belt.rank} belt={belt} />)} </div>
+        
+        <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+          <h3 className="font-black text-xl mb-6 flex items-center gap-3"><span className="w-2 h-6 bg-orange-500 rounded-full"></span>Tagoknak — Fontos tudnivalók</h3>
+          <ul className="space-y-6 text-sm text-gray-400">
+            <li className="flex items-start gap-4">
+              <span className="text-orange-500 font-bold text-lg">01.</span>
+              <div><p><strong className="text-white">Sportorvosi vizsgálat</strong> — Gyerekeknek fél évente, felnőtteknek évente kötelező.</p>
+                <div className="flex gap-4 pt-2"><a href="https://online.osei.hu/bejelentkezes" className="text-orange-500 underline">OSEI időpont</a><a href="https://osei.hu/images/stories/osei/Sportoli-krdv-20260310-szerkeszthet-.pdf" className="text-gray-300 underline">Kérdőív letöltése</a></div></div>
+            </li>
+            <li className="flex items-start gap-4">
+              <span className="text-orange-500 font-bold text-lg">02.</span>
+              <p><strong className="text-white">Fejvédő</strong> — Versenyeken kötelező, edzéseken ajánlott. Versenyzőknek mindkét színből (piros és kék) kell rendelkezniük.</p>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );
