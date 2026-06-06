@@ -33,7 +33,7 @@ function BeltRow({ belt }: { belt: Belt }) {
   const getStripeColor = () => {
     switch(belt.rank) {
       case '1.gup': return 'bg-black';
-      case '3.gup': return 'bg-blue-700'; // Egységes sötétebb kék
+      case '3.gup': return 'bg-blue-700';
       case '5.gup': return 'bg-emerald-600';
       case '7.gup': return 'bg-yellow-400';
       case '9.gup': return 'bg-white';
@@ -47,8 +47,8 @@ function BeltRow({ belt }: { belt: Belt }) {
   } else { 
     switch (belt.rank) {
       case '1.gup': case '2.gup': beltBg = 'bg-red-600'; embroideryColor = 'text-black'; borderColor = 'border-red-700'; break;
-      case '3.gup': case '4.gup': beltBg = 'bg-blue-700'; embroideryColor = 'text-blue-800'; borderColor = 'border-blue-800'; break; // Sötétkék öv
-      case '5.gup': case '6.gup': beltBg = 'bg-emerald-600'; embroideryColor = 'text-blue-800'; borderColor = 'border-emerald-700'; break; // Zöld öv, kék szöveg
+      case '3.gup': case '4.gup': beltBg = 'bg-blue-700'; embroideryColor = 'text-red-900'; borderColor = 'border-blue-800'; break;
+      case '5.gup': case '6.gup': beltBg = 'bg-emerald-600'; embroideryColor = 'text-blue-800'; borderColor = 'border-emerald-700'; break;
       case '7.gup': case '8.gup': beltBg = 'bg-yellow-400'; embroideryColor = 'text-emerald-950'; borderColor = 'border-yellow-500'; break;
       case '9.gup': case '10.gup': beltBg = 'bg-white'; embroideryColor = 'text-black'; borderColor = 'border-gray-300'; break;
     }
