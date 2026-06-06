@@ -33,10 +33,10 @@ function BeltRow({ belt }: { belt: Belt }) {
   const getStripeColor = () => {
     switch(belt.rank) {
       case '1.gup': return 'bg-black';
-      case '3.gup': return 'bg-blue-700';
-      case '5.gup': return 'bg-emerald-600';
-      case '7.gup': return 'bg-yellow-400';
-      case '9.gup': return 'bg-white';
+      case '3.gup': return 'bg-red-600';
+      case '5.gup': return 'bg-blue-700';
+      case '7.gup': return 'bg-emerald-600';
+      case '9.gup': return 'bg-yellow-400';
       default: return null;
     }
   };
