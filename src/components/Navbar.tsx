@@ -39,16 +39,17 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 xl:h-20">
           <Link
             to="/"
-            className="flex items-center gap-3 group shrink-0"
+            className="flex items-center gap-2 sm:gap-3 group shrink-0"
           >
             <img
               src="/tigrislogo.webp"
               alt="Tigrisek Logo"
-              className="w-10 h-10 group-hover:scale-110 transition-transform"
+              className="w-8 h-8 sm:w-10 sm:h-10 group-hover:scale-110 transition-transform"
             />
-            <div className="text-left hidden sm:block">
-              <div className="text-white font-bold text-xs leading-tight">BUDAPESTI</div>
-              <div className="text-neon-orange font-black text-sm leading-tight tracking-wider">TIGRISEK SE</div>
+            {/* A felirat minden méreten látható, mobilon kisebb betűmérettel */}
+            <div className="text-left">
+              <div className="text-white font-bold text-[10px] sm:text-xs leading-tight">BUDAPESTI</div>
+              <div className="text-neon-orange font-black text-xs sm:text-sm leading-tight tracking-wider">TIGRISEK SE</div>
             </div>
           </Link>
 
