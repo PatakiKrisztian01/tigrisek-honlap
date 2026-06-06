@@ -66,16 +66,39 @@ export default function Members() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-black/80" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full"><p className="text-neon-orange text-sm font-bold tracking-wider uppercase mb-2">Csapatunk</p><h1 className="text-5xl font-black text-white">Tagok</h1></div>
       </div>
+      
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="bg-amber-950/20 border border-amber-900/40 rounded-2xl p-6 mb-12">
-          <h3 className="text-amber-400 font-bold text-lg mb-4">Tagoknak — Fontos tudnivalók</h3>
-          <ul className="space-y-4 text-gray-300 text-sm">
-            <li className="flex items-start gap-3"><span className="text-amber-500 flex-shrink-0 mt-0.5">1.</span><div className="space-y-2"><span><strong className="text-white">Sportorvosi vizsgálat</strong> — Gyerekeknek fél évente, felnőtteknek évente kötelező.</span><div className="flex flex-wrap gap-3 pt-1"><a href="https://online.osei.hu/bejelentkezes" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-neon-orange hover:text-orange-400 font-bold underline transition-colors"><span>OSEI online időpontfoglalás</span> <ExternalLink className="w-3 h-3" /></a><a href="https://osei.hu/images/stories/osei/Sportoli-krdv-20260310-szerkeszthet-.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-amber-400 hover:text-amber-300 font-bold underline transition-colors"><span>Letöltendő kérdőív vizsgálathoz (PDF)</span> <Download className="w-3 h-3" /></a></div></div></li>
-            <li className="flex items-start gap-3"><span className="text-amber-500 flex-shrink-0 mt-0.5">2.</span><span><strong className="text-white">Fejvédő</strong> — Versenyeken kötelező, edzéseken erősen ajánlott. Versenyzőknek mindkét színből (piros és kék) kell legyen!</span></li>
+        {/* Övek táblázata felül */}
+        <h2 className="text-3xl font-black text-white mb-6">Tagok övszín szerint</h2>
+        <div className="space-y-4 mb-16"> {belts.map((belt) => <BeltRow key={belt.rank} belt={belt} />)} </div>
+
+        {/* Tagoknak szánt blokk alul */}
+        <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+          <h3 className="text-white font-black text-xl mb-6 flex items-center gap-3">
+            <span className="w-2 h-6 bg-neon-orange rounded-full"></span>
+            Tagoknak — Fontos tudnivalók
+          </h3>
+          <ul className="space-y-6 text-gray-400 text-sm">
+            <li className="flex items-start gap-4">
+              <span className="text-neon-orange font-bold text-lg">01.</span>
+              <div className="space-y-2">
+                <p><strong className="text-white">Sportorvosi vizsgálat</strong> — Gyerekeknek fél évente, felnőtteknek évente kötelező.</p>
+                <div className="flex flex-wrap gap-4 pt-1">
+                  <a href="https://online.osei.hu/bejelentkezes" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-neon-orange hover:text-white font-bold underline transition-colors">
+                    <span>OSEI online időpontfoglalás</span> <ExternalLink className="w-3 h-3" />
+                  </a>
+                  <a href="https://osei.hu/images/stories/osei/Sportoli-krdv-20260310-szerkeszthet-.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-gray-300 hover:text-white font-bold underline transition-colors">
+                    <span>Letöltendő kérdőív (PDF)</span> <Download className="w-3 h-3" />
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li className="flex items-start gap-4">
+              <span className="text-neon-orange font-bold text-lg">02.</span>
+              <p><strong className="text-white">Fejvédő</strong> — Versenyeken kötelező, edzéseken erősen ajánlott. Versenyzőknek mindkét színből (piros és kék) kell legyen!</p>
+            </li>
           </ul>
         </div>
-        <h2 className="text-3xl font-black text-white mb-6">Tagok övszín szerint</h2>
-        <div className="space-y-4"> {belts.map((belt) => <BeltRow key={belt.rank} belt={belt} />)} </div>
       </div>
     </div>
   );
