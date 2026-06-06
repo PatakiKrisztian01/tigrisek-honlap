@@ -13,7 +13,7 @@ const belts: Belt[] = [
   { rank: 'IV. Dan', rankEn: '', members: ['Leiti Edmond'], results: [{ name: 'Leiti Edmond', achievements: ['2006 Hatvan Európa Kupa – küzdelem -63kg: 1. hely', '2005 Budapest OB – küzdelem -63kg: 3. hely'] }] },
   { rank: 'III. Dan', rankEn: '', members: ['Kiss Viktor', 'Patakiné Zs. Anikó'] },
   { rank: 'II. Dan', rankEn: '', members: ['Almási Zsolt', 'Csáki Máté', 'Dányi Leonetta', 'Höflinger Zsolt', 'Jakab Norbert', 'Kardos Zsolt', 'Kökény Bence', 'Schäfer Péter', 'Takács Ágnes'] },
-  { rank: '1.Dan', rankEn: '', members: ['Fodor Andrea', 'Horváth Gergő', 'Králik Csaba', 'Mireisz Tibor', 'Nagy Varga Bence', 'Nagy Varga Csenge', 'Nas Levente', 'Orha Noémi', 'Papp Alexandra', 'Simon Gábor', 'Solymosi Hanna Zoé', 'Tar Balázs', 'Vajler Éva'] },
+  { rank: 'I. Dan', rankEn: '', members: ['Fodor Andrea', 'Horváth Gergő', 'Králik Csaba', 'Mireisz Tibor', 'Nagy Varga Bence', 'Nagy Varga Csenge', 'Nas Levente', 'Orha Noémi', 'Papp Alexandra', 'Simon Gábor', 'Solymosi Hanna Zoé', 'Tar Balázs', 'Vajler Éva'] },
   { rank: '1.gup', rankEn: '', members: ['Borzsák Endre', 'Hegyi Márton', 'Käfer Dóra', 'Kiss Judit', 'Kovács Anna Viola', 'Nas Timur', 'Pribelszki Dóra', 'Trepka Zsolt'] },
   { rank: '2.gup', rankEn: '', members: ['Béres Dominik', 'Epres Barnabás', 'Héni Petra', 'Horváth Anna Eszter', 'Nijhuis Sam', 'Wieser Melinda'] },
   { rank: '3.gup', rankEn: '', members: ['Gervai Milán', 'Gódor Julianna', 'Kiss Enikő', 'Nas Mira', 'Nász József Péter', 'Orha Virág', 'Pataki Marcell'] },
@@ -83,10 +83,10 @@ function BeltRow({ belt }: { belt: Belt }) {
 export default function Members() {
   return (
     <div className="min-h-screen bg-black">
-      {/* Visszahozott Hero szekció */}
-      <div className="relative h-[300px] w-full flex items-center border-b border-gray-800">
+      {/* Hero szekció */}
+      <div className="relative h-[300px] w-full mt-16 md:mt-20 flex items-center border-b border-gray-800 overflow-hidden">
         <img src="/tigrisek.webp" className="absolute inset-0 w-full h-full object-cover" alt="Tigrisek" />
-        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-black/60" />
         <div className="relative max-w-4xl mx-auto px-6 w-full">
             <h1 className="text-5xl font-black text-white uppercase tracking-tighter">Tagjaink</h1>
         </div>
