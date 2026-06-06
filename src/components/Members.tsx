@@ -9,12 +9,12 @@ type Belt = {
 };
 
 const belts: Belt[] = [
-  { rank: '6.Dan', rankEn: 'Fekete öv — VI. Dan', members: ['Pataki Krisztián'], results: [{ name: 'Pataki Krisztián', achievements: ['2008 Lengyelország EB – tradicionális küzdelem: 1. hely', '2007 Quebec Világbajnokság – tradicionális küzdelem: 3. hely', '2007 Szeged OB – formagyakorlat: 1. hely', '2007 Szeged OB – tradicionális küzdelem: 1. hely', '2006 Constanca EB – formagyakorlat: 3. hely'] }] },
-  { rank: '4.Dan', rankEn: 'Fekete öv — IV. Dan', members: ['Leiti Edmond'], results: [{ name: 'Leiti Edmond', achievements: ['2006 Hatvan Európa Kupa – küzdelem -63kg: 1. hely', '2005 Budapest OB – küzdelem -63kg: 3. hely'] }] },
-  { rank: '3.Dan', rankEn: 'Fekete öv — III. Dan', members: ['Kiss Viktor', 'Patakiné Zs. Anikó'] },
-  { rank: '2.Dan', rankEn: 'Fekete öv — II. Dan', members: ['Almási Zsolt', 'Csáki Máté', 'Dányi Leonetta', 'Höflinger Zsolt', 'Jakab Norbert', 'Kardos Zsolt', 'Kökény Bence', 'Schäfer Péter', 'Takács Ágnes'] },
-  { rank: '1.Dan', rankEn: 'Fekete öv — I. Dan', members: ['Fodor Andrea', 'Horváth Gergő', 'Králik Csaba', 'Mireisz Tibor', 'Nagy Varga Bence', 'Nagy Varga Csenge', 'Nas Levente', 'Orha Noémi', 'Papp Alexandra', 'Simon Gábor', 'Solymosi Hanna Zoé', 'Tar Balázs', 'Vajler Éva'] },
-  { rank: '1.gup', rankEn: 'Piros öv — Fekete csík', members: ['Borzsák Endre', 'Hegyi Márton', 'Käfer Dóra', 'Kiss Judit', 'Kovács Anna Viola', 'Nas Timur', 'Pribelszki Dóra', 'Trepka Zsolt'] },
+  { rank: '6.Dan', rankEn: 'VI. Dan', members: ['Pataki Krisztián'], results: [{ name: 'Pataki Krisztián', achievements: ['2008 Lengyelország EB – tradicionális küzdelem: 1. hely', '2007 Quebec Világbajnokság – tradicionális küzdelem: 3. hely', '2007 Szeged OB – formagyakorlat: 1. hely', '2007 Szeged OB – tradicionális küzdelem: 1. hely', '2006 Constanca EB – formagyakorlat: 3. hely'] }] },
+  { rank: '4.Dan', rankEn: 'IV. Dan', members: ['Leiti Edmond'], results: [{ name: 'Leiti Edmond', achievements: ['2006 Hatvan Európa Kupa – küzdelem -63kg: 1. hely', '2005 Budapest OB – küzdelem -63kg: 3. hely'] }] },
+  { rank: '3.Dan', rankEn: 'III. Dan', members: ['Kiss Viktor', 'Patakiné Zs. Anikó'] },
+  { rank: '2.Dan', rankEn: 'II. Dan', members: ['Almási Zsolt', 'Csáki Máté', 'Dányi Leonetta', 'Höflinger Zsolt', 'Jakab Norbert', 'Kardos Zsolt', 'Kökény Bence', 'Schäfer Péter', 'Takács Ágnes'] },
+  { rank: '1.Dan', rankEn: 'I. Dan', members: ['Fodor Andrea', 'Horváth Gergő', 'Králik Csaba', 'Mireisz Tibor', 'Nagy Varga Bence', 'Nagy Varga Csenge', 'Nas Levente', 'Orha Noémi', 'Papp Alexandra', 'Simon Gábor', 'Solymosi Hanna Zoé', 'Tar Balázs', 'Vajler Éva'] },
+  { rank: '1.gup', rankEn: 'Fekete csík', members: ['Borzsák Endre', 'Hegyi Márton', 'Käfer Dóra', 'Kiss Judit', 'Kovács Anna Viola', 'Nas Timur', 'Pribelszki Dóra', 'Trepka Zsolt'] },
   { rank: '2.gup', rankEn: 'Piros öv', members: ['Béres Dominik', 'Epres Barnabás', 'Héni Petra', 'Horváth Anna Eszter', 'Nijhuis Sam', 'Wieser Melinda'] },
   { rank: '3.gup', rankEn: 'Kék öv — Piros csík', members: ['Gervai Milán', 'Gódor Julianna', 'Kiss Enikő', 'Nas Mira', 'Nász József Péter', 'Orha Virág', 'Pataki Marcell'] },
   { rank: '4.gup', rankEn: 'Kék öv', members: ['Baranyai Réka', 'Fekete Lilien', 'Hamar Bence', 'Hegedűs István', 'Hegyi Áron', 'Héni Kristóf', 'Horváth Fruzsina', 'Id. Talián István', 'ifj. Talián István', 'Mireisz Zsolt'] },
@@ -29,6 +29,19 @@ const belts: Belt[] = [
 function BeltRow({ belt }: { belt: Belt }) {
   const [open, setOpen] = useState(false);
   const isBlackBelt = belt.rank.includes('Dan');
+  
+  // Csík meghatározása színek alapján
+  const getStripeColor = () => {
+    if (belt.rank === '1.gup') return 'bg-black';
+    if (belt.rank === '3.gup') return 'bg-red-500';
+    if (belt.rank === '5.gup') return 'bg-blue-600';
+    if (belt.rank === '7.gup') return 'bg-emerald-600';
+    if (belt.rank === '9.gup') return 'bg-yellow-400';
+    return null;
+  };
+
+  const stripeColor = getStripeColor();
+  
   let beltBg = 'bg-gray-950'; let embroideryColor = 'text-gray-200'; let borderColor = 'border-gray-800'; let customClasses = 'hover:border-gray-700';
   if (isBlackBelt) { beltBg = 'bg-black'; embroideryColor = 'text-amber-400 font-extrabold tracking-wider'; borderColor = 'border-neon-orange/60'; customClasses = 'hover:border-neon-orange hover:-translate-y-1 shadow-[0_0_15px_rgba(255,90,0,0.15)] hover:shadow-[0_0_25px_rgba(255,90,0,0.35)]'; }
   else { switch (belt.rank) {
@@ -44,15 +57,14 @@ function BeltRow({ belt }: { belt: Belt }) {
       <button className={`w-full flex items-center justify-between p-4 sm:p-5 text-left transition-all uppercase tracking-wider font-black font-serif ${beltBg} ${embroideryColor}`} onClick={() => setOpen(!open)}>
         <div className="flex items-center justify-between flex-1 pr-4">
           <div className="flex items-center gap-6">
-            {isBlackBelt ? <img src="/himzes1.webp" alt="Taekwon-do hímzés" className="w-10 h-10 object-contain flex-shrink-0" /> : 
-              <div className="flex items-center">
-                <span className="text-sm opacity-80 border-r border-current pr-4 min-w-[70px] inline-block font-serif">{belt.rank}</span>
-                {belt.rank === '9.gup' && (
-                  <div className="ml-4 w-2 h-8 bg-yellow-400 rounded-sm border border-gray-400"></div>
-                )}
+            {isBlackBelt ? (
+               <img src="/himzes1.webp" alt="Taekwon-do hímzés" className="w-10 h-10 object-contain flex-shrink-0" /> 
+            ) : (
+              <div className="relative flex items-center h-8 w-12 rounded-sm border border-black/10 overflow-hidden">
+                {stripeColor && <div className={`absolute inset-y-0 left-1/2 w-2 ${stripeColor}`}></div>}
               </div>
-            }
-            <span className="text-base sm:text-lg font-serif ml-4">{belt.rankEn}</span>
+            )}
+            <span className="text-base sm:text-lg font-serif">{belt.rankEn}</span>
           </div>
           <span className="text-xs font-sans normal-case opacity-75">({belt.members.length} fő)</span>
         </div>
@@ -76,9 +88,11 @@ export default function Members() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-black/80" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full"><p className="text-neon-orange text-sm font-bold tracking-wider uppercase mb-2">Csapatunk</p><h1 className="text-5xl font-black text-white">Tagok</h1></div>
       </div>
+      
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <h2 className="text-3xl font-black text-white mb-6">Tagok övszín szerint</h2>
         <div className="space-y-4 mb-16"> {belts.map((belt) => <BeltRow key={belt.rank} belt={belt} />)} </div>
+
         <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
           <h3 className="text-white font-black text-xl mb-6 flex items-center gap-3">
             <span className="w-2 h-6 bg-neon-orange rounded-full"></span>
