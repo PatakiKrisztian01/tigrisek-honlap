@@ -8,8 +8,7 @@ export default function News() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Ezt a listát a Decap CMS frissíti, ha jól van beállítva.
-    // Ha nem jelenik meg a hír, akkor a "public/data/news/index.json" fájlodat kell ellenőrizned!
+    // Ez a betöltési logika már korábban is működött a képekkel
     fetch('/data/news/index.json')
       .then(res => res.json())
       .then(async (slugs: string[]) => {
@@ -20,19 +19,10 @@ export default function News() {
             return { ...data, slug };
           })
         );
-        
-        // Dátum szerinti csökkenő sorrend (a legújabb előre)
-        const sorted = items.sort((a, b) => {
-          const dateA = new Date(a.date || '2000-01-01').getTime();
-          const dateB = new Date(b.date || '2000-01-01').getTime();
-          return dateB - dateA;
-        });
-        
-        setNewsItems(sorted);
+        setNewsItems(items);
         setLoading(false);
       })
-      .catch((err) => {
-        console.error("Hiba a hírek betöltésekor:", err);
+      .catch(() => {
         setLoading(false);
       });
   }, []);
@@ -56,7 +46,6 @@ export default function News() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-8">
-            {newsItems.length === 0 && <p className="text-white">Még nincs hír feltöltve.</p>}
             {newsItems.map((item, i) => (
               <article key={i} className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-neon-orange/50 transition-all duration-300">
                 {item.image && (
