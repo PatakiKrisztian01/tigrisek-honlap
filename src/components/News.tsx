@@ -1,4 +1,4 @@
-import { Calendar, Facebook, ExternalLink } from 'lucide-react';
+import { Calendar, Facebook } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const newsFiles = import.meta.glob('/public/data/news/*.json', { eager: true });
@@ -10,10 +10,18 @@ export default function News() {
     ...data,
     slug: path.split('/').pop()?.replace('.json', '')
   })).sort((a, b) => {
-    // Dátum szerinti csökkenő sorrend (legújabb előre)
-    const dateA = new Date(a.date).getTime();
-    const dateB = new Date(b.date).getTime();
-    return dateB - dateA;
+    // Okos dátum konvertálás: kezeli a régi és az új formátumot is
+    const parseDate = (d: string) => {
+      // Ha már YYYY-MM-DD formátumú, közvetlenül kezeli
+      if (d.includes('-')) return new Date(d).getTime();
+      // Ha "Év. Hónap Nap" formátumú, átalakítja
+      return new Date(d.replace(/ /g, '-').replace(/\./g, '')).getTime();
+    };
+
+    const dateA = parseDate(a.date);
+    const dateB = parseDate(b.date);
+    
+    return dateB - dateA; // Legújabb előre
   });
 
   const categoryColors: Record<string, string> = {
