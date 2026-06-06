@@ -9,7 +9,7 @@ const trainers = [
   { name: 'Kardos Zsolt', rank: 'II.dan', role: '', image: '/kardoszsolt.webp' },
 ];
 
-function LocationCard({ name, address, mapUrl, accentColor }) {
+function LocationCard({ name, address, mapUrl, accentColor }: { name?: string, address: string, mapUrl: string, accentColor: string }) {
   const iconColor = accentColor === 'emerald' ? 'text-emerald-500' : accentColor === 'amber' ? 'text-amber-500' : 'text-neon-orange';
   return (
     <a href={mapUrl} target="_blank" rel="noopener noreferrer" className="group flex items-start gap-3 p-4 rounded-xl bg-gray-800/50 border border-gray-700 hover:border-neon-orange hover:scale-[1.03] hover:shadow-lg hover:shadow-neon-orange/30 transition-all duration-200 cursor-pointer">
@@ -178,7 +178,8 @@ export default function Training() {
           </div>
         </div>
 
-        <div className="bg-neon-orange/5 border border-neon-orange/30 rounded-2xl p-8 sm:p-12">
+        {/* Jelentkezési blokk - ID-val ellátva, hogy a footer gombja ide ugorjon */}
+        <div id="kapcsolat" className="bg-neon-orange/5 border border-neon-orange/30 rounded-2xl p-8 sm:p-12">
           <h3 className="text-white font-black text-3xl mb-4">Készen állsz?</h3>
           <p className="text-gray-300 max-w-xl mb-8">Az első edzés ingyenes! Gyere el és ismerd meg közösségünket. Minden korosztályt szeretettel várunk.</p>
           <div className="flex flex-wrap gap-4">
