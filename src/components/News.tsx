@@ -1,7 +1,6 @@
 import { Calendar, Facebook, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-// Az automatikus fájlkereső megoldás (a korábban megbeszéltek alapján)
 const newsFiles = import.meta.glob('/public/data/news/*.json', { eager: true });
 
 export default function News() {
@@ -10,7 +9,12 @@ export default function News() {
   const newsItems = Object.entries(newsFiles).map(([path, data]: any) => ({
     ...data,
     slug: path.split('/').pop()?.replace('.json', '')
-  })).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  })).sort((a, b) => {
+    // Dátum szerinti csökkenő sorrend (legújabb előre)
+    const dateA = new Date(a.date).getTime();
+    const dateB = new Date(b.date).getTime();
+    return dateB - dateA;
+  });
 
   const categoryColors: Record<string, string> = {
     Közlemény: 'bg-amber-600/20 text-amber-400 border-amber-600/30',
@@ -19,7 +23,7 @@ export default function News() {
   };
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen pt-20 bg-black">
       <div className="relative py-16 bg-gradient-to-b from-gray-900 to-black border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl font-black text-white">Hírek</h1>
@@ -34,11 +38,10 @@ export default function News() {
                 key={i}
                 className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-neon-orange/50 transition-all duration-300"
               >
-                {/* Kép megjelenítése */}
                 {item.image && (
                   <div className="w-full h-80 overflow-hidden bg-gray-950 flex items-center justify-center">
                     <img
-                      src={item.image}
+                      src={item.image.startsWith('/') ? item.image : '/' + item.image}
                       alt={item.title}
                       className="w-full h-full object-contain cursor-pointer hover:opacity-90 transition-opacity"
                       onClick={() => navigate(`/hirek/${item.slug}`)}
@@ -58,7 +61,6 @@ export default function News() {
 
                   <h2 className="text-white font-black text-2xl mb-4">{item.title}</h2>
                   
-                  {/* Itt szedtük ki a 'line-clamp-3'-at, hogy az egész szöveg látszódjon */}
                   <p className="text-gray-400 text-sm leading-relaxed mb-6">
                     {item.body}
                   </p>
@@ -74,11 +76,17 @@ export default function News() {
             ))}
           </div>
 
-          {/* Facebook sidebar - változatlan */}
           <div className="lg:col-span-1">
             <div className="sticky top-24">
                <div className="bg-gray-900 border border-gray-800 rounded-2xl p-4">
-                 <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FBudapestTigers&tabs=timeline&width=340&height=500&adapt_container_width=true" width="340" height="500" style={{ border: 'none', overflow: 'hidden' }} allow="encrypted-media"></iframe>
+                 <iframe 
+                   src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FBudapestTigers&tabs=timeline&width=340&height=500&adapt_container_width=true" 
+                   width="340" 
+                   height="500" 
+                   style={{ border: 'none', overflow: 'hidden' }} 
+                   allow="encrypted-media"
+                   title="Facebook"
+                 ></iframe>
                </div>
             </div>
           </div>
