@@ -30,15 +30,11 @@ function BeltRow({ belt }: { belt: Belt }) {
   const [open, setOpen] = useState(false);
   const isBlackBelt = belt.rank.includes('Dan');
   
-  const getStripeClass = () => {
-    switch (belt.rank) {
-      case '1.gup': return 'border-l-[16px] border-l-black';
-      case '3.gup': return 'border-l-[16px] border-l-red-500';
-      case '5.gup': return 'border-l-[16px] border-l-blue-600';
-      case '7.gup': return 'border-l-[16px] border-l-emerald-600';
-      case '9.gup': return 'border-l-[16px] border-l-yellow-400';
-      default: return '';
-    }
+  const getStripe = () => {
+    const stripes: Record<string, string> = {
+      '1.gup': 'bg-black', '3.gup': 'bg-red-500', '5.gup': 'bg-blue-600', '7.gup': 'bg-emerald-600', '9.gup': 'bg-yellow-400'
+    };
+    return stripes[belt.rank] ? <div className={`w-3 h-10 ${stripes[belt.rank]} ml-4`}></div> : null;
   };
 
   let beltBg = 'bg-gray-950', embroideryColor = 'text-gray-200', borderColor = 'border-gray-800';
@@ -53,8 +49,12 @@ function BeltRow({ belt }: { belt: Belt }) {
 
   return (
     <div className={`border rounded-xl overflow-hidden ${borderColor}`}>
-      <button className={`w-full flex items-center justify-between p-5 uppercase tracking-widest font-black font-serif ${beltBg} ${embroideryColor} ${getStripeClass()}`} onClick={() => setOpen(!open)}>
-        <span className="text-xl">{belt.rank}</span>
+      <button className={`w-full flex items-center justify-between p-5 uppercase tracking-widest font-black font-serif ${beltBg} ${embroideryColor}`} onClick={() => setOpen(!open)}>
+        <div className="flex items-center">
+           {isBlackBelt && <img src="/himzes1.webp" alt="hímzés" className="w-8 h-8 mr-4 object-contain" />}
+           <span className="text-xl">{belt.rank}</span>
+           {getStripe()}
+        </div>
         <div className="flex items-center gap-4">
            <span className="text-xs normal-case tracking-normal opacity-70">({belt.members.length} fő)</span>
            {open ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
@@ -72,9 +72,23 @@ function BeltRow({ belt }: { belt: Belt }) {
 
 export default function Members() {
   return (
-    <div className="max-w-4xl mx-auto px-6 py-16">
-      <h2 className="text-3xl font-black text-white mb-8">Tagok</h2>
-      <div className="space-y-4"> {belts.map((belt) => <BeltRow key={belt.rank} belt={belt} />)} </div>
+    <div className="max-w-4xl mx-auto px-6 py-16 text-white">
+      <h2 className="text-3xl font-black mb-8">Tagok</h2>
+      <div className="space-y-4 mb-16"> {belts.map((belt) => <BeltRow key={belt.rank} belt={belt} />)} </div>
+      <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+        <h3 className="font-black text-xl mb-6 flex items-center gap-3"><span className="w-2 h-6 bg-neon-orange rounded-full"></span>Tagoknak — Fontos tudnivalók</h3>
+        <ul className="space-y-6 text-sm text-gray-400">
+          <li className="flex items-start gap-4">
+            <span className="text-neon-orange font-bold text-lg">01.</span>
+            <div><p><strong className="text-white">Sportorvosi vizsgálat</strong> — Gyerekeknek fél évente, felnőtteknek évente kötelező.</p>
+              <div className="flex gap-4 pt-2"><a href="https://online.osei.hu/bejelentkezes" className="text-neon-orange underline">OSEI időpont</a><a href="https://osei.hu/images/stories/osei/Sportoli-krdv-20260310-szerkeszthet-.pdf" className="text-gray-300 underline">Kérdőív letöltése</a></div></div>
+          </li>
+          <li className="flex items-start gap-4">
+            <span className="text-neon-orange font-bold text-lg">02.</span>
+            <p><strong className="text-white">Fejvédő</strong> — Versenyeken kötelező, edzéseken ajánlott. Versenyzőknek mindkét színből (piros és kék) kell rendelkezniük.</p>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }
