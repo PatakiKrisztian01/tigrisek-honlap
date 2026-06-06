@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronDown, ChevronUp, ExternalLink, Download } from 'lucide-react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 type Belt = {
   rank: string;
@@ -30,30 +30,40 @@ function BeltRow({ belt }: { belt: Belt }) {
   const [open, setOpen] = useState(false);
   const isBlackBelt = belt.rank.includes('Dan');
   
-  const getStripe = () => {
-    const stripes: Record<string, string> = {
-      '1.gup': 'bg-black', '3.gup': 'bg-red-500', '5.gup': 'bg-blue-600', '7.gup': 'bg-emerald-600', '9.gup': 'bg-yellow-400'
-    };
-    return stripes[belt.rank] ? <div className={`w-3 h-10 ${stripes[belt.rank]} ml-4`}></div> : null;
+  const getStripeColor = () => {
+    switch(belt.rank) {
+      case '1.gup': return 'bg-black';
+      case '3.gup': return 'bg-blue-700'; // Egységes sötétebb kék
+      case '5.gup': return 'bg-emerald-600';
+      case '7.gup': return 'bg-yellow-400';
+      case '9.gup': return 'bg-white';
+      default: return null;
+    }
   };
 
   let beltBg = 'bg-gray-950', embroideryColor = 'text-gray-200', borderColor = 'border-gray-800';
-  if (isBlackBelt) { beltBg = 'bg-black'; embroideryColor = 'text-amber-400 font-black tracking-[0.2em] font-serif'; borderColor = 'border-amber-900'; }
-  else { switch (belt.rank) {
+  if (isBlackBelt) { 
+    beltBg = 'bg-black'; embroideryColor = 'text-amber-400 font-black tracking-[0.2em] font-serif'; borderColor = 'border-amber-900'; 
+  } else { 
+    switch (belt.rank) {
       case '1.gup': case '2.gup': beltBg = 'bg-red-600'; embroideryColor = 'text-black'; borderColor = 'border-red-700'; break;
-      case '3.gup': case '4.gup': beltBg = 'bg-blue-600'; embroideryColor = 'text-red-200'; borderColor = 'border-blue-700'; break;
-      case '5.gup': case '6.gup': beltBg = 'bg-emerald-600'; embroideryColor = 'text-blue-900'; borderColor = 'border-emerald-700'; break;
+      case '3.gup': case '4.gup': beltBg = 'bg-blue-700'; embroideryColor = 'text-blue-800'; borderColor = 'border-blue-800'; break; // Sötétkék öv
+      case '5.gup': case '6.gup': beltBg = 'bg-emerald-600'; embroideryColor = 'text-blue-800'; borderColor = 'border-emerald-700'; break; // Zöld öv, kék szöveg
       case '7.gup': case '8.gup': beltBg = 'bg-yellow-400'; embroideryColor = 'text-emerald-950'; borderColor = 'border-yellow-500'; break;
       case '9.gup': case '10.gup': beltBg = 'bg-white'; embroideryColor = 'text-black'; borderColor = 'border-gray-300'; break;
-  } }
+    }
+  }
 
   return (
     <div className={`border rounded-xl overflow-hidden ${borderColor}`}>
-      <button className={`w-full flex items-center justify-between p-5 uppercase tracking-widest font-black font-serif ${beltBg} ${embroideryColor}`} onClick={() => setOpen(!open)}>
+      <button 
+        className={`relative w-full flex items-center justify-between p-5 uppercase tracking-widest font-black font-serif ${beltBg} ${embroideryColor}`} 
+        onClick={() => setOpen(!open)}
+      >
+        {getStripeColor() && <div className={`absolute left-32 top-0 bottom-0 w-3 ${getStripeColor()}`}></div>}
         <div className="flex items-center">
            {isBlackBelt && <img src="/himzes1.webp" alt="hímzés" className="w-8 h-8 mr-4 object-contain" />}
            <span className="text-xl">{belt.rank}</span>
-           {getStripe()}
         </div>
         <div className="flex items-center gap-4">
            <span className="text-xs normal-case tracking-normal opacity-70">({belt.members.length} fő)</span>
@@ -76,15 +86,15 @@ export default function Members() {
       <h2 className="text-3xl font-black mb-8">Tagok</h2>
       <div className="space-y-4 mb-16"> {belts.map((belt) => <BeltRow key={belt.rank} belt={belt} />)} </div>
       <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
-        <h3 className="font-black text-xl mb-6 flex items-center gap-3"><span className="w-2 h-6 bg-neon-orange rounded-full"></span>Tagoknak — Fontos tudnivalók</h3>
+        <h3 className="font-black text-xl mb-6 flex items-center gap-3"><span className="w-2 h-6 bg-orange-500 rounded-full"></span>Tagoknak — Fontos tudnivalók</h3>
         <ul className="space-y-6 text-sm text-gray-400">
           <li className="flex items-start gap-4">
-            <span className="text-neon-orange font-bold text-lg">01.</span>
+            <span className="text-orange-500 font-bold text-lg">01.</span>
             <div><p><strong className="text-white">Sportorvosi vizsgálat</strong> — Gyerekeknek fél évente, felnőtteknek évente kötelező.</p>
-              <div className="flex gap-4 pt-2"><a href="https://online.osei.hu/bejelentkezes" className="text-neon-orange underline">OSEI időpont</a><a href="https://osei.hu/images/stories/osei/Sportoli-krdv-20260310-szerkeszthet-.pdf" className="text-gray-300 underline">Kérdőív letöltése</a></div></div>
+              <div className="flex gap-4 pt-2"><a href="https://online.osei.hu/bejelentkezes" className="text-orange-500 underline">OSEI időpont</a><a href="https://osei.hu/images/stories/osei/Sportoli-krdv-20260310-szerkeszthet-.pdf" className="text-gray-300 underline">Kérdőív letöltése</a></div></div>
           </li>
           <li className="flex items-start gap-4">
-            <span className="text-neon-orange font-bold text-lg">02.</span>
+            <span className="text-orange-500 font-bold text-lg">02.</span>
             <p><strong className="text-white">Fejvédő</strong> — Versenyeken kötelező, edzéseken ajánlott. Versenyzőknek mindkét színből (piros és kék) kell rendelkezniük.</p>
           </li>
         </ul>
