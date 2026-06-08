@@ -23,34 +23,41 @@ export default function News() {
   };
 
   return (
-    <div className="min-h-screen pt-20 bg-black">
+    <div className="min-h-screen pt-20 bg-black overflow-x-hidden">
+      {/* Fejléc rész */}
       <div className="relative py-16 bg-gradient-to-b from-gray-900 to-black border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl font-black text-white">Hírek</h1>
+          <h1 className="text-4xl md:text-5xl font-black text-white">Hírek</h1>
         </div>
       </div>
 
+      {/* Tartalmi rész */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 space-y-8">
+          
+          {/* HÍREK LISTÁJA (Bal oszlop) */}
+          <div className="lg:col-span-2 space-y-8 w-full">
             {newsItems.map((item, i) => (
               <article
                 key={i}
-                className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-neon-orange/50 transition-all duration-300"
+                className="w-full bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-neon-orange/50 transition-all duration-300 flex flex-col"
               >
                 {item.image && (
-                  <div className="w-full h-80 overflow-hidden bg-gray-950 flex items-center justify-center">
+                  /* JAVÍTÁS: h-80 helyett h-auto-t kapott a tároló, így nem kényszerít rá fix magasságot mobilon */
+                  <div className="w-full h-auto overflow-hidden bg-gray-950">
                     <img
                       src={item.image.startsWith('/') ? item.image : '/' + item.image}
                       alt={item.title}
-                      className="w-full h-auto max-h-[300px] md:max-h-[400px] object-cover cursor-pointer hover:opacity-90 transition-opacity rounded-t-xl"
+                      /* JAVÍTÁS: w-full és h-auto kombináció max-magassággal, hogy tökéletesen idomuljon a kártyához */
+                      className="w-full h-auto max-h-[250px] md:max-h-[400px] object-cover cursor-pointer hover:opacity-90 transition-opacity"
                       onClick={() => navigate(`/hirek/${item.slug}`)}
                     />
                   </div>
                 )}
                 
-                <div className="p-8">
-                  <div className="flex items-center gap-3 mb-4">
+                {/* Szöveges tartalom */}
+                <div className="p-5 md:p-8 w-full">
+                  <div className="flex flex-wrap items-center gap-3 mb-4">
                     <span className={`inline-flex items-center px-3 py-1 rounded-full border text-xs font-bold ${categoryColors[item.category] ?? 'bg-gray-800 text-gray-300'}`}>
                       {item.category}
                     </span>
@@ -59,15 +66,15 @@ export default function News() {
                     </span>
                   </div>
 
-                  <h2 className="text-white font-black text-2xl mb-4">{item.title}</h2>
+                  <h2 className="text-white font-black text-xl md:text-2xl mb-4 line-clamp-2">{item.title}</h2>
                   
-                  <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                  <p className="text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3 md:line-clamp-none">
                     {item.body}
                   </p>
 
                   <button 
                     onClick={() => navigate(`/hirek/${item.slug}`)}
-                    className="text-neon-orange font-bold hover:underline"
+                    className="text-neon-orange font-bold hover:underline inline-block"
                   >
                     Tovább olvasom →
                   </button>
@@ -76,20 +83,23 @@ export default function News() {
             ))}
           </div>
 
-          <div className="lg:col-span-1">
-            <div className="sticky top-24">
-               <div className="bg-gray-900 border border-gray-800 rounded-2xl p-4">
+          {/* SIDEBAR / FACEBOOK MODUL (Jobb oszlop) */}
+          <div className="lg:col-span-1 w-full">
+            <div className="sticky top-24 w-full">
+               {/* JAVÍTÁS: A Facebook iframe doboza is megkapta az overflow-hiddent és a flex-középre igazítást, hogy mobilon se tolja ki az oldalt */}
+               <div className="bg-gray-900 border border-gray-800 rounded-2xl p-4 w-full flex justify-center overflow-hidden">
                  <iframe 
                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FBudapestTigers&tabs=timeline&width=340&height=500&adapt_container_width=true" 
                    width="340" 
                    height="500" 
-                   style={{ border: 'none', overflow: 'hidden' }} 
+                   style={{ border: 'none', overflow: 'hidden', maxWidth: '100%' }} 
                    allow="encrypted-media"
                    title="Facebook"
                  ></iframe>
                </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
