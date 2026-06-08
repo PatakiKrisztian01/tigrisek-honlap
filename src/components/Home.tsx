@@ -146,7 +146,7 @@ export default function Home() {
           {/* 3. Sor: Összeolvad a szív felső íve egyetlen széles sávvá */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
             <span className="text-gray-400 opacity-50 inline-block whitespace-nowrap mr-3">INGYENES EDZÉS JELENTKEZZ!</span>
-            <span className="text-red-500 bg-red-950/10 px-2 rounded inline-block whitespace-nowrap">ÖNVÉDELEM—HARCMŰVÉSZET—CSALÁDIAS—KÖZÖSSÉG—TISZTELET—FEGYELEM</span>
+            <span className="text-red-500 bg-red-950/10 px-2 rounded inline-block whitespace-nowrap">ÖNVÉDELEM—HARCMŰVÉSZET—CSALÁDIAS—KÖZÖSSÉG—TISZTELET—FEGYELEM-ERŐ</span>
             <span className="text-gray-400 opacity-50 inline-block whitespace-nowrap ml-3">PRÓBAEDZÉS VÁRUNK RÁD</span>
           </div>
 
