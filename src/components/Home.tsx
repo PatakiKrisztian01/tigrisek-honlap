@@ -1,39 +1,32 @@
 import { ArrowRight, Users, Calendar, Shield, Award, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
-// VALÓS HÍREK ADATBÁZISA (Időrendben csökkenő sorrendben érdemes bővíteni)
-const valosHirek = [
-  {
-    id: 'ado-1-szazalek-2026',
-    date: '2026. Április 1.',
-    title: 'Ne hagyd veszni adód 1%-át!',
-    excerpt: 'Segíts nekünk az ügyfélkapun keresztül! Adószámunk: 18012020-1-43. Pár kattintás az egész.',
-  },
-  {
-    id: 'wako-vilagkupa-jesolo-2025',
-    date: '2025. Október 12.',
-    title: 'WAKO Kickbox Világkupa – Jesolo',
-    excerpt: 'Büszkék vagyunk versenyzőinkre, akik kiemelkedő eredményeket értek el a Jesolo-i Világkupán.',
-  },
-  {
-    id: 'orszagos-magyarbajnoksag-2025',
-    date: '2025. Május 24.',
-    title: 'Magyarbajnokság',
-    excerpt: 'Tigrisek versenyzői ismét bizonyítottak az országos bajnokságon. Gratulálunk minden résztvevőnek!',
-  },
-  /* Ide jöhetnek a régebbi hírek, amik a főoldalon már nem fognak látszódni, csak a /hirek oldalon:
-  {
-    id: 'edzotabor-balaton-2024',
-    date: '2024. Július 15.',
-    title: 'Nyári Edzőtábor Balatonfüreden',
-    excerpt: 'Sikeresen lezajlott az idei alapozó táborunk, rengeteg új övvizsgával.',
-  }
-  */
-];
+// Hír típus definíciója
+interface NewsItem {
+  id: string;
+  date: string;
+  title: string;
+  excerpt: string;
+}
 
 export default function Home() {
-  // Kiválasztjuk a legfrissebb 3 hírt a listából
-  const legfrissebbHirek = valosHirek.slice(0, 3);
+  const [legfrissebbHirek, setLegfrissebbHirek] = useState<NewsItem[]>([]);
+
+  // Valódi fájlok beolvasása a public/data/news/ mappából
+  useEffect(() => {
+    // Itt a saját hírek index fájlodat vagy API-dat hívd be (pl. index.json)
+    fetch('/data/news/index.json')
+      .then((res) => {
+        if (!res.ok) throw new Error('Nem sikerült betölteni a híreket');
+        return res.json();
+      })
+      .then((data: NewsItem[]) => {
+        // Kiválasztjuk a legfrissebb 3 hírt
+        setLegfrissebbHirek(data.slice(0, 3));
+      })
+      .catch((err) => console.error('Hiba a hírek betöltésekor:', err));
+  }, []);
 
   return (
     <div>
@@ -211,7 +204,7 @@ export default function Home() {
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
             <span className="text-white inline-block whitespace-nowrap mr-16">MESTEREK DAN VIZSGA KUP VIZSGA TIGERS KLUB SÉRTETLEN ÖNBIZALOM</span>
             <span className="text-red-500 font-black inline-block whitespace-nowrap">FEGYELMEZETT HARCOSOK—SIKERES VIZSGÁK</span>
-            <span className="text-white inline-block whitespace-nowrap ml-16">BAJNOKI CÍMEK KÜZDELMI SZELLEM TISZTELETADÁS ALÁZATOS MUNKA</span>
+            <span className="text-white inline-block whitespace-nowrap ml-16">BAJNOKI CÍMEK KÜZDELMI SZELLEM TISTETELADÁS ALÁZATOS MUNKA</span>
           </div>
 
           {/* 11. Sor: Közeledünk a csúcshoz, a TIGERS SE fixen egyben, középen zár */}
@@ -231,7 +224,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* VALÓS ÉS DINAMIKUS HÍREK SZEKCIÓ */}
+      {/* DINAMIKUS HÍREK AZ IGAZI MAPPÁBÓL */}
       <section className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-12">
@@ -245,20 +238,24 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {legfrissebbHirek.map((item) => (
-              <Link key={item.id} to={`/hirek/${item.id}`}>
-                <article className="bg-gray-900 border border-gray-800 rounded-2xl p-6 hover:border-neon-orange/50 transition-all duration-300 hover:-translate-y-1 cursor-pointer group h-full flex flex-col justify-between">
-                  <div>
-                    <time className="text-neon-orange text-xs font-bold tracking-wider uppercase mb-3 block">{item.date}</time>
-                    <h3 className="text-white font-bold text-lg mb-3 group-hover:text-neon-orange transition-colors">{item.title}</h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">{item.excerpt}</p>
-                  </div>
-                  <div className="mt-4 flex items-center gap-1 text-xs text-neon-orange font-bold opacity-0 group-hover:opacity-100 transition-opacity">
-                    Elolvasom <ArrowRight className="w-3 h-3" />
-                  </div>
-                </article>
-              </Link>
-            ))}
+            {legfrissebbHirek.length > 0 ? (
+              legfrissebbHirek.map((item) => (
+                <Link key={item.id} to={`/hirek/${item.id}`}>
+                  <article className="bg-gray-900 border border-gray-800 rounded-2xl p-6 hover:border-neon-orange/50 transition-all duration-300 hover:-translate-y-1 cursor-pointer group h-full flex flex-col justify-between">
+                    <div>
+                      <time className="text-neon-orange text-xs font-bold tracking-wider uppercase mb-3 block">{item.date}</time>
+                      <h3 className="text-white font-bold text-lg mb-3 group-hover:text-neon-orange transition-colors">{item.title}</h3>
+                      <p className="text-gray-400 text-sm leading-relaxed">{item.excerpt}</p>
+                    </div>
+                    <div className="mt-4 flex items-center gap-1 text-xs text-neon-orange font-bold opacity-0 group-hover:opacity-100 transition-opacity">
+                      Elolvasom <ArrowRight className="w-3 h-3" />
+                    </div>
+                  </article>
+                </Link>
+              ))
+            ) : (
+              <p className="text-gray-500 text-sm col-span-3">Hírek betöltése...</p>
+            )}
           </div>
         </div>
       </section>
