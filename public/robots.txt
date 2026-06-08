@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Ne mutassa a Google az admin felületet a keresőben
+Disallow: /admin/
+Disallow: /admin
+
+# Itt mutatjuk meg a Google-nek a térképet
+Sitemap: https://tigrisek.hu/sitemap.xml
