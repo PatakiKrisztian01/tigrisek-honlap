@@ -174,7 +174,7 @@ export default function Home() {
           {/* 7. Sor: Határozott szűkülés (A BAJNOKNEVELÉS fixen középen van kötőjellel, nem eshet szét!) */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
             <span className="text-gray-200 inline-block whitespace-nowrap mr-6">BEMUTATÓK ÖVVIZSGÁK EDZŐTÁBOR VERSENYZÉS WAKO</span>
-            <span className="text-red-500 font-black inline-block whitespace-nowrap">VILÁGKUPA—MAGYAR-BAJNOKSÁG—MEDÁLOK—TRÓFEÁK—HIT-BAJNOKNEVELÉS</span>
+            <span className="text-red-500 font-black inline-block whitespace-nowrap">ITF-VILÁGKUPA—MAGYAR-BAJNOKSÁG—MEDÁLOK—TRÓFEÁK—HIT-BAJNOKNEVELÉS</span>
             <span className="text-gray-200 inline-block whitespace-nowrap ml-6">ÖNVÉDELMI FOGÁSOK KÜZDELMI TECHNIKA FORMÁK</span>
           </div>
 
