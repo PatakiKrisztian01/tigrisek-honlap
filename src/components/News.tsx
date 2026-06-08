@@ -1,4 +1,5 @@
-import { Calendar, Facebook, ExternalLink } from 'lucide-react';
+import { useEffect } from 'react';
+import { Calendar, Facebook } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const newsFiles = import.meta.glob('/public/data/news/*.json', { eager: true });
@@ -6,11 +7,29 @@ const newsFiles = import.meta.glob('/public/data/news/*.json', { eager: true });
 export default function News() {
   const navigate = useNavigate();
 
+  // FACEBOOK SDK BETÖLTÉSE: Ez a háttérben feloldja a böngésző tiltását és elindítja a hírfolyamot
+  useEffect(() => {
+    // Ha már be van töltve a szkript, ne töltse be újra
+    if (document.getElementById('facebook-jssdk')) return;
+
+    const fjs = document.getElementsByTagName('script')[0];
+    const js = document.createElement('script') as HTMLScriptElement;
+    js.id = 'facebook-jssdk';
+    js.src = 'https://connect.facebook.net/hu_HU/sdk.js#xfbml=1&version=v17.0';
+    if (fjs && fjs.parentNode) {
+      fjs.parentNode.insertBefore(js, fjs);
+    }
+
+    // Újraértelmezi a Facebook elemeket az oldalon, ha már betöltődött a szkript
+    if ((window as any).FB) {
+      (window as any).FB.XFBML.parse();
+    }
+  }, []);
+
   const newsItems = Object.entries(newsFiles).map(([path, data]: any) => ({
     ...data,
     slug: path.split('/').pop()?.replace('.json', '')
   })).sort((a, b) => {
-    // Dátum szerinti csökkenő sorrend (legújabb előre)
     const dateA = new Date(a.date).getTime();
     const dateB = new Date(b.date).getTime();
     return dateB - dateA;
@@ -24,6 +43,9 @@ export default function News() {
 
   return (
     <div className="min-h-screen pt-20 bg-black overflow-x-hidden">
+      {/* Szükséges Facebook konténer az SDK-nak */}
+      <div id="fb-root"></div>
+
       {/* Fejléc */}
       <div className="relative py-16 bg-gradient-to-b from-gray-900 to-black border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -80,7 +102,7 @@ export default function News() {
             ))}
           </div>
 
-          {/* JOBB OSZLOP - A VALÓDI PÖRGETHETŐ FACEBOOK HÍRFOLYAM */}
+          {/* JOBB OSZLOP - BIZTONSÁGOS FACEBOOK PLUGIN */}
           <div className="lg:col-span-1 w-full">
             <div className="sticky top-24 w-full">
                <div className="bg-gray-900 border border-gray-800 rounded-2xl p-4 w-full flex flex-col overflow-hidden">
@@ -89,18 +111,20 @@ export default function News() {
                    <Facebook className="w-4 h-4 text-[#1877F2] fill-[#1877F2]" /> Facebook hírfolyam
                  </h3>
 
-                 {/* Fehér hátterű doboz, hogy a Facebook widget olvasható legyen, és ne lógjon ki mobilon sem */}
+                 {/* JAVÍTÁS: Átváltottunk a hivatalos XFBML beágyazásra, amit az SDK életre kelt, így megszűnik a végtelen pörgés */}
                  <div className="w-full bg-white rounded-xl p-1 overflow-hidden flex justify-center shadow-inner">
-                   <iframe 
-                     src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FBudapestTigers&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
-                     width="340" 
-                     height="500" 
-                     style={{ border: 'none', overflow: 'hidden', width: '100%', maxWidth: '340px' }} 
-                     allowFullScreen={true}
-                     allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                     referrerPolicy="strict-origin-when-cross-origin"
-                     title="Budapesti Tigrisek Facebook Oldal Hírfolyam"
-                   ></iframe>
+                   <div 
+                     className="fb-page" 
+                     data-href="https://www.facebook.com/BudapestTigers" 
+                     data-tabs="timeline" 
+                     data-width="340" 
+                     data-height="500" 
+                     data-small-header="false" 
+                     data-adapt-container-width="true" 
+                     data-hide-cover="false" 
+                     data-show-facepile="true"
+                     style={{ width: '100%', maxWidth: '340px' }}
+                   ></div>
                  </div>
 
                </div>
