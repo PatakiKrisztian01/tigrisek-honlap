@@ -11,7 +11,7 @@ const stats = [
 const newsItems = [
   {
     date: '2026. Április 1.',
-    title: 'Ajánld fel adód 1%-át!',
+    title: 'Ne hagyd veszni adód 1%-át!',
     excerpt: 'Segíts nekünk az ügyfélkapun keresztül! Adószámunk: 18012020-1-43. Pár kattintás az egész.',
   },
   {
