@@ -22,7 +22,7 @@ const newsItems = [
 export default function Home() {
   return (
     <div>
-      {/* Hero Section - KORRIGÁLT MAGASSÁG: Fixen 580px, ahogy kérted */}
+      {/* Hero Section - Fix 580px magasság */}
       <div className="relative w-full bg-black overflow-hidden" style={{ height: '580px', marginTop: '80px' }}>
         {/* Videó háttérként */}
         <div className="absolute inset-0 w-full h-full z-0">
@@ -89,7 +89,7 @@ export default function Home() {
             <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto space-y-6">
               Nálunk a Taekwon-do nemcsak látványos önvédelem és küzdőszellem, hanem egy összetartó, családias közösség is <span className="text-white font-bold">2002 óta</span>.
               <br /><br />
-              Hiszünk abban, hogy az edzőteremben megszerzett magabiztosság, tisztelet és fegyelem az élet minden területén sikeressé teszi a tanítványainkat. Támogató csapattal várunk minden korosztályt, a teljesen kezdőktől a fekete övesekig.
+              Hiszünk abban, hogy az edzőteremben megszerzett magabiztosság, tisztelet and fegyelem az élet minden területén sikeressé teszi a tanítványainkat. Támogató csapattal várunk minden korosztályt, a teljesen kezdőktől a fekete övesekig.
               <br /><br />
               <span className="text-neon-orange font-bold text-lg block mt-4">Tartozz te is a Tigrisek családjához!</span>
             </p>
@@ -112,105 +112,105 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PIXEL-PONTOSSÁGÚ, SORSZÉLESSÉGGEL FORMÁZOTT SZÓKÉP (NINCS SORTÖRÉS) */}
+      {/* GARANTÁLTAN SORTÖRÉS-MENTES, CENTRÁLT, PIXEL-RE KISZÁMÍTOTT SZÓKÉP */}
       <section className="bg-black py-24 flex flex-col items-center justify-center overflow-hidden border-b border-gray-900">
         <div className="max-w-2xl text-center mb-12 px-4">
           <span className="text-sm font-bold uppercase tracking-widest text-neon-orange mb-2 block">A mi világunk</span>
           <h2 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight">Értékek, Közösség és Erő</h2>
         </div>
 
-        {/* Itt épül fel a szív rétegenként. 
-          Minden sorban a belső rész szorosan zárt piros szöveg, a külső részek pedig kitolják a teret fehér SEO szavakkal.
-          A betűméretek, a whitespace-nowrap és a következetes karakterszámok miatt kiadja a tűsűrű formát.
+        {/* 
+          A külső konténer letiltja az automatikus tördeléseket, és kényszeríti a tökéletes matematikai sorközépre rendezést.
+          Minden span megkapta a különálló 'whitespace-nowrap' és 'inline-block' tulajdonságot, így megszűnik a törés!
         */}
-        <div className="w-full max-w-4xl px-4 flex flex-col items-center justify-center font-mono font-black text-[9px] sm:text-xs md:text-sm uppercase tracking-tighter leading-none select-none">
+        <div className="w-full flex flex-col items-center justify-center text-center font-mono font-black text-[10px] sm:text-xs md:text-sm uppercase tracking-tighter leading-none select-none overflow-x-auto px-4">
           
-          {/* 1. Sor: A szív két felső domborulata különválik (Két külön piros tömb, fehér szélekkel) */}
-          <div className="w-full flex justify-center items-center py-1">
-            <span className="text-gray-400 opacity-40 mr-4">18. KERÜLET BUDAPEST</span>
-            <span className="text-red-500 mx-2 bg-red-950/20 px-2 rounded">TAEKWON-DO</span>
-            <span className="text-gray-500 opacity-30 mx-8">HAVANNA SPORT</span>
-            <span className="text-red-500 mx-2 bg-red-950/20 px-2 rounded">KICK-BOX</span>
-            <span className="text-gray-400 opacity-40 ml-4">PESTSZENTLŐRINC CLUB</span>
+          {/* 1. Sor: A szív két felső domborulata (Különálló piros szavak, széleken fehér háttérrel) */}
+          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
+            <span className="text-gray-500 opacity-30 inline-block whitespace-nowrap mr-4">18. KERÜLET BUDAPEST</span>
+            <span className="text-red-500 bg-red-950/20 px-2 rounded inline-block whitespace-nowrap mx-2">TAEKWON-DO</span>
+            <span className="text-gray-500 opacity-20 inline-block whitespace-nowrap mx-8">HAVANNA SPORT</span>
+            <span className="text-red-500 bg-red-950/20 px-2 rounded inline-block whitespace-nowrap mx-2">KICK-BOX</span>
+            <span className="text-gray-500 opacity-30 inline-block whitespace-nowrap ml-4">PESTSZENTLŐRINC CLUB</span>
           </div>
 
-          {/* 2. Sor: Szélesedő felső ívek */}
-          <div className="w-full flex justify-center items-center py-1">
-            <span className="text-gray-400 opacity-50 mr-3">GYEREK EDZÉS FELNŐTT EDZÉS</span>
-            <span className="text-red-500 font-black">TIGRISEK_TIGERS_EDZÉS</span>
-            <span className="text-gray-500 opacity-40 mx-4">KÖZÖSSÉGI ÉLET</span>
-            <span className="text-red-500 font-black">BUDAPEST_TIGERS_SE</span>
-            <span className="text-gray-400 opacity-50 ml-3">KERÜLETI KÜZDŐSPORT</span>
+          {/* 2. Sor: Szélesedő ívek */}
+          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
+            <span className="text-gray-400 opacity-40 inline-block whitespace-nowrap mr-4">GYEREK EDZÉS FELNŐTT EDZÉS</span>
+            <span className="text-red-500 font-black inline-block whitespace-nowrap">TIGRISEK—TIGERS—EDZÉS</span>
+            <span className="text-gray-500 opacity-30 inline-block whitespace-nowrap mx-6">KÖZÖSSÉGI ÉLET</span>
+            <span className="text-red-500 font-black inline-block whitespace-nowrap">BUDAPEST—TIGERS—SE</span>
+            <span className="text-gray-400 opacity-40 inline-block whitespace-nowrap ml-4">KERÜLETI KÜZDŐSPORT</span>
           </div>
 
-          {/* 3. Sor: Összeolvad a szív felső része (A legszélesebb pont felé haladunk, tiszta piros mag) */}
-          <div className="w-full flex justify-center items-center py-1">
-            <span className="text-gray-400 opacity-60 mr-2">INGYENES ELSŐ EDZÉS JELENTKEZZ MA</span>
-            <span className="text-red-500 bg-red-950/10 px-1">ÖNVÉDELEM HARCMŰVÉSZET CSALÁDIAS KÖZÖSSÉG TISZTELET FEGYELEM</span>
-            <span className="text-gray-400 opacity-60 ml-2">PRÓBAEDZÉS VÁRUNK RÁD</span>
+          {/* 3. Sor: Összeolvad a szív felső íve egyetlen széles sávvá */}
+          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
+            <span className="text-gray-400 opacity-50 inline-block whitespace-nowrap mr-3">INGYENES ELSŐ EDZÉS JELENTKEZZ MA</span>
+            <span className="text-red-500 bg-red-950/10 px-2 rounded inline-block whitespace-nowrap">ÖNVÉDELEM—HARCMŰVÉSZET—CSALÁDIAS—KÖZÖSSÉG—TISZTELET—FEGYELEM</span>
+            <span className="text-gray-400 opacity-50 inline-block whitespace-nowrap ml-3">PRÓBAEDZÉS VÁRUNK RÁD</span>
           </div>
 
-          {/* 4. Sor: A szív maximális szélessége (Masszív belső mag pozitív értékekkel) */}
-          <div className="w-full flex justify-center items-center py-1">
-            <span className="text-gray-400 opacity-70 mr-2">DÉL-PEST KICKBOX TAEKWONDO</span>
-            <span className="text-red-400">KITARTÁS ÖNBIZALOM HARCOSSÁG BARÁTSÁG SZERETET ALÁZAT BECSÜLET ERŐ EGYSÉG HIT</span>
-            <span className="text-gray-400 opacity-70 ml-2">BUDAPESTI SPORT EGYESÜLET</span>
+          {/* 4. Sor: A szív maximális szélessége (Itt van az ERŐ EGYSÉG HIT szorosan kötőjellel egybefűzve) */}
+          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
+            <span className="text-gray-400 opacity-60 inline-block whitespace-nowrap mr-3">DÉL-PEST KICKBOX TAEKWONDO</span>
+            <span className="text-red-400 inline-block whitespace-nowrap">KITARTÁS—ÖNBIZALOM—HARCOSSÁG—BARÁTSÁG—SZERETET—ALÁZAT—BECSÜLET—ERŐ—EGYSÉG—HIT</span>
+            <span className="text-gray-400 opacity-60 inline-block whitespace-nowrap ml-3">BUDAPESTI SPORT EGYESÜLET</span>
           </div>
 
-          {/* 5. Sor: Egybefüggő stabil középrész */}
-          <div className="w-full flex justify-center items-center py-1">
-            <span className="text-gray-400 opacity-80 mr-3">OVIS EDZÉS KEZDŐ CSOPORT</span>
-            <span className="text-red-500 font-black">AKARATERŐ ÖNURALOM ÖSSZETARTÁS BÁTORSÁG CÉLOK FEJLŐDÉS MOTIVÁCIÓ MAGABIZTOSSÁG</span>
-            <span className="text-gray-400 opacity-80 ml-3">HALADÓ NYILVÁNOS EDZÉSEK</span>
+          {/* 5. Sor: Stabil, tömör középrész (A MOTIVÁCIÓ MAGABIZTOSSÁG is láncolva) */}
+          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
+            <span className="text-gray-400 opacity-70 inline-block whitespace-nowrap mr-4">OVIS EDZÉS KEZDŐ CSOPORT</span>
+            <span className="text-red-500 font-black inline-block whitespace-nowrap">AKARATERŐ—ÖNURALOM—ÖSSZETARTÁS—BÁTORSÁG—CÉLOK—FEJLŐDÉS—MOTIVÁCIÓ—MAGABIZTOSSÁG</span>
+            <span className="text-gray-400 opacity-70 inline-block whitespace-nowrap ml-4">HALADÓ NYILVÁNOS EDZÉSEK</span>
           </div>
 
-          {/* 6. Sor: Elkezd lassan szűkülni az alakzat (V-alak kezdete) */}
-          <div className="w-full flex justify-center items-center py-1">
-            <span className="text-gray-300 mr-4">FORMAGYAKORLAT KÜZDELEM ERŐNLÉT NYÚJTÁS</span>
-            <span className="text-red-400">TÁMOGATÁS CSAPATSZELLEM FEGYELMEZETTSÉG ELSZÁNTSÁG PÉLDAMUTATÁS ÖNFEJLESZTÉS</span>
-            <span className="text-gray-300 ml-4">ZSÁKMUNKA PAZSMUNKA KONDÍCIÓ MOZGÁS</span>
+          {/* 6. Sor: Elkezd egyenletesen szűkülni az alakzat (Lassan zárul a V-vonal) */}
+          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
+            <span className="text-gray-300 inline-block whitespace-nowrap mr-5">FORMAGYAKORLAT KÜZDELEM ERŐNLÉT NYÚJTÁS</span>
+            <span className="text-red-400 inline-block whitespace-nowrap">TÁMOGATÁS—CSAPATSZELLEM—FEGYELMEZETTSÉG—ELSZÁNTSÁG—PÉLDAMUTATÁS—ÖNFEJLESZTÉS</span>
+            <span className="text-gray-300 inline-block whitespace-nowrap ml-5">ZSÁKMUNKA PAZSMUNKA KONDÍCIÓ MOZGÁS</span>
           </div>
 
-          {/* 7. Sor: Határozottabb szűkülés, a fehér szavak befelé tolódnak */}
-          <div className="w-full flex justify-center items-center py-1">
-            <span className="text-gray-200 mr-6">BEMUTATÓK ÖVVIZSGÁK EDZŐTÁBOR VERSENYZÉS WAKO ITF</span>
-            <span className="text-red-500 font-black">VILÁGKUPA MAGYAR BAJNOKSÁG MEDÁLOK TRÓFEÁK BAJNOKNEVELÉS</span>
-            <span className="text-gray-200 ml-6">ÖNVÉDELMI FOGÁSOK KÜZDELMI TECHNIKA FORMÁK</span>
+          {/* 7. Sor: Határozott szűkülés (A BAJNOKNEVELÉS fixen középen van kötőjellel, nem eshet szét!) */}
+          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
+            <span className="text-gray-200 inline-block whitespace-nowrap mr-6">BEMUTATÓK ÖVVIZSGÁK EDZŐTÁBOR VERSENYZÉS WAKO</span>
+            <span className="text-red-500 font-black inline-block whitespace-nowrap">VILÁGKUPA—MAGYAR-BAJNOKSÁG—MEDÁLOK—TRÓFEÁK—BAJNOKNEVELÉS</span>
+            <span className="text-gray-200 inline-block whitespace-nowrap ml-6">ÖNVÉDELMI FOGÁSOK KÜZDELMI TECHNIKA FORMÁK</span>
           </div>
 
           {/* 8. Sor: Még szűkebb belső mag */}
-          <div className="w-full flex justify-center items-center py-1">
-            <span className="text-gray-200 mr-8">GYERMEK HARCMŰVÉSZET FIATAL HARCOSOK EGÉSZSÉGES ÉLETMÓD</span>
-            <span className="text-red-400">LÉGY HARCOS KEZDD EL MA TIGERS CSALÁD SZELLEMI FEJLŐDÉS</span>
-            <span className="text-gray-200 ml-8">SPORTOLJ NÁLUNK MOZGÁS ÖRÖME FITT FELNŐTTEK</span>
+          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
+            <span className="text-gray-200 inline-block whitespace-nowrap mr-8">GYERMEK HARCMŰVÉSZET FIATAL HARCOSOK EGÉSZSÉGES ÉLETMÓD</span>
+            <span className="text-red-400 inline-block whitespace-nowrap">LÉGY HARCOS—KEZDD EL MA—TIGERS CSALÁD—SZELLEMI FEJLŐDÉS</span>
+            <span className="text-gray-200 inline-block whitespace-nowrap ml-8">SPORTOLJ NÁLUNK MOZGÁS ÖRÖME FITT FELNŐTTEK</span>
           </div>
 
-          {/* 9. Sor: Fokozatosan átveszi az irányítást a fehér burkolat */}
-          <div className="w-full flex justify-center items-center py-1">
-            <span className="text-white mr-12">ÖNVÉDELMI OKTATÁS KÜZDŐSPORT OKTATÁS TAEKWON-DO EDZÉSEK KICK-BOX EDZÉSEK</span>
-            <span className="text-red-500 font-black">FIZIKAI ERŐ ÖNBIZALOM FEJLESZTÉS GYEREKSPORT</span>
-            <span className="text-white ml-12">OVIS MOZGÁS ISKOLÁS SPORT KÖZÖSSÉGI ÉLET PROFI EDZŐK</span>
+          {/* 9. Sor: A fehér burkolat átveszi az irányítást oldalról befelé */}
+          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
+            <span className="text-white inline-block whitespace-nowrap mr-12">ÖNVÉDELMI OKTATÁS KÜZDŐSPORT OKTATÁS EDZÉSEK</span>
+            <span className="text-red-500 font-black inline-block whitespace-nowrap">FIZIKAI ERŐ—ÖNBIZALOM FEJLESZTÉS—GYEREKSPORT</span>
+            <span className="text-white inline-block whitespace-nowrap ml-12">OVIS MOZGÁS ISKOLÁS SPORT KÖZÖSSÉGI ÉLET PROFI EDZŐK</span>
           </div>
 
-          {/* 10. Sor: Erőteljes V-vonal, már csak pár kiemelt piros szóval a tengelyen */}
-          <div className="w-full flex justify-center items-center py-1">
-            <span className="text-white mr-16">MESTEREK DAN VIZSGA KUP VIZSGA TIGERS KLUB SÉRTETLEN ÖNBIZALOM KITARTÓ MUNKA</span>
-            <span className="text-red-500 font-black">FEGYELMEZETT HARCOSOK SIKERES VIZSGÁK</span>
-            <span className="text-white ml-16">BAJNOKI CÍMEK KÜZDELMI SZELLEM TISZTELETADÁS ALÁZATOS MUNKA</span>
+          {/* 10. Sor: Erőteljes V-vonal, már csak két szó a tengely közepén */}
+          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
+            <span className="text-white inline-block whitespace-nowrap mr-16">MESTEREK DAN VIZSGA KUP VIZSGA TIGERS KLUB SÉRTETLEN ÖNBIZALOM</span>
+            <span className="text-red-500 font-black inline-block whitespace-nowrap">FEGYELMEZETT HARCOSOK—SIKERES VIZSGÁK</span>
+            <span className="text-white inline-block whitespace-nowrap ml-16">BAJNOKI CÍMEK KÜZDELMI SZELLEM TISZTELETADÁS ALÁZATOS MUNKA</span>
           </div>
 
-          {/* 11. Sor: Közeledünk a csúcshoz (Tiszta fehér záró sávok, középen a mag zárásával) */}
-          <div className="w-full flex justify-center items-center py-1">
-            <span className="text-white mr-20">ERŐS TEST ERŐS LÉLEK EDZŐTERMI KÖZÖSSÉG CSALÁDIAS HANGULAT BARÁTI KÖR</span>
-            <span className="text-red-500 font-black">TIGERS SE</span>
-            <span className="text-white ml-20">JÓ HANGULAT PONTOSSÁG RÚGÁSOK ÜTÉSEK PAZS EDZÉS ZSÁKOLÁS</span>
+          {/* 11. Sor: Közeledünk a csúcshoz, a TIGERS SE fixen egyben, középen zár */}
+          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
+            <span className="text-white inline-block whitespace-nowrap mr-20">ERŐS TEST ERŐS LÉLEK EDZŐTERMI KÖZÖSSÉG CSALÁDIAS HANGULAT</span>
+            <span className="text-red-500 font-black bg-red-950/30 px-2 py-0.5 rounded inline-block whitespace-nowrap">TIGERS SE</span>
+            <span className="text-white inline-block whitespace-nowrap ml-20">JÓ HANGULAT PONTOSSÁG RÚGÁSOK ÜTÉSEK PAZS EDZÉS ZSÁKOLÁS</span>
           </div>
 
-          {/* 12. Sor: A szív legalsó csúcsa (A weboldal címe tiszta fehér/narancs fókuszpontként zárja a V alakot) */}
-          <div className="w-full flex justify-center items-center py-1">
-            <span className="text-gray-400 opacity-30 mr-24">ERŐNLÉT RUGALMASSÁG GYORSASÁG REAKCIÓIDŐ KEDVEZŐ TAGDÍJ INGYENES PRÓBA VÁRUNK RÁD ALAPÍTVA 2002 24 ÉV TAPASZTALAT SIKERES SPORTOLÓK</span>
-            <span className="text-white font-black bg-neon-orange/20 px-4 py-0.5 border border-neon-orange/30 rounded text-xs tracking-widest">WWW.TIGRISEK.HU</span>
-            <span className="text-gray-400 opacity-30 ml-24">BUDAPESTI KICKBOX KERÜLETI TAEKWONDO HAVANNA LAKÓTELEPI SPORT HARCMŰVÉSZET GYEREKEKNEK FELNŐTTEKNEK ÖNVÉDELEM</span>
+          {/* 12. Sor: A szív legalsó csúcsa (A weboldal címe tiszta fehér/narancs fókuszpontként zárja le a formát) */}
+          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
+            <span className="text-gray-500 opacity-20 inline-block whitespace-nowrap mr-12">ERŐNLÉT RUGALMASSÁG GYORSASÁG REAKCIÓIDŐ TAGDÍJ PRÓBA VÁRUNK RÁD ALAPÍTVA 2002</span>
+            <span className="text-white font-black bg-neon-orange/20 px-4 py-1 border border-neon-orange/40 rounded text-xs tracking-widest inline-block whitespace-nowrap shadow-[0_0_15px_rgba(255,94,0,0.2)]">WWW.TIGRISEK.HU</span>
+            <span className="text-gray-500 opacity-20 inline-block whitespace-nowrap ml-12">BUDAPESTI KICKBOX KERÜLETI TAEKWONDO HAVANNA LAKÓTELEPI SPORT GYEREKEKNEK FELNŐTTEKNEK</span>
           </div>
 
         </div>
