@@ -43,7 +43,7 @@ export default function News() {
                     <img
                       src={item.image.startsWith('/') ? item.image : '/' + item.image}
                       alt={item.title}
-                      className="w-full h-full object-contain cursor-pointer hover:opacity-90 transition-opacity"
+                      className="w-full h-auto max-h-[300px] md:max-h-[400px] object-cover cursor-pointer hover:opacity-90 transition-opacity rounded-t-xl"
                       onClick={() => navigate(`/hirek/${item.slug}`)}
                     />
                   </div>
