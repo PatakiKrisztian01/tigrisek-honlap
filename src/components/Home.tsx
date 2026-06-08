@@ -136,7 +136,7 @@ export default function Home() {
 
           {/* 2. Sor: Szélesedő ívek */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
-            <span className="text-gray-400 opacity-40 inline-block whitespace-nowrap mr-4">GYEREK EDZÉS FELNŐTT EDZÉS</span>
+            <span className="text-gray-400 opacity-40 inline-block whitespace-nowrap mr-4">GYEREK FELNŐTT EDZÉS</span>
             <span className="text-red-500 font-black inline-block whitespace-nowrap">TIGRISEK—TIGERS—EDZÉS</span>
             <span className="text-gray-500 opacity-30 inline-block whitespace-nowrap mx-6">KÖZÖSSÉG</span>
             <span className="text-red-500 font-black inline-block whitespace-nowrap">BUDAPEST—TIGERS—SE</span>
@@ -187,7 +187,7 @@ export default function Home() {
 
           {/* 9. Sor: A fehér burkolat átveszi az irányítást oldalról befelé */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
-            <span className="text-white inline-block whitespace-nowrap mr-12">ÖNVÉDELMI OKTATÁS KÜZDŐSPORT OKTATÁS EDZÉSEK</span>
+            <span className="text-white inline-block whitespace-nowrap mr-12">ÖNVÉDELMI OKTATÁS KÜZDŐSPORT OKTATÁS EDZÉSEK TKD</span>
             <span className="text-red-500 font-black inline-block whitespace-nowrap">FIZIKAI ERŐ—ÖNBIZALOM FEJLESZTÉS—GYEREKSPORT</span>
             <span className="text-white inline-block whitespace-nowrap ml-12">OVIS MOZGÁS ISKOLÁS SPORT KÖZÖSSÉGI ÉLET PROFI EDZŐK</span>
           </div>
