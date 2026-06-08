@@ -31,7 +31,8 @@ collections:
         options:
           - Közlemény
           - Verseny
-          - Bajnokság
+          - Szeminárium
+          - Vizsga
       - label: Kép
         name: image
         widget: image
