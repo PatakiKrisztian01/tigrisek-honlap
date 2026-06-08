@@ -153,7 +153,7 @@ export default function Home() {
           {/* 4. Sor: A szív maximális szélessége (Itt van az ERŐ EGYSÉG HIT szorosan kötőjellel egybefűzve) */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
             <span className="text-gray-400 opacity-60 inline-block whitespace-nowrap mr-3">DÉL-PEST KICKBOX TAEKWONDO</span>
-            <span className="text-red-400 inline-block whitespace-nowrap">KITARTÁS—ÖNBIZALOM—HARCOSSÁG—BARÁTSÁG—SZERETET—ALÁZAT—BECSÜLET—ERŐ—EGYSÉG—HIT</span>
+            <span className="text-red-400 inline-block whitespace-nowrap">KITARTÁS—ÖNBIZALOM—HARCOSSÁG—BARÁTSÁG—SZERETET—ALÁZAT—BECSÜLET—ERŐ—EGYSÉG</span>
             <span className="text-gray-400 opacity-60 inline-block whitespace-nowrap ml-3">BUDAPESTI SPORT EGYESÜLET</span>
           </div>
 
@@ -174,7 +174,7 @@ export default function Home() {
           {/* 7. Sor: Határozott szűkülés (A BAJNOKNEVELÉS fixen középen van kötőjellel, nem eshet szét!) */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
             <span className="text-gray-200 inline-block whitespace-nowrap mr-6">BEMUTATÓK ÖVVIZSGÁK EDZŐTÁBOR VERSENYZÉS WAKO</span>
-            <span className="text-red-500 font-black inline-block whitespace-nowrap">VILÁGKUPA—MAGYAR-BAJNOKSÁG—MEDÁLOK—TRÓFEÁK—BAJNOKNEVELÉS</span>
+            <span className="text-red-500 font-black inline-block whitespace-nowrap">VILÁGKUPA—MAGYAR-BAJNOKSÁG—MEDÁLOK—TRÓFEÁK—HIT-BAJNOKNEVELÉS</span>
             <span className="text-gray-200 inline-block whitespace-nowrap ml-6">ÖNVÉDELMI FOGÁSOK KÜZDELMI TECHNIKA FORMÁK</span>
           </div>
 
