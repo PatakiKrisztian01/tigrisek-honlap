@@ -7,11 +7,8 @@ const newsFiles = import.meta.glob('/public/data/news/*.json', { eager: true });
 export default function News() {
   const navigate = useNavigate();
 
-  // FACEBOOK SDK BETÖLTÉSE: Ez a háttérben feloldja a böngésző tiltását és elindítja a hírfolyamot
   useEffect(() => {
-    // Ha már be van töltve a szkript, ne töltse be újra
     if (document.getElementById('facebook-jssdk')) return;
-
     const fjs = document.getElementsByTagName('script')[0];
     const js = document.createElement('script') as HTMLScriptElement;
     js.id = 'facebook-jssdk';
@@ -19,8 +16,6 @@ export default function News() {
     if (fjs && fjs.parentNode) {
       fjs.parentNode.insertBefore(js, fjs);
     }
-
-    // Újraértelmezi a Facebook elemeket az oldalon, ha már betöltődött a szkript
     if ((window as any).FB) {
       (window as any).FB.XFBML.parse();
     }
@@ -30,6 +25,7 @@ export default function News() {
     ...data,
     slug: path.split('/').pop()?.replace('.json', '')
   })).sort((a, b) => {
+    // Dátum szerinti csökkenő sorrend (legújabb előre)
     const dateA = new Date(a.date).getTime();
     const dateB = new Date(b.date).getTime();
     return dateB - dateA;
@@ -43,7 +39,6 @@ export default function News() {
 
   return (
     <div className="min-h-screen pt-20 bg-black overflow-x-hidden">
-      {/* Szükséges Facebook konténer az SDK-nak */}
       <div id="fb-root"></div>
 
       {/* Fejléc */}
@@ -53,11 +48,11 @@ export default function News() {
         </div>
       </div>
 
-      {/* Tartalom */}
+      {/* Tartalmi rész */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid lg:grid-cols-3 gap-8">
           
-          {/* HÍREK LISTÁJA */}
+          {/* BAL OSZLOP: HÍREK LISTÁJA */}
           <div className="lg:col-span-2 space-y-8 w-full">
             {newsItems.map((item, i) => (
               <article
@@ -102,7 +97,7 @@ export default function News() {
             ))}
           </div>
 
-          {/* JOBB OSZLOP - BIZTONSÁGOS FACEBOOK PLUGIN */}
+          {/* JOBB OSZLOP: PÖRGETHETŐ FACEBOOK HÍRFOLYAM BOX */}
           <div className="lg:col-span-1 w-full">
             <div className="sticky top-24 w-full">
                <div className="bg-gray-900 border border-gray-800 rounded-2xl p-4 w-full flex flex-col overflow-hidden">
@@ -111,20 +106,18 @@ export default function News() {
                    <Facebook className="w-4 h-4 text-[#1877F2] fill-[#1877F2]" /> Facebook hírfolyam
                  </h3>
 
-                 {/* JAVÍTÁS: Átváltottunk a hivatalos XFBML beágyazásra, amit az SDK életre kelt, így megszűnik a végtelen pörgés */}
-                 <div className="w-full bg-white rounded-xl p-1 overflow-hidden flex justify-center shadow-inner">
-                   <div 
-                     className="fb-page" 
-                     data-href="https://www.facebook.com/BudapestTigers" 
-                     data-tabs="timeline" 
-                     data-width="340" 
-                     data-height="500" 
-                     data-small-header="false" 
-                     data-adapt-container-width="true" 
-                     data-hide-cover="false" 
-                     data-show-facepile="true"
-                     style={{ width: '100%', maxWidth: '340px' }}
-                   ></div>
+                 {/* Fehér kerekített doboz belső árnyékkal */}
+                 <div className="w-full bg-white rounded-xl p-2 overflow-hidden flex justify-center shadow-inner">
+                   <iframe 
+                     src="https://www.facebook.com/plugins/fallback/page/timeline.php?href=https%3A%2F%2Fwww.facebook.com%2FBudapestTigers&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true" 
+                     width="340" 
+                     height="500" 
+                     style={{ border: 'none', overflow: 'auto', width: '100%', maxWidth: '340px', minHeight: '500px' }} 
+                     allowFullScreen={true}
+                     scrolling="yes"
+                     allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                     title="Budapesti Tigrisek Friss Facebook Hírek"
+                   ></iframe>
                  </div>
 
                </div>
