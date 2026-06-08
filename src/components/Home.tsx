@@ -1,12 +1,5 @@
-import { ArrowRight, Trophy, Users, Calendar, Shield, Award, Heart } from 'lucide-react';
+import { ArrowRight, Users, Calendar, Shield, Award, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
-const stats = [
-  { icon: Calendar, value: '24 év', label: 'Tapasztalat' },
-  { icon: Users, value: '100+', label: 'Aktív Tag' },
-  { icon: Trophy, value: 'VK', label: 'Aranyérmek' },
-  { icon: Trophy, value: 'EB', label: 'Aranyérmek' },
-];
 
 const newsItems = [
   {
@@ -30,7 +23,6 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section - A menüsor alatt kezdődik, 480px magas */}
-      {/* Hero Section - A menüsor alatt kezdődik */}
       <div className="relative w-full bg-black overflow-hidden" style={{ minHeight: '400px', marginTop: '80px' }}>
         {/* Videó háttérként */}
         <div className="absolute inset-0 w-full h-full z-0">
@@ -133,20 +125,80 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section id="stats" className="bg-gray-950 border-b border-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {stats.map((stat, i) => (
-              <div key={i} className="text-center group">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-neon-orange/10 border border-neon-orange/30 rounded-xl mb-3 group-hover:bg-neon-orange/20 transition-colors">
-                  <stat.icon className="w-5 h-5 text-neon-orange" />
-                </div>
-                <div className="text-2xl font-black text-white mb-1">{stat.value}</div>
-                <div className="text-gray-500 text-sm font-medium">{stat.label}</div>
-              </div>
-            ))}
+      {/* SEO SZÓFELHŐ BLOKK (A régi statisztikák helyén) */}
+      <section className="bg-black py-16 flex flex-col items-center justify-center overflow-hidden font-sans border-b border-gray-900">
+        
+        {/* Cím és felvezetés */}
+        <div className="max-w-2xl text-center mb-12 px-4">
+          <span className="text-sm font-bold uppercase tracking-widest text-orange-500 mb-2 block">
+            A mi világunk
+          </span>
+          <h2 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight">
+            Értékek, Közösség és Erő
+          </h2>
+        </div>
+
+        {/* A Szófelhő Konténer - Mobilra optimalizált méret (350px), ami asztalon nagyobb lesz */}
+        <div className="relative w-[340px] h-[360px] md:w-[500px] md:h-[500px] flex items-center justify-center bg-gray-900/10 border border-gray-800/30 rounded-full p-4">
+          
+          {/* BELSŐ RÉSZ: A SZÍV ALAKZAT (Piros és Fehér kiemelt szavak) */}
+          <div className="flex flex-wrap justify-center items-center gap-2 md:gap-4 max-w-[260px] md:max-w-[360px] z-10 p-6 bg-red-950/5 border border-red-900/10 rounded-[40px] text-center">
+            <span className="text-2xl md:text-4xl font-black text-red-500 tracking-tighter uppercase">TAEKWON-DO</span>
+            <span className="text-xl md:text-3xl font-extrabold text-white tracking-tight uppercase">TIGRISEK</span>
+            <span className="text-lg md:text-2xl font-bold text-red-600 uppercase">KICK-BOX</span>
+            <span className="text-xl md:text-3xl font-black text-red-400 uppercase">EDZÉS</span>
+            <span className="text-md md:text-xl font-bold text-white uppercase">ÖNVÉDELEM</span>
+            <span className="text-lg md:text-2xl font-extrabold text-red-500 uppercase">OVIS TKD</span>
+            <span className="text-sm md:text-lg font-bold text-gray-300 uppercase">KÖZÖSSÉG</span>
+            <span className="text-md md:text-xl font-black text-white uppercase">FEKETE ÖV</span>
+            <span className="text-xs md:text-sm font-bold text-red-700 uppercase">FEGYELEM</span>
           </div>
+
+          {/* KÜLSŐ RÉSZ: A HELYI SEO-BOMBA (18. kerületi kulcsszavak) */}
+          <div className="absolute inset-0 w-full h-full pointer-events-none opacity-70 text-xs md:text-sm font-black uppercase">
+            
+            {/* Fent középen */}
+            <span className="absolute top-4 left-1/2 -translate-x-1/2 text-blue-500 tracking-widest">
+              18. kerület
+            </span>
+            
+            {/* Fent balra */}
+            <span className="absolute top-12 left-4 text-gray-500 font-normal">
+              Gyerek edzések
+            </span>
+            
+            {/* Fent jobbra */}
+            <span className="absolute top-14 right-4 text-blue-400">
+              Pestszentlőrinc
+            </span>
+            
+            {/* Középen balra */}
+            <span className="absolute top-1/2 left-2 -translate-y-1/2 text-blue-600">
+              Havanna
+            </span>
+            
+            {/* Középen jobbra */}
+            <span className="absolute top-1/2 right-2 -translate-y-1/2 text-gray-500 font-normal">
+              Kezdő & Haladó
+            </span>
+            
+            {/* Lent balra */}
+            <span className="absolute bottom-16 left-4 text-blue-400">
+              Lakatos ltp.
+            </span>
+            
+            {/* Lent jobbra */}
+            <span className="absolute bottom-14 right-6 text-gray-600 font-normal">
+              Tisztelet
+            </span>
+            
+            {/* Alul középen */}
+            <span className="absolute bottom-4 left-1/2 -translate-x-1/2 text-blue-500 tracking-wide text-center w-full">
+              Ingyenes első edzés
+            </span>
+            
+          </div>
+
         </div>
       </section>
 
