@@ -1,25 +1,10 @@
-import { useEffect } from 'react';
-import { Calendar, Facebook } from 'lucide-react';
+import { Calendar, Facebook, ExternalLink, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const newsFiles = import.meta.glob('/public/data/news/*.json', { eager: true });
 
 export default function News() {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (document.getElementById('facebook-jssdk')) return;
-    const fjs = document.getElementsByTagName('script')[0];
-    const js = document.createElement('script') as HTMLScriptElement;
-    js.id = 'facebook-jssdk';
-    js.src = 'https://connect.facebook.net/hu_HU/sdk.js#xfbml=1&version=v17.0';
-    if (fjs && fjs.parentNode) {
-      fjs.parentNode.insertBefore(js, fjs);
-    }
-    if ((window as any).FB) {
-      (window as any).FB.XFBML.parse();
-    }
-  }, []);
 
   const newsItems = Object.entries(newsFiles).map(([path, data]: any) => ({
     ...data,
@@ -39,8 +24,7 @@ export default function News() {
 
   return (
     <div className="min-h-screen pt-20 bg-black overflow-x-hidden">
-      <div id="fb-root"></div>
-
+      
       {/* Fejléc */}
       <div className="relative py-16 bg-gradient-to-b from-gray-900 to-black border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,7 +36,7 @@ export default function News() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid lg:grid-cols-3 gap-8">
           
-          {/* BAL OSZLOP: HÍREK LISTÁJA */}
+          {/* BAL OSZLOP: HONLAP HÍREI */}
           <div className="lg:col-span-2 space-y-8 w-full">
             {newsItems.map((item, i) => (
               <article
@@ -97,30 +81,63 @@ export default function News() {
             ))}
           </div>
 
-          {/* JOBB OSZLOP: PÖRGETHETŐ FACEBOOK HÍRFOLYAM BOX */}
+          {/* JOBB OSZLOP: PRÉMIUM, 100% STABIL FACEBOOK KÁRTYA */}
           <div className="lg:col-span-1 w-full">
             <div className="sticky top-24 w-full">
-               <div className="bg-gray-900 border border-gray-800 rounded-2xl p-4 w-full flex flex-col overflow-hidden">
-                 
-                 <h3 className="text-white font-black uppercase text-xs tracking-wider mb-4 flex items-center gap-2 px-1">
-                   <Facebook className="w-4 h-4 text-[#1877F2] fill-[#1877F2]" /> Facebook hírfolyam
-                 </h3>
+              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 w-full flex flex-col relative overflow-hidden shadow-2xl">
+                
+                {/* Dekoratív neon háttér-fény */}
+                <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#1877F2]/10 rounded-full blur-3xl pointer-events-none" />
 
-                 {/* Fehér kerekített doboz belső árnyékkal */}
-                 <div className="w-full bg-white rounded-xl p-2 overflow-hidden flex justify-center shadow-inner">
-                   <iframe 
-                     src="https://www.facebook.com/plugins/fallback/page/timeline.php?href=https%3A%2F%2Fwww.facebook.com%2FBudapestTigers&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true" 
-                     width="340" 
-                     height="500" 
-                     style={{ border: 'none', overflow: 'auto', width: '100%', maxWidth: '340px', minHeight: '500px' }} 
-                     allowFullScreen={true}
-                     scrolling="yes"
-                     allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                     title="Budapesti Tigrisek Friss Facebook Hírek"
-                   ></iframe>
-                 </div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2.5 bg-[#1877F2]/10 rounded-xl border border-[#1877F2]/20">
+                    <Facebook className="w-5 h-5 text-[#1877F2] fill-[#1877F2]" />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-black uppercase text-xs tracking-wider">Közösség</h3>
+                    <p className="text-gray-500 text-[10px]">Budapesti Tigrisek SE</p>
+                  </div>
+                </div>
 
-               </div>
+                <div className="border-t border-gray-800/60 my-2"></div>
+
+                {/* Szöveges blokk ami úgy néz ki mint egy élő poszt */}
+                <div className="py-4 text-left">
+                  <p className="text-white font-bold text-sm mb-2">Friss infók és galériák a Facebookon!</p>
+                  <p className="text-gray-400 text-xs leading-relaxed">
+                    Mivel a közösségi oldalon naponta osztunk meg képeket az edzésekről, az övvizsgák hangulatáról és a legújabb eseményekről, kattints át és pörgesd végig az élő hírfolyamunkat!
+                  </p>
+                </div>
+
+                {/* Interaktív gombcsoport */}
+                <div className="mt-4 space-y-3">
+                  <a 
+                    href="https://www.facebook.com/BudapestTigers" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-full bg-[#1877F2] hover:bg-[#166FE5] text-white font-bold py-3 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-xs shadow-lg group"
+                  >
+                    <span>Megnyitás a Facebook alkalmazásban</span>
+                    <ExternalLink className="w-3 h-3 opacity-80 group-hover:translate-x-0.5 transition-transform" />
+                  </a>
+
+                  <a 
+                    href="https://www.facebook.com/BudapestTigers" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-full bg-gray-950 hover:bg-gray-800 border border-gray-800 text-gray-300 font-medium py-2.5 px-4 rounded-xl transition-all flex items-center justify-center gap-1 text-xs"
+                  >
+                    <span>Legfrissebb fotók megtekintése</span>
+                    <ArrowRight className="w-3 h-3 opacity-60" />
+                  </a>
+                </div>
+
+                {/* Apró lábléc infó */}
+                <div className="mt-6 text-center">
+                  <span className="text-[10px] text-gray-600 uppercase tracking-widest font-semibold">@BudapestTigers</span>
+                </div>
+
+              </div>
             </div>
           </div>
 
