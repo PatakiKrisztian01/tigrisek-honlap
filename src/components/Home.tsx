@@ -202,15 +202,15 @@ export default function Home() {
           {/* 11. Sor: Közeledünk a csúcshoz, a TIGERS SE fixen egyben, középen zár */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
             <span className="text-white inline-block whitespace-nowrap mr-20">ERŐS TEST ERŐS LÉLEK EDZŐTERMI KÖZÖSSÉG CSALÁDIAS HANGULAT</span>
-            <span className="text-red-500 font-black bg-red-950/30 px-2 py-0.5 rounded inline-block whitespace-nowrap">SPORTEGYESLÜLET</span>
+            <span className="text-red-500 font-black bg-red-950/30 px-2 py-0.5 rounded inline-block whitespace-nowrap">SPORTEGYESÜLET</span>
             <span className="text-white inline-block whitespace-nowrap ml-20">JÓ HANGULAT PONTOSSÁG RÚGÁSOK ÜTÉSEK PAZS EDZÉS ZSÁKOLÁS</span>
           </div>
 
           {/* 12. Sor: A szív legalsó csúcsa (A weboldal címe tiszta fehér/narancs fókuszpontként zárja le a formát) */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
-            <span className="text-gray-500 opacity-20 inline-block whitespace-nowrap mr-12">ERŐNLÉT RUGALMASSÁG GYORSASÁG  KARATE REAKCIÓIDŐ TAGDÍJ PRÓBA</span>
+            <span className="text-gray-500 opacity-20 inline-block whitespace-nowrap mr-12">ERŐNLÉT  RUGALMASSÁG  GYORSASÁG  KARATE  REAKCIÓIDŐ TAGDÍJ PRÓBA ÓRA</span>
             <span className="text-red-500 font-black bg-red-950/30 px-2 py-0.5 rounded inline-block whitespace-nowrap">   TIGERS</span>
-            <span className="text-gray-500 opacity-20 inline-block whitespace-nowrap ml-12">BUDAPESTI  KICKBOX  KERÜLETI  TAEKWONDO HAVANNA LAKÓTELEPI SPORT</span>
+            <span className="text-gray-500 opacity-20 inline-block whitespace-nowrap ml-12">BUDAPESTI KICKBOX KERÜLETI TAEKWONDO HAVANNA LAKÓTELEPI SPORT</span>
           </div>
 
         </div>
