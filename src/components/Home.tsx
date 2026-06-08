@@ -160,14 +160,14 @@ export default function Home() {
           {/* 5. Sor: Stabil, tömör középrész (A MOTIVÁCIÓ MAGABIZTOSSÁG is láncolva) */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
             <span className="text-gray-400 opacity-70 inline-block whitespace-nowrap mr-4">OVIS EDZÉS KEZDŐ CSOPORT</span>
-            <span className="text-red-500 font-black inline-block whitespace-nowrap">AKARATERŐ—ÖNURALOM—ÖSSZETARTÁS—BÁTORSÁG—FEJLŐDÉS—MOTIVÁCIÓ—MAGABIZTOSSÁG</span>
+            <span className="text-red-500 font-black inline-block whitespace-nowrap">TÁMOGATÁS—CSAPATSZELLEM—FEGYELMEZETTSÉG—ELSZÁNTSÁG—PÉLDAMUTATÁS—ÖNFEJLESZTÉS</span>
             <span className="text-gray-400 opacity-70 inline-block whitespace-nowrap ml-4">HALADÓ NYILVÁNOS EDZÉSEK</span>
           </div>
 
           {/* 6. Sor: Elkezd egyenletesen szűkülni az alakzat (Lassan zárul a V-vonal) */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
             <span className="text-gray-300 inline-block whitespace-nowrap mr-5">STRECHING KÜZDELEM ERŐNLÉT NYÚJTÁS</span>
-            <span className="text-red-400 inline-block whitespace-nowrap">TÁMOGATÁS—CSAPATSZELLEM—FEGYELMEZETTSÉG—ELSZÁNTSÁG—PÉLDAMUTATÁS—ÖNFEJLESZTÉS</span>
+            <span className="text-red-400 inline-block whitespace-nowrap">AKARATERŐ—ÖNURALOM—ÖSSZETARTÁS—BÁTORSÁG—FEJLŐDÉS—MOTIVÁCIÓ—MAGABIZTOSSÁG</span>
             <span className="text-gray-300 inline-block whitespace-nowrap ml-5">ZSÁKMUNKA PAZSMUNKA KONDÍCIÓ MOZGÁS</span>
           </div>
 
