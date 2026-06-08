@@ -145,7 +145,7 @@ export default function Home() {
 
           {/* 3. Sor: Összeolvad a szív felső íve egyetlen széles sávvá */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
-            <span className="text-gray-400 opacity-50 inline-block whitespace-nowrap mr-3">INGYENES EDZÉS JELENTKEZZ MA</span>
+            <span className="text-gray-400 opacity-50 inline-block whitespace-nowrap mr-3">INGYENES EDZÉS JELENTKEZZ!</span>
             <span className="text-red-500 bg-red-950/10 px-2 rounded inline-block whitespace-nowrap">ÖNVÉDELEM—HARCMŰVÉSZET—CSALÁDIAS—KÖZÖSSÉG—TISZTELET—FEGYELEM</span>
             <span className="text-gray-400 opacity-50 inline-block whitespace-nowrap ml-3">PRÓBAEDZÉS VÁRUNK RÁD</span>
           </div>
@@ -166,7 +166,7 @@ export default function Home() {
 
           {/* 6. Sor: Elkezd egyenletesen szűkülni az alakzat (Lassan zárul a V-vonal) */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
-            <span className="text-gray-300 inline-block whitespace-nowrap mr-5">FORMAGYAKORLAT KÜZDELEM ERŐNLÉT NYÚJTÁS</span>
+            <span className="text-gray-300 inline-block whitespace-nowrap mr-5">STRECHING KÜZDELEM ERŐNLÉT NYÚJTÁS</span>
             <span className="text-red-400 inline-block whitespace-nowrap">TÁMOGATÁS—CSAPATSZELLEM—FEGYELMEZETTSÉG—ELSZÁNTSÁG—PÉLDAMUTATÁS—ÖNFEJLESZTÉS</span>
             <span className="text-gray-300 inline-block whitespace-nowrap ml-5">ZSÁKMUNKA PAZSMUNKA KONDÍCIÓ MOZGÁS</span>
           </div>
@@ -180,7 +180,7 @@ export default function Home() {
 
           {/* 8. Sor: Még szűkebb belső mag */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
-            <span className="text-gray-200 inline-block whitespace-nowrap mr-8">GYERMEK HARCMŰVÉSZET HARCOSOK EGÉSZSÉGES ÉLETMÓD</span>
+            <span className="text-gray-200 inline-block whitespace-nowrap mr-8">GYERMEK HARCMŰVÉSZET HARCOS EGÉSZSÉGES ÉLETMÓD</span>
             <span className="text-red-400 inline-block whitespace-nowrap">LÉGY HARCOS—KEZDD EL MA—TIGERS CSALÁD—SZELLEMI FEJLŐDÉS</span>
             <span className="text-gray-200 inline-block whitespace-nowrap ml-8">SPORTOLJ NÁLUNK MOZGÁS ÖRÖME FITT FELNŐTTEK</span>
           </div>
