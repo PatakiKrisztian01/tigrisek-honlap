@@ -1,32 +1,24 @@
 import { ArrowRight, Users, Calendar, Shield, Award, Heart } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
-// Hír típus definíciója
-interface NewsItem {
-  id: string;
-  date: string;
-  title: string;
-  excerpt: string;
-}
+// Ugyanaz az automatikus beolvasás, mint a hírek oldalon
+const newsFiles = import.meta.glob('/public/data/news/*.json', { eager: true });
 
 export default function Home() {
-  const [legfrissebbHirek, setLegfrissebbHirek] = useState<NewsItem[]>([]);
+  const navigate = useNavigate();
 
-  // Valódi fájlok beolvasása a public/data/news/ mappából
-  useEffect(() => {
-    // Itt a saját hírek index fájlodat vagy API-dat hívd be (pl. index.json)
-    fetch('/data/news/index.json')
-      .then((res) => {
-        if (!res.ok) throw new Error('Nem sikerült betölteni a híreket');
-        return res.json();
-      })
-      .then((data: NewsItem[]) => {
-        // Kiválasztjuk a legfrissebb 3 hírt
-        setLegfrissebbHirek(data.slice(0, 3));
-      })
-      .catch((err) => console.error('Hiba a hírek betöltésekor:', err));
-  }, []);
+  // Feldolgozzuk a fájlokat, sorba rendezzük legfrissebb szerint, és kivesszük az első 3-at
+  const legfrissebbHirek = Object.entries(newsFiles)
+    .map(([path, data]: any) => ({
+      ...data,
+      id: path.split('/').pop()?.replace('.json', '')
+    }))
+    .sort((a, b) => {
+      const dateA = new Date(a.date).getTime();
+      const dateB = new Date(b.date).getTime();
+      return dateB - dateA;
+    })
+    .slice(0, 3);
 
   return (
     <div>
@@ -127,13 +119,9 @@ export default function Home() {
           <h2 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight">Értékek, Közösség és Erő</h2>
         </div>
 
-        {/* 
-          A külső konténer letiltja az automatikus tördeléseket, és kényszeríti a tökéletes matematikai sorközépre rendezést.
-          Minden span megkapta a különálló 'whitespace-nowrap' és 'inline-block' tulajdonságot, így megszűnik a törés!
-        */}
         <div className="w-full flex flex-col items-center justify-center text-center font-mono font-black text-[10px] sm:text-xs md:text-sm uppercase tracking-tighter leading-none select-none overflow-x-auto px-4">
           
-          {/* 1. Sor: A szív két felső domborulata (Különálló piros szavak, széleken fehér háttérrel) */}
+          {/* 1. Sor: A szív két felső domborulata */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
             <span className="text-gray-500 opacity-30 inline-block whitespace-nowrap mr-4">18. KERÜLET BUDAPEST</span>
             <span className="text-red-500 bg-red-950/20 px-2 rounded inline-block whitespace-nowrap mx-2">TAEKWON-DO</span>
@@ -142,7 +130,7 @@ export default function Home() {
             <span className="text-gray-500 opacity-30 inline-block whitespace-nowrap ml-4">PESTSZENTLŐRINC CLUB</span>
           </div>
 
-          {/* 2. Sor: Szélesedő ívek */}
+          {/* 2. Sor */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
             <span className="text-gray-400 opacity-40 inline-block whitespace-nowrap mr-4">GYEREK FELNŐTT EDZÉS</span>
             <span className="text-red-500 font-black inline-block whitespace-nowrap">TIGRISEK—TKD—EDZÉS</span>
@@ -151,70 +139,70 @@ export default function Home() {
             <span className="text-gray-400 opacity-40 inline-block whitespace-nowrap ml-4">KERÜLETI KÜZDŐSPORT</span>
           </div>
 
-          {/* 3. Sor: Összeolvad a szív felső íve egyetlen széles sávvá */}
+          {/* 3. Sor */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
             <span className="text-gray-400 opacity-50 inline-block whitespace-nowrap mr-3">INGYENES EDZÉS JELENTKEZZ!</span>
             <span className="text-red-500 bg-red-950/10 px-2 rounded inline-block whitespace-nowrap">ÖNVÉDELEM—HARCMŰVÉSZET—CSALÁDIAS—KÖZÖSSÉG—TISZTELET—FEGYELEM-ILLEM</span>
             <span className="text-gray-400 opacity-50 inline-block whitespace-nowrap ml-3">PRÓBAEDZÉS VÁRUNK RÁD</span>
           </div>
 
-          {/* 4. Sor: A szív maximális szélessége (Itt van az ERŐ EGYSÉG HIT szorosan kötőjellel egybefűzve) */}
+          {/* 4. Sor */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
             <span className="text-gray-400 opacity-60 inline-block whitespace-nowrap mr-3">DÉL-PEST KICKBOX TAEKWONDO</span>
             <span className="text-red-400 inline-block whitespace-nowrap">KITARTÁS—ÖNBIZALOM—HARCOSSÁG—BARÁTSÁG—SZERETET—ALÁZAT—BECSÜLET—ERŐ—EGYSÉG</span>
             <span className="text-gray-400 opacity-60 inline-block whitespace-nowrap ml-3">BUDAPESTI SPORT EGYESÜLET</span>
           </div>
 
-          {/* 5. Sor: Stabil, tömör középrész (A MOTIVÁCIÓ MAGABIZTOSSÁG is láncolva) */}
+          {/* 5. Sor */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
             <span className="text-gray-400 opacity-70 inline-block whitespace-nowrap mr-4">OVIS EDZÉS KEZDŐ CSOPORT</span>
             <span className="text-red-500 font-black inline-block whitespace-nowrap">TÁMOGATÁS—CSAPATSZELLEM—FEGYELMEZETTSÉG—ELSZÁNTSÁG—PÉLDAMUTATÁS—ÖNFEJLESZTÉS</span>
             <span className="text-gray-400 opacity-70 inline-block whitespace-nowrap ml-4">HALADÓ NYILVÁNOS EDZÉSEK</span>
           </div>
 
-          {/* 6. Sor: Elkezd egyenletesen szűkülni az alakzat (Lassan zárul a V-vonal) */}
+          {/* 6. Sor */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
             <span className="text-gray-300 inline-block whitespace-nowrap mr-5">STRECHING KÜZDELEM ERŐNLÉT NYÚJTÁS</span>
             <span className="text-red-400 inline-block whitespace-nowrap">AKARATERŐ—ÖNURALOM—ÖSSZETARTÁS—BÁTORSÁG—FEJLŐDÉS—MOTIVÁCIÓ—MAGABIZTOSSÁG</span>
             <span className="text-gray-300 inline-block whitespace-nowrap ml-5">ZSÁKMUNKA PAZSMUNKA KONDÍCIÓ MOZGÁS</span>
           </div>
 
-          {/* 7. Sor: Határozott szűkülés (A BAJNOKNEVELÉS fixen középen van kötőjellel, nem eshet szét!) */}
+          {/* 7. Sor */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
             <span className="text-gray-200 inline-block whitespace-nowrap mr-6">BEMUTATÓK ÖVVIZSGÁK EDZŐTÁBOR VERSENYZÉS WAKO</span>
             <span className="text-red-500 font-black inline-block whitespace-nowrap">ITF-VILÁGKUPA—MAGYAR-BAJNOKSÁG—MEDÁLOK—TRÓFEÁK—HIT-BAJNOKNEVELÉS</span>
             <span className="text-gray-200 inline-block whitespace-nowrap ml-6">ÖNVÉDELMI FOGÁSOK KÜZDELMI TECHNIKA FORMÁK</span>
           </div>
 
-          {/* 8. Sor: Még szűkebb belső mag */}
+          {/* 8. Sor */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
             <span className="text-gray-200 inline-block whitespace-nowrap mr-8">GYERMEK HARCMŰVÉSZET HARCOS EGÉSZSÉGES ÉLETMÓD</span>
             <span className="text-red-400 inline-block whitespace-nowrap">LÉGY HARCOS—KEZDD EL MA—TIGERS CSALÁD—SZELLEMI FEJLŐDÉS</span>
             <span className="text-gray-200 inline-block whitespace-nowrap ml-8">SPORTOLJ NÁLUNK MOZGÁS ÖRÖME FITT FELNŐTTEK</span>
           </div>
 
-          {/* 9. Sor: A fehér burkolat átveszi az irányítást oldalról befelé */}
+          {/* 9. Sor */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
             <span className="text-white inline-block whitespace-nowrap mr-12">ÖNVÉDELMI OKTATÁS KÜZDŐSPORTOK OKTATÁS EDZÉSEK TAEKWON</span>
             <span className="text-red-500 font-black inline-block whitespace-nowrap">FIZIKAI ERŐ—ÖNBIZALOM FEJLESZTÉS—UTÁNPÓTLÁS SPORT</span>
             <span className="text-white inline-block whitespace-nowrap ml-12">OVIS MOZGÁS ISKOLÁS SPORT KÖZÖSSÉGI ÉLET PROFI EDZŐK</span>
           </div>
 
-          {/* 10. Sor: Erőteljes V-vonal, már csak két szó a tengely közepén */}
+          {/* 10. Sor */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
             <span className="text-white inline-block whitespace-nowrap mr-16">MESTEREK DAN VIZSGA KUP VIZSGA TIGERS KLUB SÉRTETLEN ÖNBIZALOM</span>
             <span className="text-red-500 font-black inline-block whitespace-nowrap">FEGYELMEZETT HARCOSOK—SIKERES VIZSGÁK</span>
             <span className="text-white inline-block whitespace-nowrap ml-16">BAJNOKI CÍMEK KÜZDELMI SZELLEM TISTETELADÁS ALÁZATOS MUNKA</span>
           </div>
 
-          {/* 11. Sor: Közeledünk a csúcshoz, a TIGERS SE fixen egyben, középen zár */}
+          {/* 11. Sor */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
             <span className="text-white inline-block whitespace-nowrap mr-20">ERŐS TEST ERŐS LÉLEK EDZŐTERMI KÖZÖSSÉG CSALÁDIAS HANGULAT</span>
             <span className="text-red-500 font-black bg-red-950/30 px-2 py-0.5 rounded inline-block whitespace-nowrap">SPORTEGYESÜLET</span>
             <span className="text-white inline-block whitespace-nowrap ml-20">JÓ HANGULAT PONTOSSÁG RÚGÁSOK ÜTÉSEK PAZS EDZÉS ZSÁKOLÁS</span>
           </div>
 
-          {/* 12. Sor: A szív legalsó csúcsa (A weboldal címe tiszta fehér/narancs fókuszpontként zárja le a formát) */}
+          {/* 12. Sor */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
             <span className="text-gray-500 opacity-20 inline-block whitespace-nowrap mr-12">ERŐNLÉT  RUGALMASSÁG  GYORSASÁG  KARATE  REAKCIÓIDŐ TAGDÍJ PRÓBA ÓRA</span>
             <span className="text-red-500 font-black bg-red-950/30 px-2 py-0.5 rounded inline-block whitespace-nowrap">   TIGERS</span>
@@ -224,7 +212,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DINAMIKUS HÍREK AZ IGAZI MAPPÁBÓL */}
+      {/* AUTOMATIKUSAN BETÖLTÖTT FRISS HÍREK */}
       <section className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-12">
@@ -240,21 +228,21 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-6">
             {legfrissebbHirek.length > 0 ? (
               legfrissebbHirek.map((item) => (
-                <Link key={item.id} to={`/hirek/${item.id}`}>
-                  <article className="bg-gray-900 border border-gray-800 rounded-2xl p-6 hover:border-neon-orange/50 transition-all duration-300 hover:-translate-y-1 cursor-pointer group h-full flex flex-col justify-between">
+                <div key={item.id} onClick={() => navigate(`/hirek/${item.id}`)} className="cursor-pointer">
+                  <article className="bg-gray-900 border border-gray-800 rounded-2xl p-6 hover:border-neon-orange/50 transition-all duration-300 hover:-translate-y-1 group h-full flex flex-col justify-between">
                     <div>
                       <time className="text-neon-orange text-xs font-bold tracking-wider uppercase mb-3 block">{item.date}</time>
-                      <h3 className="text-white font-bold text-lg mb-3 group-hover:text-neon-orange transition-colors">{item.title}</h3>
-                      <p className="text-gray-400 text-sm leading-relaxed">{item.excerpt}</p>
+                      <h3 className="text-white font-bold text-lg mb-3 group-hover:text-neon-orange transition-colors line-clamp-2">{item.title}</h3>
+                      <p className="text-gray-400 text-sm leading-relaxed line-clamp-3">{item.excerpt || item.body}</p>
                     </div>
                     <div className="mt-4 flex items-center gap-1 text-xs text-neon-orange font-bold opacity-0 group-hover:opacity-100 transition-opacity">
                       Elolvasom <ArrowRight className="w-3 h-3" />
                     </div>
                   </article>
-                </Link>
+                </div>
               ))
             ) : (
-              <p className="text-gray-500 text-sm col-span-3">Hírek betöltése...</p>
+              <p className="text-gray-500 text-sm col-span-3">Nincsenek elérhető hírek.</p>
             )}
           </div>
         </div>
