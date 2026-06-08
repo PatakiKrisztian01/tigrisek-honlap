@@ -187,7 +187,7 @@ export default function Home() {
 
           {/* 9. Sor: A fehér burkolat átveszi az irányítást oldalról befelé */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
-            <span className="text-white inline-block whitespace-nowrap mr-12">ÖNVÉDELMI OKTATÁS KÜZDŐSPORT OKTATÁS EDZÉSEK TAEKWON</span>
+            <span className="text-white inline-block whitespace-nowrap mr-12">ÖNVÉDELMI OKTATÁS KÜZDŐSPORTOK OKTATÁS EDZÉSEK TAEKWON</span>
             <span className="text-red-500 font-black inline-block whitespace-nowrap">FIZIKAI ERŐ—ÖNBIZALOM FEJLESZTÉS—UTÁNPÓTLÁS SPORT</span>
             <span className="text-white inline-block whitespace-nowrap ml-12">OVIS MOZGÁS ISKOLÁS SPORT KÖZÖSSÉGI ÉLET PROFI EDZŐK</span>
           </div>
