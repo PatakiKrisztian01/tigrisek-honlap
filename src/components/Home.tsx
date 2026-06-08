@@ -1,5 +1,6 @@
 import { ArrowRight, Users, Calendar, Shield, Award, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useMemo } from 'react';
 
 const newsItems = [
   {
@@ -19,38 +20,235 @@ const newsItems = [
   },
 ];
 
+// 150 darab, szigorúan válogatott, rátok szabott kulcsszó
+const WORD_CLOUD_WORDS = [
+  // Fő mag - Legfontosabbak (Piros)
+  { text: 'TAEKWON-DO', type: 'core' as const, weight: 4 },
+  { text: 'KICK-BOX', type: 'core' as const, weight: 4 },
+  { text: 'TIGRISEK', type: 'core' as const, weight: 4 },
+  { text: 'TIGERS', type: 'core' as const, weight: 4 },
+  { text: 'EDZÉS', type: 'core' as const, weight: 3 },
+  { text: 'ÖNVÉDELEM', type: 'core' as const, weight: 3 },
+  { text: 'HARCMŰVÉSZET', type: 'core' as const, weight: 3 },
+  { text: 'BUDAPEST TIGERS', type: 'core' as const, weight: 3 },
+  { text: 'OVIS TKD', type: 'core' as const, weight: 3 },
+  { text: 'KÜZDŐSPORT', type: 'core' as const, weight: 3 },
+  { text: 'FEKETE ÖV', type: 'core' as const, weight: 3 },
+  
+  // Pozitív értékek és klubszellem (Piros / Belső mag kitöltés)
+  { text: 'CSALÁDIAS', type: 'value' as const, weight: 2.5 },
+  { text: 'KÖZÖSSÉG', type: 'value' as const, weight: 2.5 },
+  { text: 'TISZTELET', type: 'value' as const, weight: 2.5 },
+  { text: 'FEGYELEM', type: 'value' as const, weight: 2.5 },
+  { text: 'KITARTÁS', type: 'value' as const, weight: 2.5 },
+  { text: 'ÖNBIZALOM', type: 'value' as const, weight: 2.5 },
+  { text: 'HARCOSSÁG', type: 'value' as const, weight: 2.5 },
+  { text: 'BARÁTSÁG', type: 'value' as const, weight: 2.5 },
+  { text: 'SZERETET', type: 'value' as const, weight: 2.5 },
+  { text: 'ALÁZAT', type: 'value' as const, weight: 2 },
+  { text: 'BECSÜLET', type: 'value' as const, weight: 2 },
+  { text: 'ERŐ', type: 'value' as const, weight: 2.5 },
+  { text: 'EGYSÉG', type: 'value' as const, weight: 2 },
+  { text: 'HIT', type: 'value' as const, weight: 2 },
+  { text: 'AKARATERŐ', type: 'value' as const, weight: 2 },
+  { text: 'ÖNURALOM', type: 'value' as const, weight: 2 },
+  { text: 'ÖSSZETARTÁS', type: 'value' as const, weight: 2 },
+  { text: 'BÁTORSÁG', type: 'value' as const, weight: 2 },
+  { text: 'ÖNFELÁLDOZÁS', type: 'value' as const, weight: 1.5 },
+  { text: 'CÉLOK', type: 'value' as const, weight: 2 },
+  { text: 'FEJLŐDÉS', type: 'value' as const, weight: 2 },
+  { text: 'MOTIVÁCIÓ', type: 'value' as const, weight: 2 },
+  { text: 'MAGABIZTOSSÁG', type: 'value' as const, weight: 2 },
+  { text: 'ÖSSZETARTÓ', type: 'value' as const, weight: 2 },
+  { text: 'TÁMOGATÁS', type: 'value' as const, weight: 2 },
+  { text: 'CSAPATSZELLEM', type: 'value' as const, weight: 2 },
+  { text: 'FEGYELMEZETTSÉG', type: 'value' as const, weight: 2 },
+  { text: 'ELSZÁNTSÁG', type: 'value' as const, weight: 2 },
+  { text: 'PÉLDAMUTATÁS', type: 'value' as const, weight: 1.5 },
+  { text: 'ÖNFEJLESZTÉS', type: 'value' as const, weight: 2 },
+
+  // Szakmai kifejezések és SEO (Fehér / Külső burok)
+  { text: 'PESTS ZENTLŐRINC', type: 'seo' as const, weight: 2 },
+  { text: '18. KERÜLET', type: 'seo' as const, weight: 2.5 },
+  { text: 'BUDAPEST 18', type: 'seo' as const, weight: 2 },
+  { text: 'HAVANNA', type: 'seo' as const, weight: 1.8 },
+  { text: 'KERÜLETI SPORT', type: 'seo' as const, weight: 1.5 },
+  { text: 'DÉL-PEST', type: 'seo' as const, weight: 1.5 },
+  { text: 'GYEREK EDZÉS', type: 'seo' as const, weight: 2 },
+  { text: 'FELNŐTT EDZÉS', type: 'seo' as const, weight: 2 },
+  { text: 'KEZDŐ CSOPORT', type: 'seo' as const, weight: 1.8 },
+  { text: 'HALADÓ EDZÉS', type: 'seo' as const, weight: 1.8 },
+  { text: 'OVIS EDZÉS', type: 'seo' as const, weight: 2 },
+  { text: 'NŐI ÖNVÉDELEM', type: 'seo' as const, weight: 1.8 },
+  { text: 'FORMAGYAKORLAT', type: 'seo' as const, weight: 1.5 },
+  { text: 'KÜZDELEM', type: 'seo' as const, weight: 1.8 },
+  { text: 'ERŐNLÉTI EDZÉS', type: 'seo' as const, weight: 1.8 },
+  { text: 'NYÚJTÁS', type: 'seo' as const, weight: 1.2 },
+  { text: 'ZSÁKMUNKA', type: 'seo' as const, weight: 1.5 },
+  { text: 'PAZSMUNKA', type: 'seo' as const, weight: 1.5 },
+  { text: 'KONDÍCIÓ', type: 'seo' as const, weight: 1.5 },
+  { text: 'KOORDINÁCIÓ', type: 'seo' as const, weight: 1.5 },
+  { text: 'MOZGÁSFEJLESZTÉS', type: 'seo' as const, weight: 1.8 },
+  { text: 'BEMUTATÓK', type: 'seo' as const, weight: 1.2 },
+  { text: 'ÖVVIZSGÁK', type: 'seo' as const, weight: 1.8 },
+  { text: 'EDZŐTÁBOR', type: 'seo' as const, weight: 1.8 },
+  { text: 'VERSENYZÉS', type: 'seo' as const, weight: 1.8 },
+  { text: 'WAKO', type: 'seo' as const, weight: 1.5 },
+  { text: 'ITF', type: 'seo' as const, weight: 1.5 },
+  { text: 'VILÁGKUPA', type: 'seo' as const, weight: 1.8 },
+  { text: 'MAGYAR BAJNOKSÁG', type: 'seo' as const, weight: 2 },
+  { text: 'MEDÁLOK', type: 'seo' as const, weight: 1.2 },
+  { text: 'TRÓFEÁK', type: 'seo' as const, weight: 1.2 },
+  { text: 'BAJNOKNEVELÉS', type: 'seo' as const, weight: 1.8 },
+  { text: 'ÖNVÉDELMI FOGÁSOK', type: 'seo' as const, weight: 1.5 },
+  { text: 'KÜZDELMI TECHNIKA', type: 'seo' as const, weight: 1.5 },
+  { text: 'FORMÁK', type: 'seo' as const, weight: 1.2 },
+
+  // Marketing és Akció (Fehér / Külső burok)
+  { text: 'INGYENES ELSŐ EDZÉS', type: 'seo' as const, weight: 2.2 },
+  { text: 'CSATLAKOZZ', type: 'seo' as const, weight: 1.8 },
+  { text: 'JELENTKEZZ', type: 'seo' as const, weight: 2.2 },
+  { text: 'PRÓBAEDZÉS', type: 'seo' as const, weight: 1.8 },
+  { text: 'VÁRUNK', type: 'seo' as const, weight: 1.5 },
+  { text: 'LÉGY HARCOS', type: 'seo' as const, weight: 1.8 },
+  { text: 'KEZDD EL MA', type: 'seo' as const, weight: 1.8 },
+
+  // Ismétlések, variációk és Sűrítő szavak (SEO és formaépítés céljából)
+  { text: 'TAEKWONDO BUDAPEST', type: 'seo' as const, weight: 1.6 },
+  { text: 'KICKBOX BUDAPEST', type: 'seo' as const, weight: 1.6 },
+  { text: 'GYERMEK HARCMŰVÉSZET', type: 'seo' as const, weight: 1.5 },
+  { text: 'FIATAL HARCOSOK', type: 'seo' as const, weight: 1.5 },
+  { text: 'EGÉSZSÉGES ÉLETMÓD', type: 'seo' as const, weight: 1.5 },
+  { text: 'SPORTOLJ NÁLUNK', type: 'seo' as const, weight: 1.5 },
+  { text: 'MOZGÁS ÖRÖME', type: 'seo' as const, weight: 1.5 },
+  { text: 'TIGERS CSALÁD', type: 'seo' as const, weight: 1.8 },
+  { text: 'SZELLEMI FEJLŐDÉS', type: 'seo' as const, weight: 1.5 },
+  { text: 'FIZIKAI ERŐ', type: 'seo' as const, weight: 1.5 },
+  { text: 'ÖNBIZALOM FEJLESZTÉS', type: 'seo' as const, weight: 1.6 },
+  { text: 'GYEREKSPORT 18. KERÜLET', type: 'seo' as const, weight: 1.8 },
+  { text: 'FITT FELNŐTTEK', type: 'seo' as const, weight: 1.5 },
+  { text: 'ÖNVÉDELMI OKTATÁS', type: 'seo' as const, weight: 1.6 },
+  { text: 'KÜZDŐSPORT OKTATÁS', type: 'seo' as const, weight: 1.6 },
+  { text: 'TAEKWON-DO EDZÉSEK', type: 'seo' as const, weight: 1.8 },
+  { text: 'KICK-BOX EDZÉSEK', type: 'seo' as const, weight: 1.8 },
+  { text: 'OVIS MOZGÁS', type: 'seo' as const, weight: 1.5 },
+  { text: 'ISKOLÁS SPORT', type: 'seo' as const, weight: 1.5 },
+  { text: 'KÖZÖSSÉGI ÉLET', type: 'seo' as const, weight: 1.5 },
+  { text: 'SPORT EGYESÜLET', type: 'seo' as const, weight: 1.6 },
+  { text: 'PROFI EDZŐK', type: 'seo' as const, weight: 1.6 },
+  { text: 'MESTEREK', type: 'seo' as const, weight: 1.5 },
+  { text: 'DAN VIZSGA', type: 'seo' as const, weight: 1.4 },
+  { text: 'KUP VIZSGA', type: 'seo' as const, weight: 1.4 },
+  { text: 'TIGERS KLUB', type: 'seo' as const, weight: 1.6 },
+  { text: 'SÉRTETLEN ÖNBIZALOM', type: 'seo' as const, weight: 1.4 },
+  { text: 'FEGYELMEZETT HARCOSOK', type: 'seo' as const, weight: 1.5 },
+  { text: 'KITARTÓ MUNKA', type: 'seo' as const, weight: 1.4 },
+  { text: 'SIKERES VIZSGÁK', type: 'seo' as const, weight: 1.5 },
+  { text: 'BAJNOKI CÍMEK', type: 'seo' as const, weight: 1.6 },
+  { text: 'KÜZDELMI SZELLEM', type: 'seo' as const, weight: 1.5 },
+  { text: 'TISZTELETADÁS', type: 'seo' as const, weight: 1.4 },
+  { text: 'ALÁZATOS MUNKA', type: 'seo' as const, weight: 1.4 },
+  { text: 'ERŐS TEST', type: 'seo' as const, weight: 1.8 },
+  { text: 'ERŐS LÉLEK', type: 'seo' as const, weight: 1.8 },
+  { text: 'EDZŐTERMI KÖZÖSSÉG', type: 'seo' as const, weight: 1.5 },
+  { text: 'CSALÁDIAS HANGULAT', type: 'seo' as const, weight: 1.5 },
+  { text: 'BARÁTI KÖR', type: 'seo' as const, weight: 1.4 },
+  { text: 'JÓ HANGULAT', type: 'seo' as const, weight: 1.4 },
+  { text: 'PONTOSSÁG', type: 'seo' as const, weight: 1.2 },
+  { text: 'RÚGÁSOK', type: 'seo' as const, weight: 1.4 },
+  { text: 'ÜTÉSEK', type: 'seo' as const, weight: 1.4 },
+  { text: 'PAZS EDZÉS', type: 'seo' as const, weight: 1.4 },
+  { text: 'ZSÁKOLÁS', type: 'seo' as const, weight: 1.4 },
+  { text: 'ERŐNLÉT', type: 'seo' as const, weight: 1.5 },
+  { text: 'RUGALMASSÁG', type: 'seo' as const, weight: 1.2 },
+  { text: 'GYORSASÁG', type: 'seo' as const, weight: 1.4 },
+  { text: 'REAKCIÓIDŐ', type: 'seo' as const, weight: 1.4 },
+  { text: 'KEDVEZŐ TAGDÍJ', type: 'seo' as const, weight: 1.4 },
+  { text: 'INGYENES PRÓBA', type: 'seo' as const, weight: 1.5 },
+  { text: 'VÁRUNK RÁD', type: 'seo' as const, weight: 1.4 },
+  { text: 'ALAPÍTVA 2002', type: 'seo' as const, weight: 1.6 },
+  { text: '24 ÉV TAPASZTALAT', type: 'seo' as const, weight: 1.6 },
+  { text: 'SIKERES SPORTOLÓK', type: 'seo' as const, weight: 1.5 },
+  { text: 'BUDAPESTI KICKBOX', type: 'seo' as const, weight: 1.6 },
+  { text: 'KERÜLETI TAEKWONDO', type: 'seo' as const, weight: 1.6 },
+  { text: 'HAVANNA LAKÓTELEPI SPORT', type: 'seo' as const, weight: 1.5 },
+  { text: 'HARCMŰVÉSZET GYEREKEKNEK', type: 'seo' as const, weight: 1.6 },
+  { text: 'HARCMŰVÉSZET FELNŐTTEKNEK', type: 'seo' as const, weight: 1.6 },
+  { text: 'ÖNVÉDELEM GYEREKEKNEK', type: 'seo' as const, weight: 1.6 },
+  { text: 'ÖNVÉDELEM NŐKNEK', type: 'seo' as const, weight: 1.5 },
+  { text: 'KÜZDŐSPORT GYEREKEKNEK', type: 'seo' as const, weight: 1.6 },
+  { text: 'MINDEN KOROSZTÁLY', type: 'seo' as const, weight: 1.5 },
+  { text: 'FEKETE ÖVES MESTEREK', type: 'seo' as const, weight: 1.6 },
+  { text: 'ITF HUNGARY', type: 'seo' as const, weight: 1.4 },
+  { text: 'WAKO HUNGARY', type: 'seo' as const, weight: 1.4 },
+  { text: 'TIGERS SE', type: 'seo' as const, weight: 1.5 },
+  { text: 'WWW.TIGRISEK.HU', type: 'seo' as const, weight: 1.8 }
+];
+
 export default function Home() {
+  // Matematikai szív-egyenlet alapú elrendezés generálása, hogy tökéletes formát kapjunk
+  const positionedWords = useMemo(() => {
+    return WORD_CLOUD_WORDS.map((word, index) => {
+      // Elosztjuk az indexeket 0 és 2*PI közé egyenletesen
+      const t = (index / WORD_CLOUD_WORDS.length) * 2 * Math.PI;
+      
+      // A híres parametrikus szív-egyenlet formula
+      let x = 16 * Math.pow(Math.sin(t), 3);
+      let y = 13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t);
+      
+      // Egy kis véletlenszerű eltolás (jitter), hogy ne legyenek túl steril sorban, de az alakzat megmaradjon
+      const randomOffset = 1.8;
+      x += (Math.random() - 0.5) * randomOffset;
+      y += (Math.random() - 0.5) * randomOffset;
+
+      // Átváltás százalékos pozícióvá a konténeren belül (középpont: 50%, 45%)
+      // A Y tengelyt invertáljuk, mert a CSS fentről lefelé növekszik
+      const left = 50 + x * 2.4; 
+      const top = 45 - y * 2.4; 
+
+      // Színmeghatározás: a mag és az értékek pirosak, a SEO szavak fehérek
+      let colorClass = 'text-white hover:text-neon-orange';
+      if (word.type === 'core') {
+        colorClass = 'text-red-500 font-black drop-shadow-[0_2px_4px_rgba(239,68,68,0.3)]';
+      } else if (word.type === 'value') {
+        colorClass = 'text-red-400 font-extrabold';
+      } else {
+        // Időnként egy-egy halványabb szürke a mélységérzet miatt
+        colorClass = index % 4 === 0 ? 'text-gray-400 font-medium' : 'text-gray-200 font-bold';
+      }
+
+      return {
+        ...word,
+        style: {
+          left: `${left}%`,
+          top: `${top}%`,
+          transform: 'translate(-50%, -50%)',
+          fontSize: `${word.weight * 7.5 + 6}px`, // Skálázható méretek
+        },
+        className: `absolute transition-all duration-300 whitespace-nowrap uppercase select-none tracking-tight ${colorClass}`
+      };
+    });
+  }, []);
+
   return (
     <div>
       {/* Hero Section - A menüsor alatt kezdődik, 480px magas */}
       <div className="relative w-full bg-black overflow-hidden" style={{ minHeight: '400px', marginTop: '80px' }}>
         {/* Videó háttérként */}
         <div className="absolute inset-0 w-full h-full z-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-          >
+          <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
             <source src="/matrix.webm" type="video/webm" />
             Your browser does not support the video tag.
           </video>
-
-          {/* Sötét átfedés */}
           <div className="absolute inset-0 bg-black/40" />
-          {/* Felül elhalványulás */}
           <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-black to-transparent" />
-          {/* Alul elhalványulás */}
           <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black to-transparent" />
-          {/* Neon narancs oldalsó fény */}
           <div className="absolute inset-0 bg-gradient-to-r from-neon-orange/10 via-transparent to-transparent" />
         </div>
 
         {/* Hero szöveg és tartalom */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center h-full" style={{ minHeight: '400px' }}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-
             {/* BAL OLDAL: Szövegek */}
             <div className="lg:col-span-8 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 bg-neon-orange/10 border border-neon-orange/40 rounded-full px-4 py-1.5 mb-4">
@@ -125,97 +323,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SŰRŰ, KIDOLGOZOTT SEO SZÓFELHŐ - SZÍV ALAKZAT */}
-      <section className="bg-black py-20 flex flex-col items-center justify-center overflow-hidden font-sans border-b border-gray-900">
-        
-        <div className="max-w-2xl text-center mb-12 px-4">
-          <span className="text-sm font-bold uppercase tracking-widest text-neon-orange mb-2 block">
-            A mi világunk
-          </span>
-          <h2 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight">
-            Értékek, Közösség és Erő
-          </h2>
+      {/* TŰSŰRŰ MATEMATIKAI SZÓFELHŐ - IGAZI SZÍV ALAKZAT */}
+      <section className="bg-black py-24 flex flex-col items-center justify-center overflow-hidden border-b border-gray-900">
+        <div className="max-w-2xl text-center mb-10 px-4">
+          <span className="text-sm font-bold uppercase tracking-widest text-neon-orange mb-2 block">A mi világunk</span>
+          <h2 className="text-2xl md:text-4xl font-black text-white uppercase tracking-tight">Értékek, Közösség és Erő</h2>
         </div>
 
-        {/* Nagyobb, stabil 600x600-as konténer asztali gépekre, mobilon arányosan igazodva */}
-        <div className="relative w-[360px] h-[380px] md:w-[600px] md:h-[600px] flex items-center justify-center bg-gray-950/40 rounded-full border border-gray-900/50 p-2">
-          
-          {/* =========================================================
-              1. BELSŐ MAG: TISZTA PIROS SZAVAK (A SZÍV BELSŐ FORMÁJA)
-              ========================================================= */}
-          <div className="absolute inset-0 flex flex-wrap justify-center items-center content-center gap-x-2 gap-y-1 max-w-[200px] md:max-w-[340px] m-auto z-20 text-center">
-            <span className="text-xl md:text-4xl font-black text-red-500 uppercase tracking-tighter w-full block">TAEKWON-DO</span>
-            <span className="text-lg md:text-3xl font-black text-red-600 uppercase tracking-tight">KICK-BOX</span>
-            <span className="text-base md:text-2xl font-extrabold text-red-400 uppercase">TIGRISEK</span>
-            <span className="text-sm md:text-xl font-black text-red-500 uppercase">EDZÉS</span>
-            
-            {/* Ismétlődések a sűrűségért */}
-            <span className="text-sm md:text-lg font-bold text-red-600 uppercase">TAEKWONDO</span>
-            <span className="text-xs md:text-md font-bold text-red-400 uppercase">KICKBOX</span>
-            <span className="text-base md:text-2xl font-black text-red-500 uppercase">ÖNVÉDELEM</span>
-            <span className="text-xs md:text-sm font-semibold text-red-600 uppercase">OVIS TKD</span>
-            <span className="text-sm md:text-xl font-extrabold text-red-400 uppercase">FEKETE ÖV</span>
-            <span className="text-xs md:text-md font-bold text-red-500 uppercase">HARCMŰVÉSZET</span>
-            
-            {/* Másodlagos mag-feltöltés */}
-            <span className="text-xs md:text-sm font-black text-red-600 uppercase">KÜZDŐSPORT</span>
-            <span className="text-sm md:text-xl font-black text-red-500 uppercase">TIGRISEK SE</span>
-            <span className="text-xs md:text-xs font-bold text-red-400 uppercase">ITF TAEKWON-DO</span>
-            <span className="text-xs md:text-sm font-bold text-red-500 uppercase">SPORTEDZÉS</span>
+        {/* Óriási, tágas 750px-es konténer, amiben a 150 szó gyönyörűen kirajzolódik egymás mellett */}
+        <div className="relative w-full max-w-[400px] aspect-square md:max-w-[750px] bg-gray-950/20 rounded-3xl border border-gray-900/30 overflow-hidden shadow-inner">
+          <div className="absolute inset-0 w-full h-full">
+            {positionedWords.map((word, i) => (
+              <span key={i} style={word.style} className={word.className}>
+                {word.text}
+              </span>
+            ))}
           </div>
-
-          {/* =========================================================
-              2. KÜLSŐ BURKOLAT: TISZTA FEHÉR/SZÜRKE SZAVAK (A SZÍV KÖRVONALA ÉS HÁTTÉR)
-              ========================================================= */}
-          <div className="absolute inset-0 w-full h-full pointer-events-none opacity-90 text-[10px] md:text-xs font-bold uppercase tracking-normal">
-            
-            {/* Felső ívek (A szív két púpja) */}
-            <span className="absolute top-[12%] left-[25%] -translate-x-1/2 text-white font-black text-xs md:text-sm">HARCMŰVÉSZETI OKTATÁS</span>
-            <span className="absolute top-[8%] left-[50%] -translate-x-1/2 text-gray-400">KÖZÖSSÉG</span>
-            <span className="absolute top-[12%] right-[25%] translate-x-1/2 text-white font-black text-xs md:text-sm">GYEREK EDZÉSEK</span>
-            
-            <span className="absolute top-[18%] left-[15%] text-gray-300">FALRAKÓS EDZŐTEREM</span>
-            <span className="absolute top-[16%] left-[38%] text-white">ÖNBIZALOM</span>
-            <span className="absolute top-[16%] right-[38%] text-white">FEGYELEM</span>
-            <span className="absolute top-[18%] right-[15%] text-gray-300">FELNŐTT EDZÉS</span>
-
-            {/* Oldalsó szélesítő ívek */}
-            <span className="absolute top-[28%] left-[4%] text-gray-400">18. KERÜLET</span>
-            <span className="absolute top-[26%] left-[22%] text-white">EGÉSZSÉG</span>
-            <span className="absolute top-[26%] right-[22%] text-white">ERŐNLÉT</span>
-            <span className="absolute top-[28%] right-[4%] text-gray-400">PESTS ZENTLŐRINC</span>
-
-            <span className="absolute top-[40%] left-[2%] text-white text-xs">KICK-BOX BUDAPEST</span>
-            <span className="absolute top-[38%] left-[25%] text-gray-500">TISZTELET</span>
-            <span className="absolute top-[38%] right-[25%] text-gray-500">KITARTÁS</span>
-            <span className="absolute top-[40%] right-[2%] text-white text-xs">TAEKWON-DO HUNGARY</span>
-
-            {/* Középső átmeneti sáv */}
-            <span className="absolute top-[52%] left-[4%] text-gray-300">KEZDŐ CSOPORTOK</span>
-            <span className="absolute top-[50%] left-[20%] text-gray-400">MOZGÁS</span>
-            <span className="absolute top-[50%] right-[20%] text-gray-400">VIZSGÁK</span>
-            <span className="absolute top-[52%] right-[4%] text-gray-300">HALADÓ NYILVÁNOS</span>
-
-            {/* Alsó szűkülő V-alak (A szív csúcsa felé) */}
-            <span className="absolute bottom-[36%] left-[12%] text-white">INGYENES ELSŐ EDZÉS</span>
-            <span className="absolute bottom-[34%] left-[28%] text-gray-500">KÜZDELEM</span>
-            <span className="absolute bottom-[34%] right-[28%] text-gray-500">FORMAFORMÁK</span>
-            <span className="absolute bottom-[36%] right-[12%] text-white">ÖNVÉDELMI OKTATÁS</span>
-
-            <span className="absolute bottom-[24%] left-[22%] text-gray-300">BUDAPEST TIGRISEK</span>
-            <span className="absolute bottom-[22%] left-[38%] text-white">SPORT</span>
-            <span className="absolute bottom-[22%] right-[38%] text-white">CLUB</span>
-            <span className="absolute bottom-[24%] right-[22%] text-gray-300">VERSENYZŐK</span>
-
-            <span className="absolute bottom-[14%] left-[32%] text-white text-xs">TAEKWONDO EDZÉSEK</span>
-            <span className="absolute bottom-[14%] right-[32%] text-white text-xs">KICKBOX SE</span>
-
-            {/* Legalsó csúcs pont */}
-            <span className="absolute bottom-[6%] left-1/2 -translate-x-1/2 text-white font-black text-xs md:text-sm tracking-widest">
-              WWW.TIGRISEK.HU
-            </span>
-          </div>
-
         </div>
       </section>
 
@@ -227,10 +350,7 @@ export default function Home() {
               <p className="text-neon-orange text-sm font-bold tracking-wider uppercase mb-2">Legfrissebb</p>
               <h2 className="text-4xl font-black text-white">Hírek</h2>
             </div>
-            <Link
-              to="/hirek"
-              className="hidden sm:flex items-center gap-2 text-gray-400 hover:text-neon-orange transition-colors text-sm font-bold"
-            >
+            <Link to="/hirek" className="hidden sm:flex items-center gap-2 text-gray-400 hover:text-neon-orange transition-colors text-sm font-bold">
               Összes hír <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -238,9 +358,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-6">
             {newsItems.map((item, i) => (
               <Link key={i} to="/hirek">
-                <article
-                  className="bg-gray-900 border border-gray-800 rounded-2xl p-6 hover:border-neon-orange/50 transition-all duration-300 hover:-translate-y-1 cursor-pointer group h-full"
-                >
+                <article className="bg-gray-900 border border-gray-800 rounded-2xl p-6 hover:border-neon-orange/50 transition-all duration-300 hover:-translate-y-1 cursor-pointer group h-full">
                   <time className="text-neon-orange text-xs font-bold tracking-wider uppercase mb-3 block">{item.date}</time>
                   <h3 className="text-white font-bold text-lg mb-3 group-hover:text-neon-orange transition-colors">{item.title}</h3>
                   <p className="text-gray-400 text-sm leading-relaxed">{item.excerpt}</p>
@@ -270,22 +388,14 @@ export default function Home() {
           </div>
           <div className="grid sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
             <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 text-center hover:border-neon-orange/50 transition-all duration-300">
-              <img
-                src="/patakikrisztian.webp"
-                alt="Pataki Krisztián"
-                className="w-20 h-20 mx-auto mb-4 object-contain"
-              />
+              <img src="/patakikrisztian.webp" alt="Pataki Krisztián" className="w-20 h-20 mx-auto mb-4 object-contain" />
               <h3 className="text-white font-black text-xl mb-1">Pataki Krisztián</h3>
               <p className="text-neon-orange font-bold text-sm mb-4">VI.Dan — Klubvezető elnök</p>
               <a href="mailto:tigrisek@gmail.com" className="text-gray-400 hover:text-neon-orange text-sm transition-colors block mb-1">tigrisek@gmail.com</a>
               <a href="tel:+36709415992" className="text-gray-400 hover:text-neon-orange text-sm transition-colors">+36-70-941-5992</a>
             </div>
             <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 text-center hover:border-neon-orange/50 transition-all duration-300">
-              <img
-                src="/patakinezsaniko.webp"
-                alt="Patakiné Zs. Anikó"
-                className="w-20 h-20 mx-auto mb-4 object-contain"
-              />
+              <img src="/patakinezsaniko.webp" alt="Patakiné Zs. Anikó" className="w-20 h-20 mx-auto mb-4 object-contain" />
               <h3 className="text-white font-black text-xl mb-1">Patakiné Zs. Anikó</h3>
               <p className="text-neon-orange font-bold text-sm mb-4">III.Dan — Klubvezető helyettes</p>
               <a href="mailto:patakineaniko@gmail.com" className="text-gray-400 hover:text-neon-orange text-sm transition-colors block mb-1">patakineaniko@gmail.com</a>
