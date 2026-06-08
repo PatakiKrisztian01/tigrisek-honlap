@@ -14,16 +14,16 @@ const belts: Belt[] = [
   { rank: 'III. Dan', rankEn: '', members: ['Kiss Viktor', 'Patakiné Zs. Anikó'] },
   { rank: 'II. Dan', rankEn: '', members: ['Almási Zsolt', 'Csáki Máté', 'Dányi Leonetta', 'Höflinger Zsolt', 'Jakab Norbert', 'Kardos Zsolt', 'Kökény Bence', 'Schäfer Péter', 'Takács Ágnes'] },
   { rank: 'I. Dan', rankEn: '', members: ['Fodor Andrea', 'Horváth Gergő', 'Králik Csaba', 'Mireisz Tibor', 'Nagy Varga Bence', 'Nagy Varga Csenge', 'Nas Levente', 'Orha Noémi', 'Papp Alexandra', 'Simon Gábor', 'Solymosi Hanna Zoé', 'Tar Balázs', 'Vajler Éva'] },
-  { rank: '1.gup', rankEn: '', members: ['Borzsák Endre', 'Hegyi Márton', 'Käfer Dóra', 'Kiss Judit', 'Kovács Anna Viola', 'Nas Timur', 'Pribelszki Dóra', 'Trepka Zsolt'] },
-  { rank: '2.gup', rankEn: '', members: ['Béres Dominik', 'Epres Barnabás', 'Héni Petra', 'Horváth Anna Eszter', 'Nijhuis Sam', 'Wieser Melinda'] },
-  { rank: '3.gup', rankEn: '', members: ['Gervai Milán', 'Gódor Julianna', 'Kiss Enikő', 'Nas Mira', 'Nász József Péter', 'Orha Virág', 'Pataki Marcell'] },
+  { rank: '1.gup', rankEn: '', members: ['Borzsák Endre', 'Hegyi Márton', 'Käfer Dóra', 'Kiss Judit', 'Kovács Anna Viola', 'Nas Timur', 'Pribelszki Dóra', 'Nijhuis Sam', 'Trepka Zsolt'] },
+  { rank: '2.gup', rankEn: '', members: ['Béres Dominik', 'Epres Barnabás', 'Héni Petra', 'Horváth Anna Eszter', 'Pataki Marcell', 'Wieser Melinda'] },
+  { rank: '3.gup', rankEn: '', members: ['Gervai Milán', 'Gódor Julianna', 'Kiss Enikő', 'Nas Mira', 'Nász József Péter', 'Orha Virág'] },
   { rank: '4.gup', rankEn: '', members: ['Baranyai Réka', 'Fekete Lilien', 'Hamar Bence', 'Hegedűs István', 'Hegyi Áron', 'Héni Kristóf', 'Horváth Fruzsina', 'Id. Talián István', 'ifj. Talián István', 'Mireisz Zsolt'] },
   { rank: '5.gup', rankEn: '', members: ['Balázs Olivér', 'Baltovics Beáta', 'Ferencz Botond', 'Fülöp Zoltán', 'Gervai Tamás', 'Kopsa Alexander', 'Kovács Lehel', 'Lovas Ádám', 'Patkós Gábor', 'Pintér Mold Illés', 'Szepesi Henriett', 'Ványi Nimród', 'Varga Ádám Zsolt', 'Virág József'] },
   { rank: '6.gup', rankEn: '', members: ['Bihari Gábor', 'Csáki István', 'Epres Péter', 'Ferencz Orsolya', 'Gondás Lionel Martin', 'Kupi Alina', 'Mireisz Kornél', 'Pataki Aida', 'Sidlo Ádám'] },
   { rank: '7.gup', rankEn: '', members: ['Antalicz Viktória', 'Hajdú Zalán', 'Fehérvári Zoltán', 'Gárdonyi Bálint', 'Gazsi Gergő', 'Gervai Bence', 'Horváth Bálint', 'Nijhuis Philip', 'Horváth Zsolt', 'Kovarik Zsombor', 'Néveri Béla', 'Néveri Dávid', 'Pécsi Benedek', 'Pécsi József', 'Pécsi-Kincses Regina', 'Somodi Márk'] },
-  { rank: '8.gup', rankEn: '', members: ['Babák Piroska', 'Gazsi Gábor', 'Mireisz Kornél Tibor', 'Somodi Viktor', 'Vajler Ádám', 'Veron-Nagy Gergő'] },
+  { rank: '8.gup', rankEn: '', members: ['Babák Piroska', 'Gazsi Gábor', 'Mireisz Kornél Tibor', 'Mucsi Danica', 'Somodi Viktor', 'Vajler Ádám', 'Veron-Nagy Gergő'] },
   { rank: '9.gup', rankEn: '', members: ['Cserni Miranda', 'Pintér Levente', 'Gárdonyi Ágoston', 'Hu Linhao Alen', 'Hu Linbo Bower', 'Simon Attila', 'Spitz Benedek', 'Szabó Levente', 'Szép-Magyar Izabella', 'Moravek Sámuel Zoltán'] },
-  { rank: '10.gup', rankEn: '', members: ['Varga Vendel', 'Vágány Benedek', 'Hu Shanyan Emi', 'Laapotti Petra', 'Hu Zhenqi Leo', 'Csutak Nimród Balázs'] },
+  { rank: '10.gup', rankEn: '', members: ['Varga Vendel', 'Vágány Benedek', 'Hu Shanyan Emi', 'Laapotti Petra', 'Hu Zhenqi Leo', 'Csutak Nimród Balázs', 'Vajda Zoé'] },
 ];
 
 function BeltRow({ belt }: { belt: Belt }) {
