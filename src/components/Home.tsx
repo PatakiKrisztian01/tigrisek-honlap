@@ -125,12 +125,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SEO SZÓFELHŐ BLOKK (A régi statisztikák helyén) */}
-      <section className="bg-black py-16 flex flex-col items-center justify-center overflow-hidden font-sans border-b border-gray-900">
+      {/* SŰRŰ, KIDOLGOZOTT SEO SZÓFELHŐ - SZÍV ALAKZAT */}
+      <section className="bg-black py-20 flex flex-col items-center justify-center overflow-hidden font-sans border-b border-gray-900">
         
-        {/* Cím és felvezetés */}
         <div className="max-w-2xl text-center mb-12 px-4">
-          <span className="text-sm font-bold uppercase tracking-widest text-orange-500 mb-2 block">
+          <span className="text-sm font-bold uppercase tracking-widest text-neon-orange mb-2 block">
             A mi világunk
           </span>
           <h2 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight">
@@ -138,65 +137,83 @@ export default function Home() {
           </h2>
         </div>
 
-        {/* A Szófelhő Konténer - Mobilra optimalizált méret (350px), ami asztalon nagyobb lesz */}
-        <div className="relative w-[340px] h-[360px] md:w-[500px] md:h-[500px] flex items-center justify-center bg-gray-900/10 border border-gray-800/30 rounded-full p-4">
+        {/* Nagyobb, stabil 600x600-as konténer asztali gépekre, mobilon arányosan igazodva */}
+        <div className="relative w-[360px] h-[380px] md:w-[600px] md:h-[600px] flex items-center justify-center bg-gray-950/40 rounded-full border border-gray-900/50 p-2">
           
-          {/* BELSŐ RÉSZ: A SZÍV ALAKZAT (Piros és Fehér kiemelt szavak) */}
-          <div className="flex flex-wrap justify-center items-center gap-2 md:gap-4 max-w-[260px] md:max-w-[360px] z-10 p-6 bg-red-950/5 border border-red-900/10 rounded-[40px] text-center">
-            <span className="text-2xl md:text-4xl font-black text-red-500 tracking-tighter uppercase">TAEKWON-DO</span>
-            <span className="text-xl md:text-3xl font-extrabold text-white tracking-tight uppercase">TIGRISEK</span>
-            <span className="text-lg md:text-2xl font-bold text-red-600 uppercase">KICK-BOX</span>
-            <span className="text-xl md:text-3xl font-black text-red-400 uppercase">EDZÉS</span>
-            <span className="text-md md:text-xl font-bold text-white uppercase">ÖNVÉDELEM</span>
-            <span className="text-lg md:text-2xl font-extrabold text-red-500 uppercase">OVIS TKD</span>
-            <span className="text-sm md:text-lg font-bold text-gray-300 uppercase">KÖZÖSSÉG</span>
-            <span className="text-md md:text-xl font-black text-white uppercase">FEKETE ÖV</span>
-            <span className="text-xs md:text-sm font-bold text-red-700 uppercase">FEGYELEM</span>
+          {/* =========================================================
+              1. BELSŐ MAG: TISZTA PIROS SZAVAK (A SZÍV BELSŐ FORMÁJA)
+              ========================================================= */}
+          <div className="absolute inset-0 flex flex-wrap justify-center items-center content-center gap-x-2 gap-y-1 max-w-[200px] md:max-w-[340px] m-auto z-20 text-center">
+            <span className="text-xl md:text-4xl font-black text-red-500 uppercase tracking-tighter w-full block">TAEKWON-DO</span>
+            <span className="text-lg md:text-3xl font-black text-red-600 uppercase tracking-tight">KICK-BOX</span>
+            <span className="text-base md:text-2xl font-extrabold text-red-400 uppercase">TIGRISEK</span>
+            <span className="text-sm md:text-xl font-black text-red-500 uppercase">EDZÉS</span>
+            
+            {/* Ismétlődések a sűrűségért */}
+            <span className="text-sm md:text-lg font-bold text-red-600 uppercase">TAEKWONDO</span>
+            <span className="text-xs md:text-md font-bold text-red-400 uppercase">KICKBOX</span>
+            <span className="text-base md:text-2xl font-black text-red-500 uppercase">ÖNVÉDELEM</span>
+            <span className="text-xs md:text-sm font-semibold text-red-600 uppercase">OVIS TKD</span>
+            <span className="text-sm md:text-xl font-extrabold text-red-400 uppercase">FEKETE ÖV</span>
+            <span className="text-xs md:text-md font-bold text-red-500 uppercase">HARCMŰVÉSZET</span>
+            
+            {/* Másodlagos mag-feltöltés */}
+            <span className="text-xs md:text-sm font-black text-red-600 uppercase">KÜZDŐSPORT</span>
+            <span className="text-sm md:text-xl font-black text-red-500 uppercase">TIGRISEK SE</span>
+            <span className="text-xs md:text-xs font-bold text-red-400 uppercase">ITF TAEKWON-DO</span>
+            <span className="text-xs md:text-sm font-bold text-red-500 uppercase">SPORTEDZÉS</span>
           </div>
 
-          {/* KÜLSŐ RÉSZ: A HELYI SEO-BOMBA (18. kerületi kulcsszavak) */}
-          <div className="absolute inset-0 w-full h-full pointer-events-none opacity-70 text-xs md:text-sm font-black uppercase">
+          {/* =========================================================
+              2. KÜLSŐ BURKOLAT: TISZTA FEHÉR/SZÜRKE SZAVAK (A SZÍV KÖRVONALA ÉS HÁTTÉR)
+              ========================================================= */}
+          <div className="absolute inset-0 w-full h-full pointer-events-none opacity-90 text-[10px] md:text-xs font-bold uppercase tracking-normal">
             
-            {/* Fent középen */}
-            <span className="absolute top-4 left-1/2 -translate-x-1/2 text-blue-500 tracking-widest">
-              18. kerület
+            {/* Felső ívek (A szív két púpja) */}
+            <span className="absolute top-[12%] left-[25%] -translate-x-1/2 text-white font-black text-xs md:text-sm">HARCMŰVÉSZETI OKTATÁS</span>
+            <span className="absolute top-[8%] left-[50%] -translate-x-1/2 text-gray-400">KÖZÖSSÉG</span>
+            <span className="absolute top-[12%] right-[25%] translate-x-1/2 text-white font-black text-xs md:text-sm">GYEREK EDZÉSEK</span>
+            
+            <span className="absolute top-[18%] left-[15%] text-gray-300">FALRAKÓS EDZŐTEREM</span>
+            <span className="absolute top-[16%] left-[38%] text-white">ÖNBIZALOM</span>
+            <span className="absolute top-[16%] right-[38%] text-white">FEGYELEM</span>
+            <span className="absolute top-[18%] right-[15%] text-gray-300">FELNŐTT EDZÉS</span>
+
+            {/* Oldalsó szélesítő ívek */}
+            <span className="absolute top-[28%] left-[4%] text-gray-400">18. KERÜLET</span>
+            <span className="absolute top-[26%] left-[22%] text-white">EGÉSZSÉG</span>
+            <span className="absolute top-[26%] right-[22%] text-white">ERŐNLÉT</span>
+            <span className="absolute top-[28%] right-[4%] text-gray-400">PESTS ZENTLŐRINC</span>
+
+            <span className="absolute top-[40%] left-[2%] text-white text-xs">KICK-BOX BUDAPEST</span>
+            <span className="absolute top-[38%] left-[25%] text-gray-500">TISZTELET</span>
+            <span className="absolute top-[38%] right-[25%] text-gray-500">KITARTÁS</span>
+            <span className="absolute top-[40%] right-[2%] text-white text-xs">TAEKWON-DO HUNGARY</span>
+
+            {/* Középső átmeneti sáv */}
+            <span className="absolute top-[52%] left-[4%] text-gray-300">KEZDŐ CSOPORTOK</span>
+            <span className="absolute top-[50%] left-[20%] text-gray-400">MOZGÁS</span>
+            <span className="absolute top-[50%] right-[20%] text-gray-400">VIZSGÁK</span>
+            <span className="absolute top-[52%] right-[4%] text-gray-300">HALADÓ NYILVÁNOS</span>
+
+            {/* Alsó szűkülő V-alak (A szív csúcsa felé) */}
+            <span className="absolute bottom-[36%] left-[12%] text-white">INGYENES ELSŐ EDZÉS</span>
+            <span className="absolute bottom-[34%] left-[28%] text-gray-500">KÜZDELEM</span>
+            <span className="absolute bottom-[34%] right-[28%] text-gray-500">FORMAFORMÁK</span>
+            <span className="absolute bottom-[36%] right-[12%] text-white">ÖNVÉDELMI OKTATÁS</span>
+
+            <span className="absolute bottom-[24%] left-[22%] text-gray-300">BUDAPEST TIGRISEK</span>
+            <span className="absolute bottom-[22%] left-[38%] text-white">SPORT</span>
+            <span className="absolute bottom-[22%] right-[38%] text-white">CLUB</span>
+            <span className="absolute bottom-[24%] right-[22%] text-gray-300">VERSENYZŐK</span>
+
+            <span className="absolute bottom-[14%] left-[32%] text-white text-xs">TAEKWONDO EDZÉSEK</span>
+            <span className="absolute bottom-[14%] right-[32%] text-white text-xs">KICKBOX SE</span>
+
+            {/* Legalsó csúcs pont */}
+            <span className="absolute bottom-[6%] left-1/2 -translate-x-1/2 text-white font-black text-xs md:text-sm tracking-widest">
+              WWW.TIGRISEK.HU
             </span>
-            
-            {/* Fent balra */}
-            <span className="absolute top-12 left-4 text-gray-500 font-normal">
-              Gyerek edzések
-            </span>
-            
-            {/* Fent jobbra */}
-            <span className="absolute top-14 right-4 text-blue-400">
-              Pestszentlőrinc
-            </span>
-            
-            {/* Középen balra */}
-            <span className="absolute top-1/2 left-2 -translate-y-1/2 text-blue-600">
-              Havanna
-            </span>
-            
-            {/* Középen jobbra */}
-            <span className="absolute top-1/2 right-2 -translate-y-1/2 text-gray-500 font-normal">
-              Kezdő & Haladó
-            </span>
-            
-            {/* Lent balra */}
-            <span className="absolute bottom-16 left-4 text-blue-400">
-              Lakatos ltp.
-            </span>
-            
-            {/* Lent jobbra */}
-            <span className="absolute bottom-14 right-6 text-gray-600 font-normal">
-              Tisztelet
-            </span>
-            
-            {/* Alul középen */}
-            <span className="absolute bottom-4 left-1/2 -translate-x-1/2 text-blue-500 tracking-wide text-center w-full">
-              Ingyenes első edzés
-            </span>
-            
           </div>
 
         </div>
