@@ -187,7 +187,7 @@ export default function Home() {
 
           {/* 9. Sor: A fehér burkolat átveszi az irányítást oldalról befelé */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
-            <span className="text-white inline-block whitespace-nowrap mr-12">ÖNVÉDELMI OKTATÁS KÜZDŐSPORT OKTATÁS EDZÉSEK TKD</span>
+            <span className="text-white inline-block whitespace-nowrap mr-12">ÖNVÉDELMI OKTATÁS KÜZDŐSPORT OKTATÁS EDZÉSEK TAEKWON</span>
             <span className="text-red-500 font-black inline-block whitespace-nowrap">FIZIKAI ERŐ—ÖNBIZALOM FEJLESZTÉS—UTÁNPÓTLÁS SPORT</span>
             <span className="text-white inline-block whitespace-nowrap ml-12">OVIS MOZGÁS ISKOLÁS SPORT KÖZÖSSÉGI ÉLET PROFI EDZŐK</span>
           </div>
@@ -208,7 +208,7 @@ export default function Home() {
 
           {/* 12. Sor: A szív legalsó csúcsa (A weboldal címe tiszta fehér/narancs fókuszpontként zárja le a formát) */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
-            <span className="text-gray-500 opacity-20 inline-block whitespace-nowrap mr-12">ERŐNLÉT RUGALMASSÁG GYORSASÁG REAKCIÓIDŐ TAGDÍJ PRÓBA VÁRUNK RÁD ALAPÍTVA 2002</span>
+            <span className="text-gray-500 opacity-20 inline-block whitespace-nowrap mr-12">ERŐNLÉT RUGALMASSÁG GYORSASÁG  KARATE REAKCIÓIDŐ TAGDÍJ PRÓBA VÁRUNK RÁD ALAPÍTVA 2002</span>
             <span className="text-white font-black bg-neon-orange/20 px-4 py-1 border border-neon-orange/40 rounded text-xs tracking-widest inline-block whitespace-nowrap shadow-[0_0_15px_rgba(255,94,0,0.2)]">WWW.TIGRISEK.HU</span>
             <span className="text-gray-500 opacity-20 inline-block whitespace-nowrap ml-12">BUDAPESTI KICKBOX KERÜLETI TAEKWONDO HAVANNA LAKÓTELEPI SPORT GYEREKEKNEK FELNŐTTEKNEK</span>
           </div>
