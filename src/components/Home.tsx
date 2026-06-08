@@ -160,7 +160,7 @@ export default function Home() {
           {/* 5. Sor: Stabil, tömör középrész (A MOTIVÁCIÓ MAGABIZTOSSÁG is láncolva) */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
             <span className="text-gray-400 opacity-70 inline-block whitespace-nowrap mr-4">OVIS EDZÉS KEZDŐ CSOPORT</span>
-            <span className="text-red-500 font-black inline-block whitespace-nowrap">AKARATERŐ—ÖNURALOM—ÖSSZETARTÁS—BÁTORSÁG—CÉLOK—FEJLŐDÉS—MOTIVÁCIÓ—MAGABIZTOSSÁG</span>
+            <span className="text-red-500 font-black inline-block whitespace-nowrap">AKARATERŐ—ÖNURALOM—ÖSSZETARTÁS—BÁTORSÁG—FEJLŐDÉS—MOTIVÁCIÓ—MAGABIZTOSSÁG</span>
             <span className="text-gray-400 opacity-70 inline-block whitespace-nowrap ml-4">HALADÓ NYILVÁNOS EDZÉSEK</span>
           </div>
 
@@ -202,7 +202,7 @@ export default function Home() {
           {/* 11. Sor: Közeledünk a csúcshoz, a TIGERS SE fixen egyben, középen zár */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
             <span className="text-white inline-block whitespace-nowrap mr-20">ERŐS TEST ERŐS LÉLEK EDZŐTERMI KÖZÖSSÉG CSALÁDIAS HANGULAT</span>
-            <span className="text-red-500 font-black bg-red-950/30 px-2 py-0.5 rounded inline-block whitespace-nowrap">TIGERS SE</span>
+            <span className="text-red-500 font-black bg-red-950/30 px-2 py-0.5 rounded inline-block whitespace-nowrap">CÉLOK TIGERS SE</span>
             <span className="text-white inline-block whitespace-nowrap ml-20">JÓ HANGULAT PONTOSSÁG RÚGÁSOK ÜTÉSEK PAZS EDZÉS ZSÁKOLÁS</span>
           </div>
 
