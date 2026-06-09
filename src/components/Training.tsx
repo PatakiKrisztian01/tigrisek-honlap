@@ -1,4 +1,5 @@
 import { Clock, MapPin, Baby, Shield, Mail, Phone, ExternalLink } from 'lucide-react';
+import Gyik from './Gyik'; // <-- 1. IMPORTÁLJUK AZ ÚJ GYIK KOMPONENST
 
 const trainers = [
   { name: 'Pataki Krisztián', rank: 'VI.dan', role: 'Klubvezető elnök', image: '/patakikrisztian.webp' },
@@ -176,6 +177,11 @@ export default function Training() {
           <div className="aspect-video w-full max-w-4xl mx-auto rounded-2xl overflow-hidden border border-gray-800 shadow-2xl">
             <iframe className="w-full h-full" src="https://www.youtube.com/embed/Lb_2QhIdyek" title="YouTube bemutató videó" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
           </div>
+        </div>
+
+        {/* 2. IDE SZÚRTAM BE A KATTINTÁSMENTES GYIK BLOKKOT */}
+        <div className="mb-16 border-t border-gray-900 pt-16">
+          <Gyik />
         </div>
 
         {/* Jelentkezési blokk - ID-val ellátva, hogy a footer gombja ide ugorjon */}
