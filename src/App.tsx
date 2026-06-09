@@ -15,6 +15,7 @@ import Privacy from './components/Privacy';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import NewsDetail from './components/NewsDetail';
+import Gyik from './components/Gyik'; // <-- 1. GYIK IMPORTÁLÁSA
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
             <Route path="/kapcsolat" element={<Contact />} />
             <Route path="/adatvedelem" element={<Privacy />} />
             <Route path="/hirek/:slug" element={<NewsDetail />} />
+            <Route path="/gyik" element={<Gyik />} /> {/* <-- 2. GYIK ÚTVONAL BEKÖTÉSE */}
           </Routes>
         </main>
 
