@@ -1,19 +1,11 @@
-import { useState } from 'react';
-import { Calendar, HelpCircle, ChevronDown, ChevronUp } from 'lucide-react';
+import { HelpCircle } from 'lucide-react';
 
 interface FAQItem {
   question: string;
   answer: string;
 }
 
-export default function FAQ() {
-  // Lenyíló ablakok állapota (melyik van épp nyitva)
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
+export default function Gyik() {
   const faqData: FAQItem[] = [
     {
       question: "Milyen életkorban érdemes elkezdeni a Taekwon-do vagy Kick-box edzést?",
@@ -33,7 +25,7 @@ export default function FAQ() {
     },
     {
       question: "Milyen egy kezdő gyerekedzés nálunk? Kell előzetes sportmúlt vagy jó erőnlét?",
-      answer: "Egyáltalalán nem szükséges előzetes sportmúlt vagy extra erőnlét! Az edzések célja éppen az, hogy a gyerekek fokozatosan, a saját tempójukban fejlődjenek. A kezdő edzések vidám hangulatú bemelegítésből, koordinációs és ügyességi játékokból, valamint az alaptechnikák biztonságos elsajátításából állnak."
+      answer: "Egyáltalán nem szükséges előzetes sportmúlt vagy extra erőnlét! Az edzések célja éppen az, hogy a gyerekek fokozatosan, a saját tempójukban fejlődjenek. A kezdő edzések vidám hangulatú bemelegítésből, koordinációs és ügyességi játékokból, valamint az alaptechnikák biztonságos elsajátításából állnak."
     },
     {
       question: "Mennyire biztonságos a Taekwon-do és a Kick-box a gyerekek számára?",
@@ -59,50 +51,33 @@ export default function FAQ() {
             GYIK – Taekwon-do és Kick-box edzések gyerekeknek <span className="text-neon-orange">(18. kerület)</span>
           </h1>
           <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto">
-            Minden fontos kérdés és válasz egy helyen, ami segíthet az első lépések megtételében.
+            Minden fontos kérdés és válasz egy helyen, tisztán és azonnal olvashatóan.
           </p>
         </div>
       </div>
 
-      {/* Accordion lista rész */}
+      {/* Nyitott, klasszikus lista rész */}
       <div className="max-w-4xl mx-auto px-4 py-16">
-        <div className="space-y-4">
-          {faqData.map((item, index) => {
-            const isOpen = openIndex === index;
-            return (
-              <div 
-                key={index} 
-                className="bg-gray-950 border border-gray-900 rounded-2xl overflow-hidden transition-all duration-300 hover:border-gray-800"
-              >
-                {/* Kérdés gomb - H3 tag a SEO-nak */}
-                <button
-                  onClick={() => toggleFAQ(index)}
-                  className="w-full text-left p-6 md:p-8 flex items-center justify-between gap-4 group focus:outline-none"
-                >
-                  <div className="flex items-start gap-4">
-                    <HelpCircle className="w-6 h-6 text-neon-orange shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                    <h3 className="text-white font-bold text-base md:text-lg leading-snug group-hover:text-neon-orange transition-colors">
-                      {item.question}
-                    </h3>
-                  </div>
-                  <div className="shrink-0 p-1 bg-gray-900 rounded-lg border border-gray-800 text-gray-400 group-hover:text-neon-orange transition-colors">
-                    {isOpen ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
-                  </div>
-                </button>
-
-                {/* Válasz panel - Sima P tag a SEO-nak */}
-                <div 
-                  className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                    isOpen ? 'max-h-[500px] border-t border-gray-900/60' : 'max-h-0'
-                  }`}
-                >
-                  <div className="p-6 md:p-8 bg-gray-900/20 text-gray-300 text-sm md:text-base leading-relaxed">
-                    <p className="m-0">{item.answer}</p>
-                  </div>
-                </div>
+        <div className="space-y-12">
+          {faqData.map((item, index) => (
+            <div 
+              key={index} 
+              className="bg-gray-950 border border-gray-900 rounded-2xl p-6 md:p-8 hover:border-gray-800 transition-colors"
+            >
+              {/* Kérdés rész - H3 tag tisztán, gomb nélkül */}
+              <div className="flex items-start gap-4 mb-4">
+                <HelpCircle className="w-6 h-6 text-neon-orange shrink-0 mt-0.5" />
+                <h3 className="text-white font-black text-lg md:text-xl leading-snug">
+                  {item.question}
+                </h3>
               </div>
-            );
-          })}
+
+              {/* Válasz rész - Mindig látható P tag */}
+              <div className="text-gray-300 text-sm md:text-base leading-relaxed pl-10 border-l-2 border-gray-900">
+                <p className="m-0">{item.answer}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
