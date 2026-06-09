@@ -55,7 +55,7 @@ export default function Gyik() {
             </span>
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight mb-4 leading-tight">
               Taekwon-do és Kick-box <br />
-              <span className="text-neon-orange">edzések gyerekeknek</span> (18. kerület)
+              <span className="text-neon-orange">edzések gyerekeknek</span> (18.kerület)
             </h1>
             <p className="text-gray-400 text-sm sm:text-base max-w-xl">
               Minden fontos szakmai kérdés és szülői válasz egy helyen, sallangok nélkül.
