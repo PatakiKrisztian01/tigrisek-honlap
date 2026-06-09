@@ -11,7 +11,7 @@ export default function Privacy() {
           <h1 className="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight mb-4">
             Adatvédelmi <span className="text-neon-orange">Tájékoztató</span>
           </h1>
-          <p className="text-gray-400">Hatályos: 2024. [Aktuális Hónap] [Nap].-tól</p>
+          <p className="text-gray-400">Hatályos: 2026. [június] [09].-tól</p>
         </div>
 
         <div className="space-y-10">
