@@ -12,6 +12,7 @@ const links = [
   { label: 'Tagok', path: '/tagok' },
   { label: 'Eskü és Tanai', path: '/esku' },
   { label: 'Kapcsolat', path: '/kapcsolat' },
+  { label: 'GYIK', path: '/Gyik' },
   { label: 'Adatvédelémi', path: '/adatvedelem' },
 ];
 
