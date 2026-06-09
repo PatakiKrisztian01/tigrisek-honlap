@@ -6,7 +6,7 @@ const trainers = [
   { name: 'Leiti Edmond', rank: 'IV.dan', role: '', image: '/leitiedmond.webp' },
   { name: 'Patakiné Zs. Anikó', rank: 'III.dan', role: 'Klubvezető helyettes', image: '/patakinezsaniko.webp' },
   { name: 'Kiss Viktor', rank: 'III.dan', role: '', image: '/kissviktor.webp' },
-  { name: 'Höfliger Zsolt', rank: 'II.dan', role: '', image: '/hoflingerzsolt.webp' },
+  { name: 'Höflinger Zsolt', rank: 'II.dan', role: '', image: '/hoflingerzsolt.webp' },
   { name: 'Kardos Zsolt', rank: 'II.dan', role: '', image: '/kardoszsolt.webp' },
 ];
 
