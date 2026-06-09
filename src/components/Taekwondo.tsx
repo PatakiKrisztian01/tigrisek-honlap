@@ -21,11 +21,16 @@ export default function Taekwondo() {
   const [activeTab, setActiveTab] = useState<TabId>('overview');
   const [dictLetter, setDictLetter] = useState<string>('A');
 
-  // Egyedi szűrő a szótárhoz
-  const filteredDict = dictionary.filter((item) => 
-    item.korean.toLowerCase().startsWith(dictLetter.toLowerCase()) ||
-    item.hungarian.toLowerCase().startsWith(dictLetter.toLowerCase())
+  // EZ AZ ÚJ, GOLYÓÁLLÓ VÁLTOZAT:
+const filteredDict = dictionary.filter((item) => {
+  const koreanWord = item?.korean || '';
+  const hungarianWord = item?.hungarian || '';
+  
+  return (
+    koreanWord.toLowerCase().startsWith(dictLetter.toLowerCase()) ||
+    hungarianWord.toLowerCase().startsWith(dictLetter.toLowerCase())
   );
+});
 
   return (
     <div className="min-h-screen pt-20 bg-black text-gray-300">
