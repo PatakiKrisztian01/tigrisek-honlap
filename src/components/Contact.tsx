@@ -114,7 +114,7 @@ export default function Contact() {
               <div className="space-y-3">
                 {[
                   { name: 'ITF – International Taekwondo Federation', url: 'https://itftkd.sport/' },
-                  { name: 'AETF – European Taekwondo Federation (ITF Europe)', url: 'https://itfeurope.org/' },
+                  { name: 'AETF – European Taekwondo Federation', url: 'https://itfeurope.org/' },
                   { name: 'Magyar ITF Taekwon-do Szövetség', url: 'https://taekwon-do.hu/itfindex.html' }, 
                   { name: 'WAKO Kick-box Világ Szövetség', url: 'https://www.wako.sport/' },
                   { name: 'Magyar Kick-Box Szövetség', url: 'https://kick-box.hu/' },
