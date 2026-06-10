@@ -86,7 +86,7 @@ export default function Home() {
           <h2 className="text-sm font-black uppercase tracking-widest text-neon-orange flex items-center gap-2">
             <span className="w-2 h-2 bg-red-600 rounded-full animate-pulse" /> Legfrissebb híreink
           </h2>
-          <Link to="/hirek" className="text-xs text-gray-400 hover:text-white flex items-center gap-1 transition-colors">
+          <Link to="/news" className="text-xs text-gray-400 hover:text-white flex items-center gap-1 transition-colors">
             Összes hír <ArrowRight className="w-3 h-3" />
           </Link>
         </div>
@@ -98,7 +98,7 @@ export default function Home() {
             {[...legfrissebbHirek, ...legfrissebbHirek, ...legfrissebbHirek, ...legfrissebbHirek].map((item, index) => (
               <div
                 key={`${item.id}-${index}`}
-                onClick={() => navigate(`/hirek/${item.id}`)}
+                onClick={() => navigate(`/news#${item.id}`)}
                 className="w-[280px] sm:w-[320px] inline-block whitespace-normal bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-neon-orange/40 transition-all duration-300 shadow-md group"
               >
                 {/* Hír kis képe */}
