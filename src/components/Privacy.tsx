@@ -23,23 +23,23 @@ export default function Privacy() {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
               <div>
-                <p className="text-gray-500 uppercase tracking-wider text-xs mb-1">Név</p>
+                <p className="text-gray-400 uppercase tracking-wider text-xs mb-1 font-semibold">Név</p>
                 <p className="text-white font-bold">Budapesti Tigrisek Sportegyesület (B.T.SE)</p>
               </div>
               <div>
-                <p className="text-gray-500 uppercase tracking-wider text-xs mb-1">Képviselő</p>
+                <p className="text-gray-400 uppercase tracking-wider text-xs mb-1 font-semibold">Képviselő</p>
                 <p className="text-white font-bold">Pataki Krisztián (Elnök)</p>
               </div>
               <div>
-                <p className="text-gray-500 uppercase tracking-wider text-xs mb-1">Székhely</p>
+                <p className="text-gray-400 uppercase tracking-wider text-xs mb-1 font-semibold">Székhely</p>
                 <p className="text-gray-300">1181 Budapest, Csontváry u. 13/57.</p>
               </div>
               <div>
-                <p className="text-gray-500 uppercase tracking-wider text-xs mb-1">Adószám</p>
+                <p className="text-gray-400 uppercase tracking-wider text-xs mb-1 font-semibold">Adószám</p>
                 <p className="text-gray-300">18012020-1-43</p>
               </div>
               <div>
-                <p className="text-gray-500 uppercase tracking-wider text-xs mb-1">Nyilvántartási szám</p>
+                <p className="text-gray-400 uppercase tracking-wider text-xs mb-1 font-semibold">Nyilvántartási szám</p>
                 <p className="text-gray-300">13683 (Fővárosi Törvényszék)</p>
               </div>
               <div className="space-y-2 pt-2">

@@ -116,7 +116,7 @@ export default function OvisTkd() {
             <div className="space-y-6">
               {/* Életkor */}
               <div>
-                <h4 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Korosztály</h4>
+                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Korosztály</h4>
                 <p className="text-neon-orange font-black text-xl uppercase">4 éves kortól</p>
               </div>
 
@@ -124,7 +124,7 @@ export default function OvisTkd() {
               <div className="flex gap-3 items-start border-t border-gray-800 pt-4">
                 <Clock className="w-5 h-5 text-neon-orange shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-xs font-bold text-gray-500 uppercase tracking-wider">Időpontok</h4>
+                  <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider">Időpontok</h4>
                   <p className="text-white font-bold text-sm mt-1">Kedd: 16:30 - 17:30-ig</p>
                   <p className="text-white font-bold text-sm">Csütörtök: 16:30 - 17:30-ig</p>
                 </div>
@@ -134,7 +134,7 @@ export default function OvisTkd() {
               <div className="flex gap-3 items-start border-t border-gray-800 pt-4">
                 <MapPin className="w-5 h-5 text-neon-orange shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-xs font-bold text-gray-500 uppercase tracking-wider">Helyszín</h4>
+                  <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider">Helyszín</h4>
                   <p className="text-white font-bold text-sm mt-1">Kondor Béla Művelődési ház</p>
                   <p className="text-gray-400 text-xs mt-0.5">Kondor Béla sétány 8.</p>
                 </div>
@@ -144,7 +144,7 @@ export default function OvisTkd() {
               <div className="flex gap-3 items-start border-t border-gray-800 pt-4">
                 <Phone className="w-5 h-5 text-neon-orange shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-xs font-bold text-gray-500 uppercase tracking-wider">Kapcsolat</h4>
+                  <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider">Kapcsolat</h4>
                   <p className="text-white font-bold text-sm mt-1">Pataki Krisztián</p>
                   <a href="tel:+36709415992" className="text-neon-orange font-bold text-base block hover:underline mt-0.5">06/70-941-5992</a>
                 </div>

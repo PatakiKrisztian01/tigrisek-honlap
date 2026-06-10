@@ -57,14 +57,14 @@ export default function Contact() {
                       href="mailto:tigrisek@gmail.com"
                       className="flex items-center gap-2.5 text-gray-300 hover:text-neon-orange transition-colors group max-w-full"
                     >
-                      <Mail className="w-4 h-4 text-gray-500 group-hover:text-neon-orange transition-colors flex-shrink-0" />
+                      <Mail className="w-4 h-4 text-gray-400 group-hover:text-neon-orange transition-colors flex-shrink-0" />
                       <span className="text-sm truncate">tigrisek@gmail.com</span>
                     </a>
                     <a
                       href="tel:+36709415992"
                       className="flex items-center gap-2.5 text-gray-300 hover:text-neon-orange transition-colors group"
                     >
-                      <Phone className="w-4 h-4 text-gray-500 group-hover:text-neon-orange transition-colors flex-shrink-0" />
+                      <Phone className="w-4 h-4 text-gray-400 group-hover:text-neon-orange transition-colors flex-shrink-0" />
                       <span className="text-sm whitespace-nowrap">+36-70-941-5992</span>
                     </a>
                   </div>
@@ -88,14 +88,14 @@ export default function Contact() {
                       href="mailto:patakineaniko@gmail.com"
                       className="flex items-center gap-2.5 text-gray-300 hover:text-neon-orange transition-colors group max-w-full"
                     >
-                      <Mail className="w-4 h-4 text-gray-500 group-hover:text-neon-orange transition-colors flex-shrink-0" />
+                      <Mail className="w-4 h-4 text-gray-400 group-hover:text-neon-orange transition-colors flex-shrink-0" />
                       <span className="text-sm truncate">patakineaniko@gmail.com</span>
                     </a>
                     <a
                       href="tel:+36703184834"
                       className="flex items-center gap-2.5 text-gray-300 hover:text-neon-orange transition-colors group"
                     >
-                      <Phone className="w-4 h-4 text-gray-500 group-hover:text-neon-orange transition-colors flex-shrink-0" />
+                      <Phone className="w-4 h-4 text-gray-400 group-hover:text-neon-orange transition-colors flex-shrink-0" />
                       <span className="text-sm whitespace-nowrap">+36-70-318-4834</span>
                     </a>
                   </div>

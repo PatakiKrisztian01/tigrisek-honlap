@@ -37,7 +37,7 @@ export default function Training() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 mb-12">
           <h2 className="text-2xl font-black text-white mb-2">Taekwon-do</h2>
-          <p className="text-gray-500 text-sm font-bold mb-4">(látványos koreai harcművészet)</p>
+          <p className="text-gray-400 text-sm font-bold mb-4">(látványos koreai harcművészet)</p>
           <p className="text-gray-300 leading-relaxed mb-4">Jó hangulat, versenyek, övvizsgák, edzőtáborok, aktív klubélet.</p>
           <p className="text-gray-300 leading-relaxed">
             Örömmel tudatom <strong className="text-white">VELED</strong>, hogy kezdő taekwon-do edzés indul, ahonnan már csak <strong className="text-neon-orange">TE</strong> hiányzol.
@@ -53,7 +53,7 @@ export default function Training() {
                   <div className="flex-1 min-w-0">
                     <h3 className="text-white font-bold text-lg truncate">{t.name}</h3>
                     <p className="text-neon-orange font-bold text-sm">{t.rank}</p>
-                    {t.role && <p className="text-gray-500 text-xs mt-1">{t.role}</p>}
+                    {t.role && <p className="text-gray-400 text-xs mt-1 font-medium">{t.role}</p>}
                   </div>
                   <img src={t.image} alt={t.name} className="w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-xl flex-shrink-0 border border-gray-800" />
                 </div>
@@ -64,7 +64,7 @@ export default function Training() {
 
         <div className="mb-16">
           <h2 className="text-3xl font-black text-white mb-2">XVIII. Kerület, Pestszentlőrinc</h2>
-          <p className="text-gray-500 mb-8">Heti edzésrend</p>
+          <p className="text-gray-400 mb-8">Heti edzésrend</p>
           <div className="space-y-6">
             <div className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden">
               <div className="bg-neon-orange px-6 py-3">
@@ -77,7 +77,7 @@ export default function Training() {
                     <div>
                       <div className="text-white font-bold text-sm">18:00 – 19:30</div>
                       <div className="text-gray-400 text-sm mt-0.5">Küzdelem kicsiknek-nagyoknak</div>
-                      <div className="text-neon-orange text-xs font-bold mt-2">fehér öv – fekete öv</div>
+                      <div className="text-neon-orange text-xs font-black mt-2">fehér öv – fekete öv</div>
                     </div>
                   </div>
                   <LocationCard name="Kondor Béla Általános Iskola" address="1181 Budapest, Kondor Béla sétány 7." mapUrl="https://www.google.com/maps/search/?api=1&query=Kondor+Bela+Altalanos+Iskola+Budapest" accentColor="neon-orange" />
@@ -92,7 +92,7 @@ export default function Training() {
               <div className="flex flex-col lg:flex-row h-full">
                 <div className="flex-1 p-6">
                   <h3 className="text-gray-300 text-sm font-bold mb-1">TigersGym</h3>
-                  <p className="text-gray-500 text-xs mb-3">A bázis technikai edzések, csoportokra osztva:</p>
+                  <p className="text-gray-400 text-xs mb-3">A bázis technikai edzések, csoportokra osztva:</p>
                   <div className="mb-6">
                     <LocationCard address="1181 Budapest, Havanna u. 3." mapUrl="https://www.google.com/maps/search/?api=1&query=1181+Budapest+Havanna+u.+3" accentColor="neon-orange" />
                   </div>

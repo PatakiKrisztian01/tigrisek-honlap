@@ -384,7 +384,7 @@ export default function Taekwondo() {
 
               <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
                 <div className="mb-8">
-                  <p className="text-neon-orange text-xs font-bold tracking-widest uppercase mb-1">Taekwon-do Jungshin</p>
+                  <p className="text-neon-orange text-xs font-black tracking-widest uppercase mb-1">Taekwon-do Jungshin</p>
                   <h2 className="text-3xl font-black text-white uppercase tracking-wide">Taekwon-do Tanai</h2>
                 </div>
                 <div className="space-y-8">
@@ -397,7 +397,7 @@ export default function Taekwondo() {
                   ].map((tenet, idx) => (
                     <div key={idx} className="border-l-2 border-neon-orange/40 pl-4 sm:pl-6 space-y-2">
                       <div className="flex flex-wrap items-baseline gap-2">
-                        <span className="text-gray-500 font-mono text-sm font-bold">{idx + 1}.</span>
+                        <span className="text-gray-400 font-mono text-sm font-bold">{idx + 1}.</span>
                         <h3 className="text-white font-bold text-lg sm:text-xl tracking-wide">{tenet.title}</h3>
                         <span className="text-neon-orange/80 text-xs font-mono font-bold sm:ml-1">— {tenet.korean}</span>
                       </div>
@@ -432,7 +432,7 @@ export default function Taekwondo() {
                     <div key={i} className={`grid grid-cols-3 px-6 py-2 text-sm ${i % 2 === 0 ? '' : 'bg-gray-900/50'}`}>
                       <span className="text-neon-orange font-bold">{entry.korean}</span>
                       <span className="text-gray-300">{entry.hungarian}</span>
-                      <span className="text-gray-500">{entry.english}</span>
+                      <span className="text-gray-400">{entry.english}</span>
                     </div>
                   ))}
                 </div>
@@ -469,7 +469,7 @@ export default function Taekwondo() {
                       <div key={i} className={`grid grid-cols-3 px-6 py-2 text-sm ${i % 2 === 0 ? '' : 'bg-gray-900/50'}`}>
                         <span className="text-neon-orange font-bold">{entry.korean}</span>
                         <span className="text-gray-300">{entry.hungarian}</span>
-                        <span className="text-gray-500">{entry.english}</span>
+                        <span className="text-gray-400">{entry.english}</span>
                       </div>
                     ))}
                   </div>

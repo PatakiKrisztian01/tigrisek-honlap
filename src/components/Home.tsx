@@ -42,7 +42,7 @@ export default function Home() {
             <div className="lg:col-span-8 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 bg-neon-orange/10 border border-neon-orange/40 rounded-full px-4 py-1.5 mb-4">
                 <span className="w-2 h-2 bg-neon-orange rounded-full animate-pulse" />
-                <span className="text-neon-orange text-xs sm:text-sm font-semibold tracking-wider uppercase">Budapest Tigers SE</span>
+                <span className="text-neon-orange text-xs sm:text-sm font-black tracking-wider uppercase">Budapest Tigers SE</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-4 leading-tight uppercase tracking-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
@@ -232,7 +232,7 @@ export default function Home() {
                 <div key={item.id} onClick={() => navigate(`/hirek/${item.id}`)} className="cursor-pointer">
                   <article className="bg-gray-900 border border-gray-800 rounded-2xl p-6 hover:border-neon-orange/50 transition-all duration-300 hover:-translate-y-1 group h-full flex flex-col justify-between">
                     <div>
-                      <time className="text-neon-orange text-xs font-bold tracking-wider uppercase mb-3 block">{item.date}</time>
+                      <time className="text-neon-orange text-xs font-black tracking-wider uppercase mb-3 block">{item.date}</time>
                       <h3 className="text-white font-bold text-lg mb-3 group-hover:text-neon-orange transition-colors line-clamp-2">{item.title}</h3>
                       <p className="text-gray-400 text-sm leading-relaxed line-clamp-3">{item.excerpt || item.body}</p>
                     </div>
@@ -243,7 +243,7 @@ export default function Home() {
                 </div>
               ))
             ) : (
-              <p className="text-gray-500 text-sm col-span-3">Nincsenek elérhető hírek.</p>
+              <p className="text-gray-400 text-sm col-span-3">Nincsenek elérhető hírek.</p>
             )}
           </div>
         </div>
