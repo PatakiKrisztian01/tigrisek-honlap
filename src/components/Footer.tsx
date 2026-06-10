@@ -13,7 +13,7 @@ const links = [
   { label: 'Eskü és Tanai', path: '/esku' },
   { label: 'Kapcsolat', path: '/kapcsolat' },
   { label: 'GYIK', path: '/Gyik' },
-  { label: 'Adatvédelémi', path: '/adatvedelem' },
+  { label: 'Adatvédelmi', path: '/adatvedelem' },
 ];
 
 export default function Footer() {
@@ -93,25 +93,27 @@ export default function Footer() {
                 </a>
               </div>
 
-              <div className="pt-2 text-gray-700 text-xs">
-                Adószám: <span className="font-mono text-gray-400">18012020-1-43</span>
+              {/* Adószám - text-gray-700 helyett text-gray-400-ra javítva a láthatóságért */}
+              <div className="pt-2 text-gray-400 text-xs">
+                Adószám: <span className="font-mono text-gray-300 font-bold">18012020-1-43</span>
               </div>
             </div>
           </div>
         </div>
 
+        {/* Alsó sáv - A text-gray-700 és 800 helyett egységesen jól olvasható, de diszkrét szürke színeket kapott */}
         <div className="border-t border-gray-800 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-gray-700 text-xs">
+          <p className="text-gray-400 text-xs">
             &copy; {new Date().getFullYear()} Budapesti Tigrisek SE. Minden jog fenntartva.
           </p>
           <div className="flex items-center gap-4">
             <Link
               to="/adatvedelem"
-              className="text-gray-700 hover:text-gray-400 text-xs transition-colors"
+              className="text-gray-400 hover:text-neon-orange text-xs transition-colors"
             >
               Adatvédelmi Tájékoztató
             </Link>
-            <p className="text-gray-800 text-xs">
+            <p className="text-gray-400 text-xs font-medium">
               ITF Taekwon-do — Budapest, Hungary
             </p>
           </div>
