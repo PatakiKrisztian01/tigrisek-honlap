@@ -23,68 +23,6 @@ export default function Home() {
   return (
     <div className="w-full bg-black text-gray-300 overflow-hidden">
       
-      {/* FUTÓ HÍRFOLYAM SZEKCIÓ */}
-      <div className="w-full bg-gray-950 border-y border-gray-800 py-6 relative my-8 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 mb-3 flex items-center justify-between">
-          <h2 className="text-sm font-black uppercase tracking-widest text-neon-orange flex items-center gap-2">
-            <span className="w-2 h-2 bg-red-600 rounded-full animate-pulse" /> Legfrissebb híreink
-          </h2>
-          <Link to="/news" className="text-xs text-gray-400 hover:text-white flex items-center gap-1 transition-colors">
-            Összes hír <ArrowRight className="w-3 h-3" />
-          </Link>
-        </div>
-
-        {/* Külső doboz */}
-        <div className="relative w-full overflow-hidden whitespace-nowrap">
-          
-          {/* Animált flex sáv */}
-          <div className="flex flex-row-reverse w-max gap-6 animate-marquee hover:[animation-play-state:paused] py-2 px-4 cursor-pointer">
-            {[...legfrissebbHirek, ...legfrissebbHirek, ...legfrissebbHirek, ...legfrissebbHirek].map((item, index) => (
-              <div
-                key={`${item.id}-${index}`}
-                onClick={() => navigate(`/news#${item.id}`)}
-                className="w-[280px] sm:w-[320px] inline-block whitespace-normal bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-neon-orange/40 transition-all duration-300 shadow-md group"
-              >
-                {/* Hír kis képe */}
-                <div className="w-full h-32 relative bg-black overflow-hidden">
-                  <img
-                    src={item.image || '/news-placeholder.webp'}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = 'https://tigrisek.hu/images/choi1.jpg';
-                    }}
-                  />
-                  <div className="absolute top-2 left-2 bg-black/70 backdrop-blur-sm border border-gray-800 text-[10px] text-gray-300 px-2 py-0.5 rounded-md font-mono flex items-center gap-1">
-                    <Calendar className="w-2.5 h-2.5 text-neon-orange" /> {item.date}
-                  </div>
-                </div>
-
-                {/* Hír szövege */}
-                <div className="p-4">
-                  <h3 className="text-white font-bold text-sm sm:text-base line-clamp-1 group-hover:text-neon-orange transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-400 text-xs mt-1.5 line-clamp-2 leading-relaxed">
-                    {item.body.replace(/\s+/g, ' ')}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </div>
-
-      {/* --- IDE JÖHET A HOME OLDALAD ÖSSZES TÖBBI RÉSZE (Hero, edzések, stb.) --- */}
-      {/* Például ha van még alatta tartalom, azt ide tedd be a fő div-en belülre */}
-
-    </div>
-  );
-}
-
-  return (
-    <div>
       {/* Hero Section - Fix 580px magasság */}
       <div className="relative w-full bg-black overflow-hidden" style={{ height: '580px', marginTop: '80px' }}>
         {/* Videó háttérként */}
@@ -142,6 +80,57 @@ export default function Home() {
         </div>
       </div>
 
+      {/* FUTÓ HÍRFOLYAM SZEKCIÓ (BALRÓL JOBBRA, KÉPEKKEL) */}
+      <div className="w-full bg-gray-950 border-y border-gray-800 py-6 relative my-8 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 mb-3 flex items-center justify-between">
+          <h2 className="text-sm font-black uppercase tracking-widest text-neon-orange flex items-center gap-2">
+            <span className="w-2 h-2 bg-red-600 rounded-full animate-pulse" /> Legfrissebb híreink
+          </h2>
+          <Link to="/hirek" className="text-xs text-gray-400 hover:text-white flex items-center gap-1 transition-colors">
+            Összes hír <ArrowRight className="w-3 h-3" />
+          </Link>
+        </div>
+
+        {/* Külső doboz */}
+        <div className="relative w-full overflow-hidden whitespace-nowrap">
+          {/* Animált flex sáv */}
+          <div className="flex flex-row-reverse w-max gap-6 animate-marquee hover:[animation-play-state:paused] py-2 px-4 cursor-pointer">
+            {[...legfrissebbHirek, ...legfrissebbHirek, ...legfrissebbHirek, ...legfrissebbHirek].map((item, index) => (
+              <div
+                key={`${item.id}-${index}`}
+                onClick={() => navigate(`/hirek/${item.id}`)}
+                className="w-[280px] sm:w-[320px] inline-block whitespace-normal bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-neon-orange/40 transition-all duration-300 shadow-md group"
+              >
+                {/* Hír kis képe */}
+                <div className="w-full h-32 relative bg-black overflow-hidden">
+                  <img
+                    src={item.image || '/news-placeholder.webp'}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = 'https://tigrisek.hu/images/choi1.jpg';
+                    }}
+                  />
+                  <div className="absolute top-2 left-2 bg-black/70 backdrop-blur-sm border border-gray-800 text-[10px] text-gray-300 px-2 py-0.5 rounded-md font-mono flex items-center gap-1">
+                    <Calendar className="w-2.5 h-2.5 text-neon-orange" /> {item.date}
+                  </div>
+                </div>
+
+                {/* Hír szövege */}
+                <div className="p-4">
+                  <h3 className="text-white font-bold text-sm sm:text-base line-clamp-1 group-hover:text-neon-orange transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-400 text-xs mt-1.5 line-clamp-2 leading-relaxed">
+                    {item.body.replace(/\s+/g, ' ')}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Rólunk Blokk */}
       <section id="about" className="py-20 bg-gray-950 border-b border-gray-900">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -175,17 +164,15 @@ export default function Home() {
         </div>
       </section>
 
-     {/* GARANTÁLTAN SORTÖRÉS-MENTES, CENTRÁLT, PIXEL-RE KISZÁMÍTOTT SZÓKÉP */}
+      {/* GARANTÁLTAN SORTÖRÉS-MENTES, CENTRÁLT, PIXEL-RE KISZÁMÍTOTT SZÓKÉP */}
       <section className="bg-black py-24 flex flex-col items-center justify-center overflow-hidden border-b border-gray-900">
         <div className="max-w-2xl text-center mb-12 px-4">
           <span className="text-sm font-bold uppercase tracking-widest text-neon-orange mb-2 block">A mi világunk</span>
           <h2 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight">Értékek, Közösség és Erő</h2>
         </div>
 
-        {/* Konténer dinamikus betűmérettel: mobilon a kijelző szélességéhez igazodik (2.2vw), sm mérettől fixálódik */}
         <div className="w-full flex flex-col items-center justify-center text-center font-mono font-black uppercase tracking-tighter leading-none select-none px-2 text-[2.2vw] sm:text-xs md:text-sm">
-          
-          {/* 1. Sor: A szív két felső domborulata */}
+          {/* 1. Sor */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
             <span className="text-gray-450 opacity-50 inline-block whitespace-nowrap mr-[2vw] sm:mr-4">18. KERÜLET BUDAPEST</span>
             <span className="text-neon-orange bg-orange-950/40 px-1 sm:px-2 rounded inline-block whitespace-nowrap mx-[0.5vw] sm:mx-2">TAEKWON-DO</span>
@@ -268,46 +255,9 @@ export default function Home() {
 
           {/* 12. Sor */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
-            <span className="text-gray-400 opacity-50 inline-block whitespace-nowrap mr-[6vw] sm:mr-12">ERŐNLÉT  RUGALMASSÁG  GYORSASÁG  KARATE  REAKCIÓIDŐ TAGDÍJ PRÓBA ÓRA</span>
-            <span className="text-neon-orange font-black bg-orange-950/40 px-1 sm:px-2 py-0.5 rounded inline-block whitespace-nowrap">    TIGERS</span>
+            <span className="text-gray-400 opacity-50 inline-block whitespace-nowrap mr-[6vw] sm:mr-12">ERŐNLÉT RUGALMASSÁG GYORSASÁG KARATE REAKCIÓIDŐ TAGDÍJ PRÓBA ÓRA</span>
+            <span className="text-neon-orange font-black bg-orange-950/40 px-1 sm:px-2 py-0.5 rounded inline-block whitespace-nowrap"> TIGERS</span>
             <span className="text-gray-400 opacity-50 inline-block whitespace-nowrap ml-[6vw] sm:ml-12">BUDAPESTI KICK-BOX KERÜLETI TAEKWONDO HAVANNA LAKÓTELEPI SPORT</span>
-          </div>
-
-        </div>
-      </section>
-
-      {/* AUTOMATIKUSAN BETÖLTÖTT FRISS HÍREK */}
-      <section className="py-20 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between mb-12">
-            <div>
-              <p className="text-neon-orange text-sm font-bold tracking-wider uppercase mb-2">Legfrissebb</p>
-              <h2 className="text-4xl font-black text-white">Hírek</h2>
-            </div>
-            <Link to="/hirek" className="hidden sm:flex items-center gap-2 text-gray-400 hover:text-neon-orange transition-colors text-sm font-bold">
-              Összes hír <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {legfrissebbHirek.length > 0 ? (
-              legfrissebbHirek.map((item) => (
-                <div key={item.id} onClick={() => navigate(`/hirek/${item.id}`)} className="cursor-pointer">
-                  <article className="bg-gray-900 border border-gray-800 rounded-2xl p-6 hover:border-neon-orange/50 transition-all duration-300 hover:-translate-y-1 group h-full flex flex-col justify-between">
-                    <div>
-                      <time className="text-neon-orange text-xs font-black tracking-wider uppercase mb-3 block">{item.date}</time>
-                      <h3 className="text-white font-bold text-lg mb-3 group-hover:text-neon-orange transition-colors line-clamp-2">{item.title}</h3>
-                      <p className="text-gray-400 text-sm leading-relaxed line-clamp-3">{item.excerpt || item.body}</p>
-                    </div>
-                    <div className="mt-4 flex items-center gap-1 text-xs text-neon-orange font-bold opacity-0 group-hover:opacity-100 transition-opacity">
-                      Elolvasom <ArrowRight className="w-3 h-3" />
-                    </div>
-                  </article>
-                </div>
-              ))
-            ) : (
-              <p className="text-gray-400 text-sm col-span-3">Nincsenek elérhető hírek.</p>
-            )}
           </div>
         </div>
       </section>
