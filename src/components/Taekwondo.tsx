@@ -259,6 +259,9 @@ export default function Taekwondo() {
           {activeTab === 'belts' && (
             <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
               <h2 className="text-2xl font-black text-white mb-6">Övszínek Magyarázata</h2>
+              <div className="my-6 rounded-xl overflow-hidden border border-gray-800 bg-black/40 p-2">
+                  <img src="/belt-rank.webp" alt="öv fokozatok" className="w-full h-auto max-h-[400px] object-cover rounded-lg mx-auto" />
+                </div>
               <div className="space-y-4 text-sm sm:text-base">
                 <div><h3 className="text-white font-bold mb-1">Fehér öv:</h3><p className="text-gray-300">Az érintetlenség és gyermeki tisztaság szimbóluma. Utal arra, hogy a kezdő Taekwon-dós még nem rendelkezik komoly Taekwon-do tudással.</p></div>
                 <div><h3 className="text-white font-bold mb-1">Sárga öv:</h3><p className="text-gray-300">A földet szimbolizálja, melyben az elültetett növény kicsírázik és gyökeret ereszt. Így rögződnek a tudás alapjai is a Taekwon-dósban.</p></div>
