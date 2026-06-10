@@ -182,7 +182,7 @@ export default function Taekwondo() {
                 
                 {/* 1. KÉP-HELYŐRZŐ BLOKK A TÖRTÉNELEMBEN */}
                 <div className="my-6 rounded-xl overflow-hidden border border-gray-800 bg-black/40 p-2">
-                  <img src="/history1.webp" alt="Ókori koreai falfestmények és királyságok" className="w-full h-auto max-h-[350px] object-cover rounded-lg mx-auto" />
+                  <img src="/history4.webp" alt="Ókori koreai falfestmények és királyságok" className="w-full h-auto max-h-[400px] object-cover rounded-lg mx-auto" />
                 </div>
 
                 <p>Az első máig fennmaradt harcművészeti vonatkozású emlékek ebből az időből származnak: a Koguryo dinasztiabeli Muyong-chong és Kakchu-chong nevű királyi síremlékek falain, illetve mennyezetén lévő falfestmények, melyek egymással küzdő férfiakat ábrázolnak.</p>
@@ -198,13 +198,13 @@ export default function Taekwondo() {
 
                 <p>1392-ben a Koryo dinasztiát felváltotta a Li dinasztia, melynek első királya, Li Szong Ge megfosztotta trónjától a Koryo dinasztia utolsó királyát is, és Thedzso néven ült trónra. A Li dinasztia az országot Csoszonnak nevezte, így ezt a korszakot szokták Ó-Csoszonnak is megnevezni. Ez a korszak lényegében 1910-ig, a japán megszállás kezdetéig tartott.</p>
                 <p>Ebben az időben a harcművészeteket elsősorban a hadseregben oktatták, illetve megvoltak a köznépnek is a maga harcművészeti játékai, például a Soo Bak és a Taek Kyon. Máig rendszeresen rendeznek Soo Bak és Taek Kyon versenyeket a Dan-O ünnepek alkalmával (május 5-én és augusztus 15-én). Valószínűleg ebben az időben érték kínai hatások is a koreai harcművészeteket, melyek jellegzetességei néhány mai koreai harcművészeti ágban is megtalálhatóak.</p>
-                <p>A 19. század végén és a 20. század elején Koreáért és a környező területekért három nagyhatalom versenyzett: Kína, Oroszország és Japán. Végül Japán szerezte meg Koreát, és szinte gyarmati sorba taszította. A koreai népet szinte tökéletesen kizsákmányolták és megpróbálták eljapánosítani. Ekkor a koreai középosztály, ha iskoláztatni akarta a gyerekeit, csak Japánba tudta elküldeni őket tanulni. Ezek a Japánban tanuló koreai fiatalok találkoztak a japán harcművészetekkel, és az akkoriban Japánban elterjedő okinawai eredetű karatéval is.</p>
-                
+               
                 {/* 3. KÉP-HELYŐRZŐ BLOKK A TÖRTÉNELEMBEN */}
                 <div className="my-6 rounded-xl overflow-hidden border border-gray-800 bg-black/40 p-2">
                   <img src="/history3.webp" alt="A huszadik század és a modern korszak kezdete" className="w-full h-auto max-h-[350px] object-cover rounded-lg mx-auto" />
                 </div>
 
+                <p>A 19. század végén és a 20. század elején Koreáért és a környező területekért három nagyhatalom versenyzett: Kína, Oroszország és Japán. Végül Japán szerezte meg Koreát, és szinte gyarmati sorba taszította. A koreai népet szinte tökéletesen kizsákmányolták és megpróbálták eljapánosítani. Ekkor a koreai középosztály, ha iskoláztatni akarta a gyerekeit, csak Japánba tudta elküldeni őket tanulni. Ezek a Japánban tanuló koreai fiatalok találkoztak a japán harcművészetekkel, és az akkoriban Japánban elterjedő okinawai eredetű karatéval is.</p>
                 <p>Ilyen koreai fiatalember volt Choi Hong Hi, aki a Taekwon-do alapítója és később az ITF elnöke lett, illetve Choi Yong Sul is, aki Takeda Sogakutól tanult Daito Ryu Aiki Jitsut (az Aikido elődje), majd hazatérve, kombinálva a koreai stílusokkal Yu Kwon Sul néven oktatta, amelyből később a Hapkido lett. Illetve Hyung Yee Choi is, aki Choi Hong Hi rokona volt, és Masutatsu Oyama néven Japánban a Kyokushin Karate megalapítója lett.</p>
                 <p>1945-ben a japán hadsereg megadta magát. Koreába a 38. szélességi körtől délre az amerikai, attól északra pedig a szovjet hadsereg vonult be. Az amerikai zónában a Koreai Köztársaság (Dél-Korea), a szovjet zónában pedig a Koreai Népi Demokratikus Köztársaság (Észak-Korea) jött létre.</p>
                 <p>1950. június 25-én kirobbant a háború a két koreai állam között. Az északiak heteken belül elfoglalták Dél-Korea 90%-át. A déliek oldalán előbb az amerikaiak és az ENSZ csapatok kapcsolódtak be a háborúba, majd az északiak oldalán egymillió kínai „önkéntes”. A háború 1953. július 27-én Panmindzsonban fegyverszünettel ért véget. A két Korea területi és politikai megosztottsága máig tart.</p>
