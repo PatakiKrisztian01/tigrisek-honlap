@@ -66,9 +66,9 @@ export default function News() {
 
                   <h2 className="text-white font-black text-xl md:text-2xl mb-4 line-clamp-2">{item.title}</h2>
                   
-                  <p className="text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3 md:line-clamp-none">
-                    {item.body}
-                  </p>
+                   <p className="text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3 md:line-clamp-none whitespace-pre-line break-words">
+                   {item.body}
+                   </p>
 
                   <button 
                     onClick={() => navigate(`/hirek/${item.slug}`)}
