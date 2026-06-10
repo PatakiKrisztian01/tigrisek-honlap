@@ -21,6 +21,71 @@ export default function Home() {
     .slice(0, 3);
 
   return (
+    <div className="w-full bg-black text-gray-300 overflow-hidden">
+      
+      {/* FUTÓ HÍRFOLYAM SZEKCIÓ (BALRÓL JOBBRA) */}
+      <div className="w-full bg-gray-950 border-y border-gray-800 py-6 relative my-8">
+        <div className="max-w-7xl mx-auto px-4 mb-3 flex items-center justify-between">
+          <h2 className="text-sm font-black uppercase tracking-widest text-neon-orange flex items-center gap-2">
+            <span className="w-2 h-2 bg-red-600 rounded-full animate-pulse" /> Legfrissebb híreink
+          </h2>
+          <Link to="/news" className="text-xs text-gray-400 hover:text-white flex items-center gap-1 transition-colors">
+            Összes hír <ArrowRight className="w-3 h-3" />
+          </Link>
+        </div>
+
+        {/* Végtelenített futósáv container */}
+        <div className="relative w-full flex overflow-x-hidden mask-gradient">
+          
+          {/* A "animate-marquee" és "hover:[animation-play-state:paused]" 
+            biztosítja a folyamatos mozgást és az egérrel való megállítást.
+            Megduplázzuk a tömböt, hogy a végtelenített illúzió tökéletes legyen!
+          */}
+          <div className="flex gap-6 shrink-0 animate-marquee hover:[animation-play-state:paused] py-2 px-4 cursor-pointer">
+            {[...legfrissebbHirek, ...legfrissebbHirek].map((item, index) => (
+              <div
+                key={`${item.id}-${index}`}
+                onClick={() => navigate(`/news#${item.id}`)} // Átirányítás a hírhez
+                className="w-[280px] sm:w-[320px] shrink-0 bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-neon-orange/40 transition-all duration-300 shadow-md group"
+              >
+                {/* Hír kis képe */}
+                <div className="w-full h-32 relative bg-black overflow-hidden">
+                  <img
+                    src={item.image || '/news-placeholder.webp'} // Ha nincs egyedi kép, alapértelmezett webp
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    onError={(e) => {
+                      // Biztonsági tartalék, ha a linkelt kép nem létezne
+                      (e.target as HTMLImageElement).src = 'https://tigrisek.hu/images/choi1.jpg';
+                    }}
+                  />
+                  <div className="absolute top-2 left-2 bg-black/70 backdrop-blur-sm border border-gray-800 text-[10px] text-gray-300 px-2 py-0.5 rounded-md font-mono flex items-center gap-1">
+                    <Calendar className="w-2.5 h-2.5 text-neon-orange" /> {item.date}
+                  </div>
+                </div>
+
+                {/* Hír szöveges ablak tartalma */}
+                <div className="p-4">
+                  <h3 className="text-white font-bold text-sm sm:text-base line-clamp-1 group-hover:text-neon-orange transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-400 text-xs mt-1.5 line-clamp-2 leading-relaxed">
+                    {item.body.replace(/\s+/g, ' ')}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </div>
+
+      {/* A Home oldal többi része folytatódhat innen (pl. Hero szekció, edzések, stb.) */}
+    </div>
+  );
+}
+
+  return (
     <div>
       {/* Hero Section - Fix 580px magasság */}
       <div className="relative w-full bg-black overflow-hidden" style={{ height: '580px', marginTop: '80px' }}>
