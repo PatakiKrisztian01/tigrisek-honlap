@@ -80,57 +80,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* FUTÓ HÍRFOLYAM SZEKCIÓ (BALRÓL JOBBRA, KÉPEKKEL) */}
-      <div className="w-full bg-gray-950 border-y border-gray-800 py-6 relative my-8 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 mb-3 flex items-center justify-between">
-          <h2 className="text-sm font-black uppercase tracking-widest text-neon-orange flex items-center gap-2">
-            <span className="w-2 h-2 bg-red-600 rounded-full animate-pulse" /> Legfrissebb híreink
-          </h2>
-          <Link to="/news" className="text-xs text-gray-400 hover:text-white flex items-center gap-1 transition-colors">
-            Összes hír <ArrowRight className="w-3 h-3" />
-          </Link>
-        </div>
-
-        {/* Külső doboz */}
-        <div className="relative w-full overflow-hidden whitespace-nowrap">
-          {/* Animált flex sáv */}
-          <div className="flex flex-row-reverse w-max gap-6 animate-marquee hover:[animation-play-state:paused] py-2 px-4 cursor-pointer">
-            {[...legfrissebbHirek, ...legfrissebbHirek, ...legfrissebbHirek, ...legfrissebbHirek].map((item, index) => (
-              <div
-                key={`${item.id}-${index}`}
-                onClick={() => navigate(`/news#${item.id}`)}
-                className="w-[280px] sm:w-[320px] inline-block whitespace-normal bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-neon-orange/40 transition-all duration-300 shadow-md group"
-              >
-                {/* Hír kis képe */}
-                <div className="w-full h-32 relative bg-black overflow-hidden">
-                  <img
-                    src={item.image || '/news-placeholder.webp'}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = 'https://tigrisek.hu/images/choi1.jpg';
-                    }}
-                  />
-                  <div className="absolute top-2 left-2 bg-black/70 backdrop-blur-sm border border-gray-800 text-[10px] text-gray-300 px-2 py-0.5 rounded-md font-mono flex items-center gap-1">
-                    <Calendar className="w-2.5 h-2.5 text-neon-orange" /> {item.date}
-                  </div>
-                </div>
-
-                {/* Hír szövege */}
-                <div className="p-4">
-                  <h3 className="text-white font-bold text-sm sm:text-base line-clamp-1 group-hover:text-neon-orange transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-400 text-xs mt-1.5 line-clamp-2 leading-relaxed">
-                    {item.body.replace(/\s+/g, ' ')}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
       {/* Rólunk Blokk */}
       <section id="about" className="py-20 bg-gray-950 border-b border-gray-900">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -222,7 +171,7 @@ export default function Home() {
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
             <span className="text-white inline-block whitespace-nowrap mr-[3vw] sm:mr-6">BEMUTATÓK ÖVVIZSGÁK EDZŐTÁBOR VERSENYZÉS WAKO</span>
             <span className="text-neon-orange font-black inline-block whitespace-nowrap">ITF-VILÁGKUPA—MAGYAR-BAJNOKSÁG—MEDÁLOK—TRÓFEÁK—HIT—BAJNOKNEVELÉS</span>
-            <span className="text-white inline-block whitespace-nowrap ml-[3vw] sm:ml-6">ÖNVÉDELMI FOGÁSOK KÜZDELMI TECHNIKA FORMÁK</span>
+            <span className="text-white inline-block whitespace-nowrap ml-[3vw] sm:ml-6">ÖNVÉDELMI FOGÁSOK KÜZDELMI TECHNIÁK FORMÁK</span>
           </div>
 
           {/* 8. Sor */}
@@ -248,7 +197,7 @@ export default function Home() {
 
           {/* 11. Sor */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
-            <span className="text-gray-400 opacity-60 inline-block whitespace-nowrap mr-[10vw] sm:mr-20">ERŐSZ TEST ERŐS LÉLEK EDZŐTERMI KÖZÖSSÉG CSALÁDIAS HANGULAT</span>
+            <span className="text-gray-400 opacity-60 inline-block whitespace-nowrap mr-[10vw] sm:mr-20">ERŐS TEST ERŐS LÉLEK EDZŐTERMI KÖZÖSSÉG CSALÁDIAS HANGULAT</span>
             <span className="text-neon-orange font-black bg-orange-950/40 px-1 sm:px-2 py-0.5 rounded inline-block whitespace-nowrap">SPORTEGYESÜLET</span>
             <span className="text-gray-400 opacity-60 inline-block whitespace-nowrap ml-[10vw] sm:ml-20">JÓ HANGULAT PONTOSSÁG RÚGÁSOK ÜTÉSEK PAJZS EDZÉS ZSÁKOLÁS</span>
           </div>
@@ -262,7 +211,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Quote */}
+      {/* Quote (Idézet szekció) */}
       <section className="py-16 border-y border-gray-900 bg-gray-950">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="text-5xl text-neon-orange/30 font-serif mb-4">"</div>
@@ -272,6 +221,57 @@ export default function Home() {
           <p className="text-gray-400 text-sm tracking-wider uppercase">— Choi Hong Hi, az ITF Taekwondo alapítója</p>
         </div>
       </section>
+
+      {/* FUTÓ HÍRFOLYAM SZEKCIÓ (IDEKERÜLT AZ IDÉZET ALÁ - LASSABB ÉS NAGYOBB BLOKKOK) */}
+      <div className="w-full bg-black border-b border-gray-900 py-10 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 mb-5 flex items-center justify-between">
+          <h2 className="text-sm font-black uppercase tracking-widest text-neon-orange flex items-center gap-2">
+            <span className="w-2 h-2 bg-red-600 rounded-full animate-pulse" /> Legfrissebb híreink
+          </h2>
+          <Link to="/news" className="text-xs text-gray-400 hover:text-white flex items-center gap-1 transition-colors">
+            Összes hír <ArrowRight className="w-3 h-3" />
+          </Link>
+        </div>
+
+        {/* Külső doboz */}
+        <div className="relative w-full overflow-hidden whitespace-nowrap">
+          {/* Animált flex sáv - Most már 50s sebességgel fut (fele olyan gyorsan mint eddig) */}
+          <div className="flex flex-row-reverse w-max gap-8 animate-[marquee_50s_linear_infinite] hover:[animation-play-state:paused] py-3 px-4 cursor-pointer">
+            {[...legfrissebbHirek, ...legfrissebbHirek, ...legfrissebbHirek, ...legfrissebbHirek].map((item, index) => (
+              <div
+                key={`${item.id}-${index}`}
+                onClick={() => navigate(`/news#${item.id}`)}
+                className="w-[340px] sm:w-[400px] inline-block whitespace-normal bg-gray-900/60 border border-gray-800/80 rounded-2xl overflow-hidden hover:border-neon-orange/50 transition-all duration-300 shadow-xl group"
+              >
+                {/* Hír kis képe - Megnövelt h-44 magasság */}
+                <div className="w-full h-44 relative bg-black overflow-hidden">
+                  <img
+                    src={item.image || '/news-placeholder.webp'}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = 'https://tigrisek.hu/images/choi1.jpg';
+                    }}
+                  />
+                  <div className="absolute top-3 left-3 bg-black/80 backdrop-blur-sm border border-gray-800 text-[11px] text-gray-300 px-2.5 py-1 rounded-md font-mono flex items-center gap-1.5">
+                    <Calendar className="w-3 h-3 text-neon-orange" /> {item.date}
+                  </div>
+                </div>
+
+                {/* Hír szövege - Nagyobb padding és betűk */}
+                <div className="p-5">
+                  <h3 className="text-white font-black text-base sm:text-lg line-clamp-1 group-hover:text-neon-orange transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm mt-2 line-clamp-2 leading-relaxed">
+                    {item.body.replace(/\s+/g, ' ')}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* Club Leaders */}
       <section className="py-20 bg-black">
