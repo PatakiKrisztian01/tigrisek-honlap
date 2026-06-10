@@ -23,63 +23,62 @@ export default function Home() {
   return (
     <div className="w-full bg-black text-gray-300 overflow-hidden">
       
-     {/* FUTÓ HÍRFOLYAM SZEKCIÓ */}
-<div className="w-full bg-gray-950 border-y border-gray-800 py-6 relative my-8 overflow-hidden">
-  <div className="max-w-7xl mx-auto px-4 mb-3 flex items-center justify-between">
-    <h2 className="text-sm font-black uppercase tracking-widest text-neon-orange flex items-center gap-2">
-      <span className="w-2 h-2 bg-red-600 rounded-full animate-pulse" /> Legfrissebb híreink
-    </h2>
-    <Link to="/news" className="text-xs text-gray-400 hover:text-white flex items-center gap-1 transition-colors">
-      Összes hír <ArrowRight className="w-3 h-3" />
-    </Link>
-  </div>
-
-  {/* A külső doboz, ami elrejti a kilógó részeket és maszkolja a széleket */}
-  <div className="relative w-full overflow-hidden whitespace-nowrap">
-    
-    {/* A flex sáv: fontossá vált a w-max (maximális szélesség felvétele) és a flex-row-reverse.
-      A flex-row-reverse miatt a hírkártyák balról jobbra fognak áramlani a kijelzőn!
-    */}
-    <div className="flex flex-row-reverse w-max gap-6 animate-marquee hover:[animation-play-state:paused] py-2 px-4 cursor-pointer">
-      
-      {/* Négyszeresére sokszorozzuk meg a 3 hírt, hogy kitöltse a hatalmas monitorokat is, így sosem fogy el a futósáv */}
-      {[...legfrissebbHirek, ...legfrissebbHirek, ...legfrissebbHirek, ...legfrissebbHirek].map((item, index) => (
-        <div
-          key={`${item.id}-${index}`}
-          onClick={() => navigate(`/news#${item.id}`)}
-          className="w-[280px] sm:w-[320px] inline-block whitespace-normal bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-neon-orange/40 transition-all duration-300 shadow-md group"
-        >
-          {/* Hír kis képe */}
-          <div className="w-full h-32 relative bg-black overflow-hidden">
-            <img
-              src={item.image || '/news-placeholder.webp'}
-              alt={item.title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = 'https://tigrisek.hu/images/choi1.jpg';
-              }}
-            />
-            <div className="absolute top-2 left-2 bg-black/70 backdrop-blur-sm border border-gray-800 text-[10px] text-gray-300 px-2 py-0.5 rounded-md font-mono flex items-center gap-1">
-              <Calendar className="w-2.5 h-2.5 text-neon-orange" /> {item.date}
-            </div>
-          </div>
-
-          {/* Hír szövege */}
-          <div className="p-4">
-            <h3 className="text-white font-bold text-sm sm:text-base line-clamp-1 group-hover:text-neon-orange transition-colors">
-              {item.title}
-            </h3>
-            <p className="text-gray-400 text-xs mt-1.5 line-clamp-2 leading-relaxed">
-              {item.body.replace(/\s+/g, ' ')}
-            </p>
-          </div>
+      {/* FUTÓ HÍRFOLYAM SZEKCIÓ */}
+      <div className="w-full bg-gray-950 border-y border-gray-800 py-6 relative my-8 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 mb-3 flex items-center justify-between">
+          <h2 className="text-sm font-black uppercase tracking-widest text-neon-orange flex items-center gap-2">
+            <span className="w-2 h-2 bg-red-600 rounded-full animate-pulse" /> Legfrissebb híreink
+          </h2>
+          <Link to="/news" className="text-xs text-gray-400 hover:text-white flex items-center gap-1 transition-colors">
+            Összes hír <ArrowRight className="w-3 h-3" />
+          </Link>
         </div>
-      ))}
-    </div>
 
-  </div>
-</div>
-      {/* A Home oldal többi része folytatódhat innen (pl. Hero szekció, edzések, stb.) */}
+        {/* Külső doboz */}
+        <div className="relative w-full overflow-hidden whitespace-nowrap">
+          
+          {/* Animált flex sáv */}
+          <div className="flex flex-row-reverse w-max gap-6 animate-marquee hover:[animation-play-state:paused] py-2 px-4 cursor-pointer">
+            {[...legfrissebbHirek, ...legfrissebbHirek, ...legfrissebbHirek, ...legfrissebbHirek].map((item, index) => (
+              <div
+                key={`${item.id}-${index}`}
+                onClick={() => navigate(`/news#${item.id}`)}
+                className="w-[280px] sm:w-[320px] inline-block whitespace-normal bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-neon-orange/40 transition-all duration-300 shadow-md group"
+              >
+                {/* Hír kis képe */}
+                <div className="w-full h-32 relative bg-black overflow-hidden">
+                  <img
+                    src={item.image || '/news-placeholder.webp'}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = 'https://tigrisek.hu/images/choi1.jpg';
+                    }}
+                  />
+                  <div className="absolute top-2 left-2 bg-black/70 backdrop-blur-sm border border-gray-800 text-[10px] text-gray-300 px-2 py-0.5 rounded-md font-mono flex items-center gap-1">
+                    <Calendar className="w-2.5 h-2.5 text-neon-orange" /> {item.date}
+                  </div>
+                </div>
+
+                {/* Hír szövege */}
+                <div className="p-4">
+                  <h3 className="text-white font-bold text-sm sm:text-base line-clamp-1 group-hover:text-neon-orange transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-400 text-xs mt-1.5 line-clamp-2 leading-relaxed">
+                    {item.body.replace(/\s+/g, ' ')}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </div>
+
+      {/* --- IDE JÖHET A HOME OLDALAD ÖSSZES TÖBBI RÉSZE (Hero, edzések, stb.) --- */}
+      {/* Például ha van még alatta tartalom, azt ide tedd be a fő div-en belülre */}
+
     </div>
   );
 }
