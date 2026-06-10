@@ -34,7 +34,7 @@ export default function NewsDetail() {
 
   if (!item) return (
     <div className="min-h-screen pt-20 flex items-center justify-center">
-      <div className="text-gray-500">Betöltés...</div>
+      <div className="text-gray-400">Betöltés...</div>
     </div>
   );
 
@@ -53,7 +53,7 @@ export default function NewsDetail() {
             <span className={`inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full border ${categoryColors[item.category] ?? 'bg-gray-800 text-gray-300 border-gray-700'}`}>
               {item.category}
             </span>
-            <span className="flex items-center gap-1.5 text-gray-500 text-xs">
+            <span className="flex items-center gap-1.5 text-gray-400 text-xs font-medium">
               <Calendar className="w-3.5 h-3.5" />
               {item.date}
             </span>

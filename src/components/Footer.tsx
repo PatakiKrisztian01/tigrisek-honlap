@@ -36,7 +36,7 @@ export default function Footer() {
             </Link>
             <div className="text-gray-400 text-sm leading-relaxed space-y-2">
               <p className="font-semibold text-white">Több mint harcművészet. Tradíció, fegyelem és közösség.</p>
-              <p className="text-gray-500">
+              <p className="text-gray-400">
                 Ahol a tradíció találkozik a küzdőszellemmel.<br />
                 Harcművészet oktatás gyerekeknek és felnőtteknek,<br />
                 2002 óta.
@@ -59,7 +59,7 @@ export default function Footer() {
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-gray-500 hover:text-neon-orange text-sm transition-colors"
+                    className="text-gray-400 hover:text-neon-orange text-sm transition-colors"
                   >
                     {link.label}
                   </Link>

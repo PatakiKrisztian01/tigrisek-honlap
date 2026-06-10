@@ -73,7 +73,7 @@ function BeltRow({ belt }: { belt: Belt }) {
       {open && (
         <div className="bg-gray-950 p-6 border-t border-gray-900">
           <div className="flex flex-wrap gap-2"> {belt.members.map((name) => ( <div key={name} className="px-3 py-1 rounded bg-gray-900 border border-gray-800 text-sm text-gray-300">{name}</div> ))} </div>
-          {belt.results && ( <div className="mt-4 pt-4 border-t border-gray-900"> {belt.results.map((r) => ( <div key={r.name} className="text-xs text-gray-500"><strong>{r.name}</strong>: {r.achievements.join(', ')}</div> ))} </div> )}
+          {belt.results && ( <div className="mt-4 pt-4 border-t border-gray-900"> {belt.results.map((r) => ( <div key={r.name} className="text-xs text-gray-400 font-medium"><strong>{r.name}</strong>: {r.achievements.join(', ')}</div> ))} </div> )}
         </div>
       )}
     </div>

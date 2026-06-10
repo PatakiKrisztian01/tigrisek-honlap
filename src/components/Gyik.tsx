@@ -50,7 +50,7 @@ export default function Gyik() {
           
           {/* BAL OLDAL: Szöveges tartalom */}
           <div className="md:col-span-7 text-center md:text-left">
-            <span className="text-neon-orange text-xs sm:text-sm font-bold tracking-widest uppercase mb-2 block">
+            <span className="text-neon-orange text-xs sm:text-sm font-black tracking-widest uppercase mb-2 block">
               Gyakran Ismételt Kérdések
             </span>
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight mb-4 leading-tight">

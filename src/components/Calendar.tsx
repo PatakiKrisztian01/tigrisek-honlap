@@ -133,7 +133,7 @@ export default function Calendar() {
         </div>
 
         {/* Tájékoztató szöveg */}
-        <p className="text-center text-gray-500 text-xs mt-6 leading-relaxed max-w-2xl mx-auto">
+        <p className="text-center text-gray-400 text-xs mt-6 leading-relaxed max-w-2xl mx-auto font-medium">
           * Figyelem! A dátumok és helyszínek tájékoztató jellegűek, a mindenkori hivatalos kiírások a szövetségi oldalon és az edzéseken kerülnek pontosításra. A változtatás jogát a Szövetség és az Egyesület vezetősége fenntartja.
         </p>
       </div>

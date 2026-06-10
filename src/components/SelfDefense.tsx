@@ -89,7 +89,7 @@ export default function SelfDefense() {
                 <MapPin className="w-5 h-5 text-neon-orange shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
                 <div className="flex-1">
                   <p className="font-bold text-white flex items-center gap-1.5 group-hover:text-neon-orange transition-colors">
-                    Tigers Gym <ExternalLink className="w-3.5 h-3.5 text-gray-500 group-hover:text-neon-orange" />
+                    Tigers Gym <ExternalLink className="w-3.5 h-3.5 text-gray-400 group-hover:text-neon-orange" />
                   </p>
                   <p className="text-xs text-gray-400">1181 Budapest, Havanna u. 3.</p>
                 </div>

@@ -59,7 +59,7 @@ export default function News() {
                     <span className={`inline-flex items-center px-3 py-1 rounded-full border text-xs font-bold ${categoryColors[item.category] ?? 'bg-gray-800 text-gray-300'}`}>
                       {item.category}
                     </span>
-                    <span className="text-gray-500 text-xs flex items-center gap-1">
+                    <span className="text-gray-400 text-xs flex items-center gap-1 font-medium">
                       <Calendar className="w-3 h-3" /> {item.date}
                     </span>
                   </div>
@@ -95,7 +95,7 @@ export default function News() {
                   </div>
                   <div>
                     <h3 className="text-white font-black uppercase text-xs tracking-wider">Közösség</h3>
-                    <p className="text-gray-500 text-[10px]">Budapesti Tigrisek SE</p>
+                    <p className="text-gray-400 text-[10px] font-semibold">Budapesti Tigrisek SE</p>
                   </div>
                 </div>
 
