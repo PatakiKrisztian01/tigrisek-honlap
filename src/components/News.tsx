@@ -134,7 +134,7 @@ export default function News() {
 
                 {/* Apró lábléc infó */}
                 <div className="mt-6 text-center">
-                  <span className="text-[10px] text-gray-600 uppercase tracking-widest font-semibold">@BudapestTigers</span>
+                  <span className="text-[10px] text-gray-400 uppercase tracking-widest font-semibold">@BudapestTigers</span>
                 </div>
 
               </div>

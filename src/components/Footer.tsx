@@ -72,10 +72,10 @@ export default function Footer() {
           <div>
             <h4 className="text-gray-300 font-bold text-sm uppercase tracking-wider mb-4">Elérhetőség</h4>
             <div className="space-y-3 text-sm">
-              <a href="mailto:tigrisek@gmail.com" className="block text-gray-500 hover:text-neon-orange transition-colors">
+              <a href="mailto:tigrisek@gmail.com" className="block text-gray-400 hover:text-neon-orange transition-colors">
                 tigrisek@gmail.com
               </a>
-              <a href="tel:+36709415992" className="block text-gray-500 hover:text-neon-orange transition-colors">
+              <a href="tel:+36709415992" className="block text-gray-400 hover:text-neon-orange transition-colors">
                 +36-70-941-5992
               </a>
 
@@ -94,7 +94,7 @@ export default function Footer() {
               </div>
 
               <div className="pt-2 text-gray-700 text-xs">
-                Adószám: <span className="font-mono text-gray-600">18012020-1-43</span>
+                Adószám: <span className="font-mono text-gray-400">18012020-1-43</span>
               </div>
             </div>
           </div>

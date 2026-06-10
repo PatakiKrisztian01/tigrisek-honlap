@@ -123,7 +123,7 @@ export default function Calendar() {
 
                 {/* Helyszín */}
                 <div className="flex items-center gap-2 text-gray-400 text-sm md:justify-end min-w-[180px]">
-                  <MapPin className="w-4 h-4 text-gray-600 shrink-0" />
+                  <MapPin className="w-4 h-4 text-gray-400 shrink-0" />
                   <span>{event.location}</span>
                 </div>
 

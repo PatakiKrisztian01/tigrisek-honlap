@@ -126,7 +126,7 @@ export default function Contact() {
                     rel="noopener noreferrer"
                     className="flex items-start gap-2.5 text-gray-400 hover:text-neon-orange text-sm transition-colors group min-w-0"
                   >
-                    <ExternalLink className="w-4 h-4 mt-0.5 flex-shrink-0 text-gray-600 group-hover:text-neon-orange transition-colors" />
+                    <ExternalLink className="w-4 h-4 mt-0.5 flex-shrink-0 text-gray-400 group-hover:text-neon-orange transition-colors" />
                     <span className="break-words leading-tight flex-1">{link.name}</span>
                   </a>
                 ))}
@@ -227,7 +227,7 @@ export default function Contact() {
               <h3 className="text-white font-bold mb-2">Támogasd az adód 1%-ával!</h3>
               <p className="text-gray-400 text-sm mb-3">Adószámunk:</p>
               <div className="font-mono text-neon-orange font-bold text-xl tracking-widest">18012020-1-43</div>
-              <p className="text-gray-600 text-xs mt-2">eszja.nav.gov.hu → 1+1%-os nyilatkozat</p>
+              <p className="text-gray-400 text-xs mt-2">eszja.nav.gov.hu → 1+1%-os nyilatkozat</p>
             </div>
           </div>
         </div>

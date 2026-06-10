@@ -11,7 +11,7 @@ const trainers = [
 ];
 
 function LocationCard({ name, address, mapUrl, accentColor }: { name?: string, address: string, mapUrl: string, accentColor: string }) {
-  const iconColor = accentColor === 'emerald' ? 'text-emerald-500' : accentColor === 'amber' ? 'text-amber-500' : 'text-neon-orange';
+  const iconColor = accentColor === 'emerald' ? 'text-emerald-400' : accentColor === 'amber' ? 'text-amber-400' : 'text-neon-orange';
   return (
     <a href={mapUrl} target="_blank" rel="noopener noreferrer" className="group flex items-start gap-3 p-4 rounded-xl bg-gray-800/50 border border-gray-700 hover:border-neon-orange hover:scale-[1.03] hover:shadow-lg hover:shadow-neon-orange/30 transition-all duration-200 cursor-pointer">
       <MapPin className={`w-4 h-4 ${iconColor} flex-shrink-0 mt-0.5 group-hover:text-neon-orange transition-colors`} />
@@ -19,7 +19,7 @@ function LocationCard({ name, address, mapUrl, accentColor }: { name?: string, a
         {name && <p className="text-gray-300 text-sm font-bold">{name}</p>}
         <p className="text-gray-400 text-sm">{address}</p>
       </div>
-      <ExternalLink className="w-3.5 h-3.5 text-gray-600 group-hover:text-neon-orange flex-shrink-0 mt-0.5 transition-colors" />
+      <ExternalLink className="w-3.5 h-3.5 text-gray-400 group-hover:text-neon-orange flex-shrink-0 mt-0.5 transition-colors" />
     </a>
   );
 }
@@ -142,10 +142,10 @@ export default function Training() {
             <div className="flex flex-col lg:flex-row h-full">
               <div className="flex-1 p-6 lg:p-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 bg-emerald-600/10 border border-emerald-600/30 rounded-xl flex items-center justify-center flex-shrink-0"><Shield className="w-6 h-6 text-emerald-500" /></div>
-                  <div><h2 className="text-2xl font-black text-white">Ingyenes önvédelmi edzések</h2><p className="text-emerald-500 font-bold text-sm">14 éves kortól</p></div>
+                  <div className="w-12 h-12 bg-emerald-600/10 border border-emerald-600/30 rounded-xl flex items-center justify-center flex-shrink-0"><Shield className="w-6 h-6 text-emerald-400" /></div>
+                  <div><h2 className="text-2xl font-black text-white">Ingyenes önvédelmi edzések</h2><p className="text-emerald-400 font-bold text-sm">14 éves kortól</p></div>
                 </div>
-                <div className="flex items-start gap-3 mb-4"><Clock className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" /><div className="text-white font-bold text-sm">Kedd: 18:00 – 19:00-ig</div></div>
+                <div className="flex items-start gap-3 mb-4"><Clock className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" /><div className="text-white font-bold text-sm">Kedd: 18:00 – 19:00-ig</div></div>
                 <LocationCard address="Havanna u. 3., 1181 Budapest" mapUrl="https://www.google.com/maps/search/?api=1&query=1181+Budapest+Havanna+u.+3" accentColor="emerald" />
               </div>
               <div className="w-full lg:w-64 flex-shrink-0 bg-emerald-600/10 lg:border-l border-emerald-600/30"><img src="/onvedelem.webp" alt="Önvédelmi edzés" className="w-full h-64 lg:h-full object-cover" /></div>
@@ -158,12 +158,12 @@ export default function Training() {
             <div className="flex flex-col lg:flex-row h-full">
               <div className="flex-1 p-6 lg:p-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 bg-amber-600/10 border border-amber-600/30 rounded-xl flex items-center justify-center flex-shrink-0"><Baby className="w-6 h-6 text-amber-500" /></div>
-                  <div><h2 className="text-2xl font-black text-white">Ovis edzések</h2><p className="text-amber-500 font-bold text-sm">4 éves kortól</p></div>
+                  <div className="w-12 h-12 bg-amber-600/10 border border-amber-600/30 rounded-xl flex items-center justify-center flex-shrink-0"><Baby className="w-6 h-6 text-amber-400" /></div>
+                  <div><h2 className="text-2xl font-black text-white">Ovis edzések</h2><p className="text-amber-400 font-bold text-sm">4 éveskortól</p></div>
                 </div>
                 <div className="space-y-3 mb-6">
-                  <div className="flex items-start gap-3"><Clock className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" /><div className="text-white font-bold text-sm">Kedd: 16:30 – 17:30-ig</div></div>
-                  <div className="flex items-start gap-3"><Clock className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" /><div className="text-white font-bold text-sm">Csütörtök: 16:30 – 17:30-ig</div></div>
+                  <div className="flex items-start gap-3"><Clock className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" /><div className="text-white font-bold text-sm">Kedd: 16:30 – 17:30-ig</div></div>
+                  <div className="flex items-start gap-3"><Clock className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" /><div className="text-white font-bold text-sm">Csütörtök: 16:30 – 17:30-ig</div></div>
                 </div>
                 <LocationCard name="Kondor Béla Művelődési ház" address="Budapest, Kondor Béla stny. 8, 1181" mapUrl="https://www.google.com/maps/search/?api=1&query=Kondor+Bela+Muvelodesi+Haz+Budapest" accentColor="amber" />
               </div>

@@ -15,9 +15,9 @@ export default function SelfDefense() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-black/80" />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <p className="text-amber-500 text-sm font-bold tracking-wider uppercase mb-2">A XVIII. kerületieknek ingyenes</p>
+          <p className="text-amber-400 text-sm font-bold tracking-wider uppercase mb-2">A XVIII. kerületieknek ingyenes</p>
           <h1 className="text-5xl font-black text-white flex items-center gap-4">
-            ÖNVÉDELEM <Shield className="w-10 h-10 text-amber-500 hidden sm:block" />
+            ÖNVÉDELEM <Shield className="w-10 h-10 text-amber-400 hidden sm:block" />
           </h1>
         </div>
       </div>
@@ -56,7 +56,7 @@ export default function SelfDefense() {
 
           {/* Ősi íratlan szabályok */}
           <section className="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 space-y-4">
-            <h3 className="text-xl font-black text-white flex items-center gap-2 text-amber-500 uppercase tracking-wider">
+            <h3 className="text-xl font-black text-white flex items-center gap-2 text-amber-400 uppercase tracking-wider">
               <Scroll className="w-5 h-5" /> Ősi íratlan szabályok
             </h3>
             <ul className="space-y-3 font-medium text-sm text-gray-300">

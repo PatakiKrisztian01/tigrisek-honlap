@@ -256,7 +256,7 @@ export default function Home() {
           <blockquote className="text-xl sm:text-2xl font-light text-gray-300 leading-relaxed italic mb-6">
             A győzelemért az embernek tudnia kell mindenekelőtt önmagát legyőznie.
           </blockquote>
-          <p className="text-gray-600 text-sm tracking-wider uppercase">— Choi Hong Hi, az ITF Taekwondo alapítója</p>
+          <p className="text-gray-400 text-sm tracking-wider uppercase">— Choi Hong Hi, az ITF Taekwondo alapítója</p>
         </div>
       </section>
 
@@ -294,10 +294,10 @@ export default function Home() {
             Egyetlen forintodba sem kerül.
           </p>
           <div className="inline-flex items-center gap-3 bg-gray-900/60 border border-neon-orange/30 rounded-xl px-6 py-3">
-            <span className="text-gray-500 text-sm">Adószám:</span>
+            <span className="text-gray-400 text-sm font-medium">Adószám:</span>
             <span className="text-neon-orange font-mono font-bold text-lg tracking-widest">18012020-1-43</span>
           </div>
-          <p className="text-gray-600 text-sm mt-4">
+          <p className="text-gray-400 text-sm mt-4">
             Ügyfélkapu: nav.gov.hu → 1+1%-os nyilatkozat → Adószám megadása
           </p>
         </div>
