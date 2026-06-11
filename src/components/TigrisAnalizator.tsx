@@ -1,5 +1,5 @@
 import React, { useMemo, useState, useEffect } from "react";
-import { ArrowRight, RotateCcw, HelpCircle, CheckCircle2, User, Phone, GraduationCap, ShieldCheck, Sparkles, Flame, Clock } from "lucide-react";
+import { ArrowRight, RotateCcw, HelpCircle, CheckCircle2, User, Phone, GraduationCap, ShieldCheck, Sparkles, Flame, Clock, Star } from "lucide-react";
 
 type KarakterTipus = "ovis_tkd" | "taekwon_do" | "kick_box_forma";
 
@@ -51,7 +51,7 @@ const ENYEM_A_DÖNTES_KONYV = {
     cim: "4. ÁLLOMÁS: Társasági dinamika – Mennyire magabiztos a többi gyerek között?",
     lehetosegek: [
       { felirat: "📣 Ő a hangadó, minden játékban az élre tör, igazi vezéregyéniség.", visszajelzes: "A jó vezetői képességekhez fegyelem és tartás kell. Jó helyen lesz a Tigriseknél!", kovetkezo: 104, pontok: { ovis_tkd: 3, kick_box_forma: 2 } },
-      { felirat: "🌸 Picit visszahúzódóbb, csendes, szüksége van egy kis időre, amíg feloldódik.", visszajelzes: "A küzdősport biztonságos környezetet ad. Lépésről lépésre fog kinyílni a gyerkőc.", kovetkezo: 104, pontok: { ovis_tkd: 5 } },
+      { felirat: "🌸 Picit visszahúzódóbb, csendes, szüksége van egy kis időre, amíg feloldódik.", visszajelzes: "A küzdősport biztonságos környezetet ad. Lépésről lépésre fog kinyilni a gyerkőc.", kovetkezo: 104, pontok: { ovis_tkd: 5 } },
       { felirat: "🤹 Szuper barátkozó, mindenkivel azonnal megtalálja a közös hangot.", visszajelzes: "A 18. kerületi ovis csapatunk családias hangulata pont az ilyen nyitott gyerkőcök kedvence.", kovetkezo: 104, pontok: { ovis_tkd: 4 } },
       { felirat: "🦾 Szereti megmutatni az erejét, néha picit túlzottan is domináns akar lenni.", visszajelzes: "Megtanítjuk a kontrollt és a tiszteletet, hogy az erejét védelemre, ne rombolásra használja.", kovetkezo: 104, pontok: { ovis_tkd: 4 } },
     ]
@@ -63,7 +63,7 @@ const ENYEM_A_DÖNTES_KONYV = {
     lehetosegek: [
       { felirat: "🎨 A színes, kreatív dolgok, a ritmusok, a zene és a pörgős játékok.", visszajelzes: "A kreativitás az akrobatikus formák alapja, ezt komolyan kamatoztatni tudja.", kovetkezo: 105, pontok: { kick_box_forma: 4 } },
       { felirat: "🛡️ A lovagok, szuperhősök, a klasszikus küzdelem és az önvédelmi mozdulatok.", visszajelzes: "A Taekwon-do szellemisége pontosan a modern kor szuperhőseit neveli ki.", kovetkezo: 105, pontok: { ovis_tkd: 4 } },
-      { felirat: "🧸 Mindenféle tárgy, bot vagy játék megpörgetése, dobálása és elkapása.", visszajelzes: "Ez a fajta manipulációs készség később a fegyveres formagyakorlatoknál (bot, nunchaku) aranyat ér!", kovetkezo: 105, pontok: { kick_box_forma: 5 } },
+      { felirat: "🛡️ Mindenféle tárgy, bot vagy játék megpörgetése, dobálása és elkapása.", visszajelzes: "Ez a fajta manipulációs készség később a fegyveres formagyakorlatoknál (bot, nunchaku) aranyat ér!", kovetkezo: 105, pontok: { kick_box_forma: 5 } },
       { felirat: "🥋 Maga az egyenruha (Do-Bok) és a színes övek világa nyűgözi le.", visszajelzes: "A tradicionális értékek és az övvizsgák rendszere már most motiválja őt.", kovetkezo: 105, pontok: { ovis_tkd: 4 } },
     ]
   },
@@ -83,10 +83,10 @@ const ENYEM_A_DÖNTES_KONYV = {
     szekcio: "ovis",
     cim: "7. ÁLLOMÁS: A Tigris-Kód – Mi a legfőbb belső érték, amit szeretnél, ha gyermeked magával vinne az edzőteremből?",
     lehetosegek: [
-      { felirat: "🧠 Megrendíthetetlen belső fegyelem, koncentráció és a felnőttek/társak iránti maximális tisztelet.", visszajelzes: "A Budapesti Tigriseknél a tisztelet az első és az utolsó lecke is. Ez nálunk alapérték.", kovetkezo: 999, pontok: { ovis_tkd: 5 } },
+      { felirat: "🧠 Megrendíthetetlen belső fegyelem, koncentráció és a felnőttek/társak iránti maximális tisztelet.", visszajelzes: "A Budapesti Tigriseknél a tisztelet az első és az utelsó lecke is. Ez nálunk alapérték.", kovetkezo: 999, pontok: { ovis_tkd: 5 } },
       { felirat: "✨ A lámpaláz teljes hiánya, kreativitás és a bátorság, hogy megmutassa a tudását a világnak.", visszajelzes: "A formagyakorlatok pontosan ezt a fajta extra magabiztosságot és expresszivitást építik fel.", kovetkezo: 999, pontok: { kick_box_forma: 5 } },
       { felirat: "🛡️ Olyan fizikai és verbális önvédelmi készség, ami miatt szülőként sosem kell aggódnom miatta.", visszajelzes: "A biztonságérzet alapvető jog. Megtanítjuk emelt fővel kezelni a konfliktusokat.", kovetkezo: 999, pontok: { ovis_tkd: 4 } },
-      { felirat: " Családias, támogató közösségi élmény, ahol barátokra lel és imád sportolni.", visszajelzes: "Nálunk nincsenek klikkesedések, egy nagy Tigris-család vagyunk a 18. kerületben.", kovetkezo: 999, pontok: { ovis_tkd: 3, kick_box_forma: 2 } },
+      { felirat: "🤝 Családias, támogató közösségi élmény, ahol barátokra lel és imád sportolni.", visszajelzes: "Nálunk nincsenek klikkesedések, egy nagy Tigris-család vagyunk a 18. kerületben.", kovetkezo: 999, pontok: { ovis_tkd: 3, kick_box_forma: 2 } },
     ]
   },
 
@@ -109,7 +109,7 @@ const ENYEM_A_DÖNTES_KONYV = {
     lehetosegek: [
       { felirat: "🤩 Úristen, ezt nekem is meg kell tanulnom! Elképesztő a show, a botozás és a kardok forgatása.", visszajelzes: "Ez az! Nálunk a kick-box formagyakorlatokon pontosan nunchakuval, bottal és karddal dolgozunk, ráadásul ez egy hivatalos versenyszám is!", kovetkezo: 203, pontok: { kick_box_forma: 6 } },
       { felirat: "🥋 Látványos, de én a puszta kezes és lábas, tradicionális és pusztító erejű technikákat akarom uralni.", visszajelzes: "A Taekwon-do a puszta kéz és láb művészete. A fizikai rombolóerő és kontroll tökéletes egyensúlya.", kovetkezo: 203, pontok: { taekwon_do: 5 } },
-      { felirat: "🤸 Vonzanak az akrobatikus elemek, a cigánykerék, a pörgések, de fegyverek nélkül is szívesen csinálnám.", visszajelzes: "A modern küzdősportok látványvilágát nálunk mindkét ágon maximálisan megtalálod.", kovetkezo: 203, pontok: { kick_box_forma: 4, taekwon_do: 2 } },
+      { felirat: "🤸 Vonzanak az akrobatikus elemek, a cigánykerék, a pörgések, de fegyverek nélkül is szívesen csinálnám.", visszajelzes: "A modern küzdősportok látványvilágát nálunk mindkét ágon maximálisan megtalálod.", kovetkezo: 203, fontok: { kick_box_forma: 4, taekwon_do: 2 } },
       { felirat: "🛡️ Menő, de engem sokkal inkább a gyakorlatias, sallangmentes utcai önvédelem és a hatékonyság érdekel.", visszajelzes: "A Taekwon-do bázisán alapuló önvédelmi technikáink pontosan a valós stresszhelyzetek megoldására épülnek.", kovetkezo: 203, pontok: { taekwon_do: 5 } },
     ]
   },
@@ -121,7 +121,7 @@ const ENYEM_A_DÖNTES_KONYV = {
       { felirat: "🦅 A magasba törő ugrások, tengely körüli pörgések és a látványos akrobatika – minél kevesebbet vagyok a földön, annál jobb.", visszajelzes: "A repülő technikák és a trükközés a formagyakorlat águnk ékkövei.", kovetkezo: 204, pontok: { kick_box_forma: 5 } },
       { felirat: "🧱 A sziklaszilárd talajfogás, a tűpontos, egyenes vonalú formagyakorlatok és a megrendíthetetlen egyensúly.", visszajelzes: "A Taekwon-do erőtörései és tradicionális mintagyakorlatai (Tul) pontosan ezt a masszív stabilitást követelik meg.", kovetkezo: 204, pontok: { taekwon_do: 5 } },
       { felirat: "🥊 A pörgős, folyamatos, dinamikus kardió edzés, ahol teljesen ki lehet izzadni a mindennapi stresszt.", visszajelzes: "Készítsd a törölközőt, a Budapesti Tigrisek edzésein garantáltan új fokozatba kapcsol az anyagcseréd!", kovetkezo: 204, pontok: { taekwon_do: 3, kick_box_forma: 2 } },
-      { felirat: "🧘 A fokozatos, ízületkímélő, de hatékony átmozgatás, ami visszaadja a testem rugalmasságát.", visszajelzes: "Tökéletes. Mivel 4 külön szintű edzésünk van az összevont csoporton belül, a kezdőkkel az alapoktól, biztonságosan indulunk.", kovetkezo: 204, pontok: { taekwon_do: 4 } },
+      { felirat: "🧘 A fokozatos, ízületkímélő, de hatékony átmozgatás, ami visszaadd a testem rugalmasságát.", visszajelzes: "Tökéletes. Mivel 4 külön szintű edzésünk van az összevont csoporton belül, a kezdőkkel az alapoktól, biztonságosan indulunk.", kovetkezo: 204, pontok: { taekwon_do: 4 } },
     ]
   },
   204: {
@@ -290,49 +290,6 @@ export default function TigrisValaszto({ teljesOldalas = false }: ValasztoProps)
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // KEZDŐKÉPERNYŐ (HA NINCS AUTOMATIKUSAN ELINDÍTVA)
-  if (!teljesOldalas && !elinditva && aktualisId === 0) {
-    return (
-      <div className="w-full max-w-4xl mx-auto my-12 px-4">
-        <style dangerouslySetInnerHTML={{__html: `
-          @keyframes sötetbőlElőugrik {
-            0% { opacity: 0; transform: scale(0.97); filter: blur(4px); }
-            17.8% { opacity: 1; transform: scale(1); filter: blur(0px); }
-            82.2% { opacity: 1; transform: scale(1); filter: blur(0px); }
-            100% { opacity: 0; transform: scale(1.01); filter: blur(4px); }
-          }
-          .animacio-szovere-villanas { animation: sötetbőlElőugrik 5.2s ease-in-out forwards; }
-          @keyframes futoSzoveg { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
-          .animacio-szalag { display: inline-flex; animation: futoSzoveg 50s linear infinite; }
-          .animacio-szalag:hover { animation-play-state: paused; }
-        `}} />
-
-        <div className="bg-gradient-to-br from-gray-950 via-black to-gray-900 border border-neon-orange/20 rounded-3xl p-8 text-center relative overflow-hidden shadow-2xl">
-          <div className="absolute top-0 right-0 p-6 text-neon-orange/5 pointer-events-none">
-            <HelpCircle size={140} className="transform rotate-12" />
-          </div>
-          <div className="inline-flex items-center gap-1.5 bg-neon-orange/10 border border-neon-orange/20 text-neon-orange text-xs font-black tracking-widest uppercase px-3 py-1 rounded-full mb-4">
-            <Sparkles size={12} /> Interaktív Kalandtérkép
-          </div>
-          
-          <h2 className="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight max-w-2xl mx-auto mb-3 leading-tight">
-            Melyik <span className="text-neon-orange">Tigris Szakosztály</span> rejtőzik bennetek?
-          </h2>
-          <p className="text-gray-400 text-sm sm:text-base max-w-lg mx-auto mb-8 leading-relaxed">
-            Ez nem egy unalmas kérdőív, hanem egy interaktív történet. Lapozz bele, teszteld a koordinációdat, és találd meg a tökéletes csoportot!
-          </p>
-          
-          <button 
-            onClick={() => { setElinditva(true); setAktualisId(0); }}
-            className="bg-neon-orange hover:bg-orange-600 text-black font-black px-8 py-4 rounded-xl text-md transition-all duration-200 hover:scale-105 shadow-lg shadow-neon-orange/20 max-w-xs mx-auto block w-full"
-          >
-            🔥 Indítás: Belépés a Tigris-Dojang-ba
-          </button>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className={`w-full bg-black text-white overflow-x-hidden ${teljesOldalas ? 'pt-28 sm:pt-32 md:pt-36 min-h-screen' : ''}`}>
       <style dangerouslySetInnerHTML={{__html: `
@@ -343,12 +300,18 @@ export default function TigrisValaszto({ teljesOldalas = false }: ValasztoProps)
           100% { opacity: 0; transform: scale(1.01); filter: blur(4px); }
         }
         .animacio-szoveg-villanas { animation: sötetbőlElőugrik 5.2s ease-in-out forwards; }
+        
+        /* SZALAG ANIMÁCIÓ SEBESSÉGEK: Mobilon sokkal dinamikusabb */
         @keyframes futoSzoveg { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
-        .animacio-szalag { display: inline-flex; animation: futoSzoveg 50s linear infinite; }
+        .animacio-szalag { display: inline-flex; animation: futoSzoveg 35s linear infinite; }
+        @media (max-w: 640px) {
+          .animacio-szalag { animation: futoSzoveg 25s linear infinite; }
+        }
         .animacio-szalag:hover { animation-play-state: paused; }
       `}} />
 
-      <div className="max-w-2xl mx-auto px-4">
+      {/* AZ ABLAK MÉRETE FELBŐVÍTVE max-w-4xl-re PC-n */}
+      <div className="max-w-4xl mx-auto px-4">
         
         {/* FEJLÉC */}
         <div className="text-center mb-8 bg-gray-950/50 border border-gray-900 rounded-2xl p-4">
@@ -360,8 +323,36 @@ export default function TigrisValaszto({ teljesOldalas = false }: ValasztoProps)
           </p>
         </div>
 
+        {/* KEZDŐKÉPERNYŐ (HA NINCS ELINDÍTVA) */}
+        {!teljesOldalas && !elinditva && aktualisId === 0 && (
+          <div className="w-full mb-8">
+            <div className="bg-gradient-to-br from-gray-950 via-black to-gray-900 border border-neon-orange/20 rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden shadow-2xl">
+              <div className="absolute top-0 right-0 p-6 text-neon-orange/5 pointer-events-none">
+                <HelpCircle size={140} className="transform rotate-12" />
+              </div>
+              <div className="inline-flex items-center gap-1.5 bg-neon-orange/10 border border-neon-orange/20 text-neon-orange text-xs font-black tracking-widest uppercase px-3 py-1 rounded-full mb-4">
+                <Sparkles size={12} /> Interaktív Kalandtérkép
+              </div>
+              
+              <h2 className="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight max-w-3xl mx-auto mb-4 leading-tight">
+                Melyik <span className="text-neon-orange">Tigris Szakosztály</span> rejtőzik bennetek?
+              </h2>
+              <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto mb-8 leading-relaxed">
+                Ez nem egy unalmas kérdőív, hanem egy interaktív történet. Lapozz bele, teszteld a koordinációdat, és találd meg a tökéletes csoportot!
+              </p>
+              
+              <button 
+                onClick={() => { setElinditva(true); setAktualisId(0); }}
+                className="bg-neon-orange hover:bg-orange-600 text-black font-black px-8 py-4 rounded-xl text-md transition-all duration-200 hover:scale-105 shadow-lg shadow-neon-orange/20 max-w-xs mx-auto block w-full"
+              >
+                🔥 Indítás: Belépés a Tigris-Dojang-ba
+              </button>
+            </div>
+          </div>
+        )}
+
         {/* JÁTÉK/KÉRDÉS FÁZIS */}
-        {aktualisKerdes && aktualisId !== 999 && (
+        {elinditva && aktualisKerdes && aktualisId !== 999 && (
           <div className="w-full">
             {/* FOLYAMATSÁV */}
             <div className="w-full bg-gray-900 rounded-full h-2 mb-6 border border-gray-800 relative">
@@ -372,13 +363,13 @@ export default function TigrisValaszto({ teljesOldalas = false }: ValasztoProps)
             </div>
 
             {/* KÁRTYA TÖRZS */}
-            <div className="bg-gray-950 border border-gray-900 rounded-2xl p-6 sm:p-8 text-center shadow-xl relative min-h-[360px] flex flex-col justify-center">
+            <div className="bg-gray-950 border border-gray-900 rounded-2xl p-6 sm:p-10 text-center shadow-xl relative min-h-[360px] flex flex-col justify-center">
               {aktivVisszajelzes ? (
                 <div className="animacio-szoveg-villanas space-y-4 py-8">
                   <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-neon-orange/10 text-neon-orange">
                     <ShieldCheck size={28} />
                   </div>
-                  <p className="text-white font-bold text-lg sm:text-xl max-w-md mx-auto leading-relaxed px-2">
+                  <p className="text-white font-bold text-lg sm:text-2xl max-w-2xl mx-auto leading-relaxed px-2">
                     {aktivVisszajelzes}
                   </p>
                   <p className="text-xs text-gray-500 uppercase tracking-widest animate-pulse pt-2">
@@ -386,11 +377,11 @@ export default function TigrisValaszto({ teljesOldalas = false }: ValasztoProps)
                   </p>
                 </div>
               ) : (
-                <div className="w-full">
-                  <span className="text-xs font-black text-neon-orange uppercase tracking-widest block mb-2">
+                <div className="w-full text-left">
+                  <span className="text-xs font-black text-neon-orange uppercase tracking-widest block mb-2 text-center sm:text-left">
                     {aktualisKerdes.szekcio === "start" ? "A kaland kezdete" : aktualisKerdes.szekcio === "ovis" ? "🦁 Ovis Fejezet" : "🦅 Junior & Felnőtt Fejezet"}
                   </span>
-                  <h2 className="text-lg sm:text-xl font-black mb-6 text-white tracking-tight leading-snug">
+                  <h2 className="text-lg sm:text-2xl font-black mb-6 text-white tracking-tight leading-snug text-center sm:text-left">
                     {aktualisKerdes.cim}
                   </h2>
 
@@ -400,10 +391,10 @@ export default function TigrisValaszto({ teljesOldalas = false }: ValasztoProps)
                         key={index}
                         disabled={atmenetFolyamatban}
                         onClick={() => handleValasztas(o)}
-                        className="text-left p-4 rounded-xl bg-black border border-gray-900 text-gray-200 hover:bg-neon-orange hover:text-black hover:border-neon-orange font-bold transition-all duration-150 text-sm active:scale-95 flex items-center justify-between group"
+                        className="text-left p-4 sm:p-5 rounded-xl bg-black border border-gray-900 text-gray-200 hover:bg-neon-orange hover:text-black hover:border-neon-orange font-bold transition-all duration-150 text-sm sm:text-base active:scale-95 flex items-center justify-between group"
                       >
-                        <span className="pr-2">{o.felirat}</span>
-                        <ArrowRight size={16} className="text-gray-700 group-hover:text-black shrink-0 transition-colors" />
+                        <span className="pr-4">{o.felirat}</span>
+                        <ArrowRight size={18} className="text-gray-700 group-hover:text-black shrink-0 transition-colors" />
                       </button>
                     ))}
                   </div>
@@ -415,13 +406,13 @@ export default function TigrisValaszto({ teljesOldalas = false }: ValasztoProps)
 
         {/* VÉGEREDMÉNY KIÉRTÉKELÉS */}
         {aktualisId === 999 && gyoztesKarakter && EREDMENYEK[gyoztesKarakter] && (
-          <div className="bg-gray-950 border border-gray-900 rounded-2xl p-6 sm:p-8 shadow-2xl pb-12">
+          <div className="bg-gray-950 border border-gray-900 rounded-2xl p-6 sm:p-10 shadow-2xl pb-12">
             {!urlapLathato ? (
               <>
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-neon-orange/10 text-neon-orange mb-3 mx-auto flex">
                   <Flame size={32} />
                 </div>
-                <span className="text-xs font-black text-center block text-neon-orange uppercase tracking-widest">A könyv becsukódott. Az eredményed:</span>
+                <span className="text-xs font-black text-center block text-neon-orange uppercase tracking-widest">A könyv bocsúkodott. Az eredményed:</span>
                 <h2 className="text-2xl sm:text-3xl font-black text-center text-white uppercase tracking-tight mt-1">
                   {EREDMENYEK[gyoztesKarakter].cim}
                 </h2>
@@ -433,25 +424,25 @@ export default function TigrisValaszto({ teljesOldalas = false }: ValasztoProps)
                   <h3 className="font-black text-white text-sm uppercase tracking-wider mb-2 flex items-center gap-1.5">
                     <CheckCircle2 size={16} className="text-neon-orange" /> Miért ezt dobta ki a kalandod?
                   </h3>
-                  <p className="text-gray-300 text-sm leading-relaxed bg-black/60 p-4 border border-gray-900 rounded-xl🏢">
+                  <p className="text-gray-300 text-sm sm:text-base leading-relaxed bg-black/60 p-5 border border-gray-900 rounded-xl">
                     {EREDMENYEK[gyoztesKarakter].miert}
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
-                  <div className="bg-red-950/20 border border-red-900/30 p-3.5 rounded-xl">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                  <div className="bg-red-950/20 border border-red-900/30 p-4 rounded-xl">
                     <span className="text-xs font-black text-red-500 uppercase tracking-widest block mb-1">🔴 Jelenlegi állapot</span>
-                    <p className="text-gray-400 text-xs italic">{EREDMENYEK[gyoztesKarakter].indulas}</p>
+                    <p className="text-gray-400 text-xs sm:text-sm italic">{EREDMENYEK[gyoztesKarakter].indulas}</p>
                   </div>
-                  <div className="bg-green-950/20 border border-green-900/30 p-3.5 rounded-xl">
+                  <div className="bg-green-950/20 border border-green-900/30 p-4 rounded-xl">
                     <span className="text-xs font-black text-green-400 uppercase tracking-widest block mb-1">🟢 Célkitűzés a Tigriseknél</span>
-                    <p className="text-gray-200 text-xs font-semibold">{EREDMENYEK[gyoztesKarakter].erkezes}</p>
+                    <p className="text-gray-200 text-xs sm:text-sm font-semibold">{EREDMENYEK[gyoztesKarakter].erkezes}</p>
                   </div>
                 </div>
 
                 <div className="mt-4 p-4 bg-black border border-gray-900 rounded-xl">
                   <h3 className="font-black text-neon-orange text-xs uppercase tracking-wider mb-1">🥋 Edzői megjegyzés / Mellékhatás</h3>
-                  <p className="text-gray-400 text-xs italic">"{EREDMENYEK[gyoztesKarakter].poen}"</p>
+                  <p className="text-gray-400 text-xs sm:text-sm italic">"{EREDMENYEK[gyoztesKarakter].poen}"</p>
                 </div>
 
                 <div className="flex flex-col gap-3 mt-6">
@@ -478,7 +469,7 @@ export default function TigrisValaszto({ teljesOldalas = false }: ValasztoProps)
                 {!urlapElkuldve ? (
                   <div className="space-y-6">
                     
-                    <div className="bg-red-950/20 border border-red-900/40 p-3 rounded-xl flex items-center justify-center gap-2 text-red-400 text-xs font-black uppercase tracking-wider animate-pulse">
+                    <div className="bg-red-950/20 border border-red-900/40 p-3 rounded-xl flex items-center justify-center gap-2 text-red-400 text-xs font-black tracking-wider animate-pulse uppercase">
                       <Clock size={16} />
                       Figyelem: Ebben a hónapban már csak {szabadHelyek} szabad tagi helyünk maradt ezen a szinten!
                     </div>
@@ -583,22 +574,28 @@ export default function TigrisValaszto({ teljesOldalas = false }: ValasztoProps)
         )}
       </div>
 
-      {/* HORIZONTÁLIS FUTÓ ÉRTÉKELÉSI SZALAG */}
+      {/* HORIZONTÁLIS FUTÓ ÉRTÉKELÉSI SZALAG – MOST MÁR MINDIG LÁTHATÓ */}
       <div className="w-full bg-gray-950 border-t border-b border-gray-900 py-6 mt-16 overflow-hidden relative">
         <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
         
         <div className="whitespace-nowrap animacio-szalag flex items-center gap-6">
-          {[...VELEMENYEK, ...VELEMENYEK].map((v, i) => (
+          {[...VELEMENYEK, ...VELEMENYEK, ...VELEMENYEK].map((v, i) => (
             <div 
               key={i} 
-              className="inline-block bg-black border border-gray-900 px-6 py-4 rounded-xl min-w-[460px] max-w-[520px] whitespace-normal align-top shadow-xl"
+              className="inline-block bg-black border border-gray-900 px-6 py-4 rounded-xl min-w-[320px] sm:min-w-[460px] max-w-[520px] whitespace-normal align-top shadow-xl"
             >
               <div className="flex justify-between items-center mb-2">
                 <span className="text-[10px] font-black uppercase text-neon-orange bg-neon-orange/10 px-2 py-0.5 rounded tracking-wider">
                   {v.celcsoport}
                 </span>
-                <div className="flex text-amber-500 text-xs">⭐⭐⭐⭐⭐</div>
+                <div className="flex items-center gap-0.5 text-neon-orange drop-shadow-[0_0_4px_rgba(249,115,22,0.5)]">
+                  <Star className="w-3.5 h-3.5 fill-neon-orange" />
+                  <Star className="w-3.5 h-3.5 fill-neon-orange" />
+                  <Star className="w-3.5 h-3.5 fill-neon-orange" />
+                  <Star className="w-3.5 h-3.5 fill-neon-orange" />
+                  <Star className="w-3.5 h-3.5 fill-neon-orange" />
+                </div>
               </div>
               <p className="text-gray-300 text-xs sm:text-sm italic leading-relaxed mb-2">
                 "{v.szoveg}"
