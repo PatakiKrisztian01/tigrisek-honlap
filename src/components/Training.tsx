@@ -26,7 +26,7 @@ function LocationCard({ name, address, mapUrl, accentColor }: { name?: string, a
 
 export default function Training() {
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen pt-20 bg-black">
       <div className="relative py-16 bg-gradient-to-b from-gray-900 to-black border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-neon-orange text-sm font-bold tracking-wider uppercase mb-2">Csatlakozz</p>
@@ -153,13 +153,14 @@ export default function Training() {
           </div>
         </div>
 
-        <div className="mb-16">
+        {/* UTOLSÓ NAGY BLOKK (OVIS EDZÉS) - Kevesebb rés a videóig (mb-16-ról lecsökkentve mb-6-ra) */}
+        <div className="mb-6">
           <div className="bg-gray-900 border border-amber-600/30 rounded-2xl overflow-hidden">
             <div className="flex flex-col lg:flex-row h-full">
               <div className="flex-1 p-6 lg:p-8">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-12 h-12 bg-amber-600/10 border border-amber-600/30 rounded-xl flex items-center justify-center flex-shrink-0"><Baby className="w-6 h-6 text-amber-400" /></div>
-                  <div><h2 className="text-2xl font-black text-white">Ovis edzések</h2><p className="text-amber-400 font-bold text-sm">4 éveskortól</p></div>
+                  <div><h2 className="text-2xl font-black text-white">Ovis edzések</h2><p className="text-amber-400 font-bold text-sm">4 éves kortól</p></div>
                 </div>
                 <div className="space-y-3 mb-6">
                   <div className="flex items-start gap-3"><Clock className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" /><div className="text-white font-bold text-sm">Kedd: 16:30 – 17:30-ig</div></div>
@@ -172,20 +173,33 @@ export default function Training() {
           </div>
         </div>
 
-        <div className="mb-16">
-          <h2 className="text-3xl font-black text-white mb-8">Bemutató videó</h2>
-          <div className="aspect-video w-full max-w-4xl mx-auto rounded-2xl overflow-hidden border border-gray-800 shadow-2xl">
-            <iframe className="w-full h-full" src="https://www.youtube.com/embed/Lb_2QhIdyek" title="YouTube bemutató videó" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+        {/* VIDEÓ BLOKK - Keret nélkül, Max-w-4xl szélesség, Alul-felül mozi stílusú sötétítéssel maszkolva */}
+        <div className="mb-10 w-full max-w-4xl mx-auto">
+          <h2 className="text-3xl font-black text-white mb-6">Bemutató videó</h2>
+          <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-2xl bg-black">
+            {/* Felső sötétítő réteg */}
+            <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-black to-transparent z-10 pointer-events-none" />
+            
+            <iframe 
+              className="w-full h-full relative z-0" 
+              src="https://www.youtube.com/embed/Lb_2QhIdyek" 
+              title="YouTube bemutató videó" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowFullScreen
+            ></iframe>
+            
+            {/* Alsó sötétítő réteg */}
+            <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black to-transparent z-10 pointer-events-none" />
           </div>
         </div>
 
-        {/* 2. IDE SZÚRTAM BE A KATTINTÁSMENTES GYIK BLOKKOT */}
-        <div className="mb-16 border-t border-gray-900 pt-16">
+        {/* GYIK BLOKK - Max-w-4xl szélesség, letisztított és balra igazított bekezdésekkel */}
+        <div className="mb-10 w-full max-w-4xl mx-auto border-t border-gray-900 pt-10 list-none prose-none">
           <Gyik />
         </div>
 
-        {/* Jelentkezési blokk - ID-val ellátva, hogy a footer gombja ide ugorjon */}
-        <div id="kapcsolat" className="bg-neon-orange/5 border border-neon-orange/30 rounded-2xl p-8 sm:p-12">
+        {/* JELENTKEZÉSI BLOKK - Max-w-4xl szélességre igazítva a tökéletes szimmetria érdekében */}
+        <div id="kapcsolat" className="w-full max-w-4xl mx-auto bg-neon-orange/5 border border-neon-orange/30 rounded-2xl p-8 sm:p-12">
           <h3 className="text-white font-black text-3xl mb-4">Készen állsz?</h3>
           <p className="text-gray-300 max-w-xl mb-8">Az első edzés ingyenes! Gyere el és ismerd meg közösségünket. Minden korosztályt szeretettel várunk.</p>
           <div className="flex flex-wrap gap-4">
