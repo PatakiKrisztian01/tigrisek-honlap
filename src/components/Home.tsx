@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import { ArrowRight, Calendar, Shield, Award, Heart, Star } from 'lucide-react';
+import { ArrowRight, Calendar, Shield, Award, Heart } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 
-// ITT IMPORTÁLJUK A TE MÁR JÓL MŰKÖDŐ, KÉSZ TESZTEDET!
+// A jól működő, kész teszted importálása
 import TigrisAnalizator from '../components/TigrisAnalizator'; 
 
 const newsFiles = import.meta.glob('/public/data/news/*.json', { eager: true });
@@ -28,14 +28,6 @@ export default function Home() {
     }))
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .slice(0, 3);
-
-  const reviews = [
-    "Szuper csapat, az edzők fantasztikusak a gyerekekkel! Csak ajánlani tudom. - P. Anita",
-    "A fiam fegyelmezettebb és magabiztosabb lett, amióta ide jár. Köszönjük! - K. Gábor",
-    "Felnőttként kezdtem el a kick-boxot náluk, és életem legjobb döntése volt. - M. Tamás",
-    "Családias hangulat, kemény edzések és igazi összetartó közösség. - B. Krisztina",
-    "Profi szakmai munka és fantasztikus nevelés! Igazi Tigris szellem! - F. László"
-  ];
 
   return (
     <div className="w-full bg-black text-gray-300 overflow-hidden">
@@ -103,7 +95,7 @@ export default function Home() {
               <span className="text-neon-orange font-bold text-lg block mt-4">Tartozz te is a Tigrisek családjához!</span>
             </p>
 
-            {/* A szív alja (a 3 oszlopos kiemelés), pontosan ahogy kérted */}
+            {/* A szív alja (3 oszlopos kiemelés) érintetlenül a helyén van */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-10 pt-8 border-t border-gray-800/60">
               <div className="flex flex-col items-center gap-2">
                 <Shield className="w-5 h-5 text-neon-orange" />
@@ -184,34 +176,12 @@ export default function Home() {
       {/* ================= 4. A BEILLESZTETT TIGRISANALIZATOR COMPONENT ================= */}
       <section className="bg-black py-20 border-b border-gray-900">
         <div className="w-full">
-          {/* Beágyazzuk a már kész, működő analizátorodat */}
+          {/* A különálló teszted meghívása */}
           <TigrisAnalizator />
-        </div>
-
-        {/* ================= 5. FUTÓ 5 CSILLAGOS ÉRTÉKELÉSSOR (KÖZVETLENÜL ALATTA) ================= */}
-        <div className="w-full bg-gray-950 py-6 border-y border-gray-900 overflow-hidden relative mt-16">
-          <div className="relative w-full overflow-hidden whitespace-nowrap flex items-center">
-            <div className="flex w-max gap-16 animate-[marquee_35s_linear_infinite] py-1">
-              {[...reviews, ...reviews, ...reviews].map((review, i) => (
-                <div key={i} className="flex items-center gap-3 text-gray-300 font-medium text-sm font-mono whitespace-nowrap">
-                  <div className="flex items-center gap-0.5">
-                    <Star className="w-4 h-4 fill-neon-orange text-neon-orange" />
-                    <Star className="w-4 h-4 fill-neon-orange text-neon-orange" />
-                    <Star className="w-4 h-4 fill-neon-orange text-neon-orange" />
-                    <Star className="w-4 h-4 fill-neon-orange text-neon-orange" />
-                    <Star className="w-4 h-4 fill-neon-orange text-neon-orange" />
-                  </div>
-                  <span className="text-white font-bold">5/5</span>
-                  <span className="text-gray-400 italic">"{review}"</span>
-                  <span className="text-neon-orange mx-2">•</span>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* ================= 6. KLUBVEZETŐK ================= */}
+      {/* ================= 5. KLUBVEZETŐK ================= */}
       <section className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
