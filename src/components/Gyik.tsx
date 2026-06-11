@@ -5,12 +5,7 @@ interface FAQItem {
   answer: string;
 }
 
-// Az isFullPage kapcsoló dönti el, kell-e a Hero fejléc
-interface GyikProps {
-  isFullPage?: boolean;
-}
-
-export default function Gyik({ isFullPage = false }: GyikProps) {
+export default function Gyik() {
   const faqData: FAQItem[] = [
     {
       question: "Milyen életkorban érdemes elkezdeni a Taekwon-do vagy Kick-box edzést?",
@@ -47,62 +42,64 @@ export default function Gyik({ isFullPage = false }: GyikProps) {
   ];
 
   return (
-    <div className={`w-full bg-black text-white ${isFullPage ? 'min-h-screen pt-24 overflow-x-hidden' : ''}`}>
+    <div className="w-full bg-black text-white overflow-x-hidden">
       
-      {/* HERO BLOKK: Csak akkor jelenik meg, ha az önálló aloldalon vagyunk */}
-      {isFullPage && (
-        <div className="max-w-6xl mx-auto px-4 py-12 border-b border-gray-900">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-            <div className="md:col-span-7 text-center md:text-left">
-              <span className="text-neon-orange text-xs sm:text-sm font-black tracking-widest uppercase mb-2 block">
-                Gyakran Ismételt Kérdések
-              </span>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight mb-4 leading-tight">
-                Taekwon-do és Kick-box <br />
-                <span className="text-neon-orange">edzések gyerekeknek</span> (18.kerület)
-              </h1>
-              <p className="text-gray-400 text-sm sm:text-base max-w-xl">
-                Minden fontos szakmai kérdés és szülői válasz egy helyen, sallangok nélkül.
-              </p>
-            </div>
-            <div className="md:col-span-5 flex justify-center md:justify-end">
-              <div className="relative group">
-                <div className="absolute inset-0 bg-neon-orange/10 rounded-full filter blur-2xl group-hover:bg-neon-orange/20 transition-all duration-300" />
-                <img 
-                  src="/gyik-hero.webp" 
-                  alt="Tigrisek Edzés" 
-                  className="h-48 sm:h-56 md:h-64 object-contain relative z-10 drop-shadow-[0_8px_16px_rgba(249,115,22,0.2)]"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = '/tigrislogo.webp';
-                  }}
-                />
-              </div>
+      {/* HERO BLOKK - Minimális felső térközzel (py-6), hogy ne legyen nagy hézag */}
+      <div className="w-full max-w-4xl mx-auto py-6 border-b border-gray-900/60 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+          
+          {/* Bal oldal: Szövegek */}
+          <div className="md:col-span-7 text-center md:text-left">
+            <span className="text-neon-orange text-xs sm:text-sm font-black tracking-widest uppercase mb-1 block">
+              Gyakran Ismételt Kérdések
+            </span>
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tight mb-2 leading-tight">
+              Taekwon-do és Kick-box <br />
+              <span className="text-neon-orange">edzések gyerekeknek</span> (18.kerület)
+            </h1>
+            <p className="text-gray-400 text-xs sm:text-sm max-w-xl">
+              Minden fontos szakmai kérdés és szülői válasz egy helyen, sallangok nélkül.
+            </p>
+          </div>
+
+          {/* Jobb oldal: Kép és neon izzás */}
+          <div className="md:col-span-5 flex justify-center md:justify-end">
+            <div className="relative group">
+              <div className="absolute inset-0 bg-neon-orange/10 rounded-full filter blur-xl group-hover:bg-neon-orange/20 transition-all duration-300" />
+              <img 
+                src="/gyik-hero.webp" 
+                alt="Tigrisek Edzés" 
+                className="h-32 sm:h-40 md:h-44 object-contain relative z-10 drop-shadow-[0_6px_12px_rgba(249,115,22,0.2)]"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = '/tigrislogo.webp';
+                }}
+              />
             </div>
           </div>
-        </div>
-      )}
 
-      {/* KÉRDÉSEK LISTÁJA: Teljesen nyitott, ablakok nélkül, maximális szélességben */}
-      <div className={`${isFullPage ? 'max-w-4xl mx-auto px-4 py-12' : 'w-full py-4 sm:py-8'}`}>
-        {!isFullPage && (
-          <h2 className="text-3xl font-black text-white mb-8 text-left uppercase tracking-tight">Gyakori Kérdések</h2>
-        )}
-        
-        <div className="space-y-10 w-full">
+        </div>
+      </div>
+
+      {/* JAVÍTOTT KÁRTYA LISTA - Normális ablakok, de nincs felesleges oldalsó távolság */}
+      <div className="w-full max-w-4xl mx-auto">
+        <div className="space-y-6">
           {faqData.map((item, index) => (
             <div 
               key={index} 
-              className="w-full flex flex-col items-center text-center border-b border-gray-900 pb-8 last:border-b-0"
+              className="bg-gray-950 border border-gray-900 rounded-2xl p-5 sm:p-6 md:p-8 flex flex-col items-center text-center hover:border-gray-800 transition-colors"
             >
-              <div className="mb-2 flex justify-center w-full">
+              {/* Kérdőjel ikon - felül középen */}
+              <div className="mb-3 flex justify-center w-full">
                 <HelpCircle className="w-7 h-7 text-neon-orange shrink-0" />
               </div>
 
-              <h3 className="text-white font-black text-lg md:text-xl leading-snug mb-3 w-full">
+              {/* Kérdés - szép fehér és jól olvasható */}
+              <h3 className="text-white font-black text-lg md:text-xl leading-snug mb-3 w-full px-1">
                 {item.question}
               </h3>
 
-              <div className="text-gray-200 text-sm md:text-base leading-relaxed w-full">
+              {/* Válasz - világosabb betűk (text-gray-200), nincs összenyomva */}
+              <div className="text-gray-200 text-sm md:text-base leading-relaxed w-full px-1">
                 <p className="m-0">{item.answer}</p>
               </div>
             </div>
