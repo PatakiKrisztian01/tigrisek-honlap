@@ -103,10 +103,8 @@ export default function Home() {
     setAnswers([]);
   };
 
-  // Kiértékelő logika a válaszok alapján
   const getResult = () => {
     const isOvis = answers[0] === 'ovis';
-    const isGyerek = answers[0] === 'gyerek';
     const prefersKB = answers[3] === 'kb_style';
 
     if (isOvis) {
@@ -117,7 +115,7 @@ export default function Home() {
         btnText: "Megnézem az ovis edzéseket"
       };
     }
-    if (prefersKB && !isOvis) {
+    if (prefersKB) {
       return {
         title: "Kick-box csoportunk a te helyed!",
         desc: "Pörgős, küzdős, modern és brutálisan átmozgat. Kiváló erőnlétet, magabiztosságot és reflexeket ad felnőtteknek és gyerekeknek egyaránt.",
@@ -132,6 +130,15 @@ export default function Home() {
       btnText: "Megnézem a Taekwon-do edzéseket"
     };
   };
+
+  // Kamuból generált vagy valódi szülői/tagi 5 csillagos értékelések a futó sávhoz
+  const reviews = [
+    "Szuper csapat, az edzők fantasztikusak a gyerekekkel! Csak ajánlani tudom. - P. Anita",
+    "A fiam fegyelmezettebb és magabiztosabb lett, amióta ide jár. Köszönjük! - K. Gábor",
+    "Felnőttként kezdtem el a kick-boxot nála, és életem legjobb döntése volt. - M. Tamás",
+    "Családias hangulat, kemény edzések és igazi összetartó közösség. - B. Krisztina",
+    "Profi szakmai munka és fantasztikus nevelés! Igazi Tigris szellem! - F. László"
+  ];
 
   return (
     <div className="w-full bg-black text-gray-300 overflow-hidden">
@@ -290,10 +297,43 @@ export default function Home() {
       </section>
 
 
-      {/* ================= 4. INTERAKTÍV TESZT (Tigris Kalandtérkép & Értékfal) ================= */}
+      {/* ================= 4. INTERAKTÍV TESZT ("A mi világunk" Értékfal és a 7 állomásos Kalandtérkép) ================= */}
       <section className="bg-black py-20 border-b border-gray-900">
+        {/* --- Értékfal Szöveghalmaz a Teszt Szekció Tetején --- */}
+        <div className="w-full flex flex-col items-center justify-center text-center font-mono font-black uppercase tracking-tighter leading-none select-none px-2 text-[2.2vw] sm:text-xs md:text-sm mb-16">
+          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
+            <span className="text-gray-450 opacity-50 inline-block whitespace-nowrap mr-[2vw] sm:mr-4">18. KERÜLET BUDAPEST</span>
+            <span className="text-neon-orange bg-orange-950/40 px-1 sm:px-2 rounded inline-block whitespace-nowrap mx-[0.5vw] sm:mx-2">TAEKWON-DO</span>
+            <span className="text-gray-450 opacity-40 inline-block whitespace-nowrap mx-[4vw] sm:mx-8">HAVANNA SPORT</span>
+            <span className="text-neon-orange bg-orange-950/40 px-1 sm:px-2 rounded inline-block whitespace-nowrap mx-[0.5vw] sm:mx-2">KICK-BOX</span>
+            <span className="text-gray-450 opacity-50 inline-block whitespace-nowrap ml-[2vw] sm:ml-4">PESTSZENTLŐRINC CLUB</span>
+          </div>
+          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
+            <span className="text-gray-300 opacity-60 inline-block whitespace-nowrap mr-[2vw] sm:mr-4">GYEREK FELNŐTT EDZÉS</span>
+            <span className="text-neon-orange font-black inline-block whitespace-nowrap">TIGRISEK—TKD—EDZÉS</span>
+            <span className="text-gray-400 opacity-50 inline-block whitespace-nowrap mx-[3vw] sm:mx-6">KÖZÖSSÉG</span>
+            <span className="text-neon-orange font-black inline-block whitespace-nowrap">BUDAPEST—TIGERS—SE</span>
+            <span className="text-gray-300 opacity-60 inline-block whitespace-nowrap ml-[2vw] sm:ml-4">KERÜLETI KÜZDŐSPORT</span>
+          </div>
+          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
+            <span className="text-gray-300 opacity-70 inline-block whitespace-nowrap mr-[1.5vw] sm:mr-3">INGYENES EDZÉS JELENTKEZZ!</span>
+            <span className="text-orange-500 bg-orange-950/20 px-1 sm:px-2 rounded inline-block whitespace-nowrap">ÖNVÉDELEM—HARCMŰVÉSZET—CSALÁDIAS—KÖZÖSSÉG—TISZTELET—FEGYELEM—ILLEM</span>
+            <span className="text-gray-300 opacity-70 inline-block whitespace-nowrap ml-[1.5vw] sm:ml-3">PRÓBAEDZÉS VÁRUNK RÁD</span>
+          </div>
+          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
+            <span className="text-gray-300 opacity-80 inline-block whitespace-nowrap mr-[1.5vw] sm:mr-3">DÉL-PEST KICK-BOX TAEKWONDO</span>
+            <span className="text-orange-400 inline-block whitespace-nowrap">KITARTÁS—ÖNBIZALOM—HARCOSSÁG—BARÁTSÁG—SZERETET—ALÁZAT—BECSÜLET—ERŐ—EGYSÉG</span>
+            <span className="text-gray-300 opacity-80 inline-block whitespace-nowrap ml-[1.5vw] sm:ml-3">BUDAPESTI SPORT EGYESÜLET</span>
+          </div>
+          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
+            <span className="text-gray-200 opacity-90 inline-block whitespace-nowrap mr-[2vw] sm:mr-4">OVIS EDZÉS KEZDŐ CSOPORT</span>
+            <span className="text-neon-orange font-black inline-block whitespace-nowrap">TÁMOGATÁS—CSAPATSZELLEM—FEGYELMEZETTSÉG—ELSZÁNTSÁG—PÉLDAMUTATÁS—ÖNFEJLESZTÉS</span>
+            <span className="text-gray-200 opacity-90 inline-block whitespace-nowrap ml-[2vw] sm:ml-4">HALADÓ NYILVÁNOS EDZÉSEK</span>
+          </div>
+        </div>
+
+        {/* --- Tényleges Lapozható Kérdéssor --- */}
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          
           <div className="text-center mb-10">
             <span className="text-xs font-black uppercase tracking-widest text-neon-orange block mb-2">Interaktív Kérdőív</span>
             <h2 className="text-3xl font-black text-white uppercase tracking-tight">Tigris Kalandtérkép</h2>
@@ -302,7 +342,6 @@ export default function Home() {
 
           <div className="bg-gray-950 border border-gray-800 rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden min-h-[380px] flex flex-col justify-between">
             {step < quizSteps.length ? (
-              // Folyó teszt fázis
               <div>
                 <div className="flex justify-between items-center mb-6">
                   <span className="text-xs font-mono font-bold text-gray-500 uppercase tracking-widest">
@@ -334,8 +373,7 @@ export default function Home() {
                 </div>
               </div>
             ) : (
-              // Teszt eredmény fázis
-              <div className="text-center py-4 flex flex-col items-center justify-center my-auto animate-fade-in">
+              <div className="text-center py-4 flex flex-col items-center justify-center my-auto">
                 <div className="w-14 h-14 bg-neon-orange/10 border border-neon-orange/30 rounded-full flex items-center justify-center mb-4">
                   <Award className="w-7 h-7 text-neon-orange" />
                 </div>
@@ -365,80 +403,25 @@ export default function Home() {
           </div>
         </div>
 
-        {/* --- Értékfal Szöveghalmaz a Teszt Szekció Alján --- */}
-        <div className="w-full flex flex-col items-center justify-center text-center font-mono font-black uppercase tracking-tighter leading-none select-none px-2 text-[2.2vw] sm:text-xs md:text-sm mt-20">
-          {/* 1. Sor */}
-          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
-            <span className="text-gray-450 opacity-50 inline-block whitespace-nowrap mr-[2vw] sm:mr-4">18. KERÜLET BUDAPEST</span>
-            <span className="text-neon-orange bg-orange-950/40 px-1 sm:px-2 rounded inline-block whitespace-nowrap mx-[0.5vw] sm:mx-2">TAEKWON-DO</span>
-            <span className="text-gray-450 opacity-40 inline-block whitespace-nowrap mx-[4vw] sm:mx-8">HAVANNA SPORT</span>
-            <span className="text-neon-orange bg-orange-950/40 px-1 sm:px-2 rounded inline-block whitespace-nowrap mx-[0.5vw] sm:mx-2">KICK-BOX</span>
-            <span className="text-gray-450 opacity-50 inline-block whitespace-nowrap ml-[2vw] sm:ml-4">PESTSZENTLŐRINC CLUB</span>
-          </div>
-
-          {/* 2. Sor */}
-          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
-            <span className="text-gray-300 opacity-60 inline-block whitespace-nowrap mr-[2vw] sm:mr-4">GYEREK FELNŐTT EDZÉS</span>
-            <span className="text-neon-orange font-black inline-block whitespace-nowrap">TIGRISEK—TKD—EDZÉS</span>
-            <span className="text-gray-400 opacity-50 inline-block whitespace-nowrap mx-[3vw] sm:mx-6">KÖZÖSSÉG</span>
-            <span className="text-neon-orange font-black inline-block whitespace-nowrap">BUDAPEST—TIGERS—SE</span>
-            <span className="text-gray-300 opacity-60 inline-block whitespace-nowrap ml-[2vw] sm:ml-4">KERÜLETI KÜZDŐSPORT</span>
-          </div>
-
-          {/* 3. Sor */}
-          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
-            <span className="text-gray-300 opacity-70 inline-block whitespace-nowrap mr-[1.5vw] sm:mr-3">INGYENES EDZÉS JELENTKEZZ!</span>
-            <span className="text-orange-500 bg-orange-950/20 px-1 sm:px-2 rounded inline-block whitespace-nowrap">ÖNVÉDELEM—HARCMŰVÉSZET—CSALÁDIAS—KÖZÖSSÉG—TISZTELET—FEGYELEM—ILLEM</span>
-            <span className="text-gray-300 opacity-70 inline-block whitespace-nowrap ml-[1.5vw] sm:ml-3">PRÓBAEDZÉS VÁRUNK RÁD</span>
-          </div>
-
-          {/* 4. Sor */}
-          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
-            <span className="text-gray-300 opacity-80 inline-block whitespace-nowrap mr-[1.5vw] sm:mr-3">DÉL-PEST KICK-BOX TAEKWONDO</span>
-            <span className="text-orange-400 inline-block whitespace-nowrap">KITARTÁS—ÖNBIZALOM—HARCOSSÁG—BARÁTSÁG—SZERETET—ALÁZAT—BECSÜLET—ERŐ—EGYSÉG</span>
-            <span className="text-gray-300 opacity-80 inline-block whitespace-nowrap ml-[1.5vw] sm:ml-3">BUDAPESTI SPORT EGYESÜLET</span>
-          </div>
-
-          {/* 5. Sor */}
-          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
-            <span className="text-gray-200 opacity-90 inline-block whitespace-nowrap mr-[2vw] sm:mr-4">OVIS EDZÉS KEZDŐ CSOPORT</span>
-            <span className="text-neon-orange font-black inline-block whitespace-nowrap">TÁMOGATÁS—CSAPATSZELLEM—FEGYELMEZETTSÉG—ELSZÁNTSÁG—PÉLDAMUTATÁS—ÖNFEJLESZTÉS</span>
-            <span className="text-gray-200 opacity-90 inline-block whitespace-nowrap ml-[2vw] sm:ml-4">HALADÓ NYILVÁNOS EDZÉSEK</span>
-          </div>
-
-          {/* 6. Sor */}
-          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
-            <span className="text-white inline-block whitespace-nowrap mr-[2.5vw] sm:mr-5">STRETCHING KÜZDELEM ERŐNLÉT NYÚJTÁS</span>
-            <span className="text-orange-400 inline-block whitespace-nowrap">AKARATERŐ—ÖNURALOM—ÖSSZETARTÁS—BÁTORSÁG—FEJLŐDÉS—MOTIVÁCIÓ—MAGABIZTOSSÁG</span>
-            <span className="text-white inline-block whitespace-nowrap ml-[2.5vw] sm:ml-5">ZSÁKMUNKA PAJZSMUNKA KONDÍCIÓ MOZGÁS</span>
-          </div>
-
-          {/* 7. Sor */}
-          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
-            <span className="text-white inline-block whitespace-nowrap mr-[3vw] sm:mr-6">BEMUTATÓK ÖVVIZSGÁK EDZŐTÁBOR VERSENYZÉS WAKO</span>
-            <span className="text-neon-orange font-black inline-block whitespace-nowrap">ITF-VILÁGKUPA—MAGYAR-BAJNOKSÁG—MEDÁLOK—TRÓFEÁK—HIT—BAJNOKNEVELÉS</span>
-            <span className="text-white inline-block whitespace-nowrap ml-[3vw] sm:ml-6">ÖNVÉDELMI FOGÁSOK KÜZDELMI TECHNIKÁK FORMÁK</span>
-          </div>
-        </div>
-      </section>
-
-
-      {/* ================= 5. FUTÓ 5 CSILLAGSOR ================= */}
-      <section className="w-full bg-gray-950 py-6 border-b border-gray-900 overflow-hidden relative">
-        <div className="relative w-full overflow-hidden whitespace-nowrap flex items-center">
-          <div className="flex w-max gap-12 animate-[marquee_25s_linear_infinite] py-1">
-            {[...Array(10)].map((_, i) => (
-              <div key={i} className="flex items-center gap-2 text-neon-orange font-black tracking-widest uppercase text-sm font-mono">
-                <div className="flex items-center gap-0.5">
-                  <Star className="w-4 h-4 fill-neon-orange text-neon-orange" />
-                  <Star className="w-4 h-4 fill-neon-orange text-neon-orange" />
-                  <Star className="w-4 h-4 fill-neon-orange text-neon-orange" />
-                  <Star className="w-4 h-4 fill-neon-orange text-neon-orange" />
-                  <Star className="w-4 h-4 fill-neon-orange text-neon-orange" />
+        {/* ================= 5. FUTÓ 5 CSILLAGOS ÉRTÉKELÉSSOR (A TESZT ALATT KÖZVETLENÜL) ================= */}
+        <div className="w-full bg-gray-950 py-6 border-y border-gray-900 overflow-hidden relative mt-16">
+          <div className="relative w-full overflow-hidden whitespace-nowrap flex items-center">
+            <div className="flex w-max gap-16 animate-[marquee_35s_linear_infinite] py-1">
+              {[...reviews, ...reviews, ...reviews].map((review, i) => (
+                <div key={i} className="flex items-center gap-3 text-gray-300 font-medium text-sm font-mono whitespace-nowrap">
+                  <div className="flex items-center gap-0.5">
+                    <Star className="w-4 h-4 fill-neon-orange text-neon-orange" />
+                    <Star className="w-4 h-4 fill-neon-orange text-neon-orange" />
+                    <Star className="w-4 h-4 fill-neon-orange text-neon-orange" />
+                    <Star className="w-4 h-4 fill-neon-orange text-neon-orange" />
+                    <Star className="w-4 h-4 fill-neon-orange text-neon-orange" />
+                  </div>
+                  <span className="text-white font-bold">5/5</span>
+                  <span className="text-gray-400 italic">"{review}"</span>
+                  <span className="text-neon-orange mx-2">•</span>
                 </div>
-                <span className="text-white ml-1">BUDAPEST TIGERS SE</span>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
