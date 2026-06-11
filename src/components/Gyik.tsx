@@ -5,12 +5,7 @@ interface FAQItem {
   answer: string;
 }
 
-// Az isFullPage kapcsoló kezeli a külön aloldal felső távolságát
-interface GyikProps {
-  isFullPage?: boolean;
-}
-
-export default function Gyik({ isFullPage = false }: GyikProps) {
+export default function Gyik() {
   const faqData: FAQItem[] = [
     {
       question: "Milyen életkorban érdemes elkezdeni a Taekwon-do vagy Kick-box edzést?",
@@ -34,11 +29,11 @@ export default function Gyik({ isFullPage = false }: GyikProps) {
     },
     {
       question: "Mennyire biztonságos a Taekwon-do és a Kick-box a gyerekek számára?",
-      answer: "A Budapesti Tigrisek SE edzésein a biztonság az első számú szabály. Szakképzett, nagy tapasztalattal rendelkező oktatóink felügyelete mellett, ellenőrzött és modern environmentsben folyik a munka. A sérülések kockázata nálunk a fokozatosságnak köszönhetően alacsonyabb, mint sok más népszerű csapatsportban (pl. foci vagy kézilabda)."
+      answer: "A Budapesti Tigrisek SE edzésein a biztonság az első számú szabály. Szakképzett, nagy tapasztalattal rendelkező oktatóink felügyelete mellett, ellenőrzött és modern környezetben folyik a munka. A sérülések kockázata nálunk a fokozatosságnak köszönhetően alacsonyabb, mint sok más népszerű csapatsportban (pl. foci vagy kézilabda)."
     },
     {
-      question: "Mit vigyen magával a gyermek az eerste edzésre?",
-      answer: "Az első alkalommal teljesen elegendő egy kényelmes, nyúlós sportnadrág, egy tiszta fehér póló és egy palack szénsavmentes víz. A teremben speciális tatamin (szőnyegen), mezítláb edzünk, így cipőre nincs szükség. A védőfelszerelések és a speciális edzőruha (Do-bok) beszerzésére ráértek később is."
+      question: "Mit vigyen magával a gyermek az első edzésre?",
+      answer: "Az első alkalommal teljesen elegendő egy kényelmes, nyúlós sportnadrág, un tiszta fehér póló és egy palack szénsavmentes víz. A teremben speciális tatamin (szőnyegen), mezítláb edzünk, így cipőre nincs szükség. A védőfelszerelések és a speciális edzőruha (Do-bok) beszerzésére ráértek később is."
     },
     {
       question: "Hogyan válasszak harcművészeti egyesületet a 18. kerületben?",
@@ -47,16 +42,16 @@ export default function Gyik({ isFullPage = false }: GyikProps) {
   ];
 
   return (
-    // Ha külön oldalon van (isFullPage), kap egy pt-24-es felső távolságot a menü miatt
-    <div className={`w-full bg-black text-white overflow-x-hidden ${isFullPage ? 'pt-24 sm:pt-28' : ''}`}>
+    // Kapott egy fix pt-28-at és pt-32-t, ami az aloldalon kényszerítve letolja a menü alá!
+    <div className="w-full bg-black text-white overflow-x-hidden pt-28 sm:pt-32 md:pt-36">
       
-      {/* HERO BLOKK - Most már fixen ott van mindenhol */}
-      <div className="w-full max-w-4xl mx-auto py-6 border-b border-gray-900/60 mb-8">
+      {/* HERO BLOKK */}
+      <div className="w-full max-w-4xl mx-auto py-6 border-b border-gray-900/60 mb-8 px-4">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
           
           <div className="md:col-span-7 text-center md:text-left">
             <span className="text-neon-orange text-xs sm:text-sm font-black tracking-widest uppercase mb-1 block">
-              Gyakran Ismételt Kérdések
+              Gyakran Ismett Kérdések
             </span>
             <h1 className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tight mb-2 leading-tight">
               Taekwon-do és Kick-box <br />
@@ -84,8 +79,8 @@ export default function Gyik({ isFullPage = false }: GyikProps) {
         </div>
       </div>
 
-      {/* JAVÍTOTT KÁRTYA LISTA */}
-      <div className="w-full max-w-4xl mx-auto pb-12">
+      {/* KÁRTYA LISTA */}
+      <div className="w-full max-w-4xl mx-auto pb-12 px-4">
         <div className="space-y-6">
           {faqData.map((item, index) => (
             <div 
