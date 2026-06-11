@@ -13,7 +13,7 @@ const ENYEM_A_DÖNTES_KONYV = {
   0: {
     id: 0,
     szekcio: "start",
-    cim: "1. ÁLLOMÁS: A belépő – Ki lép be ma a Tigris-barlang kapuján?",
+    cim: "1. ÁLLOMÁS: A belépő – Ki lép be ma a Tigris-Dojang kapuján?",
     lehetosegek: [
       { felirat: "🦁 Egy apró, de annál hangosabb mini-Tigris (4–7 éves ovis szülője vagyok).", kovetkezo: 101, pontok: { ovis_tkd: 5 } },
       { felirat: "🦅 Egy energiabomba diák, aki az iskolapad után végre le akarja tarolni a tatamit.", kovetkezo: 201, pontok: { taekwon_do: 2 } },
@@ -326,7 +326,7 @@ export default function TigrisValaszto({ teljesOldalas = false }: ValasztoProps)
             onClick={() => { setElinditva(true); setAktualisId(0); }}
             className="bg-neon-orange hover:bg-orange-600 text-black font-black px-8 py-4 rounded-xl text-md transition-all duration-200 hover:scale-105 shadow-lg shadow-neon-orange/20 max-w-xs mx-auto block w-full"
           >
-            🔥 Indítás: Belépés a Tigris-fészekbe
+            🔥 Indítás: Belépés a Tigris-Dojang-ba
           </button>
         </div>
       </div>
