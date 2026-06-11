@@ -1,5 +1,5 @@
 import { Clock, MapPin, Baby, Shield, Mail, Phone, ExternalLink } from 'lucide-react';
-import Gyik from './Gyik'; // <-- 1. IMPORTÁLJUK AZ ÚJ GYIK KOMPONENST
+import Gyik from './Gyik';
 
 const trainers = [
   { name: 'Pataki Krisztián', rank: 'VI.dan', role: 'Klubvezető elnök', image: '/patakikrisztian.webp' },
@@ -153,7 +153,7 @@ export default function Training() {
           </div>
         </div>
 
-        <div className="mb-6">
+        <div className="mb-12">
           <div className="bg-gray-900 border border-amber-600/30 rounded-2xl overflow-hidden">
             <div className="flex flex-col lg:flex-row h-full">
               <div className="flex-1 p-6 lg:p-8">
@@ -172,11 +172,10 @@ export default function Training() {
           </div>
         </div>
 
-        {/* VIDEÓ BLOKK - Mobilon minimális alsó margóval (mb-4 sm:mb-10) */}
-        <div className="mb-4 sm:mb-10 w-full max-w-4xl mx-auto">
-          <h2 className="text-3xl font-black text-white mb-6">Bemutató videó</h2>
+        {/* VIDEÓ BLOKK - Cím eltávolítva, halványító maszkok magassága mobilon csökkentve (h-8) */}
+        <div className="mb-6 w-full max-w-4xl mx-auto">
           <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-2xl bg-black">
-            <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-black to-transparent z-10 pointer-events-none" />
+            <div className="absolute top-0 left-0 right-0 h-8 sm:h-16 bg-gradient-to-b from-black to-transparent z-10 pointer-events-none" />
             <iframe 
               className="w-full h-full relative z-0" 
               src="https://www.youtube.com/embed/Lb_2QhIdyek" 
@@ -184,17 +183,16 @@ export default function Training() {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
               allowFullScreen
             ></iframe>
-            <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black to-transparent z-10 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-0 h-8 sm:h-16 bg-gradient-to-t from-black to-transparent z-10 pointer-events-none" />
           </div>
         </div>
 
-        {/* GYIK BLOKK - Szigorú igazítással a kérdőjelek fentre/középre rendezéséhez, minimális mobil résekkel */}
-        <div className="mb-10 w-full max-w-4xl mx-auto border-t border-gray-900 pt-6 sm:pt-10 list-none prose-none 
-          [&_h3]:flex [&_h3]:flex-col [&_h3]:items-center [&_h3]:text-center [&_h3]:gap-2 [&_h3_svg]:mx-auto [&_h3_span]:w-full">
+        {/* GYIK KONTÉNER - max-w-4xl-re állítva, így pontosan egyezik a Készen állsz blokk szélességével */}
+        <div className="mb-10 w-full max-w-4xl mx-auto pt-4 sm:pt-6">
           <Gyik />
         </div>
 
-        {/* JELENTKEZÉSI BLOKK */}
+        {/* JELENTKEZÉSI BLOKK (KÉSZEN ÁLLSZ) */}
         <div id="kapcsolat" className="w-full max-w-4xl mx-auto bg-neon-orange/5 border border-neon-orange/30 rounded-2xl p-8 sm:p-12">
           <h3 className="text-white font-black text-3xl mb-4">Készen állsz?</h3>
           <p className="text-gray-300 max-w-xl mb-8">Az első edzés ingyenes! Gyere el és ismerd meg közösségünket. Minden korosztályt szeretettel várunk.</p>
