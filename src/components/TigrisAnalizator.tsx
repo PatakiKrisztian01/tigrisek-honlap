@@ -7,7 +7,7 @@ interface AnalizatorProps {
   isFullPage?: boolean;
 }
 
-// FELNŐTT KÉRDÉSSOR + PSZICHOLÓGIAI FEEDBACKEK
+// FELNŐTT KÉRDÉSSOR + POZITÍV FEEDBACKEK
 const ADULT_QUESTIONS = [
   {
     title: "Mi hozott ide ma leginkább?",
@@ -113,7 +113,6 @@ const RESULTS = {
   },
 };
 
-// VALÓDI GOOGLE REVIEW STÍLUSÚ VÉLEMÉNYEK A BIZALOMÉPÍTÉSHEZ
 const REVIEWS = [
   { name: "Kovácsné Kriszti (Szülő)", text: "A kisfiam borzasztóan félénk volt az iskolában. 3 hónap Tigris edzés után teljesen kinyílt, a tartása megváltozott, és büszkén meséli a formagyakorlatokat!", rating: 5 },
   { name: "Péter (Felnőtt kezdő)", text: "Harmincegynehány évesen, nulla kondival sétáltam be. Senki nem nézett le, az edzők hihetetlenül türelmesek. A legjobb döntésem volt a mozgásszegény életem ellen.", rating: 5 }
@@ -126,22 +125,18 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
   const [showBookingForm, setShowBookingForm] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   
-  // Pszichológiai mikrostöveg állapot
   const [activeFeedback, setActiveFeedback] = useState<string | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
-
-  // FOMO számláló (szimulált helyek)
   const [spotsLeft, setSpotsLeft] = useState(6);
 
   useEffect(() => {
-    // Kis pszichológiai trükk: időközönként „elfogy” egy hely, növelve a sürgősséget
     const timer = setTimeout(() => {
       setSpotsLeft(4);
     }, 45000);
     return () => clearTimeout(timer);
   }, []);
 
-  const [formData, setFormData] = useState({ name: "", phone: "", ageGroup: "Gyermek (4-14 év)" });
+  const [formData, setFormData] = useState({ name: "", phone: "", ageGroup: "Gyermek (4-14 yr)" });
   const [scores, setScores] = useState<Record<string, number>>({
     harcos: 0, villam: 0, orzo: 0, ebredo: 0, kolyok: 0,
   });
@@ -161,7 +156,6 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
   const chooseOption = (option: any) => {
     if (isTransitioning) return;
     
-    // Pszichológiai megerősítés felvillantása a továbblépés előtt
     setActiveFeedback(option.feedback);
     setIsTransitioning(true);
 
@@ -171,11 +165,12 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
     });
     setScores(nextScores);
 
+    // DUPLÁZOTT IDŐ: ~3.6 másodpercig marad kint a megerősítő dicséret
     setTimeout(() => {
       setCurrentStep((s) => s + 1);
       setActiveFeedback(null);
       setIsTransitioning(false);
-    }, 180000 / 100); // 1.8 másodpercig olvasható a megerősítő szöveg
+    }, 3600); 
   };
 
   const handleReset = () => {
@@ -185,8 +180,14 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
     setShowBookingForm(false);
     setFormSubmitted(false);
     setActiveFeedback(null);
-    setFormData({ name: "", phone: "", ageGroup: "Gyermek (4-14 év)" });
+    setFormData({ name: "", phone: "", ageGroup: "Gyermek (4-14 yr)" });
     setStarted(isFullPage); 
+  };
+
+  const openBookingForm = () => {
+    setShowBookingForm(true);
+    // AZ OLDAL TETEJÉRE DOBÁS KATTINTÁSKOR
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const finished = isChildRoute !== null && currentStep >= activeQuestions.length;
@@ -196,9 +197,10 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setFormSubmitted(true);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // HOME BANNER GENERÁLÁSA
+  // KEZDŐ EDZÉS AJÁNLÓ BANNER
   if (!isFullPage && !started && isChildRoute === null) {
     return (
       <div className="w-full max-w-4xl mx-auto my-12 px-4">
@@ -207,13 +209,13 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
             <HelpCircle size={140} className="transform rotate-12" />
           </div>
           <div className="inline-flex items-center gap-1.5 bg-neon-orange/10 border border-neon-orange/30 text-neon-orange text-xs font-black tracking-widest uppercase px-3 py-1 rounded-full mb-3">
-            <Sparkles size={12} /> Személyiség & Cél-Analizátor
+            <Sparkles size={12} /> Szia! Készen állsz egy gyors játékra?
           </div>
           <h2 className="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight mb-4 leading-none">
-            Melyik <span className="text-neon-orange">Tigris edzés</span> hozza el a változást?
+            Melyik <span className="text-neon-orange">Tigris edzés</span> passzol hozzátok?
           </h2>
           <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto mb-8 leading-relaxed">
-            A küzdősport nemcsak mozgás – önbizalom és fegyelem. Töltsd ki a 18. kerületi szakosztályaink hivatalos, 2 perces tesztjét, és kapj azonnali érzelmi és szakmai diagnózist!
+            Találd meg a tökéletes mozgásformát a 18. kerületben! Töltsd ki a vidám, 2 perces kvízünket, és tudd meg azonnal, melyik szakosztályunkban éreznéd a legjobban magad!
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto">
             <button 
@@ -238,20 +240,19 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
     <div className={`w-full bg-black text-white overflow-x-hidden ${isFullPage ? 'pt-28 sm:pt-32 md:pt-36 min-h-screen' : ''}`}>
       <div className="max-w-2xl mx-auto px-4">
         
-        {/* CÍMSOR */}
+        {/* VIDÁM CÍMSOR (IDEGEN SZAVAK NÉLKÜL) */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-black uppercase tracking-tight flex items-center justify-center gap-2">
-            🐯 Tigris <span className="text-neon-orange">Profil</span> Tölcsér <span className="text-xs bg-neon-orange text-black px-1.5 py-0.5 rounded font-black">V5</span>
+            🐯 Tigris <span className="text-neon-orange">Teszt</span> – Találd meg a sportod!
           </h1>
           <p className="text-gray-400 text-xs mt-1">
-            Pszichológiai validációval és értéknövelt konverziós motorral támogatott rendszer.
+            Válassz a lehetőségek közül, és nézzük meg, mi lakik benned!
           </p>
         </div>
 
-        {/* UTASVÁLASZTÓ HA KÖZVETLENÜL IDE JÖN */}
         {isChildRoute === null && (
           <div className="bg-gray-950 border border-gray-900 rounded-2xl p-6 sm:p-8 text-center shadow-xl">
-            <h2 className="text-xl sm:text-2xl font-black mb-6 text-white uppercase tracking-tight">Kinek keressük a tökéletes utat?</h2>
+            <h2 className="text-xl sm:text-2xl font-black mb-6 text-white uppercase tracking-tight">Első lépés: Kinek keressük a tökéletes edzést?</h2>
             <div className="grid gap-4">
               <button
                 onClick={() => handleFirstDecision(true)}
@@ -271,37 +272,32 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
           </div>
         )}
 
-        {/* INTERAKTÍV KÉRDÉS FOLYAMAT */}
         {started && !finished && isChildRoute !== null && (
           <div className="w-full">
-            {/* Haladási csík (Dzsungel stílus) */}
             <div className="w-full bg-gray-900 rounded-full h-2 mb-6 border border-gray-800 relative">
               <div
                 className="bg-neon-orange h-2 rounded-full transition-all duration-300 shadow-[0_0_8px_rgba(249,115,22,0.6)]"
-                style={{ width: `${((currentStep) / activeQuestions.length) * 100}%` }}
+                style={{ width: `${(currentStep / activeQuestions.length) * 100}%` }}
               />
             </div>
 
-            {/* Kérdés kártya */}
             <div className="bg-gray-950 border border-gray-900 rounded-2xl p-6 sm:p-8 text-center shadow-xl relative min-h-[340px] flex flex-col justify-center">
               {activeFeedback ? (
-                /* Pszichológiai validációs képernyő (Mikro-dopamin) */
                 <div className="animate-fade-in space-y-4 py-8">
                   <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-neon-orange/10 text-neon-orange">
                     <ShieldCheck size={28} />
                   </div>
                   <p className="text-white font-bold text-lg sm:text-xl max-w-md mx-auto leading-relaxed px-2">
-                    "{activeFeedback}"
+                    {activeFeedback}
                   </p>
                   <p className="text-xs text-gray-500 uppercase tracking-widest animate-pulse pt-2">
-                    Következő kérdés elemzése...
+                    Mindjárt jön a következő kérdés...
                   </p>
                 </div>
               ) : (
-                /* Aktuális kérdések és válaszok */
                 <div className="w-full">
                   <span className="text-xs font-black text-neon-orange uppercase tracking-widest block mb-1">
-                    {isChildRoute ? "Szülői irányvonal" : "Felnőtt irányvonal"} — {currentStep + 1} / {activeQuestions.length}
+                    {isChildRoute ? "Mindent a gyerkőcről" : "Mindent rólad"} — {currentStep + 1} / {activeQuestions.length}
                   </span>
                   <h2 className="text-xl sm:text-2xl font-black mb-6 text-white tracking-tight">
                     {activeQuestions[currentStep].title}
@@ -325,62 +321,55 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
           </div>
         )}
 
-        {/* PSZICHO-MARKETING DIAGNÓZIS BLOKK */}
         {finished && winner && (
           <div className="bg-gray-950 border border-gray-900 rounded-2xl p-6 sm:p-8 shadow-2xl pb-12">
             {!showBookingForm ? (
               <>
-                {/* Karakter profil */}
-                <div className="text-6xl text-center filter drop-shadow-[0_0_15px_rgba(249,115,22,0.4)] animate-bounce">
+                <div className="text-6xl text-center filter drop-shadow-[0_0_15px_rgba(249,115,22,0.4)]">
                   {RESULTS[winner].emoji}
                 </div>
-                <span className="text-xs font-black text-center block text-neon-orange uppercase tracking-widest mt-2">A kiértékelt archetípusod:</span>
+                <span className="text-xs font-black text-center block text-neon-orange uppercase tracking-widest mt-2">A teszted eredménye:</span>
                 <h2 className="text-3xl font-black text-center text-white uppercase tracking-tight">
                   {RESULTS[winner].title}
                 </h2>
                 <p className="text-center text-neon-orange font-black text-md sm:text-lg mt-1 border-b border-gray-900 pb-4">
-                  Szakmai javaslat: <span className="underline">{RESULTS[winner].sport}</span>
+                  Nektek ajánlott csoport: <span className="underline">{RESULTS[winner].sport}</span>
                 </p>
 
-                {/* „Miért ezt kaptad” szakmai indoklás */}
                 <div className="mt-6">
                   <h3 className="font-black text-white text-sm uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                    <CheckCircle2 size={16} className="text-neon-orange" /> Szakmai elemzés a válaszaid alapján
+                    <CheckCircle2 size={16} className="text-neon-orange" /> Miért éppen ezt ajánljuk?
                   </h3>
                   <p className="text-gray-300 text-sm leading-relaxed bg-black/60 p-4 border border-gray-900 rounded-xl">
                     {RESULTS[winner].why}
                   </p>
                 </div>
 
-                {/* ELŐTTE / UTÁNA TRANSZFORMÁCIÓS BLOKK (A marketing lényege) */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
                   <div className="bg-red-950/20 border border-red-900/30 p-3.5 rounded-xl">
-                    <span className="text-xs font-black text-red-500 uppercase tracking-widest block mb-1">🔴 Jelenlegi állapot</span>
+                    <span className="text-xs font-black text-red-500 uppercase tracking-widest block mb-1">🔴 Innen indulunk</span>
                     <p className="text-gray-400 text-xs sm:text-sm italic">{RESULTS[winner].before}</p>
                   </div>
                   <div className="bg-green-950/20 border border-green-900/30 p-3.5 rounded-xl">
-                    <span className="text-xs font-black text-green-400 uppercase tracking-widest block mb-1">🟢 Edzések után</span>
+                    <span className="text-xs font-black text-green-400 uppercase tracking-widest block mb-1">🟢 Ide jutunk el közösen</span>
                     <p className="text-gray-200 text-xs sm:text-sm font-semibold">{RESULTS[winner].after}</p>
                   </div>
                 </div>
 
-                {/* Humoros Diagnózis */}
                 <div className="mt-4 p-4 bg-black border border-gray-900 rounded-xl">
-                  <h3 className="font-black text-neon-orange text-xs uppercase tracking-wider mb-1">Humoros diagnózis</h3>
+                  <h3 className="font-black text-neon-orange text-xs uppercase tracking-wider mb-1">Egy kis humor a végére</h3>
                   <p className="text-gray-400 text-xs sm:text-sm italic">"{RESULTS[winner].humor}"</p>
                 </div>
 
-                {/* VALÓSÁG-STASTISZTIKA BOX */}
                 <div className="mt-4 p-4 bg-neon-orange/5 border border-neon-orange/20 rounded-xl text-center">
                   <p className="text-gray-300 text-xs sm:text-sm">
-                    🔥 A hozzád hasonló karakterű jelentkezők <strong className="text-white">84%-a</strong> az első ingyenes próbahetük után hosszú távú taggá válik nálunk a 18. kerületben.
+                    ✨ A nálunk kezdő tagok <strong className="text-white">84%-a</strong> már az első bemutató edzésen hatalmas sikerélménnyel tér haza!
                   </p>
                 </div>
 
-                {/* AKCIÓ GOMBOK VALUE-ANCHORING TEKCHNIKÁVAL */}
                 <div className="flex flex-col gap-3 mt-6">
                   <button 
-                    onClick={() => setShowBookingForm(true)}
+                    onClick={openBookingForm}
                     className="w-full bg-neon-orange hover:bg-orange-600 text-black font-black p-4 rounded-xl text-center text-base transition-all shadow-xl shadow-neon-orange/20 flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95 group"
                   >
                     <span>🎁 Kérem a 12 500 Ft értékű Start-Csomagot 0 Ft-ért</span>
@@ -391,31 +380,29 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
                     onClick={handleReset}
                     className="text-xs font-bold text-gray-500 hover:text-white transition-colors flex items-center justify-center gap-1 mt-2 mx-auto"
                   >
-                    <RotateCcw size={12} /> Teszt újratöltése (módosítani akarom a válaszokat)
+                    <RotateCcw size={12} /> Szeretném újra kitölteni a tesztet
                   </button>
                 </div>
               </>
             ) : (
               
-              /* ÉRTÉKNÖVELT JELENTKEZÉSI ŰRLAP + SOCIAL PROOF + FOMO */
               <div className="w-full">
                 {!formSubmitted ? (
                   <div className="space-y-6">
                     
-                    {/* Sürgősségi számláló (FOMO) */}
                     <div className="bg-red-950/20 border border-red-900/40 p-3 rounded-xl flex items-center justify-center gap-2 text-red-400 text-xs sm:text-sm font-black uppercase tracking-wider animate-pulse">
                       <Clock size={16} />
-                      Sürgős: Ebben a hónapban már csak {spotsLeft} szabad hely van ebben a csoportban!
+                      Figyelem: Ebben a hónapban már csak {spotsLeft} szabad helyünk maradt ebben a csoportban!
                     </div>
 
                     <form onSubmit={handleFormSubmit} className="space-y-4">
                       <div className="text-center">
                         <h3 className="text-xl font-black uppercase tracking-tight text-white">Próbahetek Aktiválása</h3>
-                        <p className="text-xs text-gray-400 mt-1">Kötelezettségmentes regisztráció a kiválasztott {RESULTS[winner].sport} edzésre.</p>
+                        <p className="text-xs text-gray-400 mt-1">Regisztráció a kiválasztott {RESULTS[winner].sport} edzésre.</p>
                       </div>
 
                       <div className="space-y-1">
-                        <label className="text-xs font-black uppercase text-gray-400 block">Keresztneved vagy Teljes Neved:</label>
+                        <label className="text-xs font-black uppercase text-gray-400 block">Teljes neved:</label>
                         <div className="relative">
                           <User className="absolute left-3 top-3.5 h-4 w-4 text-gray-500" />
                           <input 
@@ -430,7 +417,7 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
                       </div>
 
                       <div className="space-y-1">
-                        <label className="text-xs font-black uppercase text-gray-400 block">Telefonszámod (Ezen egyeztetjük a pontos napot):</label>
+                        <label className="text-xs font-black uppercase text-gray-400 block">Telefonszámod (Ezen egyeztetjük az első alkalmat):</label>
                         <div className="relative">
                           <Phone className="absolute left-3 top-3.5 h-4 w-4 text-gray-500" />
                           <input 
@@ -445,7 +432,7 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
                       </div>
 
                       <div className="space-y-1">
-                        <label className="text-xs font-black uppercase text-gray-400 block">Megerősített Korosztály:</label>
+                        <label className="text-xs font-black uppercase text-gray-400 block">Korosztály megerősítése:</label>
                         <div className="relative">
                           <GraduationCap className="absolute left-3 top-3.5 h-4 w-4 text-gray-500" />
                           <select 
@@ -460,12 +447,11 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
                         </div>
                       </div>
 
-                      {/* START-CSOMAG ÉRTÉKEKÖZLÉS */}
+                      {/* JAVÍTOTT START-CSOMAG TARTALOM FÜZET NÉLKÜL */}
                       <div className="bg-black border border-gray-900 rounded-xl p-3 text-xs space-y-1.5 text-gray-400">
                         <div className="font-black text-white uppercase text-[10px] tracking-wider text-neon-orange">A Start-csomagod tartalma:</div>
                         <div className="flex items-center gap-1.5">✓ 1 teljes hét korlátlan hozzáférés az edzéseinkhez</div>
                         <div className="flex items-center gap-1.5">✓ Személyes fittségi és koordinációs felmérés az első órán</div>
-                        <div className="flex items-center gap-1.5">✓ „Tigris Alapok” digitális felkészítő füzet szülőknek/kezdőknek</div>
                       </div>
 
                       <div className="pt-2 flex gap-3">
@@ -485,10 +471,9 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
                       </div>
                     </form>
 
-                    {/* SOCIAL PROOF (TÁRSADALMI BIZONYÍTÉK) A BIZALOMÉPÍTÉSHEZ BIZTOSÍTÉKKÉNT */}
                     <div className="border-t border-gray-900 pt-6 space-y-4">
                       <div className="text-center text-xs text-gray-500 uppercase tracking-widest font-bold flex items-center justify-center gap-1">
-                        <Users size={12} /> Amit a többi szülő és tag mond rólunk:
+                        <Users size={12} /> Mit mondanak a szülők és a felnőtt tagjaink?
                       </div>
                       <div className="grid grid-cols-1 gap-3">
                         {REVIEWS.map((r, i) => (
@@ -505,21 +490,20 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
 
                   </div>
                 ) : (
-                  /* UTOLSÓ DOPAMIN-LÖKET SIKERES BEKÜLDÉSKOR */
                   <div className="text-center py-6 space-y-4 animate-fade-in">
                     <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-neon-orange/10 border border-neon-orange/30 text-neon-orange mb-2 shadow-[0_0_15px_rgba(249,115,22,0.2)]">
                       <Flame size={36} className="animate-pulse" />
                     </div>
-                    <h3 className="text-2xl font-black text-white uppercase tracking-tight">A Start-Csomagod lefoglalva!</h3>
+                    <h3 className="text-2xl font-black text-white uppercase tracking-tight">Sikeresen jelentkeztél!</h3>
                     <p className="text-sm text-gray-300 max-w-sm mx-auto leading-relaxed">
-                      Gratulálunk, <strong className="text-white">{formData.name}</strong>! Biztosítottad a helyedet a <strong className="text-white">{formData.ageGroup}</strong> {RESULTS[winner].sport} edzésünkön. 24 órán belül hívni fogunk ezen a számon: <strong className="text-neon-orange">{formData.phone}</strong> a részletekkel!
+                      Kedves <strong className="text-white">{formData.name}</strong>! Rögzítettük a helyedet a <strong className="text-white">{formData.ageGroup}</strong> edzésünkön. 24 órán belül telefonon keresni fogunk a megadott számon (<strong className="text-neon-orange">{formData.phone}</strong>), hogy egyeztessük az első edzésed napját!
                     </p>
                     <div className="pt-4">
                       <button 
                         onClick={handleReset}
                         className="border border-gray-800 hover:border-gray-700 px-6 py-3 rounded-xl text-sm font-bold text-gray-400 hover:text-white"
                       >
-                        Vissza a főoldalra / Új kitöltés
+                        Vissza az elejére
                       </button>
                     </div>
                   </div>
