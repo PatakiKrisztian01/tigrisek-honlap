@@ -27,7 +27,7 @@ const FELNOTT_KERDESEK = [
     ],
   },
   {
-    cim: "Mi lenne a legnagyobb győzelmed egy év múlva?",
+    cim: "Mi lenne a legnagyobb győzelmed egy year múlva?",
     lehetosegek: [
       { felirat: "🥋 Büszkén viselném a következő hivatalos övfokozatomat", visszajelzes: "Látom a szemeid előtt a sikert. Meg fogunk dolgozni érte, de meglesz!", pontok: { harcos: 4 } },
       { felirat: "🥇 Akár egy hivatalos verseny dobogójára is felállnék", visszajelzes: "Benned van a bajnoki szikra! A Budapesti Tigrisek versenysport ága készen áll rád.", pontok: { villam: 4, harcos: 1 } },
@@ -50,14 +50,14 @@ const GYEREK_KERDESEK = [
     lehetosegek: [
       { felirat: "🤝 Közösségbe kerüljön, fegyelmet, tiszteletet és fókuszt tanuljon", visszajelzes: "Megértem. A Budapesti Tigriseknél a tisztelet az első és az utolsó lecke is.", pontok: { harcos: 3, kolyok: 2 } },
       { felirat: "⚡ Levezesse a végtelen energiáját egy pörgős, vidám csapatban", visszajelzes: "Igen! Inkább nálunk adja ki a felesleget a 18. kerületi edzőtermünkben, mint otthon.", pontok: { villam: 3, kolyok: 2 } },
-      { felirat: "🛡️ Magabiztossá váljon, emelt fővel járjon, és meg tudja védeni magát", visszajelzes: "Szülőként ez a legnagyobb vágyunk. Megtanítjuk fizikailag és verbálisan is kiállni magáért.", pontok: { orzo: 3, harcos: 2 } },
+      { felirat: "🛡️ Magabiztossá váljon, emelt fővel járjon, and meg tudja védeni magát", visszajelzes: "Szülőként ez a legnagyobb vágyunk. Megtanítjuk fizikailag és verbálisan is kiállni magáért.", pontok: { orzo: 3, harcos: 2 } },
     ],
   },
   {
     cim: "Milyen kihívással szembesülsz leginkább a mindennapokban?",
     lehetosegek: [
       { felirat: "📱 Nehéz lerángatni a képernyők elől, lusta mozogni", visszajelzes: "A digitális függőség ellen a legjobb ellenszer az offline sikerélmény. Megmozdítjuk!", pontok: { villam: 3, kolyok: 2 } },
-      { felirat: "🧠 Kicsit bizonytalan, visszahúzódóbb, nehezen illeszkedik be", visszajelzes: "A küzdősport csodákra képes a lélekkel. Biztonságos környezetben fog kinyílni nálunk.", pontok: { harcos: 4 } },
+      { felirat: "🧠 Kicsit bizonytalan, visszahúzódóbb, nehezen illeszkedik be", visszajelzes: "A küzdősport csodákra képes a lélekkel. Biztonságos environments fogni kinyílni nálunk.", pontok: { harcos: 4 } },
       { felirat: "🏃 Szeleburdi, nehezen figyel egy dologra, hamar megun mindent", visszajelzes: "A játékos, de szigorú struktúra a Budapesti Tigriseknél pont a fókuszidőt nyújtja meg.", pontok: { kolyok: 3, villam: 2 } },
     ],
   },
@@ -107,7 +107,7 @@ export default function TigrisValaszto({ teljesOldalas = false }: ValasztoProps)
     return gyerekAg ? GYEREK_KERDESEK : FELNOTT_KERDESEK;
   }, [gyerekAg]);
 
-  const handleElsoDonto = (gyermeknek Keres) => {
+  const handleElsoDonto = (gyermeknekKeres: boolean) => {
     setGyerekAg(gyermeknekKeres);
     setPontok({ harcos: 0, villam: 0, orzo: 0, ebredo: 0, kolyok: gyermeknekKeres ? 5 : 0 });
     setElinditva(true);
@@ -140,7 +140,7 @@ export default function TigrisValaszto({ teljesOldalas = false }: ValasztoProps)
     setUrlapLathato(false);
     setUrlapElkuldve(false);
     setAktivVisszajelzes(null);
-    setUrlapAdat({ nev: "", telefon: "", korosztaly: "Junior / Felnőtt csoport (14+") });
+    setUrlapAdat({ nev: "", telefon: "", korosztaly: "Junior / Felnőtt csoport (14+ év)" });
     setElinditva(teljesOldalas); 
   };
 
