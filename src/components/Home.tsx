@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { ArrowRight, Calendar, Shield, Award, Heart, Star } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ArrowRight, Calendar, Shield, Award, Heart, Star, ChevronRight, RotateCcw } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 
 // Automatikus beolvasás a hírek oldalon használt logikával
@@ -33,6 +33,105 @@ export default function Home() {
       return dateB - dateA;
     })
     .slice(0, 3);
+
+  // ================= INTERAKTÍV TESZT ÁLLAPOTOK ÉS ADATOK =================
+  const [step, setStep] = useState(0);
+  const [answers, setAnswers] = useState<string[]>([]);
+
+  const quizSteps = [
+    {
+      title: "1. lépés: Hány éves vagy?",
+      options: [
+        { text: "4–6 éves (Ovis)", value: "ovis" },
+        { text: "7–14 éves (Suli/Gyerek)", value: "gyerek" },
+        { text: "15 év feletti (Kamasz / Felnőtt)", value: "felnott" }
+      ]
+    },
+    {
+      title: "2. lépés: Mi a legfőbb célod az edzéssel?",
+      options: [
+        { text: "Önvédelem és magabiztosság", value: "onvedelem" },
+        { text: "Fizikai erőnlét, mozgás és fogyás", value: "fittsseg" },
+        { text: "Versenyszerű sport és fegyelem", value: "verseny" }
+      ]
+    },
+    {
+      title: "3. lépés: Volt már korábban tapasztalatod küzdősportban?",
+      options: [
+        { text: "Teljesen kezdő vagyok, most próbálom először", value: "kezdo" },
+        { text: "Igen, korábban már próbáltam valamit", value: "halado" }
+      ]
+    },
+    {
+      title: "4. lépés: Milyen típusú mozgást kedvelsz jobban?",
+      options: [
+        { text: "Ahol a látványos rúgások és a tradíció dominál", value: "tkd_style" },
+        { text: "A pörgős, küzdősebb, boxolósabb mozgást", value: "kb_style" }
+      ]
+    },
+    {
+      title: "5. lépés: Milyen edzéshangulatban érzed jól magad?",
+      options: [
+        { text: "Családias, ahol mindenki figyel mindenkire", value: "csaladias" },
+        { text: "Kemény, pörgős, ahol a maximumot hozzák ki belőlem", value: "kemeny" }
+      ]
+    },
+    {
+      title: "6. lépés: Hányszor szeretnél edzésre járni egy héten?",
+      options: [
+        { text: "Heti 2 alkalom tökéletesen elég nekem", value: "heti2" },
+        { text: "Heti 3 vagy több alkalommal is jönnék pörögni", value: "heti3" }
+      ]
+    },
+    {
+      title: "7. lépés: Mikor szeretnéd elkezdeni a próbaedzést?",
+      options: [
+        { text: "Már ezen a héten jönnék!", value: "azonnal" },
+        { text: "A következő 1-2 héten belül tervezem", value: "hamarosan" }
+      ]
+    }
+  ];
+
+  const handleAnswer = (value: string) => {
+    const updatedAnswers = [...answers, value];
+    setAnswers(updatedAnswers);
+    setStep(step + 1);
+  };
+
+  const resetQuiz = () => {
+    setStep(0);
+    setAnswers([]);
+  };
+
+  // Kiértékelő logika a válaszok alapján
+  const getResult = () => {
+    const isOvis = answers[0] === 'ovis';
+    const isGyerek = answers[0] === 'gyerek';
+    const prefersKB = answers[3] === 'kb_style';
+
+    if (isOvis) {
+      return {
+        title: "Tigris Kölykök (Ovis Taekwon-do) csoportunkat ajánljuk!",
+        desc: "Játékos, koordináció-fejlesztő edzések, ahol a picik megtanulják a fegyelmet és a tiszteletet, miközben levezetik az energiáikat.",
+        link: "/edzesek",
+        btnText: "Megnézem az ovis edzéseket"
+      };
+    }
+    if (prefersKB && !isOvis) {
+      return {
+        title: "Kick-box csoportunk a te helyed!",
+        desc: "Pörgős, küzdős, modern és brutálisan átmozgat. Kiváló erőnlétet, magabiztosságot és reflexeket ad felnőtteknek és gyerekeknek egyaránt.",
+        link: "/edzesek",
+        btnText: "Megnézem a Kick-box edzéseket"
+      };
+    }
+    return {
+      title: "ITF Taekwon-do csoportunkat ajánljuk neked!",
+      desc: "Tradicionális harcművészet, látványos rúgásokkal, önvédelemmel és egy hihetetlenül összetartó, családias közösséggel.",
+      link: "/edzesek",
+      btnText: "Megnézem a Taekwon-do edzéseket"
+    };
+  };
 
   return (
     <div className="w-full bg-black text-gray-300 overflow-hidden">
@@ -91,7 +190,7 @@ export default function Home() {
       </div>
 
 
-      {/* ================= 1. SZÍV BLOKK (Ismerj meg minket) ================= */}
+      {/* ================= 1. A SZÍV (Rólunk Blokk) ================= */}
       <section id="about" className="py-20 bg-gray-950 border-b border-gray-900">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-neon-orange text-sm font-bold tracking-wider uppercase mb-2">Ismerj meg minket</p>
@@ -191,14 +290,83 @@ export default function Home() {
       </section>
 
 
-      {/* ================= 4. TESZT ("A mi világunk" Értékfal) ================= */}
-      <section className="bg-black py-24 flex flex-col items-center justify-center overflow-hidden border-b border-gray-900">
-        <div className="max-w-2xl text-center mb-12 px-4">
-          <span className="text-sm font-bold uppercase tracking-widest text-neon-orange mb-2 block">A mi világunk</span>
-          <h2 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight">Értékek, Közösség és Erő</h2>
+      {/* ================= 4. INTERAKTÍV TESZT (Tigris Kalandtérkép & Értékfal) ================= */}
+      <section className="bg-black py-20 border-b border-gray-900">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center mb-10">
+            <span className="text-xs font-black uppercase tracking-widest text-neon-orange block mb-2">Interaktív Kérdőív</span>
+            <h2 className="text-3xl font-black text-white uppercase tracking-tight">Tigris Kalandtérkép</h2>
+            <p className="text-gray-400 text-sm mt-2">Találd meg a hozzád legjobban passzoló edzéstípust mindössze 7 lépésben!</p>
+          </div>
+
+          <div className="bg-gray-950 border border-gray-800 rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden min-h-[380px] flex flex-col justify-between">
+            {step < quizSteps.length ? (
+              // Folyó teszt fázis
+              <div>
+                <div className="flex justify-between items-center mb-6">
+                  <span className="text-xs font-mono font-bold text-gray-500 uppercase tracking-widest">
+                    Állomás: {step + 1} / {quizSteps.length}
+                  </span>
+                  <div className="w-24 bg-gray-900 h-1.5 rounded-full overflow-hidden">
+                    <div 
+                      className="bg-neon-orange h-full transition-all duration-300"
+                      style={{ width: `${((step + 1) / quizSteps.length) * 100}%` }}
+                    />
+                  </div>
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-black text-white mb-6 leading-snug">
+                  {quizSteps[step].title}
+                </h3>
+
+                <div className="space-y-3">
+                  {quizSteps[step].options.map((opt, i) => (
+                    <button
+                      key={i}
+                      onClick={() => handleAnswer(opt.value)}
+                      className="w-full text-left bg-gray-900/60 hover:bg-neon-orange hover:text-black border border-gray-800 rounded-xl p-4 font-bold text-sm sm:text-base transition-all duration-200 flex items-center justify-between group"
+                    >
+                      <span>{opt.text}</span>
+                      <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              // Teszt eredmény fázis
+              <div className="text-center py-4 flex flex-col items-center justify-center my-auto animate-fade-in">
+                <div className="w-14 h-14 bg-neon-orange/10 border border-neon-orange/30 rounded-full flex items-center justify-center mb-4">
+                  <Award className="w-7 h-7 text-neon-orange" />
+                </div>
+                <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-3">
+                  {getResult().title}
+                </h3>
+                <p className="text-gray-300 text-sm sm:text-base max-w-xl mx-auto leading-relaxed mb-8">
+                  {getResult().desc}
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                  <Link
+                    to={getResult().link}
+                    className="bg-neon-orange hover:bg-orange-600 text-black font-black px-6 py-3.5 rounded-xl text-sm transition-all flex items-center justify-center gap-2 shadow-lg shadow-neon-orange/20"
+                  >
+                    {getResult().btnText}
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                  <button
+                    onClick={resetQuiz}
+                    className="border border-gray-800 hover:border-gray-600 text-gray-400 hover:text-white font-bold px-5 py-3.5 rounded-xl text-sm transition-all flex items-center justify-center gap-2"
+                  >
+                    <RotateCcw className="w-4 h-4" /> Újra kitöltöm
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
 
-        <div className="w-full flex flex-col items-center justify-center text-center font-mono font-black uppercase tracking-tighter leading-none select-none px-2 text-[2.2vw] sm:text-xs md:text-sm">
+        {/* --- Értékfal Szöveghalmaz a Teszt Szekció Alján --- */}
+        <div className="w-full flex flex-col items-center justify-center text-center font-mono font-black uppercase tracking-tighter leading-none select-none px-2 text-[2.2vw] sm:text-xs md:text-sm mt-20">
           {/* 1. Sor */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
             <span className="text-gray-450 opacity-50 inline-block whitespace-nowrap mr-[2vw] sm:mr-4">18. KERÜLET BUDAPEST</span>
@@ -251,41 +419,6 @@ export default function Home() {
             <span className="text-neon-orange font-black inline-block whitespace-nowrap">ITF-VILÁGKUPA—MAGYAR-BAJNOKSÁG—MEDÁLOK—TRÓFEÁK—HIT—BAJNOKNEVELÉS</span>
             <span className="text-white inline-block whitespace-nowrap ml-[3vw] sm:ml-6">ÖNVÉDELMI FOGÁSOK KÜZDELMI TECHNIKÁK FORMÁK</span>
           </div>
-
-          {/* 8. Sor */}
-          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
-            <span className="text-gray-200 opacity-90 inline-block whitespace-nowrap mr-[4vw] sm:mr-8">GYERMEK HARCMŰVÉSZET HARCOS EGÉSZSÉGES ÉLETMÓD</span>
-            <span className="text-orange-400 inline-block whitespace-nowrap">LÉGY HARCOS—KEZDD EL MA—TIGERS CSALÁD—SZELLEMI FEJLŐDÉS</span>
-            <span className="text-gray-200 opacity-90 inline-block whitespace-nowrap ml-[4vw] sm:mr-8">SPORTOLJ NÁLUNK MOZGÁS ÖRÖME FITT FELNŐTTEK</span>
-          </div>
-
-          {/* 9. Sor */}
-          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
-            <span className="text-gray-300 opacity-80 inline-block whitespace-nowrap mr-[6vw] sm:mr-12">ÖNVÉDELMI OKTATÁS KÜZDŐSPORTOK OKTATÁS EDZÉSEK TAEKWON</span>
-            <span className="text-neon-orange font-black inline-block whitespace-nowrap">FIZIKAI ERŐ—ÖNBIZALOM-FEJLESZTÉS—UTÁNPÓTLÁS SPORT</span>
-            <span className="text-gray-300 opacity-80 inline-block whitespace-nowrap ml-[6vw] sm:ml-12">OVIS MOZGÁS ISKOLÁS SPORT KÖZÖSSÉGI ÉLET PROFI EDZŐK</span>
-          </div>
-
-          {/* 10. Sor */}
-          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
-            <span className="text-gray-300 opacity-70 inline-block whitespace-nowrap mr-[8vw] sm:mr-16">MESTEREK DAN VIZSGA KUP VIZSGA TIGERS KLUB SÉRTETLEN ÖNBIZALOM</span>
-            <span className="text-neon-orange font-black inline-block whitespace-nowrap">FEGYELMEZETT HARCOSOK—SIKERES VIZSGÁK</span>
-            <span className="text-gray-300 opacity-70 inline-block whitespace-nowrap ml-[8vw] sm:ml-16">BAJNOKI CÍMEK KÜZDELMI SZELLEM TISZTELETADÁS ALÁZATOS MUNKA</span>
-          </div>
-
-          {/* 11. Sor */}
-          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
-            <span className="text-gray-400 opacity-60 inline-block whitespace-nowrap mr-[10vw] sm:mr-20">ERŐS TEST ERŐS LÉLEK EDZŐTERMI KÖZÖSSÉG CSALÁDIAS HANGULAT</span>
-            <span className="text-neon-orange font-black bg-orange-950/40 px-1 sm:px-2 py-0.5 rounded inline-block whitespace-nowrap">SPORTEGYESÜLET</span>
-            <span className="text-gray-400 opacity-60 inline-block whitespace-nowrap ml-[10vw] sm:mr-20">JÓ HANGULAT PONTOSSÁG RÚGÁSOK ÜTÉSEK PAJZS EDZÉS ZSÁKOLÁS</span>
-          </div>
-
-          {/* 12. Sor */}
-          <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
-            <span className="text-gray-400 opacity-50 inline-block whitespace-nowrap mr-[6vw] sm:mr-12">ERŐNLÉT RUGALMASSÁG GYORSASÁG KARATE REAKCIÓIDŐ TAGDÍJ PRÓBA ÓRA</span>
-            <span className="text-neon-orange font-black bg-orange-950/40 px-1 sm:px-2 py-0.5 rounded inline-block whitespace-nowrap"> TIGERS</span>
-            <span className="text-gray-400 opacity-50 inline-block whitespace-nowrap ml-[6vw] sm:ml-12">BUDAPESTI KICK-BOX KERÜLETI TAEKWONDO HAVANNA LAKÓTELEPI SPORT</span>
-          </div>
         </div>
       </section>
 
@@ -293,7 +426,6 @@ export default function Home() {
       {/* ================= 5. FUTÓ 5 CSILLAGSOR ================= */}
       <section className="w-full bg-gray-950 py-6 border-b border-gray-900 overflow-hidden relative">
         <div className="relative w-full overflow-hidden whitespace-nowrap flex items-center">
-          {/* Végtelenített csillagsor animáció (Marquee) */}
           <div className="flex w-max gap-12 animate-[marquee_25s_linear_infinite] py-1">
             {[...Array(10)].map((_, i) => (
               <div key={i} className="flex items-center gap-2 text-neon-orange font-black tracking-widest uppercase text-sm font-mono">
