@@ -13,9 +13,9 @@ const ENYEM_A_DÖNTES_KONYV = {
   0: {
     id: 0,
     szekcio: "start",
-    cim: "1. ÁLLOMÁS: A belépő – Ki lép be ma a Tigris-fészek kapuján?",
+    cim: "1. ÁLLOMÁS: A belépő – Ki lép be ma a Tigris-barlang kapuján?",
     lehetosegek: [
-      { felirat: "🦁 Egy apró, de annál hangosabb mini-oroszlán (4–7 éves ovis szülője vagyok).", kovetkezo: 101, pontok: { ovis_tkd: 5 } },
+      { felirat: "🦁 Egy apró, de annál hangosabb mini-Tigris (4–7 éves ovis szülője vagyok).", kovetkezo: 101, pontok: { ovis_tkd: 5 } },
       { felirat: "🦅 Egy energiabomba diák, aki az iskolapad után végre le akarja tarolni a tatamit.", kovetkezo: 201, pontok: { taekwon_do: 2 } },
       { felirat: "🥋 Felnőttként, megfontoltan érkezem – szeretném a nulláról felépíteni a fizikumom vagy régi motorosként visszatérni.", kovetkezo: 201, pontok: { taekwon_do: 2 } },
       { felirat: "⚡ Egy igazi lázadó tehetség (vagy a szülője), aki unja a sablonos sportokat, és valami látványosat keres.", kovetkezo: 201, pontok: { kick_box_forma: 3 } },
