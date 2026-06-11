@@ -1,4 +1,5 @@
-import { ArrowRight, Users, Calendar, Shield, Award, Heart } from 'lucide-react';
+import { useEffect } from 'react';
+import { ArrowRight, Calendar, Shield, Award, Heart } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 
 // Ugyanaz az automatikus beolvasás, mint a hírek oldalon
@@ -6,6 +7,20 @@ const newsFiles = import.meta.glob('/public/data/news/*.json', { eager: true });
 
 export default function Home() {
   const navigate = useNavigate();
+
+  // Kreatív SEO Megoldás: Dinamikus Title és Meta leírás injektálása külső csomag nélkül
+  useEffect(() => {
+    document.title = "Budapest Tigers SE | Taekwon-do és Kick-box edzések a 18. kerületben";
+    
+    // Megkeressük vagy létrehozzuk a meta description-t a Google számára
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.setAttribute('name', 'description');
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.setAttribute('content', 'Budapest Tigers SE: Professzionális ITF Taekwon-do és Kick-box edzések gyerekeknek, ovisoknak és felnőtteknek Pestszentlőrincen, a Havanna lakótelepnél. Ingyenes próbaedzés!');
+  }, []);
 
   // Feldolgozzuk a fájlokat, sorba rendezzük legfrissebb szerint, és kivesszük az első 3-at
   const legfrissebbHirek = Object.entries(newsFiles)
@@ -51,10 +66,11 @@ export default function Home() {
                 <span className="text-neon-orange">testben és lélekben</span>
               </h1>
 
-              <div className="text-base sm:text-lg lg:text-xl text-gray-200 max-w-2xl mb-6 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-                <p>ITF Taekwon-do és Kick-box edzések gyerekeknek és felnőtteknek,</p>
-                <p className="text-neon-orange font-bold text-xs sm:text-sm lg:text-base uppercase mt-1 tracking-widest">kezdőtől fekete övig.</p>
-              </div>
+              {/* SEO JAVÍTÁS: A sima bekezdés helyett H2 címsor, hogy a Google azonnal tudja a kulcsszavakat */}
+              <h2 className="text-base sm:text-lg lg:text-xl text-gray-200 max-w-2xl mb-6 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                ITF Taekwon-do és Kick-box edzések gyerekeknek és felnőtteknek a 18. kerületben, <br />
+                <span className="text-neon-orange font-bold text-xs sm:text-sm lg:text-base uppercase mt-1 tracking-widest block">kezdőtől fekete övig.</span>
+              </h2>
 
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                 <Link
@@ -71,7 +87,7 @@ export default function Home() {
             <div className="hidden lg:flex lg:col-span-4 justify-center lg:justify-end">
               <img
                 src="/tigrislogo.webp"
-                alt="Tigrisek Logo"
+                alt="Budapest Tigers SE - Taekwon-do és Kick-box Egyesület hivatalos logója"
                 className="h-64 xl:h-72 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
                 style={{ animation: 'float 6s ease-in-out infinite' }}
               />
@@ -171,7 +187,7 @@ export default function Home() {
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
             <span className="text-white inline-block whitespace-nowrap mr-[3vw] sm:mr-6">BEMUTATÓK ÖVVIZSGÁK EDZŐTÁBOR VERSENYZÉS WAKO</span>
             <span className="text-neon-orange font-black inline-block whitespace-nowrap">ITF-VILÁGKUPA—MAGYAR-BAJNOKSÁG—MEDÁLOK—TRÓFEÁK—HIT—BAJNOKNEVELÉS</span>
-            <span className="text-white inline-block whitespace-nowrap ml-[3vw] sm:ml-6">ÖNVÉDELMI FOGÁSOK KÜZDELMI TECHNIÁK FORMÁK</span>
+            <span className="text-white inline-block whitespace-nowrap ml-[3vw] sm:ml-6">ÖNVÉDELMI FOGÁSOK KÜZDELMI TECHNIKÁK FORMÁK</span>
           </div>
 
           {/* 8. Sor */}
@@ -222,8 +238,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FUTÓ HÍRFOLYAM SZEKCIÓ (IDEKERÜLT AZ IDÉZET ALÁ - LASSABB ÉS NAGYOBB BLOKKOK) */}
-      <div className="w-full bg-black border-b border-gray-900 py-10 relative overflow-hidden">
+      {/* FUTÓ HÍRFOLYAM SZEKCIÓ (IDEKERÜLT AZ IDÉZET ALÁ - LASSABB, NAGYOBB ÉS SEO OPTIMALIZÁLT) */}
+      <section className="w-full bg-black border-b border-gray-900 py-10 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 mb-5 flex items-center justify-between">
           <h2 className="text-sm font-black uppercase tracking-widest text-neon-orange flex items-center gap-2">
             <span className="w-2 h-2 bg-red-600 rounded-full animate-pulse" /> Legfrissebb híreink
@@ -235,7 +251,7 @@ export default function Home() {
 
         {/* Külső doboz */}
         <div className="relative w-full overflow-hidden whitespace-nowrap">
-          {/* Animált flex sáv - Most már 50s sebességgel fut (fele olyan gyorsan mint eddig) */}
+          {/* Animált flex sáv - 50s nyugodt sebesség */}
           <div className="flex flex-row-reverse w-max gap-8 animate-[marquee_50s_linear_infinite] hover:[animation-play-state:paused] py-3 px-4 cursor-pointer">
             {[...legfrissebbHirek, ...legfrissebbHirek, ...legfrissebbHirek, ...legfrissebbHirek].map((item, index) => (
               <div
@@ -245,20 +261,28 @@ export default function Home() {
               >
                 {/* Hír kis képe - Megnövelt h-44 magasság */}
                 <div className="w-full h-44 relative bg-black overflow-hidden">
-                  <img
-                    src={item.image || '/news-placeholder.webp'}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = 'https://tigrisek.hu/images/choi1.jpg';
-                    }}
-                  />
+                  {item.image ? (
+                    <img
+                      src={item.image}
+                      alt={`Budapest Tigers SE hír: ${item.title}`} // SEO JAVÍTÁS: Egyértelműbb alt leírás a Google Képeknek
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      onError={(e) => {
+                        // SEO JAVÍTÁS: Külső vegyes tartalmú link helyett eltüntetjük a hibás képet, a helyét egy elegáns sötét panel veszi át
+                        (e.target as HTMLImageElement).style.display = 'none';
+                      }}
+                    />
+                  ) : null}
+                  {/* Ha nincs kép vagy elromlott, ez a stílusos beépített box jelenik meg mixed-content hiba nélkül */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black flex items-center justify-center -z-10">
+                    <span className="text-neon-orange/20 font-black text-xl uppercase tracking-widest font-mono">Budapest Tigers</span>
+                  </div>
+                  
                   <div className="absolute top-3 left-3 bg-black/80 backdrop-blur-sm border border-gray-800 text-[11px] text-gray-300 px-2.5 py-1 rounded-md font-mono flex items-center gap-1.5">
                     <Calendar className="w-3 h-3 text-neon-orange" /> {item.date}
                   </div>
                 </div>
 
-                {/* Hír szövege - Nagyobb padding és betűk */}
+                {/* Hír szövege - Nagyobb ablakokhoz igazítva */}
                 <div className="p-5">
                   <h3 className="text-white font-black text-base sm:text-lg line-clamp-1 group-hover:text-neon-orange transition-colors">
                     {item.title}
@@ -271,7 +295,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Club Leaders */}
       <section className="py-20 bg-black">
@@ -281,14 +305,14 @@ export default function Home() {
           </div>
           <div className="grid sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
             <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 text-center hover:border-neon-orange/50 transition-all duration-300">
-              <img src="/patakikrisztian.webp" alt="Pataki Krisztián" className="w-20 h-20 mx-auto mb-4 object-contain" />
+              <img src="/patakikrisztian.webp" alt="Pataki Krisztián VI. Dan - Budapest Tigers SE Klubvezető Elnök" className="w-20 h-20 mx-auto mb-4 object-contain" />
               <h3 className="text-white font-black text-xl mb-1">Pataki Krisztián</h3>
               <p className="text-neon-orange font-bold text-sm mb-4">VI.Dan — Klubvezető elnök</p>
               <a href="mailto:tigrisek@gmail.com" className="text-gray-400 hover:text-neon-orange text-sm transition-colors block mb-1">tigrisek@gmail.com</a>
               <a href="tel:+36709415992" className="text-gray-400 hover:text-neon-orange text-sm transition-colors">+36-70-941-5992</a>
             </div>
             <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 text-center hover:border-neon-orange/50 transition-all duration-300">
-              <img src="/patakinezsaniko.webp" alt="Patakiné Zs. Anikó" className="w-20 h-20 mx-auto mb-4 object-contain" />
+              <img src="/patakinezsaniko.webp" alt="Patakiné Zs. Anikó III. Dan - Budapest Tigers SE Klubvezető Helyettes" className="w-20 h-20 mx-auto mb-4 object-contain" />
               <h3 className="text-white font-black text-xl mb-1">Patakiné Zs. Anikó</h3>
               <p className="text-neon-orange font-bold text-sm mb-4">III.Dan — Klubvezető helyettes</p>
               <a href="mailto:patakineaniko@gmail.com" className="text-gray-400 hover:text-neon-orange text-sm transition-colors block mb-1">patakineaniko@gmail.com</a>
