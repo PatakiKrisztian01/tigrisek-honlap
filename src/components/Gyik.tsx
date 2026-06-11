@@ -5,7 +5,12 @@ interface FAQItem {
   answer: string;
 }
 
-export default function Gyik() {
+// Az isFullPage kapcsoló kezeli a külön aloldal felső távolságát
+interface GyikProps {
+  isFullPage?: boolean;
+}
+
+export default function Gyik({ isFullPage = false }: GyikProps) {
   const faqData: FAQItem[] = [
     {
       question: "Milyen életkorban érdemes elkezdeni a Taekwon-do vagy Kick-box edzést?",
@@ -29,10 +34,10 @@ export default function Gyik() {
     },
     {
       question: "Mennyire biztonságos a Taekwon-do és a Kick-box a gyerekek számára?",
-      answer: "A Budapesti Tigrisek SE edzésein a biztonság az első számú szabály. Szakképzett, nagy tapasztalattal rendelkező oktatóink felügyelete mellett, ellenőrzött és modern környezetben folyik a munka. A sérülések kockázata nálunk a fokozatosságnak köszönhetően alacsonyabb, mint sok más népszerű csapatsportban (pl. foci vagy kézilabda)."
+      answer: "A Budapesti Tigrisek SE edzésein a biztonság az első számú szabály. Szakképzett, nagy tapasztalattal rendelkező oktatóink felügyelete mellett, ellenőrzött és modern environmentsben folyik a munka. A sérülések kockázata nálunk a fokozatosságnak köszönhetően alacsonyabb, mint sok más népszerű csapatsportban (pl. foci vagy kézilabda)."
     },
     {
-      question: "Mit vigyen magával a gyermek az első edzésre?",
+      question: "Mit vigyen magával a gyermek az eerste edzésre?",
       answer: "Az első alkalommal teljesen elegendő egy kényelmes, nyúlós sportnadrág, egy tiszta fehér póló és egy palack szénsavmentes víz. A teremben speciális tatamin (szőnyegen), mezítláb edzünk, így cipőre nincs szükség. A védőfelszerelések és a speciális edzőruha (Do-bok) beszerzésére ráértek később is."
     },
     {
@@ -42,13 +47,13 @@ export default function Gyik() {
   ];
 
   return (
-    <div className="w-full bg-black text-white overflow-x-hidden">
+    // Ha külön oldalon van (isFullPage), kap egy pt-24-es felső távolságot a menü miatt
+    <div className={`w-full bg-black text-white overflow-x-hidden ${isFullPage ? 'pt-24 sm:pt-28' : ''}`}>
       
-      {/* HERO BLOKK - Minimális felső térközzel (py-6), hogy ne legyen nagy hézag */}
+      {/* HERO BLOKK - Most már fixen ott van mindenhol */}
       <div className="w-full max-w-4xl mx-auto py-6 border-b border-gray-900/60 mb-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
           
-          {/* Bal oldal: Szövegek */}
           <div className="md:col-span-7 text-center md:text-left">
             <span className="text-neon-orange text-xs sm:text-sm font-black tracking-widest uppercase mb-1 block">
               Gyakran Ismételt Kérdések
@@ -62,7 +67,6 @@ export default function Gyik() {
             </p>
           </div>
 
-          {/* Jobb oldal: Kép és neon izzás */}
           <div className="md:col-span-5 flex justify-center md:justify-end">
             <div className="relative group">
               <div className="absolute inset-0 bg-neon-orange/10 rounded-full filter blur-xl group-hover:bg-neon-orange/20 transition-all duration-300" />
@@ -80,25 +84,22 @@ export default function Gyik() {
         </div>
       </div>
 
-      {/* JAVÍTOTT KÁRTYA LISTA - Normális ablakok, de nincs felesleges oldalsó távolság */}
-      <div className="w-full max-w-4xl mx-auto">
+      {/* JAVÍTOTT KÁRTYA LISTA */}
+      <div className="w-full max-w-4xl mx-auto pb-12">
         <div className="space-y-6">
           {faqData.map((item, index) => (
             <div 
               key={index} 
               className="bg-gray-950 border border-gray-900 rounded-2xl p-5 sm:p-6 md:p-8 flex flex-col items-center text-center hover:border-gray-800 transition-colors"
             >
-              {/* Kérdőjel ikon - felül középen */}
               <div className="mb-3 flex justify-center w-full">
                 <HelpCircle className="w-7 h-7 text-neon-orange shrink-0" />
               </div>
 
-              {/* Kérdés - szép fehér és jól olvasható */}
               <h3 className="text-white font-black text-lg md:text-xl leading-snug mb-3 w-full px-1">
                 {item.question}
               </h3>
 
-              {/* Válasz - világosabb betűk (text-gray-200), nincs összenyomva */}
               <div className="text-gray-200 text-sm md:text-base leading-relaxed w-full px-1">
                 <p className="m-0">{item.answer}</p>
               </div>
