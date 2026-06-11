@@ -187,9 +187,9 @@ export default function Training() {
           </div>
         </div>
 
-        {/* GYIK KONTÉNER - max-w-4xl-re állítva, így pontosan egyezik a Készen állsz blokk szélességével */}
-        <div className="mb-10 w-full max-w-4xl mx-auto pt-4 sm:pt-6">
-          <Gyik />
+        {/* GYIK KONTÉNER - Semlegesíti a Gyik saját felső paddingjét, így tökéletesen simul a videó alá */}
+        <div className="mb-10 w-full max-w-4xl mx-auto -mt-24 sm:-mt-28 md:-mt-32">
+        <Gyik />
         </div>
 
         {/* JELENTKEZÉSI BLOKK (KÉSZEN ÁLLSZ) */}
