@@ -5,11 +5,16 @@ interface FAQItem {
   answer: string;
 }
 
-export default function Gyik() {
+// Az isFullPage kapcsoló dönti el, kell-e a Hero fejléc
+interface GyikProps {
+  isFullPage?: boolean;
+}
+
+export default function Gyik({ isFullPage = false }: GyikProps) {
   const faqData: FAQItem[] = [
     {
       question: "Milyen életkorban érdemes elkezdeni a Taekwon-do vagy Kick-box edzést?",
-      answer: "A legtöbb gyermek 4–7 éves kortól (Ovis TKD) már sikeresen bekapcsolódhat a korosztályos edzéseinkbe a 18. kerületben. Kutatások szerint ebben az életkorban a leggyorsabb a mozgáskoordináció, az egyensúlyérzék and a figyelem fejlődése. A Budapesti Tigrisek SE edzései játékos formában fejlesztik ezeket a képességeket, így a gyerekek folyamatos sikerélményeket szereznek."
+      answer: "A legtöbb gyermek 4–7 éves kortól (Ovis TKD) már sikeresen bekapcsolódhat a korosztályos edzéseinkbe a 18. kerületben. Kutatások szerint ebben az életkorban a leggyorsabb a mozgáskoordináció, az egyensúlyérzék és a figyelem fejlődése. A Budapesti Tigrisek SE edzései játékos formában fejlesztik ezeket a képességeket, így a gyerekek folyamatos sikerélményeket szereznek."
     },
     {
       question: "Mi a különbség a Taekwon-do, a Karate és a Kick-box között?",
@@ -42,65 +47,63 @@ export default function Gyik() {
   ];
 
   return (
-    <div className="min-h-screen pt-24 bg-black text-white overflow-x-hidden">
+    <div className={`w-full bg-black text-white ${isFullPage ? 'min-h-screen pt-24 overflow-x-hidden' : ''}`}>
       
-      {/* VISSZATETT HŐS (HERO) BLOKK - Izzással, képpel, címsorral */}
-      <div className="max-w-6xl mx-auto px-4 py-12 border-b border-gray-900">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-          
-          {/* BAL OLDAL: Szöveg */}
-          <div className="md:col-span-7 text-center md:text-left">
-            <span className="text-neon-orange text-xs sm:text-sm font-black tracking-widest uppercase mb-2 block">
-              Gyakran Ismételt Kérdések
-            </span>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight mb-4 leading-tight">
-              Taekwon-do és Kick-box <br />
-              <span className="text-neon-orange">edzések gyerekeknek</span> (18.kerület)
-            </h1>
-            <p className="text-gray-400 text-sm sm:text-base max-w-xl">
-              Minden fontos szakmai kérdés és szülői válasz egy helyen, sallangok nélkül.
-            </p>
-          </div>
-
-          {/* JOBB OLDAL: Kép */}
-          <div className="md:col-span-5 flex justify-center md:justify-end">
-            <div className="relative group">
-              <div className="absolute inset-0 bg-neon-orange/10 rounded-full filter blur-2xl group-hover:bg-neon-orange/20 transition-all duration-300" />
-              <img 
-                src="/gyik-hero.webp" 
-                alt="Tigrisek Edzés" 
-                className="h-48 sm:h-56 md:h-64 object-contain relative z-10 drop-shadow-[0_8px_16px_rgba(249,115,22,0.2)]"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/tigrislogo.webp';
-                }}
-              />
+      {/* HERO BLOKK: Csak akkor jelenik meg, ha az önálló aloldalon vagyunk */}
+      {isFullPage && (
+        <div className="max-w-6xl mx-auto px-4 py-12 border-b border-gray-900">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            <div className="md:col-span-7 text-center md:text-left">
+              <span className="text-neon-orange text-xs sm:text-sm font-black tracking-widest uppercase mb-2 block">
+                Gyakran Ismételt Kérdések
+              </span>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight mb-4 leading-tight">
+                Taekwon-do és Kick-box <br />
+                <span className="text-neon-orange">edzések gyerekeknek</span> (18.kerület)
+              </h1>
+              <p className="text-gray-400 text-sm sm:text-base max-w-xl">
+                Minden fontos szakmai kérdés és szülői válasz egy helyen, sallangok nélkül.
+              </p>
+            </div>
+            <div className="md:col-span-5 flex justify-center md:justify-end">
+              <div className="relative group">
+                <div className="absolute inset-0 bg-neon-orange/10 rounded-full filter blur-2xl group-hover:bg-neon-orange/20 transition-all duration-300" />
+                <img 
+                  src="/gyik-hero.webp" 
+                  alt="Tigrisek Edzés" 
+                  className="h-48 sm:h-56 md:h-64 object-contain relative z-10 drop-shadow-[0_8px_16px_rgba(249,115,22,0.2)]"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = '/tigrislogo.webp';
+                  }}
+                />
+              </div>
             </div>
           </div>
-
         </div>
-      </div>
+      )}
 
-      {/* UKÁZ SZERINTI JAVÍTOTT KÁRTYA LISTA */}
-      <div className="max-w-4xl mx-auto px-4 py-12">
-        <div className="space-y-8">
+      {/* KÉRDÉSEK LISTÁJA: Teljesen nyitott, ablakok nélkül, maximális szélességben */}
+      <div className={`${isFullPage ? 'max-w-4xl mx-auto px-4 py-12' : 'w-full py-4 sm:py-8'}`}>
+        {!isFullPage && (
+          <h2 className="text-3xl font-black text-white mb-8 text-left uppercase tracking-tight">Gyakori Kérdések</h2>
+        )}
+        
+        <div className="space-y-10 w-full">
           {faqData.map((item, index) => (
             <div 
               key={index} 
-              className="bg-gray-950 border border-gray-900 rounded-2xl p-6 md:p-8 flex flex-col items-center text-center hover:border-gray-800 transition-colors"
+              className="w-full flex flex-col items-center text-center border-b border-gray-900 pb-8 last:border-b-0"
             >
-              {/* Kérdőjel ikon - Külön sorban, fixen felül középen */}
-              <div className="mb-3 flex justify-center w-full">
+              <div className="mb-2 flex justify-center w-full">
                 <HelpCircle className="w-7 h-7 text-neon-orange shrink-0" />
               </div>
 
-              {/* Kérdés - Középre zárva, nincs oldalsó ikon ami összenyomná */}
-              <h3 className="text-white font-black text-lg md:text-xl leading-snug mb-4 w-full px-2">
+              <h3 className="text-white font-black text-lg md:text-xl leading-snug mb-3 w-full">
                 {item.question}
               </h3>
 
-              {/* Válasz - Nincs bal oldali eltolás vagy csík, tökéletesen olvasható */}
-              <div className="text-gray-300 text-sm md:text-base leading-relaxed max-w-3xl w-full px-2">
-                <p className="m-0 text-gray-400">{item.answer}</p>
+              <div className="text-gray-200 text-sm md:text-base leading-relaxed w-full">
+                <p className="m-0">{item.answer}</p>
               </div>
             </div>
           ))}
