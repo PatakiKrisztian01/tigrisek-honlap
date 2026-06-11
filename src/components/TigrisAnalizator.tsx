@@ -11,28 +11,28 @@ const ADULT_QUESTIONS = [
   {
     title: "Mi hozott ide ma leginkább?",
     options: [
-      { label: "🥋 Szeretnék megtanulni küzdeni és technikás lenni", feedback: "Fantasztikus! A technika és a kontroll nálunk mindig megelőzi a nyers erőt.", scores: { harcos: 4 } },
-      { label: "💪 Brutális állóképességet és pörgős edzést akarok", feedback: "Készítsd a törölközőt! Olyan pörgést kapsz, amit az edzőtermek világa nem tud megadni.", scores: { villam: 4 } },
+      { label: "🥋 Szeretnék megtanulni küzdeni és technikás lenni", feedback: "Fantasztikus! A technika és a kontroll a Budapesti Tigriseknél mindig megelőzi a nyers erőt.", scores: { harcos: 4 } },
+      { label: "💪 Brutális állóképességet és pörgős edzést akarok", feedback: "Készítsd a törölközőt! Olyan pörgést kapsz, amit a hagyományos edzőtermek világa nem tud megadni.", scores: { villam: 4 } },
       { label: "🛡️ Hatékony, gyakorlatias önvédelmet keresek", feedback: "A legbölcsebb döntés. A biztonságérzet a magabiztos élet alapja.", scores: { orzo: 4 } },
-      { label: "🌱 Sosincs késő: teljesen kezdőként formába lendülnék", feedback: "A legjobb helyen vagy. A felnőtt tagjaink 80%-a pontosan innen indult!", scores: { ebredo: 4 } },
+      { label: "🌱 Sosincs késő: teljesen kezdőként formába lendülnék", feedback: "A legjobb helyen vagy. A felnőtt tagjaink 80%-a pontosan innen indult a 18. kerületben!", scores: { ebredo: 4 } },
     ],
   },
   {
     title: "Milyen edzéshangulat inspirál a legjobban?",
     options: [
-      { label: "🏆 Precíz, fegyelmezett, ahol komoly rangot ad a ruha és az öv", feedback: "A tradíciók tartást adnak. Imádni fogod az övvizsgák hangulatát.", scores: { harcos: 3 } },
+      { label: "🏆 Precíz, fegyelmezett, ahol komoly rangot ad a ruha és az öv", feedback: "A tradíciók tartást adnak. Imádni fogod a Budapesti Tigrisek hivatalos övvizsgáit.", scores: { harcos: 3 } },
       { label: "🥊 Dinamikus, zenés, pörgős küzdősport hangulat", feedback: "Akkor itt nem lesz unalmas perc, a ritmus és a pörgés garantált!", scores: { villam: 3 } },
-      { label: "🧠 Nyugodt, koncentrált, ahol a túlélési technikák dominálnak", feedback: "Maximális fókusz. Itt minden mozdulatnak valós, gyakorlati tétje van.", scores: { orzo: 3 } },
-      { label: "🤝 Családias, támogató közösség, ahol nem baj, ha még nulla az erőnlétem", feedback: "Nálunk nincs ítélkezés. Egymást emeljük fel, nem egymáson taposunk.", scores: { ebredo: 3 } },
+      { label: "🧠 Nyugodt,街koncentrált, ahol a túlélési technikák dominálnak", feedback: "Maximális fókusz. Nálunk minden mozdulatnak valós, gyakorlati tétje van.", scores: { orzo: 3 } },
+      { label: "🤝 Családias, támogató közösség, ahol nem baj, if még nulla az erőnlétem", feedback: "Nálunk nincs ítélkezés. Egymást emeljük fel, nem egymáson taposunk.", scores: { ebredo: 3 } },
     ],
   },
   {
     title: "Mi lenne a legnagyobb győzelmed egy év múlva?",
     options: [
       { label: "🥋 Büszkén viselném a következő hivatalos övfokozatomat", feedback: "Látom a szemeid előtt a sikert. Meg fogunk dolgozni érte, de meglesz!", scores: { harcos: 4 } },
-      { label: "🥇 Akár egy hivatalos verseny dobogójára is felállnék", feedback: "Benned van a bajnoki szikra! A versenysport águnk készen áll rád.", scores: { villam: 4, harcos: 1 } },
+      { label: "🥇 Akár egy hivatalos verseny dobogójára is felállnék", feedback: "Benned van a bajnoki szikra! A Budapesti Tigrisek versenysport ága készen áll rád.", scores: { villam: 4, harcos: 1 } },
       { label: "😊 Magabiztos fellépésem lenne, megszűnne a mindennapi stressz", feedback: "Az edzés a legjobb feszültségoldó. Kiütjük a stresszt a mindennapokból.", scores: { orzo: 4 } },
-      { label: "🔥 Végre leadtam a felesleget és kicsattanok az energiától", feedback: "A tükör nem fog hazudni. Az anyagcseréd új fokozatba kapcsol!", scores: { ebredo: 4 } },
+      { label: "🔥 Végre leadtam a felesleget és kicsattanok az energiától", feedback: "A tükör nem fog hazudni. Az anyagcseréd nálunk új fokozatba kapcsol!", scores: { ebredo: 4 } },
     ],
   },
 ];
@@ -41,43 +41,42 @@ const CHILD_QUESTIONS = [
   {
     title: "Hány éves a gyermeked?",
     options: [
-      { label: "🐯 4–7 éves (Ovis, kisiskolás korosztály)", feedback: "A legkritikusabb kor a mozgásfejlődés és a szabálykövetés szempontjából. Szuper időzítés!", scores: { kolyok: 5 } },
+      { label: "🦁 4–7 éves (Ovis, kisiskolás korosztály)", feedback: "A legkritikusabb kor a mozgásfejlődés szempontjából. Szuper időzítés a Tigris Kölyök programhoz!", scores: { kolyok: 5 } },
       { label: "🦅 8–14 éves (Iskolás, junior korosztály)", feedback: "Ebben a korban a közösség és a magabiztosság a legfőbb pajzs az iskolai stressz ellen.", scores: { harcos: 3, villam: 2 } },
     ],
   },
   {
     title: "Mi a legfőbb belső célod a gyermeked edzésével?",
     options: [
-      { label: "🤝 Közösségbe kerüljön, fegyelmet, tiszteletet és fókuszt tanuljon", feedback: "Megértem. Nálunk a tisztelet az első és az utolsó lecke is a tatamin.", scores: { harcos: 3, kolyok: 2 } },
-      { label: "⚡ Levezesse a végtelen energiáját egy pörgős, vidám csapatban", feedback: "Igen! Inkább nálunk adja ki a felesleget, mint otthon a bútorokon.", scores: { villam: 3, kolyok: 2 } },
-      { label: "🛡️ Magabiztossá váljon, emelt fővel járjon, és meg tudja védeni magát", feedback: "Szülőként ez a legnagyobb vágyunk. Megtanítjuk nemcsak fizikailag, de verbálisan is kiállni magáért.", scores: { orzo: 3, harcos: 2 } },
+      { label: "🤝 Közösségbe kerüljön, fegyelmet, tiszteletet és fókuszt tanuljon", feedback: "Megértem. A Budapesti Tigriseknél a tisztelet az első és az utolsó lecke is.", scores: { harcos: 3, kolyok: 2 } },
+      { label: "⚡ Levezesse a végtelen energiáját egy pörgős, vidám csapatban", feedback: "Igen! Inkább nálunk adja ki a felesleget a 18. kerületi edzőtermünkben, mint otthon.", scores: { villam: 3, kolyok: 2 } },
+      { label: "🛡️ Magabiztossá váljon, emelt fővel járjon, és meg tudja védeni magát", feedback: "Szülőként ez a legnagyobb vágyunk. Megtanítjuk fizikailag és verbálisan is kiállni magáért.", scores: { orzo: 3, harcos: 2 } },
     ],
   },
   {
     title: "Milyen kihívással szembesülsz leginkább a mindennapokban?",
     options: [
       { label: "📱 Nehéz lerángatni a kütyük, telefon elől, lusta mozogni", feedback: "A digitális függőség ellen a legjobb ellenszer az offline sikerélmény. Megmozdítjuk!", scores: { villam: 3, kolyok: 2 } },
-      { label: "🧠 Kicsit bizonytalan, visszahúzódóbb, nehezen illeszkedik be", feedback: "A harcművészet csodákra képes a lélekkel. Biztonságos környezetben fog kinyílni.", scores: { harcos: 4 } },
-      { label: "🏃 Szeleburdi, nehezen figyel egy dologra, hamar megun mindent", feedback: "A játékos, de szigorú struktúra nálunk pont a fókuszidőt nyújtja meg lépésről lépésre.", scores: { kolyok: 3, villam: 2 } },
+      { label: "🧠 Kicsit bizonytalan, visszahúzódóbb, nehezen illeszkedik be", feedback: "A küzdősport csodákra képes a lélekkel. Biztonságos környezetben fog kinyílni nálunk.", scores: { harcos: 4 } },
+      { label: "🏃 Szeleburdi, nehezen figyel egy dologra, hamar megun mindent", feedback: "A játékos, de szigorú struktúra a Budapesti Tigriseknél pont a fókuszidőt nyújtja meg.", scores: { kolyok: 3, villam: 2 } },
     ],
   },
 ];
 
 const RESULTS = {
-  harcos: { emoji: "⚡", title: "Harcos Szellem", sport: "ITF Taekwon-do (Gyermek vagy Felnőtt)", why: "A válaszaid alapján számodra fontos a struktúra, a precizitás és az elhivatottság. A Taekwon-do nemcsak egy küzdősport, hanem egy zárt értékrend, amely övvizsgákon és tradicionális technikákon keresztül épít sziklaszilárd fegyelmet és önbizalmat.", before: "Bizonytalanság, céltalan mozgás, szétszórt fókusz.", after: "Kihúzott gerinc, tiszta célok, tiszteletteljes, magabiztos fellépés.", humor: "Mellékhatásként súlyos övvizsga- és formagyakorlat-függőség alakulhat ki." },
-  villam: { emoji: "🥊", title: "Villám Tigris", sport: "Kick-box (Formagyakorlat szakosztály)", why: "Te vagy a gyerkőcöd nem szerettek egy helyben állni! A pörgés, a ritmus és a dinamika mozgat. A Kick-box edzéseinken a modern küzdősport elemeit ötvözzük a zenés, magas intenzitású mozgással, ami garantáltan robbanásszerűen fejleszti az állóképességet.", before: "Lassú reflexek, felgyülemlett otthoni feszültség, unalmas rutin.", after: "Robbanékony erőnlét, levezetett stressz, csillogó szemek és fittség.", humor: "Vigyázat! Gyorsabban fogsz reagálni a mindennapokban, mint ahogy mások befejeznék a mondatot." },
-  orzo: { emoji: "🛡️", title: "Őrző Tigris", sport: "Gyakorlati Önvédelem", why: "Számodra a biztonság, a helyzetfelismerés és a tiszta hatékonyság a legfontosabb. Az önvédelem nálunk nem a ringre vagy pontszerzésre épül, hanem arra, hogyan kezeld a stresszt, hogyan lépj fel magabiztosan, és szükség esetén hogyan háríts el egy támadást.", before: "Gyomorgörcs a bizonytalan helyzetekben, kiszolgáltatottság érzése.", after: "Veszélyhelyzetek azonnali felismerése, higgadt és határozott fellépés.", humor: "Diagnózis: Előbb veszed észre a gyanús helyzeteket, mint ahogy a baj egyáltalán észrevenne téged." },
-  ebredo: { emoji: "🌱", title: "Ébredő Tigris", sport: "Kezdő felnőtt Taekwon-do", why: "Tökéletes időzítés! A válaszaid alapján vágysz a megújulásra és a mozgásra, de egy olyan támogató, családias közösségben, ahol teljesen az alapoktól építenek fel, tekintettel lévén a felnőttkori fittség sajátosságaira.", before: "„Eldurvult” irodai hátfájás, halogatás, rozsdás ízületek.", after: "Újra energikus mindennapok, fitt fizikum és egy összetartó, felnőtt baráti kör.", humor: "A te történeted nem a múltban, hanem most csütörtökön az első edzésen kezdődik." },
-  kolyok: { emoji: "🐯", title: "Tigriskölyök", sport: "Ovis és Kisiskolás Taekwon-do", why: "Szülőként a legjobbat keresed: ahol a játékból önbizalom, az önfegyelemből pedig siker lesz. Korosztályos gyerekedzéseinken a 18. kerületben játékos, de fegyelmezett formában fejlesztjük a kicsik mozgáskoordinációját és figyelmét.", before: "Állandó kütyüzés, szeleburdi figyelem, hiszti az unalom Audio.", after: "Megnyúlt fókuszidő, tisztelettudó viselkedés otthon is, koordinált, szép mozgás.", humor: "Várható eredmény: Az edzések után a gyerkőc meglepően gyorsan és önként fog elaludni este." },
+  harcos: { title: "Harcos Szellem", sport: "ITF Taekwon-do (Budapesti Tigrisek)", why: "A válaszaid alapján fontos számodra a struktúra, a fegyelem és az elhivatottság. A Budapesti Tigrisek Sportegyesület Taekwon-do szakosztálya tradíciókon és hivatalos övvizsgákon keresztül épít sziklaszilárd magabiztosságot.", before: "Bizonytalanság, céltalan mozgás, szétszórt fókusz.", after: "Kihúzott gerinc, tiszta célok, tiszteletteljes és magabiztos fellépés.", humor: "Mellékhatásként súlyos övvizsga- és formagyakorlat-függőség alakulhat ki." },
+  villam: { title: "Villám Karakter", sport: "Dinamikus Kick-box (18. kerület)", why: "Nálatok a pörgés és a ritmus dominál! A Budapesti Tigrisek modern kick-box edzésein a küzdősport elemeit ötvözzük a magas intenzitású mozgással, ami garantáltan robbanásszerűen fejleszti az állóképességet.", before: "Lassú reflexek, felgyülemlett feszültség, unalmas rutin.", after: "Robbanékony erőnlét, levezetett stressz, csillogó szemek és fittség.", humor: "Vigyázat! Gyorsabban fogsz reagálni a mindennapokban, mint ahogy mások befejeznék a mondatot." },
+  orzo: { title: "Őrző Karakter", sport: "Gyakorlati Önvédelem és Taktika", why: "Számodra a biztonság és a helyzetfelismerés a legfontosabb. A 18. kerületi önvédelmi csoportunkban nem a ringre vagy a pontszerzésre építünk, hanem a valós stresszkezelésre és a határozott fellépésre.", before: "Gyomorgörcs a bizonytalan helyzetekben, kiszolgáltatottság.", after: "Veszélyhelyzetek azonnali felismerése, higgadt és határozott hárítás.", humor: "Diagnózis: Előbb veszed észre a gyanús helyzeteket, mint ahogy a baj egyáltalán észrevenne téged." },
+  ebredo: { title: "Megújuló Felnőtt", sport: "Kezdő Felnőtt Küzdősport Program", why: "Tökéletes időzítés! Vágyik a tested a mozgásra, a Budapesti Tigrisek családias, felnőtt közösségében pedig teljesen az alapoktól, biztonságosan építjük újra a fizikumodat.", before: "Irodai hátfájás, halogatás, rozsdás ízületek.", after: "Újra energikus mindennapok, fitt test és egy összetartó felnőtt baráti kör.", humor: "A te történeted nem a múltban, hanem most csütörtökön az első edzésen kezdődik." },
+  kolyok: { title: "Tigris Kölyök", sport: "Ovis és Kisiskolás Mozgásfejlesztés", why: "Szülőként a legjobbat keresed a 18. kerületben: ahol a játékból önbecsülés, a fegyelemből pedig siker lesz. A Budapesti Tigrisek korosztályos gyerekedzései híresek a fókusz fejlesztéséről.", before: "Állandó kütyüzés, szeleburdi figyelem, unalom miatti hiszti.", after: "Megnyúlt fókuszidő, tisztelettudó viselkedés otthon és koordinált mozgás.", humor: "Várható eredmény: Az edzések után a gyerkőc meglepően gyorsan és önként fog elaludni este." },
 };
 
-// 5 ERŐS PSZICHOLÓGIAI ALAPÚ VÉLEMÉNY KOROSZTÁLYOKRA ÉS FÉLELMEKRE OPTIMALIZÁLVA
 const REVIEWS = [
-  { name: "Horváth Anita (Ovis anyuka)", target: "Ovis korosztály", text: "Féltem, hogy a 5 éves kisfiamat elnyomják a többiek, vagy túl durva lesz neki a küzdősport. Ehelyett játékos fegyelmet és hatalmas szeretetet kapott. Imádja a Tigris edzőket!", rating: 5 },
-  { name: "Szabó Gábor (Iskolás szülő)", target: "Iskolás korosztály", text: "A lányomat csúfolták az iskolában, teljesen magába fordult. 4 hónap Taekwon-do után úgy kihúzta magát, hogy senki nem mer kikezdeni vele. A tanulmányi fókusza is mérföldekkel jobb lett.", rating: 5 },
-  { name: "B. Balázs (Junior tag, 16 éves)", target: "Tini / Junior", text: "Nem találtam a helyem a sima konditermekben, a kütyüzést akartam lecserélni valami komolyabbra. Itt egy igazi, összetartó csapatra leltem, a kick-box edzések pörgése pedig minden feszültséget kimos belőlem.", rating: 5 },
-  { name: "Kovács Péter (Felnőtt kezdő, 38 éves)", target: "Felnőtt kezdő", text: "Azt hittem, közel a negyvenhez, nulla mozgásmúlttal és irodai hátfájással majd kinevetnek a tatamin. Ehelyett maximális türelmet kaptam. Sosem késő elkezdeni, visszakaptam a kondimat!", rating: 5 },
-  { name: "Dr. Varga Elena (Felnőtt önvédelem)", target: "Önvédelem", text: "Esti műszakok után sokszor volt gyomorgörcsöm egyedül sétálva az utcán. Az edzések nemcsak fizikai technikákat adtak, hanem olyan magabiztos kisugárzást, ami miatt már nem érzem magam áldozatnak.", rating: 5 }
+  { name: "Horváth Anita (Ovis anyuka)", target: "Ovis csoport", text: "Féltem, hogy az 5 éves kisfiamat elnyomják a többiek a tatamin. Ehelyett játékos fegyelmet és hatalmas törődést kapott. A Budapesti Tigrisek edzői fantasztikus pedagógusok!", rating: 5 },
+  { name: "Szabó Gábor (Iskolás szülő)", target: "Iskolás csoport", text: "A lányomat bántották az iskolában, teljesen magába fordult. 4 hónap 18. kerületi Taekwon-do után úgy kihúzta magát, hogy megszűnt a piszkálódás. A tanulmányi fókusza is mérföldekkel jobb lett.", rating: 5 },
+  { name: "B. Balázs (Junior tag, 16 éves)", target: "Tini / Junior", text: "Nem találtam a helyem a sima konditermekben, a céltalan görgetést akartam lecserélni valami komolyabbra. Itt egy igazi, összetartó csapatra leltem, a kick-box edzések pörgése zseniális.", rating: 5 },
+  { name: "Kovács Péter (Felnőtt kezdő, 38 éves)", target: "Felnőtt kezdő", text: "Azt hittem, közel a negyvenhez, nulla mozgásmúlttal majd kinevetnek. Ehelyett maximális türelmet kaptam a felnőtt csoportban. Sosem késő elkezdeni, teljesen visszakaptam az energiámat!", rating: 5 },
+  { name: "Dr. Varga Elena (Felnőtt önvédelem)", target: "Önvédelem", text: "Esti műszakok után sokszor volt gyomorgörcsöm egyedül sétálva. A Budapesti Tigrisek edzései nemcsak fizikai technikákat adtak, hanem olyan magabiztos kisugárzást, ami miatt biztonságban érzem magam.", rating: 5 }
 ];
 
 export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps) {
@@ -127,7 +126,6 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
     });
     setScores(nextScores);
 
-    // IDŐZÍTÉS: 1mp beúszás + 3.6mp fény + 1mp eltűnés = 5600ms
     setTimeout(() => {
       setCurrentStep((s) => s + 1);
       setActiveFeedback(null);
@@ -148,7 +146,6 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
 
   const openBookingForm = () => {
     setShowBookingForm(true);
-    // AZ OLDAL TETEJÉRE UGRIKATÁS
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -165,13 +162,12 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
   if (!isFullPage && !started && isChildRoute === null) {
     return (
       <div className="w-full max-w-4xl mx-auto my-12 px-4">
-        {/* ANIMÁCIÓS CSS STYLESHEET INJECTÁLÁSA A REAKCIÓIDŐHÖZ */}
         <style dangerouslySetInnerHTML={{__html: `
           @keyframes fadeInOut {
-            0% { opacity: 0; transform: scale(0.95); filter: blur(4px); }
+            0% { opacity: 0; transform: scale(0.97); filter: blur(4px); }
             17.8% { opacity: 1; transform: scale(1); filter: blur(0px); }
             82.2% { opacity: 1; transform: scale(1); filter: blur(0px); }
-            100% { opacity: 0; transform: scale(1.02); filter: blur(4px); }
+            100% { opacity: 0; transform: scale(1.01); filter: blur(4px); }
           }
           .animate-fade-in-out {
             animation: fadeInOut 5.6s ease-in-out forwards;
@@ -182,32 +178,35 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
           }
           .animate-ticker {
             display: inline-flex;
-            animation: ticker 45s linear infinite;
+            animation: ticker 50s linear infinite;
           }
           .animate-ticker:hover {
             animation-play-state: paused;
           }
         `}} />
 
-        <div className="bg-gradient-to-br from-gray-950 via-black to-gray-900 border border-neon-orange/30 rounded-3xl p-8 text-center relative overflow-hidden shadow-2xl">
+        <div className="bg-gradient-to-br from-gray-950 via-black to-gray-900 border border-neon-orange/20 rounded-3xl p-8 text-center relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 right-0 p-6 text-neon-orange/5 pointer-events-none">
             <HelpCircle size={140} className="transform rotate-12" />
           </div>
-          <div className="inline-flex items-center gap-1.5 bg-neon-orange/10 border border-neon-orange/30 text-neon-orange text-xs font-black tracking-widest uppercase px-3 py-1 rounded-full mb-3">
-            <Sparkles size={12} /> Szia! Készen állsz egy gyors játékra?
+          <div className="inline-flex items-center gap-1.5 bg-neon-orange/10 border border-neon-orange/20 text-neon-orange text-xs font-black tracking-widest uppercase px-3 py-1 rounded-full mb-4">
+            <Sparkles size={12} /> Gyors online felmérés
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight mb-4 leading-none">
-            Melyik <span className="text-neon-orange">Tigris edzés</span> passzol hozzátok?
+          
+          {/* TISZTA, ÖSSZEFOGOTT, JÓL OLVASHATÓ FEJLÉC ÉS ALCÍM */}
+          <h2 className="text-2xl sm:text-4xl font-black text-white uppercase tracking-tight max-w-2xl mx-auto mb-3 leading-tight">
+            Melyik <span className="text-neon-orange">Küzdősport szakosztály</span> passzol hozzátok?
           </h2>
-          <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto mb-8 leading-relaxed">
-            Találd meg a tökéletes mozgásformát a 18. kerületben! Töltsd ki a vidám, 2 perces kvízünket, és tudd meg azonnal, melyik szakosztályunkban éreznéd a legjobban magad!
+          <p className="text-gray-400 text-sm sm:text-base max-w-lg mx-auto mb-8 leading-relaxed">
+            Találd meg a tökéletes csoportot a Budapesti Tigriseknél! Válaszolj pár egyszerű kérdésre, és tudd meg, mi lakik benned.
           </p>
+          
           <div className="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto">
             <button 
               onClick={() => handleFirstDecision(true)}
               className="bg-neon-orange hover:bg-orange-600 text-black font-black px-6 py-4 rounded-xl text-md transition-all duration-200 hover:scale-105 shadow-lg shadow-neon-orange/20 flex-1"
             >
-              👶 Gyermekemnek keresek
+              🤝 Gyermekemnek keresek
             </button>
             <button 
               onClick={() => handleFirstDecision(false)}
@@ -225,10 +224,10 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
     <div className={`w-full bg-black text-white overflow-x-hidden ${isFullPage ? 'pt-28 sm:pt-32 md:pt-36 min-h-screen' : ''}`}>
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes fadeInOut {
-          0% { opacity: 0; transform: scale(0.95); filter: blur(4px); }
+          0% { opacity: 0; transform: scale(0.97); filter: blur(4px); }
           17.8% { opacity: 1; transform: scale(1); filter: blur(0px); }
           82.2% { opacity: 1; transform: scale(1); filter: blur(0px); }
-          100% { opacity: 0; transform: scale(1.02); filter: blur(4px); }
+          100% { opacity: 0; transform: scale(1.01); filter: blur(4px); }
         }
         .animate-fade-in-out {
           animation: fadeInOut 5.6s ease-in-out forwards;
@@ -239,7 +238,7 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
         }
         .animate-ticker {
           display: inline-flex;
-          animation: ticker 40s linear infinite;
+          animation: ticker 50s linear infinite;
         }
         .animate-ticker:hover {
           animation-play-state: paused;
@@ -248,31 +247,32 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
 
       <div className="max-w-2xl mx-auto px-4">
         
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-black uppercase tracking-tight flex items-center justify-center gap-2">
-            🐯 Tigris <span className="text-neon-orange">Teszt</span> – Találd meg a sportod!
+        {/* LETISZTULT INTERAKTÍV KIJELZŐ FEJLÉC */}
+        <div className="text-center mb-8 bg-gray-950/50 border border-gray-900 rounded-2xl p-4">
+          <h1 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-white flex items-center justify-center gap-2">
+            <Sparkles size={18} className="text-neon-orange" /> Szelektálatlan Csoportanalizátor
           </h1>
-          <p className="text-gray-400 text-xs mt-1">
-            Válassz a lehetőségek közül, és nézzük meg, mi lakik benned!
+          <p className="text-gray-400 text-xs mt-1 max-w-md mx-auto">
+            Válassz a lehetőségek közül a Budapesti Tigrisek hivatalos felmérésében.
           </p>
         </div>
 
         {isChildRoute === null && (
           <div className="bg-gray-950 border border-gray-900 rounded-2xl p-6 sm:p-8 text-center shadow-xl">
-            <h2 className="text-xl sm:text-2xl font-black mb-6 text-white uppercase tracking-tight">Első lépés: Kinek keressük a tökéletes edzést?</h2>
+            <h2 className="text-lg sm:text-xl font-black mb-6 text-white uppercase tracking-tight">Kinek keressük a tökéletes edzést a 18. kerületben?</h2>
             <div className="grid gap-4">
               <button
                 onClick={() => handleFirstDecision(true)}
-                className="text-left p-5 rounded-xl bg-black border border-gray-900 text-gray-200 hover:bg-neon-orange hover:text-black hover:border-neon-orange font-black transition-all text-base sm:text-lg flex items-center justify-between"
+                className="text-left p-5 rounded-xl bg-black border border-gray-900 text-gray-200 hover:bg-neon-orange hover:text-black hover:border-neon-orange font-black transition-all text-base flex items-center justify-between"
               >
-                <span>👨‍👩‍👧 A gyermekemnek (Ovis vagy Iskolás)</span>
+                <span>👨‍👩‍👧 A gyermekemnek (Ovis vagy Iskolás korosztály)</span>
                 <ArrowRight size={20} />
               </button>
               <button
                 onClick={() => handleFirstDecision(false)}
-                className="text-left p-5 rounded-xl bg-black border border-gray-900 text-gray-200 hover:bg-neon-orange hover:text-black hover:border-neon-orange font-black transition-all text-base sm:text-lg flex items-center justify-between"
+                className="text-left p-5 rounded-xl bg-black border border-gray-900 text-gray-200 hover:bg-neon-orange hover:text-black hover:border-neon-orange font-black transition-all text-base flex items-center justify-between"
               >
-                <span>🥋 Saját magamnak / Felnőttként</span>
+                <span>🥋 Saját magamnak / Felnőttként teljesen kezdő szinttől</span>
                 <ArrowRight size={20} />
               </button>
             </div>
@@ -290,7 +290,6 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
 
             <div className="bg-gray-950 border border-gray-900 rounded-2xl p-6 sm:p-8 text-center shadow-xl relative min-h-[340px] flex flex-col justify-center">
               {activeFeedback ? (
-                /* ÁTMENETI ANIMÁCIÓ: 1mp alatt jön be sötétből, 3.6mpig világos, 1mp alatt sötétedik el */
                 <div className="animate-fade-in-out space-y-4 py-8">
                   <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-neon-orange/10 text-neon-orange">
                     <ShieldCheck size={28} />
@@ -299,15 +298,15 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
                     {activeFeedback}
                   </p>
                   <p className="text-xs text-gray-500 uppercase tracking-widest animate-pulse pt-2">
-                    Elemzés folyamatban...
+                    Profil kiértékelése a Budapesti Tigrisek rendszerében...
                   </p>
                 </div>
               ) : (
                 <div className="w-full">
                   <span className="text-xs font-black text-neon-orange uppercase tracking-widest block mb-1">
-                    {isChildRoute ? "Mindent a gyerkőcről" : "Mindent rólad"} — {currentStep + 1} / {activeQuestions.length}
+                    {isChildRoute ? "Gyermek profil" : "Felnőtt profil"} — {currentStep + 1} / {activeQuestions.length}
                   </span>
-                  <h2 className="text-xl sm:text-2xl font-black mb-6 text-white tracking-tight">
+                  <h2 className="text-xl font-black mb-6 text-white tracking-tight">
                     {activeQuestions[currentStep].title}
                   </h2>
 
@@ -317,7 +316,7 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
                         key={o.label}
                         disabled={isTransitioning}
                         onClick={() => chooseOption(o)}
-                        className="text-left p-4 rounded-xl bg-black border border-gray-900 text-gray-200 hover:bg-neon-orange hover:text-black hover:border-neon-orange font-bold transition-all duration-150 text-sm sm:text-base active:scale-95"
+                        className="text-left p-4 rounded-xl bg-black border border-gray-900 text-gray-200 hover:bg-neon-orange hover:text-black hover:border-neon-orange font-bold transition-all duration-150 text-sm active:scale-95"
                       >
                         {o.label}
                       </button>
@@ -333,15 +332,15 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
           <div className="bg-gray-950 border border-gray-900 rounded-2xl p-6 sm:p-8 shadow-2xl pb-12">
             {!showBookingForm ? (
               <>
-                <div className="text-6xl text-center filter drop-shadow-[0_0_15px_rgba(249,115,22,0.4)]">
-                  {RESULTS[winner].emoji}
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-neon-orange/10 text-neon-orange mb-3 mx-auto flex">
+                  <Flame size={32} />
                 </div>
-                <span className="text-xs font-black text-center block text-neon-orange uppercase tracking-widest mt-2">A teszted eredménye:</span>
-                <h2 className="text-3xl font-black text-center text-white uppercase tracking-tight">
+                <span className="text-xs font-black text-center block text-neon-orange uppercase tracking-widest">Kiértékelés eredménye:</span>
+                <h2 className="text-2xl sm:text-3xl font-black text-center text-white uppercase tracking-tight mt-1">
                   {RESULTS[winner].title}
                 </h2>
-                <p className="text-center text-neon-orange font-black text-md sm:text-lg mt-1 border-b border-gray-900 pb-4">
-                  Nektek ajánlott csoport: <span className="underline">{RESULTS[winner].sport}</span>
+                <p className="text-center text-neon-orange font-black text-sm sm:text-base mt-2 border-b border-gray-900 pb-4">
+                  Ajánlott szakosztály: <span className="underline">{RESULTS[winner].sport}</span>
                 </p>
 
                 <div className="mt-6">
@@ -355,18 +354,18 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
                   <div className="bg-red-950/20 border border-red-900/30 p-3.5 rounded-xl">
-                    <span className="text-xs font-black text-red-500 uppercase tracking-widest block mb-1">🔴 Innen indulunk</span>
-                    <p className="text-gray-400 text-xs sm:text-sm italic">{RESULTS[winner].before}</p>
+                    <span className="text-xs font-black text-red-500 uppercase tracking-widest block mb-1">🔴 Jelenlegi állapot</span>
+                    <p className="text-gray-400 text-xs italic">{RESULTS[winner].before}</p>
                   </div>
                   <div className="bg-green-950/20 border border-green-900/30 p-3.5 rounded-xl">
-                    <span className="text-xs font-black text-green-400 uppercase tracking-widest block mb-1">🟢 Ide jutunk el közösen</span>
-                    <p className="text-gray-200 text-xs sm:text-sm font-semibold">{RESULTS[winner].after}</p>
+                    <span className="text-xs font-black text-green-400 uppercase tracking-widest block mb-1">🟢 Célkitűzés nálunk</span>
+                    <p className="text-gray-200 text-xs font-semibold">{RESULTS[winner].after}</p>
                   </div>
                 </div>
 
                 <div className="mt-4 p-4 bg-black border border-gray-900 rounded-xl">
-                  <h3 className="font-black text-neon-orange text-xs uppercase tracking-wider mb-1">Egy kis humor a végére</h3>
-                  <p className="text-gray-400 text-xs sm:text-sm italic">"{RESULTS[winner].humor}"</p>
+                  <h3 className="font-black text-neon-orange text-xs uppercase tracking-wider mb-1">Edzői megjegyzés</h3>
+                  <p className="text-gray-400 text-xs italic">"{RESULTS[winner].humor}"</p>
                 </div>
 
                 <div className="flex flex-col gap-3 mt-6">
@@ -378,11 +377,12 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                   </button>
 
+                  {/* NAGYOBB, LÁTHATÓBB ÚJRAKITÖLTÉS GOMB */}
                   <button
                     onClick={handleReset}
-                    className="text-xs font-bold text-gray-500 hover:text-white transition-colors flex items-center justify-center gap-1 mt-2 mx-auto"
+                    className="text-sm font-black text-gray-400 hover:text-white transition-colors flex items-center justify-center gap-1.5 mt-4 mx-auto border-b border-dashed border-gray-700 pb-0.5 hover:border-white"
                   >
-                    <RotateCcw size={12} /> Szeretném újra kitölteni a tesztet
+                    <RotateCcw size={14} /> Szeretném újra kitölteni a tesztet
                   </button>
                 </div>
               </>
@@ -392,15 +392,15 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
                 {!formSubmitted ? (
                   <div className="space-y-6">
                     
-                    <div className="bg-red-950/20 border border-red-900/40 p-3 rounded-xl flex items-center justify-center gap-2 text-red-400 text-xs sm:text-sm font-black uppercase tracking-wider animate-pulse">
+                    <div className="bg-red-950/20 border border-red-900/40 p-3 rounded-xl flex items-center justify-center gap-2 text-red-400 text-xs font-black uppercase tracking-wider animate-pulse">
                       <Clock size={16} />
-                      Figyelem: Ebben a hónapban már csak {spotsLeft} szabad helyünk maradt ebben a csoportban!
+                      Figyelem: Ebben a hónapban már csak {spotsLeft} szabad hely maradt ebben a csoportban!
                     </div>
 
                     <form onSubmit={handleFormSubmit} className="space-y-4">
                       <div className="text-center">
                         <h3 className="text-xl font-black uppercase tracking-tight text-white">Próbahetek Aktiválása</h3>
-                        <p className="text-xs text-gray-400 mt-1">Regisztráció a kiválasztott {RESULTS[winner].sport} edzésre.</p>
+                        <p className="text-xs text-gray-400 mt-1">Regisztráció a Budapesti Tigrisek Sportegyesület kiválasztott órájára.</p>
                       </div>
 
                       <div className="space-y-1">
@@ -451,8 +451,8 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
 
                       <div className="bg-black border border-gray-900 rounded-xl p-3 text-xs space-y-1.5 text-gray-400">
                         <div className="font-black text-white uppercase text-[10px] tracking-wider text-neon-orange">A Start-csomagod tartalma:</div>
-                        <div className="flex items-center gap-1.5">✓ 1 teljes hét korlátlan hozzáférés az edzéseinkhez</div>
-                        <div className="flex items-center gap-1.5">✓ Személyes fittségi és koordinációs felmérés az első órán</div>
+                        <div className="flex items-center gap-1.5">✓ 1 teljes hét korlátlan hozzáférés a Budapesti Tigrisek edzéseihez</div>
+                        <div className="flex items-center gap-1.5">✓ Személyes koordinációs és edzettségi felmérés az első órán</div>
                       </div>
 
                       <div className="pt-2 flex gap-3">
@@ -474,12 +474,12 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
                   </div>
                 ) : (
                   <div className="text-center py-6 space-y-4 animate-fade-in">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-neon-orange/10 border border-neon-orange/30 text-neon-orange mb-2 shadow-[0_0_15px_rgba(249,115,22,0.2)]">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-neon-orange/10 border border-neon-orange/20 text-neon-orange mb-2 shadow-[0_0_15px_rgba(249,115,22,0.1)]">
                       <Flame size={36} className="animate-pulse" />
                     </div>
                     <h3 className="text-2xl font-black text-white uppercase tracking-tight">Sikeresen jelentkeztél!</h3>
                     <p className="text-sm text-gray-300 max-w-sm mx-auto leading-relaxed">
-                      Kedves <strong className="text-white">{formData.name}</strong>! Rögzítettük a helyedet a <strong className="text-white">{formData.ageGroup}</strong> edzésünkon. 24 órán belül telefonon keresni fogunk a megadott számon (<strong className="text-neon-orange">{formData.phone}</strong>), hogy egyeztessük az első edzésed napját!
+                      Kedves <strong className="text-white">{formData.name}</strong>! Helyedet fenntartjuk a Budapesti Tigrisek <strong className="text-white">{formData.ageGroup}</strong> edzésén. 24 órán belül keresünk a <strong className="text-neon-orange">{formData.phone}</strong> számon az időpont-egyeztetés végett!
                     </p>
                     <div className="pt-4">
                       <button 
@@ -497,28 +497,27 @@ export default function TigrisAnalizator({ isFullPage = false }: AnalizatorProps
         )}
       </div>
 
-      {/* HORIZONTÁLIS FUTÓ SZALAG (TICKER BRUTÁLIS SOCIAL PROOF-AL) AZ OLDAL LEGALJÁN */}
-      <div className="w-full bg-gray-950 border-t border-b border-gray-900 py-4 mt-16 overflow-hidden relative">
-        <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
+      {/* HORIZONTÁLIS TIKKER SZÉLESÍTETT, FEKVŐ OLVASHATÓSÁGRA OPTIMALIZÁLT KÁRTYÁKKAL */}
+      <div className="w-full bg-gray-950 border-t border-b border-gray-900 py-6 mt-16 overflow-hidden relative">
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
         
-        <div className="whitespace-nowrap animate-ticker flex items-center gap-8">
-          {/* Duplikáljuk a tömböt a zökkenőmentes végtelenített pörgéshez */}
+        <div className="whitespace-nowrap animate-ticker flex items-center gap-6">
           {[...REVIEWS, ...REVIEWS].map((r, i) => (
             <div 
               key={i} 
-              className="inline-block bg-black border border-gray-900 px-6 py-3 rounded-2xl max-w-md whitespace-normal align-top shadow-xl"
+              className="inline-block bg-black border border-gray-900 px-6 py-4 rounded-xl min-w-[460px] max-w-[520px] whitespace-normal align-top shadow-xl"
             >
-              <div className="flex justify-between items-center mb-1">
-                <span className="text-[10px] font-black uppercase text-neon-orange bg-neon-orange/10 px-2 py-0.5 rounded">
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-[10px] font-black uppercase text-neon-orange bg-neon-orange/10 px-2 py-0.5 rounded tracking-wider">
                   {r.target}
                 </span>
                 <div className="flex text-amber-500 text-xs">⭐⭐⭐⭐⭐</div>
               </div>
-              <p className="text-gray-300 text-xs italic leading-relaxed mb-1.5">
+              <p className="text-gray-300 text-xs sm:text-sm italic leading-relaxed mb-2">
                 "{r.text}"
               </p>
-              <span className="text-[11px] text-gray-500 font-black block text-right">
+              <span className="text-xs text-gray-500 font-black block text-right">
                 — {r.name}
               </span>
             </div>
