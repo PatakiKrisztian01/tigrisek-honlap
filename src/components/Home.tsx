@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { ArrowRight, Calendar, Shield, Award, Heart } from 'lucide-react';
+import { ArrowRight, Calendar, Shield, Award, Heart, Trophy, Users } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 
 // A jól működő, kész teszted importálása
@@ -95,7 +95,6 @@ export default function Home() {
               <span className="text-neon-orange font-bold text-lg block mt-4">Tartozz te is a Tigrisek családjához!</span>
             </p>
 
-            {/* A szív alja (3 oszlopos kiemelés) érintetlenül a helyén van */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-10 pt-8 border-t border-gray-800/60">
               <div className="flex flex-col items-center gap-2">
                 <Shield className="w-5 h-5 text-neon-orange" />
@@ -172,113 +171,107 @@ export default function Home() {
           <p className="text-gray-400 text-sm tracking-wider uppercase">— Choi Hong Hi, az ITF Taekwon-do alapítója</p>
         </div>
       </section>
-       import React from "react";
-import { Award, Shield, Users, Calendar, Trophy } from "lucide-react";
 
-export default function KlubStatisztikak() {
-  return (
-    <section className="w-full bg-black text-white py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      <div className="max-w-4xl mx-auto">
-        
-        {/* 1. FELSŐ SZINT: A BAJNOKOK CSARNOKA KÁRTYA (Legerősebb társadalmi bizonyíték) */}
-        <div className="relative group mb-12">
-          {/* Háttér neon izzás (Glow effect) */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-neon-orange to-orange-600 rounded-2xl blur-md opacity-25 group-hover:opacity-40 transition duration-500 pointer-events-none" />
+      {/* ================= KLUBSZINTŰ STATISZTIKÁK (Kijavított, közvetlen beillesztés) ================= */}
+      <section className="w-full bg-black text-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden border-b border-gray-900">
+        <div className="max-w-4xl mx-auto">
           
-          <div className="relative bg-gradient-to-b from-gray-950 to-black border border-neon-orange/40 rounded-2xl p-6 sm:p-10 text-center shadow-2xl">
-            <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-neon-orange/10 text-neon-orange mb-4">
-              <Trophy size={26} className="animate-pulse" />
-            </div>
+          {/* Felső szint: Bajnokok Csarnoka Kártya */}
+          <div className="relative group mb-12">
+            <div className="absolute -inset-1 bg-gradient-to-r from-neon-orange to-orange-600 rounded-2xl blur-md opacity-25 group-hover:opacity-40 transition duration-500 pointer-events-none" />
             
-            <h3 className="text-xs font-black uppercase tracking-widest text-neon-orange mb-4">
-              Nemzetközi Elit Szint
-            </h3>
-            
-            <div className="space-y-4 max-w-md mx-auto">
-              <div className="flex items-center justify-center gap-3 border-b border-gray-900 pb-3">
-                <span className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-                  4 ×
-                </span>
-                <span className="text-xl sm:text-2xl font-extrabold uppercase text-gray-200 tracking-wide text-left">
-                  Világbajnok
-                </span>
+            <div className="relative bg-gradient-to-b from-gray-950 to-black border border-neon-orange/40 rounded-2xl p-6 sm:p-10 text-center shadow-2xl">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-neon-orange/10 text-neon-orange mb-4">
+                <Trophy size={26} className="animate-pulse" />
               </div>
               
-              <div className="flex items-center justify-center gap-3">
-                <span className="text-3xl sm:text-4xl font-black text-neon-orange tracking-tight drop-shadow-[0_0_8px_rgba(249,115,22,0.4)]">
-                  6 ×
-                </span>
-                <span className="text-xl sm:text-2xl font-extrabold uppercase text-gray-200 tracking-wide text-left">
-                  Európa-bajnok
-                </span>
+              <h3 className="text-xs font-black uppercase tracking-widest text-neon-orange mb-4">
+                Nemzetközi Elit Szint
+              </h3>
+              
+              <div className="space-y-4 max-w-md mx-auto">
+                <div className="flex items-center justify-center gap-3 border-b border-gray-900 pb-3">
+                  <span className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+                    4 ×
+                  </span>
+                  <span className="text-xl sm:text-2xl font-extrabold uppercase text-gray-200 tracking-wide text-left">
+                    Világbajnok
+                  </span>
+                </div>
+                
+                <div className="flex items-center justify-center gap-3">
+                  <span className="text-3xl sm:text-4xl font-black text-neon-orange tracking-tight drop-shadow-[0_0_8px_rgba(249,115,22,0.4)]">
+                    6 ×
+                  </span>
+                  <span className="text-xl sm:text-2xl font-extrabold uppercase text-gray-200 tracking-wide text-left">
+                    Európa-bajnok
+                  </span>
+                </div>
               </div>
             </div>
           </div>
+
+          {/* Alsó szint: Statisztikai rács */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            {/* Mesterek */}
+            <div className="bg-gray-950/40 border border-gray-900 rounded-xl p-6 flex flex-col items-center text-center justify-between min-h-[160px] hover:border-gray-800 transition-colors">
+              <div className="text-gray-600 mb-2">
+                <Award size={22} />
+              </div>
+              <div className="flex flex-col items-center">
+                <span className="text-4xl font-black text-white tracking-tight mb-1">
+                  24
+                </span>
+                <span className="text-xs font-black uppercase tracking-wider text-neon-orange">
+                  Fekete öv
+                </span>
+              </div>
+              <p className="text-xs sm:text-sm text-gray-400 mt-3 font-medium leading-relaxed max-w-[220px]">
+                🥋 24 fekete öves mester nevelkedett nálunk
+              </p>
+            </div>
+
+            {/* Tanítványok */}
+            <div className="bg-gray-950/40 border border-gray-900 rounded-xl p-6 flex flex-col items-center text-center justify-between min-h-[160px] hover:border-gray-800 transition-colors">
+              <div className="text-gray-600 mb-2">
+                <Users size={22} />
+              </div>
+              <div className="flex flex-col items-center">
+                <span className="text-4xl font-black text-white tracking-tight mb-1">
+                  1000+
+                </span>
+                <span className="text-xs font-black uppercase tracking-wider text-neon-orange">
+                  Tanítvány
+                </span>
+              </div>
+              <p className="text-xs sm:text-sm text-gray-400 mt-3 font-medium leading-relaxed max-w-[220px]">
+                👨‍👩‍👧‍👦 Több mint 1000 tanítvány választott minket
+              </p>
+            </div>
+
+            {/* Tapasztalat */}
+            <div className="bg-gray-950/40 border border-gray-900 rounded-xl p-6 flex flex-col items-center text-center justify-between min-h-[160px] hover:border-gray-800 transition-colors">
+              <div className="text-gray-600 mb-2">
+                <Calendar size={22} />
+              </div>
+              <div className="flex flex-col items-center">
+                <span className="text-4xl font-black text-white tracking-tight mb-1">
+                  20+ év
+                </span>
+                <span className="text-xs font-black uppercase tracking-wider text-neon-orange">
+                  Tapasztalat
+                </span>
+              </div>
+              <p className="text-xs sm:text-sm text-gray-400 mt-3 font-medium leading-relaxed max-w-[240px]">
+                🏆 2002 óta építjük a bajnokok és magabiztos emberek közösségét
+              </p>
+            </div>
+
+          </div>
         </div>
+      </section>
 
-        {/* 2. ALSÓ SZINT: A FUNDAMENTUM SZALAG (Piramis elv: Mesterek -> Tanítványok -> Múlt) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          
-          {/* Mesterek */}
-          <div className="bg-gray-950/40 border border-gray-900 rounded-xl p-6 flex flex-col items-center text-center justify-between min-h-[160px] hover:border-gray-800 transition-colors">
-            <div className="text-gray-600 mb-2">
-              <Award size={22} />
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="text-4xl font-black text-white tracking-tight mb-1">
-                24
-              </span>
-              <span className="text-xs font-black uppercase tracking-wider text-neon-orange">
-                Fekete öv
-              </span>
-            </div>
-            <p className="text-xs sm:text-sm text-gray-400 mt-3 font-medium leading-relaxed max-w-[220px]">
-              🥋 24 fekete öves mester nevelkedett nálunk
-            </p>
-          </div>
-
-          {/* Tanítványok */}
-          <div className="bg-gray-950/40 border border-gray-900 rounded-xl p-6 flex flex-col items-center text-center justify-between min-h-[160px] hover:border-gray-800 transition-colors">
-            <div className="text-gray-600 mb-2">
-              <Users size={22} />
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="text-4xl font-black text-white tracking-tight mb-1">
-                1000+
-              </span>
-              <span className="text-xs font-black uppercase tracking-wider text-neon-orange">
-                Tanítvány
-              </span>
-            </div>
-            <p className="text-xs sm:text-sm text-gray-400 mt-3 font-medium leading-relaxed max-w-[220px]">
-              👨‍👩‍👧‍👦 Több mint 1000 tanítvány választott minket
-            </p>
-          </div>
-
-          {/* Évek / Tapasztalat */}
-          <div className="bg-gray-950/40 border border-gray-900 rounded-xl p-6 flex flex-col items-center text-center justify-between min-h-[160px] hover:border-gray-800 transition-colors">
-            <div className="text-gray-600 mb-2">
-              <Calendar size={22} />
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="text-4xl font-black text-white tracking-tight mb-1">
-                20+ év
-              </span>
-              <span className="text-xs font-black uppercase tracking-wider text-neon-orange">
-                Tapasztalat
-              </span>
-            </div>
-            <p className="text-xs sm:text-sm text-gray-400 mt-3 font-medium leading-relaxed max-w-[240px]">
-              🏆 2002 óta építjük a bajnokok és magabiztos emberek közösségét
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-  );
-}
       {/* ================= 4. A BEILLESZTETT TIGRISANALIZATOR COMPONENT ================= */}
       <section className="bg-black py-20 border-b border-gray-900">
         <div className="w-full">
