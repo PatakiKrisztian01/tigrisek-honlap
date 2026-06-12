@@ -166,7 +166,13 @@ export default function Taekwondo() {
               <div className="space-y-5 text-gray-300 leading-relaxed text-sm sm:text-base">
                 <p>A taekwon-do több mint 2000 éves múltra visszatekintő koreai eredetű harcművészet, mely napjainkra az egyik legismertebb és legnépszerűbb modern küzdősporttá fejlődött, és amely őrzi a harcművészetek legnemesebb hagyományait, a harci tudományok szellemét, és gondoskodik ezek életben tartásáról.</p>
                 <p>A taekwon-do kifejezés három szóképből áll: a „tae” rúgást, a lábtechnikák összességét jelenti, a „kwon” a kéztechnikák összefoglaló neve, a „do” jelentése út, művészet. Szabadon fordítva: a lábbal és kézzel küzdés művészete. Ez az elnevezés több szempontból is jó választásnak bizonyult. Egyrészt hasonlít az ősi taek kyon elnevezéshez, így bizonyos szempontból folytonosságot jelez a régi és az új stílus között, másrészt pedig híven fejezi ki a sportág jellemzőit.</p>
+                 <div className="my-6 rounded-xl overflow-hidden border border-gray-800 bg-black/40 p-2">
+                  <img src="/itfpalma.webp" alt="ITF Taekwon-do pálma" className="w-full h-auto max-h-[400px] object-cover rounded-lg mx-auto" />
+                </div>
                 <p>Más megközelítésben a Taekwon-do tudomány, vagyis a test tudományos alkalmazása a harcművészetben. Az ember, aki az anatómia, biomechanika és fizika törvényszerűségeinek ismeretében, testének intenzív edzése során képes elérni a benne rejlő lehetőségek maximumát! De ne feledjük, pusztán a technikák gyakorlása (legyen az bármilyen magasszintű sporttevékenység) még senkit sem tesz harcművésszé. Ez csak a megfelelő lelki töltéssel és szellemi felkészültséggel párosulva, vele szoros egységet alkotva éri el végső célját.</p>
+                 <div className="my-6 rounded-xl overflow-hidden border border-gray-800 bg-black/40 p-2">
+                  <img src="/itfcimer.webp" alt="ITF Taekwon-do címer" className="w-full h-auto max-h-[400px] object-cover rounded-lg mx-auto" />
+                </div>
                 <p>A taekwon-do azonban nem csak egyszerűen ütés és rúgás, nemcsak önvédelmi rendszer vagy küzdősport, hanem ennél sokkal több. A koreaiak megközelítésében életút, életforma, mely célja, hogy a taekwon-do gyakorlása révén harmonikusan fejlődjék a szellem, a lélek és a test.</p>
               </div>
             </div>
