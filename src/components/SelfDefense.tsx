@@ -37,7 +37,7 @@ export default function SelfDefense() {
               Célja a hatásos közelharc és "túlélő" technikák elsajátítása, melyek képesek elhárítani valós veszélyhelyzeteket.
             </p>
             <p className="text-gray-400 text-xs italic">
-              Lásd pl. fojtásból, fogásból, leszorításból szabadulás,攻击 visszaverése szűk helyen zárt térben, védekezés például hátrakötözött kézzel csak lábmunkával, egynél több ellenfél, ill. fegyveres támadó elleni hatékony küzdelem stb.
+              Lásd pl. fojtásból, fogásból, leszorításból szabadulás, támadás visszaverése szűk helyen zárt térben, védekezés például hátrakötözött kézzel csak lábmunkával, egynél több ellenfél, ill. fegyveres támadó elleni hatékony küzdelem stb.
             </p>
             <p className="text-gray-300 text-sm leading-relaxed">
               A leggyakoribb képzési forma, a civileknek oktatott önvédelmi képzés, melynek során olyan technikákkal, mentális felkészítéssel, erőnléttel találkozik a gyakorló, melyeknek a segítségével hazánk jogrendszerének megfelelően tudja megvédeni magát, vagy mások testi épségét. Mivel abból indulunk ki, hogy jogos védelmi helyzetben fogja a gyakorló megvédeni magát, így az is szempont, hogy olyan rendszerrel ismertessük meg az oktatás során, mely hatásos és egyszerű, mégis sikeresen be lehet vele tartani az "arányosság elvét", melyet minden súlyos testi sértéssel végződött incidens után vizsgál a hatóság.
