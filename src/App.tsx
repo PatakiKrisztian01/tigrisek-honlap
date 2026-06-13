@@ -17,6 +17,7 @@ import ScrollToTop from './components/ScrollToTop';
 import NewsDetail from './components/NewsDetail';
 import Gyik from './components/Gyik'; 
 import TigrisAnalizator from './components/TigrisAnalizator'; // <-- Új analizátor importálása
+import Bajnokaink from './components/Bajnokaink'; // <-- PONTOSÍTVA: a te fájlneved szerint!
 
 function App() {
   return (
@@ -46,6 +47,9 @@ function App() {
             
             {/* Új, titkos analizátor aloldal – szintén felső távolsággal a menü miatt */}
             <Route path="/teszt" element={<TigrisAnalizator isFullPage={true} />} /> 
+
+            {/* Bajnokaink (Hall of Fame) Tabló aloldal */}
+            <Route path="/bajnokaink" element={<Bajnokaink />} /> 
           </Routes>
         </main>
 
