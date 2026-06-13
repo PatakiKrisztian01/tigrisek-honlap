@@ -69,7 +69,8 @@ const bajnokokListaja: Bajnok[] = [
   // Ide jön majd a többi 5 sportoló pontosan ugyanezzel a mintával...
 ];
 
-export default function HallOfFame() {
+// PONTOSÍTVA: A függvény neve most már Bajnokaink, így a fájlneveddel tökéletes az összhang!
+export default function Bajnokaink() {
   useEffect(() => {
     document.title = "Hall of Fame | Budapest Tigers SE";
     window.scrollTo(0, 0);
