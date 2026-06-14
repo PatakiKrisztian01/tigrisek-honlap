@@ -1,7 +1,6 @@
 import { Clock, MapPin, Baby, Shield, Mail, Phone, ExternalLink, Quote, Award } from 'lucide-react';
 import Gyik from './Gyik';
 
-// Frissített edzői tömb a pontos mottókkal
 const trainers = [
   { 
     name: 'Pataki Krisztián', 
@@ -81,53 +80,52 @@ export default function Training() {
           </p>
         </div>
 
-        {/* ÁTALAKÍTOTT EDZŐK SZEKCIÓ: 1 SOR = 1 EMBER, FOTÓ JOBB OLDALON, CSILLOGÓ ARANY KERET */}
+        {/* ÁRAMVONALASÍTOTT, KOMPAKT EDZŐK LISTÁJA */}
         <div className="mb-20">
-          <h2 className="text-3xl font-black text-white mb-8 tracking-tight">Edzőink & Mestereink</h2>
-          <div className="flex flex-col gap-8">
+          <h2 className="text-3xl font-black text-white mb-6 tracking-tight">Edzőink & Mestereink</h2>
+          <div className="flex flex-col gap-4"> {/* Kisebb gap a kártyák között */}
             {trainers.map((t) => {
               const vanKep = t.image && t.image.trim() !== "";
               return (
                 <div 
                   key={t.name} 
-                  className="bg-gradient-to-l from-gray-950 via-gray-950 to-gray-900 border border-gray-800/60 rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row group relative"
+                  className="bg-gradient-to-l from-gray-950 via-gray-950 to-gray-900 border border-gray-800/50 rounded-2xl overflow-hidden shadow-xl flex flex-col sm:flex-row group relative"
                 >
                   
-                  {/* BAL OLDAL: SZÖVEGES INFÓK & MOTTO */}
-                  <div className="p-6 sm:p-8 flex-1 flex flex-col justify-center order-2 md:order-1">
-                    <div className="mb-4">
-                      <h3 className="text-2xl font-black text-white uppercase tracking-tight group-hover:text-amber-400 transition-colors duration-300">
-                        {t.name}
-                      </h3>
-                      <div className="h-[2px] w-12 bg-neon-orange mt-1 mb-2 group-hover:w-24 group-hover:bg-amber-500 transition-all duration-500" />
-                      <div className="flex items-center gap-2">
-                        <span className="text-neon-orange font-black text-xs uppercase tracking-widest bg-neon-orange/10 px-2 py-0.5 rounded border border-neon-orange/20">
+                  {/* BAL OLDAL: SZÖVEG (Kompaktabb paddinggel) */}
+                  <div className="p-5 flex-1 flex flex-col justify-center order-2 sm:order-1">
+                    <div className="mb-2">
+                      {/* Név és Dan fokozat egy sorban, azonos színkezeléssel */}
+                      <h3 className="text-xl font-black text-white uppercase tracking-tight group-hover:text-amber-400 transition-colors duration-300 flex flex-wrap items-baseline gap-x-2">
+                        <span>{t.name}</span>
+                        <span className="text-sm font-medium tracking-wide text-white group-hover:text-amber-400 transition-colors duration-300opacity-90">
                           {t.rank}
                         </span>
-                        {t.role && (
-                          <span className="text-gray-400 text-xs font-bold uppercase tracking-wider">
-                            • {t.role}
-                          </span>
-                        )}
-                      </div>
+                      </h3>
+                      
+                      {t.role && (
+                        <p className="text-gray-400 text-xs font-bold uppercase tracking-wider mt-0.5">
+                          {t.role}
+                        </p>
+                      )}
                     </div>
 
-                    {/* IDÉZET / MOTTO BLOKK */}
+                    {/* IDÉZET / MOTTO BLOKK (Kisebb, elegánsabb méretben) */}
                     {t.motto && (
-                      <div className="relative bg-black/40 border-l-2 border-amber-500/60 p-4 rounded-r-xl mt-2 max-w-2xl">
-                        <Quote size={20} className="absolute -top-2.5 right-2 text-gray-800/30 pointer-events-none transform rotate-180" />
-                        <p className="text-xs sm:text-sm italic text-gray-300 font-medium leading-relaxed tracking-wide">
+                      <div className="relative bg-black/30 border-l border-amber-500/50 p-3 rounded-r-lg mt-2 max-w-2xl">
+                        <Quote size={16} className="absolute top-2 right-2 text-gray-800/30 pointer-events-none transform rotate-180" />
+                        <p className="text-xs italic text-gray-300 font-medium leading-relaxed tracking-wide">
                           „{t.motto}”
                         </p>
                       </div>
                     )}
                   </div>
 
-                  {/* JOBB OLDAL: TELJES MAGASSÁGÚ KÉP VASTAG CSILLOGÓ ARANY KERETBEN */}
-                  <div className="w-full md:w-[260px] bg-black flex-shrink-0 flex items-stretch order-1 md:order-2 p-2 md:p-0">
-                    <div className="relative w-full h-full min-h-[240px] md:min-h-full p-[4px] bg-gradient-to-br from-amber-400 via-yellow-600 to-amber-700 shadow-[0_0_15px_rgba(217,119,6,0.1)] group-hover:shadow-[0_0_35px_rgba(217,119,6,0.45)] group-hover:from-yellow-400 group-hover:via-amber-400 group-hover:to-yellow-200 transition-all duration-700 md:rounded-r-3xl md:rounded-l-none rounded-2xl overflow-hidden flex-1">
+                  {/* JOBB OLDAL: KISEBB, ARÁNYOSABB KÉP SZEGÉLLYEL */}
+                  <div className="w-full sm:w-[150px] md:w-[180px] bg-black flex-shrink-0 flex items-stretch order-1 sm:order-2 p-1.5 sm:p-0">
+                    <div className="relative w-full h-full min-h-[160px] sm:min-h-full p-[3px] bg-gradient-to-br from-amber-400 via-yellow-600 to-amber-700 shadow-[0_0_10px_rgba(217,119,6,0.1)] group-hover:shadow-[0_0_25px_rgba(217,119,6,0.4)] group-hover:from-yellow-400 group-hover:via-amber-400 group-hover:to-yellow-200 transition-all duration-700 sm:rounded-r-2xl sm:rounded-l-none rounded-xl overflow-hidden flex-1">
                       
-                      <div className="w-full h-full md:rounded-r-[22px] md:rounded-l-none rounded-[18px] overflow-hidden bg-gray-950 flex items-center justify-center relative">
+                      <div className="w-full h-full sm:rounded-r-[13px] sm:rounded-l-none rounded-[9px] overflow-hidden bg-gray-950 flex items-center justify-center relative">
                         {vanKep ? (
                           <img 
                             src={t.image} 
@@ -135,12 +133,12 @@ export default function Training() {
                             className="w-full h-full object-cover grayscale contrast-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                           />
                         ) : (
-                          <div className="w-full h-full flex flex-col items-center justify-center p-6 bg-gradient-to-b from-gray-950 to-gray-900">
-                            <Award size={32} className="text-gray-800 group-hover:text-amber-500/40 transition-colors duration-500" />
-                            <span className="text-[9px] text-gray-600 uppercase font-black tracking-widest mt-1">FOTÓ KÉSZÜL</span>
+                          <div className="w-full h-full flex flex-col items-center justify-center p-4 bg-gradient-to-b from-gray-950 to-gray-900">
+                            <Award size={24} className="text-gray-800 group-hover:text-amber-500/40 transition-colors duration-500" />
+                            <span className="text-[8px] text-gray-600 uppercase font-black tracking-widest mt-1">FOTÓ</span>
                           </div>
                         )}
-                        <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-l from-black/60 md:from-black/30 via-transparent to-transparent opacity-60" />
+                        <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-l from-black/50 sm:from-black/30 via-transparent to-transparent opacity-50" />
                       </div>
 
                     </div>
