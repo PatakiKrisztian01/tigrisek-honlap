@@ -92,7 +92,7 @@ export default function Training() {
           </div>
 
           <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-4">
-            Jó hangulat, övvizsgák, versenyek, edzőtáborok és egy <strong className="text-white">összetartó közösség</strong> vár rád.
+            Jó hangulat, övvizsgák, versenyek, edzőtáborok and egy <strong className="text-white">összetartó közösség</strong> vár rád.
           </p>
           <p className="text-gray-300 text-base md:text-lg leading-relaxed">
             Új kezdő Taekwon-do csoport indul. Már csak <strong className="text-neon-orange text-lg md:text-xl font-black">Te</strong> hiányzol.
@@ -323,21 +323,20 @@ export default function Training() {
           </div>
         </div>
 
-        {/* VIDEÓ BLOKK ── MOZIS KITAKARÁSSAL ÉS ERŐS SÖTÉTÍTÉSSEL */}
-        <div className="mb-6 w-full max-w-4xl mx-auto">
-          <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-2xl bg-black border border-gray-800 group">
+        {/* VIDEÓ BLOKK ── KERET NÉLKÜL, TELJES SCHELTSÉGBEN, HELYES LINKKEL */}
+        <div className="mb-6 w-full">
+          <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-2xl bg-black group">
             
             {!playVideo ? (
-              // 1. ERŐSEBB SÖTÉTÍTÉS: bg-black/75 a korábbi 50 helyett, így sokkal hangsúlyosabb a gomb
               <div 
                 className="absolute inset-0 w-full h-full cursor-pointer flex items-center justify-center bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                 style={{ backgroundImage: "url('/kondor.webp')" }}
                 onClick={() => setPlayVideo(true)}
               >
-                {/* Durvább sötétítő réteg */}
+                {/* Durva, prémium sötétítés */}
                 <div className="absolute inset-0 bg-black/75 group-hover:bg-black/65 transition-colors" />
                 
-                {/* Pulzáló prémium gomb */}
+                {/* Narancssárga lejátszó gomb */}
                 <div className="relative z-10 w-16 h-16 md:w-20 md:h-20 bg-neon-orange text-black rounded-full flex items-center justify-center shadow-lg shadow-neon-orange/50 transform group-hover:scale-110 transition-all duration-300">
                   <svg className="w-8 h-8 md:w-10 md:h-10 fill-current translate-x-0.5" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
@@ -349,7 +348,7 @@ export default function Training() {
               </div>
             ) : (
               <>
-                {/* A tényleges YouTube lejátszó */}
+                {/* YouTube lejátszó a javított Lb_2QhIdyek linkkel */}
                 <iframe 
                   className="w-full h-full relative z-0" 
                   src="https://www.youtube.com/embed/Lb_2QhIdyek?autoplay=1&modestbranding=1&rel=0" 
@@ -358,11 +357,8 @@ export default function Training() {
                   allowFullScreen
                 ></iframe>
 
-                {/* 2. ZSENIÁLIS MOZIS KITAKARÓ SÁVOK (Végleg elrejtik a YouTube feliratokat és logót) */}
-                {/* Felső takaró sáv: Kitakarja a csatorna nevet és a megosztás gombot */}
+                {/* Mozis fekete kitakaró sávok a YouTube elemek ellen */}
                 <div className="absolute top-0 left-0 right-0 h-[11%] bg-black z-10 pointer-events-none" />
-                
-                {/* Alsó takaró sáv: Teljesen leleplezi és elrejti a jobb alsó YouTube logót */}
                 <div className="absolute bottom-0 left-0 right-0 h-[12%] bg-black z-10 pointer-events-none" />
               </>
             )}
