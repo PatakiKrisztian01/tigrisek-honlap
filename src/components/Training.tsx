@@ -349,7 +349,7 @@ export default function Training() {
                 <div className="absolute top-0 left-0 right-0 h-8 sm:h-16 bg-gradient-to-b from-black to-transparent z-10 pointer-events-none" />
                 <iframe 
                   className="w-full h-full relative z-0" 
-                  src="https://www.youtube.com/embed/Lb_2QhIdyeI?autoplay=1&modestbranding=1&rel=0" 
+                  src="https://www.youtube.com/embed/Lb_2QhIdyek?autoplay=1&modestbranding=1&rel=0" 
                   title="YouTube bemutató videó" 
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                   allowFullScreen
