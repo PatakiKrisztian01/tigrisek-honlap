@@ -352,7 +352,7 @@ export default function Training() {
                 {/* A tényleges YouTube lejátszó */}
                 <iframe 
                   className="w-full h-full relative z-0" 
-                  src="https://www.youtube.com/embed/Lb_2QhIdyeI?autoplay=1&modestbranding=1&rel=0" 
+                  src="https://www.youtube.com/embed/Lb_2QhIdyek?autoplay=1&modestbranding=1&rel=0" 
                   title="YouTube bemutató videó" 
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                   allowFullScreen
