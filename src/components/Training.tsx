@@ -71,16 +71,30 @@ export default function Training() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 mb-12">
-          <h2 className="text-2xl md:text-3xl font-black text-white mb-2">Taekwon-do</h2>
-          <p className="text-gray-400 text-sm md:text-base font-bold mb-4">(látványos koreai harcművészet)</p>
-          <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-4">Jó hangulat, versenyek, övvizsgák, edzőtáborok, aktív klubélet.</p>
+        
+        {/* FRISSÍTETT ÚJ FELSŐ BLOKK */}
+        <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 mb-12 relative overflow-hidden shadow-2xl shadow-orange-950/10">
+          <div className="absolute top-0 left-0 w-1 h-full bg-neon-orange" />
+          <h2 className="text-2xl md:text-3xl font-black text-white mb-4 uppercase tracking-wide">Taekwon-do</h2>
+          
+          <div className="space-y-2 mb-6">
+            <p className="text-amber-400 text-lg md:text-xl font-bold italic leading-tight">
+              „Nem kell erősnek lenned ahhoz, hogy elkezdd.”
+            </p>
+            <p className="text-amber-500 text-lg md:text-xl font-bold italic leading-tight">
+              „De el kell kezdened ahhoz, hogy erősebbé válj.”
+            </p>
+          </div>
+
+          <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-4">
+            Jó hangulat, övvizsgák, versenyek, edzőtáborok és egy <strong className="text-white">összetartó közösség</strong> vár rád.
+          </p>
           <p className="text-gray-300 text-base md:text-lg leading-relaxed">
-            Örömmel tudatom <strong className="text-white">VELED</strong>, hogy kezdő taekwon-do edzés indul, ahonnan már csak <strong className="text-neon-orange">TE</strong> hiányzol.
+            Új kezdő Taekwon-do csoport indul. Már csak <strong className="text-neon-orange text-lg md:text-xl font-black">Te</strong> hiányzol.
           </p>
         </div>
 
-        {/* EDZŐK SZEKCIÓ - MOBILON KISEBB KÉPEK, NAGYOBB BETŰK */}
+        {/* EDZŐK SZEKCIÓ */}
         <div className="mb-20">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-6 tracking-tight">Edzőink & Mestereink</h2>
           <div className="flex flex-col gap-4">
@@ -92,10 +106,9 @@ export default function Training() {
                   className="bg-gradient-to-l from-gray-950 via-gray-950 to-gray-900 border border-gray-800/50 rounded-2xl overflow-hidden shadow-xl flex flex-col sm:flex-row group relative"
                 >
                   
-                  {/* BAL OLDAL: SZÖVEG (Mobilon is nagyobb betűméretekkel) */}
+                  {/* BAL OLDAL: SZÖVEG */}
                   <div className="p-5 md:p-6 flex-1 flex flex-col justify-center order-2 sm:order-1">
                     <div className="mb-2">
-                      {/* Mobilon text-xl, PC-n text-2xl a név; a rang mobilon text-base, PC-n is text-base */}
                       <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight group-hover:text-amber-400 transition-colors duration-300 flex flex-wrap items-baseline gap-x-2">
                         <span>{t.name}</span>
                         <span className="text-base md:text-base font-bold tracking-wide text-white/90 group-hover:text-amber-400 transition-colors duration-300">
@@ -110,7 +123,7 @@ export default function Training() {
                       )}
                     </div>
 
-                    {/* MOTTO BLOKK: Mobilon text-sm, PC-n text-sm/base */}
+                    {/* MOTTO BLOKK */}
                     {t.motto && (
                       <div className="relative bg-black/30 border-l-2 border-amber-500/50 p-3 md:p-4 rounded-r-lg mt-2 max-w-2xl">
                         <Quote size={16} className="absolute top-2 right-2 text-gray-800/30 pointer-events-none transform rotate-180" />
@@ -121,9 +134,8 @@ export default function Training() {
                     )}
                   </div>
 
-                  {/* JOBB OLDAL: MOBILON JELENTŐSEN KISEBB KÉP CONTÉNER */}
+                  {/* JOBB OLDAL: MOBILON KISEBB KÉP CONTÉNER */}
                   <div className="w-full sm:w-[150px] md:w-[190px] bg-black flex-shrink-0 flex items-stretch order-1 sm:order-2 p-2 sm:p-0">
-                    {/* min-h-[160px]-ról lecsökkentve min-h-[110px]-ra mobilon, így nem nyújtja meg a kártyát feleslegesen */}
                     <div className="relative w-full h-full min-h-[110px] sm:min-h-full p-[3px] bg-gradient-to-br from-amber-400 via-yellow-600 to-amber-700 shadow-[0_0_10px_rgba(217,119,6,0.1)] group-hover:shadow-[0_0_25px_rgba(217,119,6,0.4)] group-hover:from-yellow-400 group-hover:via-amber-400 group-hover:to-yellow-200 transition-all duration-700 sm:rounded-r-2xl sm:rounded-l-none rounded-xl overflow-hidden flex-1">
                       
                       <div className="w-full h-full sm:rounded-r-[13px] sm:rounded-l-none rounded-[9px] overflow-hidden bg-gray-950 flex items-center justify-center relative">
