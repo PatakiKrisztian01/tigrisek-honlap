@@ -96,7 +96,7 @@ export default function Training() {
 
         {/* EDZŐK SZEKCIÓ */}
         <div className="mb-20">
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-6 tracking-tight">Edzőink & Mestereink</h2>
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-6 tracking-tight">Edzőink</h2>
           <div className="flex flex-col gap-4">
             {trainers.map((t) => {
               const vanKep = t.image && t.image.trim() !== "";
