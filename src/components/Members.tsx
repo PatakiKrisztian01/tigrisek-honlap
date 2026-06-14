@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, Facebook, Activity } from 'lucide-react';
 
 type Belt = {
   rank: string;
@@ -95,48 +95,58 @@ export default function Members() {
       <div className="max-w-4xl mx-auto px-6 py-16 text-white">
         <div className="space-y-4 mb-16"> {belts.map((belt) => <BeltRow key={belt.rank} belt={belt} />)} </div>
         
-        <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
-          <h3 className="font-black text-xl mb-6 flex items-center gap-3"><span className="w-2 h-6 bg-orange-500 rounded-full"></span>Tagoknak — Fontos tudnivalók</h3>
-          <ul className="space-y-6 text-sm text-gray-400">
-            {/* 01. SZEKCIÓ — SPORTORVOSI & FACEBOOK CSOPORT */}
-            <li className="flex items-start gap-4">
-              <span className="text-orange-500 font-bold text-lg">01.</span>
-              <div className="w-full space-y-4">
-                <div>
-                  <p><strong className="text-white">Sportorvosi vizsgálat</strong> — Gyerekeknek fél évente, felnőtteknek évente kötelező.</p>
-                  <div className="flex gap-4 pt-2">
-                    <a href="https://online.osei.hu/bejelentkezes" target="_blank" rel="noopener noreferrer" className="text-orange-500 underline hover:text-orange-400 transition-colors">OSEI időpont</a>
-                    <a href="https://osei.hu/images/stories/osei/Sportoli-krdv-20260310-szerkeszthet-.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-300 underline hover:text-white transition-colors">Kérdőív letöltése</a>
-                  </div>
+        {/* FONTOS TUDNIVALÓK DOBOZ */}
+        <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
+          <h3 className="font-black text-xl mb-6 flex items-center gap-3">
+            <span className="w-2 h-6 bg-orange-500 rounded-full"></span>Tagoknak — Fontos tudnivalók
+          </h3>
+          
+          {/* Kétoszlopos egyenrangú elrendezés (Mobilon egymás alatt, asztali gépen egymás mellett) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            {/* SPORTORVOSI KÁRTYA */}
+            <div className="bg-black/30 border border-gray-800/60 p-5 rounded-xl flex flex-col justify-between space-y-4">
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 text-orange-500 font-bold">
+                  <Activity className="w-5 h-5" />
+                  <h4>Sportorvosi vizsgálat</h4>
                 </div>
-
-                {/* Új beillesztett Facebook csoport felhívás */}
-                <div className="bg-black/40 border border-gray-800/60 p-4 rounded-xl space-y-3">
-                  <div className="space-y-1">
-                    <h4 className="text-white font-bold text-sm">A Tigers Taekwondo Team hivatalos zárt Facebook-csoportja</h4>
-                    <p className="text-xs text-gray-400 leading-relaxed">
-                      Edzésváltozások, versenyinformációk, rendezvények, fotók, videók és minden fontos klubhír itt jelenik meg először.
-                    </p>
-                    <p className="text-xs text-orange-500/90 font-medium">Ha nálunk edzel, csatlakozz a csoporthoz!</p>
-                  </div>
-                  <a 
-                    href="https://www.facebook.com/" /* IDE MAJD ILLESZD BE A PONTOS CSOPORT LINKET */
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-[#1877F2]/10 hover:bg-[#1877F2]/20 border border-[#1877F2]/40 text-[#1877F2] hover:text-[#4294ff] text-xs font-bold px-4 py-2 rounded-lg transition-all shadow-[0_0_15px_rgba(24,119,242,0.05)]"
-                  >
-                    <span>🔵</span> Facebook-csoport megnyitása
-                  </a>
-                </div>
+                <p className="text-xs text-gray-400 leading-relaxed">
+                  Gyerekeknek fél évente, felnőtteknek évente kötelező a megjelenés a vizsgálatokon.
+                </p>
               </div>
-            </li>
+              <div className="flex flex-wrap gap-4 pt-2 text-xs">
+                <a href="https://online.osei.hu/bejelentkezes" target="_blank" rel="noopener noreferrer" className="text-orange-500 underline hover:text-orange-400 transition-colors font-semibold">OSEI időpont ↗</a>
+                <a href="https://osei.hu/images/stories/osei/Sportoli-krdv-20260310-szerkeszthet-.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-300 underline hover:text-white transition-colors">Kérdőív letöltése ↗</a>
+              </div>
+            </div>
 
-            {/* 02. SZEKCIÓ — FEJVÉDŐ */}
-            <li className="flex items-start gap-4">
-              <span className="text-orange-500 font-bold text-lg">02.</span>
-              <p><strong className="text-white">Fejvédő</strong> — Versenyeken kötelező, edzéseken ajánlott. Versenyzőknek mindkét színből (piros és kék) kell rendelkezniük.</p>
-            </li>
-          </ul>
+            {/* FACEBOOK CSOPORT KÁRTYA */}
+            <div className="bg-black/30 border border-gray-800/60 p-5 rounded-xl flex flex-col justify-between space-y-4">
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 text-[#1877F2] font-bold">
+                  <Facebook className="w-5 h-5 fill-current" />
+                  <h4>Hivatalos Facebook-csoport</h4>
+                </div>
+                <p className="text-xs text-gray-400 leading-relaxed">
+                  <strong className="text-gray-200">Tigers Taekwondo Team zárt csoport:</strong> Edzésváltozások, versenyinformációk, rendezvények, fotók és minden fontos klubhír itt jelenik meg először.
+                </p>
+                <p className="text-[11px] text-orange-500/90 font-medium">Ha nálunk edzel, csatlakozz a csoporthoz!</p>
+              </div>
+              <div className="pt-2">
+                <a 
+                  href="https://www.facebook.com/groups/tigrisek" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#1877F2] hover:bg-[#1565D8] text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-[0_0_15px_rgba(24,119,242,0.2)] hover:scale-[1.02]"
+                >
+                  <Facebook className="w-4 h-4 fill-current" />
+                  <span>Facebook-csoport megnyitása</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
