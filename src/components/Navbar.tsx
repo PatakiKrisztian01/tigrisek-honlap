@@ -1,18 +1,31 @@
-import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { 
+  Menu, 
+  X, 
+  Home, 
+  Newspaper, 
+  Dumbbell, 
+  Award, 
+  Baby, 
+  Shield, 
+  Users, 
+  Calendar as CalendarIcon, 
+  Phone 
+} from 'lucide-react';
 
+// Menüpontok kibővítve a hozzájuk tartozó ikonokkal
 const navItems = [
-  { label: 'Főoldal', path: '/' },
-  { label: 'Hírek', path: '/hirek' },
-  { label: 'Edzések', path: '/edzesek' },
-  { label: 'Taekwon-do', path: '/taekwondo' },
-  { label: 'Ovis TKD', path: '/ovistkd' },
-  { label: 'Kick-box', path: '/kickbox' },
-  { label: 'Önvédelem', path: '/onvedelem' },
-  { label: 'Tagok', path: '/tagok' },
-  { label: 'Eseménynaptár', path: '/naptar' },
-  { label: 'Kapcsolat', path: '/kapcsolat' },
+  { label: 'Főoldal', path: '/', icon: Home },
+  { label: 'Hírek', path: '/hirek', icon: Newspaper },
+  { label: 'Edzések', path: '/edzesek', icon: Dumbbell },
+  { label: 'Taekwon-do', path: '/taekwondo', icon: Award },
+  { label: 'Ovis TKD', path: '/ovistkd', icon: Baby },
+  { label: 'Kick-box', path: '/kickbox', icon: Award },
+  { label: 'Önvédelem', path: '/onvedelem', icon: Shield },
+  { label: 'Tagok', path: '/tagok', icon: Users },
+  { label: 'Eseménynaptár', path: '/naptar', icon: CalendarIcon },
+  { label: 'Kapcsolat', path: '/kapcsolat', icon: Phone },
 ];
 
 export default function Navbar() {
@@ -20,10 +33,12 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  if (typeof window !== 'undefined') {
+  // Biztonságos és tiszta scroll eseménykezelés useEffect-en belül
+  useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener('scroll', handleScroll);
-  }
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -31,7 +46,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled || menuOpen
-          ? 'bg-black/95 backdrop-blur-md shadow-lg shadow-neon-orange/20'
+          ? 'bg-black/95 backdrop-blur-md shadow-lg shadow-neon-orange/10'
           : 'bg-transparent'
       }`}
     >
@@ -46,13 +61,13 @@ export default function Navbar() {
               alt="Tigrisek Logo"
               className="w-8 h-8 sm:w-10 sm:h-10 group-hover:scale-110 transition-transform"
             />
-            {/* A felirat minden méreten látható, mobilon kisebb betűmérettel */}
             <div className="text-left">
               <div className="text-white font-bold text-[10px] sm:text-xs leading-tight">BUDAPESTI</div>
               <div className="text-neon-orange font-black text-xs sm:text-sm leading-tight tracking-wider">TIGRISEK SE</div>
             </div>
           </Link>
 
+          {/* ASZTALI NAVIGÁCIÓ (PC) */}
           <nav className="hidden xl:flex items-center gap-0.5 2xl:gap-1">
             {navItems.map((item) => (
               <Link
@@ -69,6 +84,7 @@ export default function Navbar() {
             ))}
           </nav>
 
+          {/* MOBIL MENÜ GOMB */}
           <button
             className="xl:hidden p-2 rounded-lg text-gray-400 hover:text-neon-orange hover:bg-gray-900 transition-colors"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -79,23 +95,36 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* ── MOBILOS LENYÍLÓ MENÜ (Az Időkép mintájára testreszabva) ── */}
       {menuOpen && (
-        <div className="xl:hidden border-t border-gray-800 bg-black/98 backdrop-blur-md max-h-[calc(100vh-4rem)] overflow-y-auto">
-          <div className="max-w-7xl mx-auto px-4 py-3 space-y-1">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                onClick={() => setMenuOpen(false)}
-                className={`w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 block ${
-                  isActive(item.path)
-                    ? 'bg-neon-orange text-black font-bold'
-                    : 'text-gray-400 hover:text-white hover:bg-gray-900'
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
+        <div className="xl:hidden border-t border-gray-900 bg-black max-h-[calc(100vh-4rem)] overflow-y-auto">
+          <div className="flex flex-col w-full">
+            {navItems.map((item) => {
+              const IconComponent = item.icon;
+              const active = isActive(item.path);
+              
+              return (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={() => setMenuOpen(false)}
+                  className={`w-full flex items-center gap-4 px-6 py-4 text-sm font-black uppercase tracking-widest transition-all duration-150 border-b border-neon-orange/10 group ${
+                    active
+                      ? 'bg-neon-orange/10 text-neon-orange border-l-4 border-l-neon-orange'
+                      : 'text-white hover:bg-gray-950'
+                  }`}
+                >
+                  {/* Narancssárga ikonok a felirat előtt */}
+                  <IconComponent className={`w-5 h-5 shrink-0 transition-transform group-hover:scale-110 ${
+                    active ? 'text-neon-orange' : 'text-neon-orange/80'
+                  }`} />
+                  
+                  <span className={active ? 'text-neon-orange' : 'group-hover:text-neon-orange/90 transition-colors'}>
+                    {item.label}
+                  </span>
+                </Link>
+              );
+            })}
           </div>
         </div>
       )}
