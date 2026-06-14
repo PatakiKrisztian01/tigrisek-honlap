@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronDown, ChevronUp, Facebook, Activity } from 'lucide-react';
+import { ChevronDown, ChevronUp, Facebook, Activity, Calendar, Download } from 'lucide-react';
 
 type Belt = {
   rank: string;
@@ -101,10 +101,10 @@ export default function Members() {
             <span className="w-2 h-6 bg-orange-500 rounded-full"></span>Tagoknak — Fontos tudnivalók
           </h3>
           
-          {/* Kétoszlopos egyenrangú elrendezés (Mobilon egymás alatt, asztali gépen egymás mellett) */}
+          {/* Kétoszlopos elrendezés */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
-            {/* SPORTORVOSI KÁRTYA */}
+            {/* SPORTORVOSI KÁRTYA — Frissítve egymás alatti profi gombokkal */}
             <div className="bg-black/30 border border-gray-800/60 p-5 rounded-xl flex flex-col justify-between space-y-4">
               <div className="space-y-2">
                 <div className="flex items-center gap-2 text-orange-500 font-bold">
@@ -115,9 +115,25 @@ export default function Members() {
                   Gyerekeknek fél évente, felnőtteknek évente kötelező a megjelenés a vizsgálatokon.
                 </p>
               </div>
-              <div className="flex flex-wrap gap-4 pt-2 text-xs">
-                <a href="https://online.osei.hu/bejelentkezes" target="_blank" rel="noopener noreferrer" className="text-orange-500 underline hover:text-orange-400 transition-colors font-semibold">OSEI időpont ↗</a>
-                <a href="https://osei.hu/images/stories/osei/Sportoli-krdv-20260310-szerkeszthet-.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-300 underline hover:text-white transition-colors">Kérdőív letöltése ↗</a>
+              <div className="flex flex-col gap-2 w-full pt-1">
+                <a 
+                  href="https://online.osei.hu/bejelentkezes" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-full inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-black text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-[0_0_15px_rgba(239,68,68,0.1)] hover:scale-[1.02]"
+                >
+                  <Calendar className="w-4 h-4" />
+                  <span>OSEI időpont foglalás</span>
+                </a>
+                <a 
+                  href="https://osei.hu/images/stories/osei/Sportoli-krdv-20260310-szerkeszthet-.pdf" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-full inline-flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-200 hover:text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all border border-gray-700"
+                >
+                  <Download className="w-4 h-4" />
+                  <span>Kérdőív letöltése</span>
+                </a>
               </div>
             </div>
 
@@ -133,12 +149,12 @@ export default function Members() {
                 </p>
                 <p className="text-[11px] text-orange-500/90 font-medium">Ha nálunk edzel, csatlakozz a csoporthoz!</p>
               </div>
-              <div className="pt-2">
+              <div className="w-full pt-1">
                 <a 
                   href="https://www.facebook.com/groups/tigrisek" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-[#1877F2] hover:bg-[#1565D8] text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-[0_0_15px_rgba(24,119,242,0.2)] hover:scale-[1.02]"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-[#1877F2] hover:bg-[#1565D8] text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-[0_0_15px_rgba(24,119,242,0.2)] hover:scale-[1.02]"
                 >
                   <Facebook className="w-4 h-4 fill-current" />
                   <span>Facebook-csoport megnyitása</span>
