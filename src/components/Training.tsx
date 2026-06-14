@@ -323,21 +323,18 @@ export default function Training() {
           </div>
         </div>
 
-        {/* VIDEÓ BLOKK ── MOZIS MEGJELENÉS, HIVATALOS BORÍTÓKÉPPEL */}
+        {/* VIDEÓ BLOKK */}
         <div className="mb-6 w-full">
           <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-2xl bg-black group">
             
             {!playVideo ? (
               <div 
                 className="absolute inset-0 w-full h-full cursor-pointer flex items-center justify-center bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                // Mostantól a YouTube saját, hivatalos, tökéletes méretarányú borítóképe tölt be
                 style={{ backgroundImage: "url('https://img.youtube.com/vi/Lb_2QhIdyek/maxresdefault.jpg')" }}
                 onClick={() => setPlayVideo(true)}
               >
-                {/* Erős sötétítés, hogy professzionális hatást keltsen */}
                 <div className="absolute inset-0 bg-black/75 group-hover:bg-black/65 transition-colors" />
                 
-                {/* Narancssárga indítógomb */}
                 <div className="relative z-10 w-16 h-16 md:w-20 md:h-20 bg-neon-orange text-black rounded-full flex items-center justify-center shadow-lg shadow-neon-orange/50 transform group-hover:scale-110 transition-all duration-300">
                   <svg className="w-8 h-8 md:w-10 md:h-10 fill-current translate-x-0.5" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
@@ -349,7 +346,6 @@ export default function Training() {
               </div>
             ) : (
               <>
-                {/* Élő lejátszó */}
                 <iframe 
                   className="w-full h-full relative z-0" 
                   src="https://www.youtube.com/embed/Lb_2QhIdyek?autoplay=1&modestbranding=1&rel=0" 
@@ -358,9 +354,9 @@ export default function Training() {
                   allowFullScreen
                 ></iframe>
 
-                {/* Mozis kitakaró sávok */}
-                <div className="absolute top-0 left-0 right-0 h-[11%] bg-black z-10 pointer-events-none" />
-                <div className="absolute bottom-0 left-0 right-0 h-[12%] bg-black z-10 pointer-events-none" />
+                {/* Mozis sávok ── CSAK DESKTOPON jelennek meg (hidden md:block) */}
+                <div className="hidden md:block absolute top-0 left-0 right-0 h-[11%] bg-black z-10 pointer-events-none" />
+                <div className="hidden md:block absolute bottom-0 left-0 right-0 h-[12%] bg-black z-10 pointer-events-none" />
               </>
             )}
 
@@ -372,17 +368,26 @@ export default function Training() {
           <Gyik />
         </div>
 
-        {/* JELENTKEZÉSI BLOKK */}
+        {/* JELENTKEZÉSI BLOKK ── OPTIMALIZÁLT, AZONOS MÉRETŰ MOBIL GOMBOKKAL */}
         <div id="kapcsolat" className="w-full max-w-4xl mx-auto bg-neon-orange/5 border border-neon-orange/30 rounded-2xl p-8 sm:p-12">
           <h3 className="text-white font-black text-3xl md:text-4xl mb-4">Készen állsz?</h3>
           <p className="text-gray-300 md:text-lg max-w-xl mb-8">Az első edzés ingyenes! Gyere el és ismerd meg közösségünket. Minden korosztályt szeretettel várunk.</p>
-          <div className="flex flex-wrap gap-4">
-            <a href="mailto:tigrisek@gmail.com" className="inline-flex items-center gap-2 bg-neon-orange hover:bg-orange-600 text-black px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:scale-105 shadow-lg shadow-neon-orange/40">
-              <Mail className="w-5 h-5" /> Jelentkezés emailben
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+            
+            <a 
+              href="mailto:tigrisek@gmail.com" 
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-neon-orange hover:bg-orange-600 text-black px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:scale-105 shadow-lg shadow-neon-orange/40"
+            >
+              <Mail className="w-5 h-5" /> <span>Jelentkezés emailben</span>
             </a>
-            <a href="tel:+36709415992" className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 border border-gray-700">
-              <Phone className="w-5 h-5 text-neon-orange" /> +36-70-941-5992
+            
+            <a 
+              href="tel:+36709415992" 
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 border border-gray-700"
+            >
+              <Phone className="w-5 h-5 text-neon-orange" /> <span>+36-70-941-5992</span>
             </a>
+
           </div>
         </div>
       </div>
