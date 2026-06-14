@@ -1,13 +1,50 @@
-import { Clock, MapPin, Baby, Shield, Mail, Phone, ExternalLink } from 'lucide-react';
+import { Clock, MapPin, Baby, Shield, Mail, Phone, ExternalLink, Quote, Award } from 'lucide-react';
 import Gyik from './Gyik';
 
+// Frissített edzői tömb a pontos mottókkal
 const trainers = [
-  { name: 'Pataki Krisztián', rank: 'VI.dan', role: 'Klubvezető elnök', image: '/patakikrisztian.webp' },
-  { name: 'Leiti Edmond', rank: 'IV.dan', role: '', image: '/leitiedmond.webp' },
-  { name: 'Patakiné Zs. Anikó', rank: 'III.dan', role: 'Klubvezető helyettes', image: '/patakinezsaniko.webp' },
-  { name: 'Kiss Viktor', rank: 'III.dan', role: '', image: '/kissviktor.webp' },
-  { name: 'Höflinger Zsolt', rank: 'II.dan', role: '', image: '/hoflingerzsolt.webp' },
-  { name: 'Kardos Zsolt', rank: 'II.dan', role: '', image: '/kardoszsolt.webp' },
+  { 
+    name: 'Pataki Krisztián', 
+    rank: 'VI.dan', 
+    role: 'Klubvezető elnök', 
+    image: '/patakikrisztian.webp',
+    motto: 'Amit a cél elérésével kapunk közel sem olyan fontos, mint amivé válunk, amíg azt elérjük.'
+  },
+  { 
+    name: 'Leiti Edmond', 
+    rank: 'IV.dan', 
+    role: '', 
+    image: '/leitiedmond.webp',
+    motto: 'A siker nem fogja lejjebb adni. Nekünk kell felemelkedni hozzá.'
+  },
+  { 
+    name: 'Patakiné Zs. Anikó', 
+    rank: 'III.dan', 
+    role: 'Klubvezető helyettes', 
+    image: '/patakinezsaniko.webp',
+    motto: 'Azok emelik fel, és mozdítják előre a világot, akik többet biztatnak, mint kritizálnak.'
+  },
+  { 
+    name: 'Kiss Viktor', 
+    rank: 'III.dan', 
+    role: '', 
+    image: '/kissviktor.webp',
+    motto: 'Gyakorold azt, amit már tudsz, és ez segíteni fog felismerni azt, amit még nem tudsz.'
+  },
+  { 
+    name: 'Höflinger Zsolt', 
+    rank: 'II.dan', 
+    role: '', 
+    image: '/hoflingerzsolt.webp',
+    motto: 'Oda kell figyelni ellenségeinkre, mert ők az elsők, akik fölfedezik hibáinkat!'
+  },
+  { 
+    name: 'Kardos Zsolt', 
+    rank: 'II.dan', 
+    role: '', 
+    image: '/kardoszsolt.webp',
+    motto: 'Az életed végtelenül leegyszerűsödik, ha kéred és elfogadod a segítséget hozzá.'
+  },
 ];
 
 function LocationCard({ name, address, mapUrl, accentColor }: { name?: string, address: string, mapUrl: string, accentColor: string }) {
@@ -44,24 +81,78 @@ export default function Training() {
           </p>
         </div>
 
-        <div className="mb-16">
-          <h2 className="text-3xl font-black text-white mb-8">Edzők</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {trainers.map((t) => (
-              <div key={t.name} className="bg-gray-900 border border-gray-800 rounded-2xl p-6 hover:border-neon-orange/50 transition-all duration-300">
-                <div className="flex items-center justify-between gap-4">
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-white font-bold text-lg truncate">{t.name}</h3>
-                    <p className="text-neon-orange font-bold text-sm">{t.rank}</p>
-                    {t.role && <p className="text-gray-400 text-xs mt-1 font-medium">{t.role}</p>}
+        {/* ÁTALAKÍTOTT EDZŐK SZEKCIÓ: 1 SOR = 1 EMBER, FOTÓ JOBB OLDALON, CSILLOGÓ ARANY KERET */}
+        <div className="mb-20">
+          <h2 className="text-3xl font-black text-white mb-8 tracking-tight">Edzőink & Mestereink</h2>
+          <div className="flex flex-col gap-8">
+            {trainers.map((t) => {
+              const vanKep = t.image && t.image.trim() !== "";
+              return (
+                <div 
+                  key={t.name} 
+                  className="bg-gradient-to-l from-gray-950 via-gray-950 to-gray-900 border border-gray-800/60 rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row group relative"
+                >
+                  
+                  {/* BAL OLDAL: SZÖVEGES INFÓK & MOTTO */}
+                  <div className="p-6 sm:p-8 flex-1 flex flex-col justify-center order-2 md:order-1">
+                    <div className="mb-4">
+                      <h3 className="text-2xl font-black text-white uppercase tracking-tight group-hover:text-amber-400 transition-colors duration-300">
+                        {t.name}
+                      </h3>
+                      <div className="h-[2px] w-12 bg-neon-orange mt-1 mb-2 group-hover:w-24 group-hover:bg-amber-500 transition-all duration-500" />
+                      <div className="flex items-center gap-2">
+                        <span className="text-neon-orange font-black text-xs uppercase tracking-widest bg-neon-orange/10 px-2 py-0.5 rounded border border-neon-orange/20">
+                          {t.rank}
+                        </span>
+                        {t.role && (
+                          <span className="text-gray-400 text-xs font-bold uppercase tracking-wider">
+                            • {t.role}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* IDÉZET / MOTTO BLOKK */}
+                    {t.motto && (
+                      <div className="relative bg-black/40 border-l-2 border-amber-500/60 p-4 rounded-r-xl mt-2 max-w-2xl">
+                        <Quote size={20} className="absolute -top-2.5 right-2 text-gray-800/30 pointer-events-none transform rotate-180" />
+                        <p className="text-xs sm:text-sm italic text-gray-300 font-medium leading-relaxed tracking-wide">
+                          „{t.motto}”
+                        </p>
+                      </div>
+                    )}
                   </div>
-                  <img src={t.image} alt={t.name} className="w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-xl flex-shrink-0 border border-gray-800" />
+
+                  {/* JOBB OLDAL: TELJES MAGASSÁGÚ KÉP VASTAG CSILLOGÓ ARANY KERETBEN */}
+                  <div className="w-full md:w-[260px] bg-black flex-shrink-0 flex items-stretch order-1 md:order-2 p-2 md:p-0">
+                    <div className="relative w-full h-full min-h-[240px] md:min-h-full p-[4px] bg-gradient-to-br from-amber-400 via-yellow-600 to-amber-700 shadow-[0_0_15px_rgba(217,119,6,0.1)] group-hover:shadow-[0_0_35px_rgba(217,119,6,0.45)] group-hover:from-yellow-400 group-hover:via-amber-400 group-hover:to-yellow-200 transition-all duration-700 md:rounded-r-3xl md:rounded-l-none rounded-2xl overflow-hidden flex-1">
+                      
+                      <div className="w-full h-full md:rounded-r-[22px] md:rounded-l-none rounded-[18px] overflow-hidden bg-gray-950 flex items-center justify-center relative">
+                        {vanKep ? (
+                          <img 
+                            src={t.image} 
+                            alt={t.name}
+                            className="w-full h-full object-cover grayscale contrast-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                          />
+                        ) : (
+                          <div className="w-full h-full flex flex-col items-center justify-center p-6 bg-gradient-to-b from-gray-950 to-gray-900">
+                            <Award size={32} className="text-gray-800 group-hover:text-amber-500/40 transition-colors duration-500" />
+                            <span className="text-[9px] text-gray-600 uppercase font-black tracking-widest mt-1">FOTÓ KÉSZÜL</span>
+                          </div>
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-l from-black/60 md:from-black/30 via-transparent to-transparent opacity-60" />
+                      </div>
+
+                    </div>
+                  </div>
+
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
+        {/* XVIII. KERÜLET EDZÉSREND */}
         <div className="mb-16">
           <h2 className="text-3xl font-black text-white mb-2">XVIII. Kerület, Pestszentlőrinc</h2>
           <p className="text-gray-400 mb-8">Heti edzésrend</p>
@@ -137,6 +228,7 @@ export default function Training() {
           </div>
         </div>
 
+        {/* INGYENES ÖNVÉDELEM */}
         <div className="mb-16">
           <div className="bg-gray-900 border border-emerald-600/30 rounded-2xl overflow-hidden">
             <div className="flex flex-col lg:flex-row h-full">
@@ -153,6 +245,7 @@ export default function Training() {
           </div>
         </div>
 
+        {/* OVIS EDZÉSEK */}
         <div className="mb-12">
           <div className="bg-gray-900 border border-amber-600/30 rounded-2xl overflow-hidden">
             <div className="flex flex-col lg:flex-row h-full">
@@ -172,7 +265,7 @@ export default function Training() {
           </div>
         </div>
 
-        {/* VIDEÓ BLOKK - Cím eltávolítva, halványító maszkok magassága mobilon csökkentve (h-8) */}
+        {/* VIDEÓ BLOKK */}
         <div className="mb-6 w-full max-w-4xl mx-auto">
           <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-2xl bg-black">
             <div className="absolute top-0 left-0 right-0 h-8 sm:h-16 bg-gradient-to-b from-black to-transparent z-10 pointer-events-none" />
@@ -187,12 +280,12 @@ export default function Training() {
           </div>
         </div>
 
-        {/* GYIK KONTÉNER - Semlegesíti a Gyik saját felső paddingjét, így tökéletesen simul a videó alá */}
+        {/* GYIK KONTÉNER */}
         <div className="mb-10 w-full max-w-4xl mx-auto -mt-24 sm:-mt-28 md:-mt-32">
-        <Gyik />
+          <Gyik />
         </div>
 
-        {/* JELENTKEZÉSI BLOKK (KÉSZEN ÁLLSZ) */}
+        {/* JELENTKEZÉSI BLOKK */}
         <div id="kapcsolat" className="w-full max-w-4xl mx-auto bg-neon-orange/5 border border-neon-orange/30 rounded-2xl p-8 sm:p-12">
           <h3 className="text-white font-black text-3xl mb-4">Készen állsz?</h3>
           <p className="text-gray-300 max-w-xl mb-8">Az első edzés ingyenes! Gyere el és ismerd meg közösségünket. Minden korosztályt szeretettel várunk.</p>
