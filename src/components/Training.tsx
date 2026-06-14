@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Clock, MapPin, Baby, Shield, Mail, Phone, ExternalLink, Quote, Award } from 'lucide-react';
 import Gyik from './Gyik';
 
@@ -5,10 +6,10 @@ const trainers = [
   { 
     name: 'Pataki Krisztián', 
     rank: 'VI.dan', 
-    role: 'Vetető edző, Alapító elnök', 
+    role: 'Vezető edző, Alapító elnök', 
     image: '/patakikrisztian.webp',
     motto: 'Amit a cél elérésével kapunk közel sem olyan fontos, mint amivé válunk, amíg azt elérjük.',
-    fullWidth: true // Kiemelt teljes szélességű elrendezéshez
+    fullWidth: true
   },
   { 
     name: 'Patakiné Zs. Anikó', 
@@ -16,9 +17,8 @@ const trainers = [
     role: 'Klubvezető helyettes', 
     image: '/patakinezsaniko.webp',
     motto: 'Azok emelik fel, és mozdítják előre a világot, akik többet biztatnak, mint kritizálnak.',
-    fullWidth: true // Kiemelt teljes szélességű elrendezéshez
+    fullWidth: true
   },
-  // Első kettes sor edzői
   { 
     name: 'Leiti Edmond', 
     rank: 'IV.dan', 
@@ -33,7 +33,6 @@ const trainers = [
     image: '/hoflingerzsolt.webp',
     motto: 'Oda kell figyelni ellenségeinkre, mert ők az elsők, akik fölfedezik hibáinkat!'
   },
-  // Második kettes sor edzői
   { 
     name: 'Kiss Viktor', 
     rank: 'III.dan', 
@@ -65,6 +64,8 @@ function LocationCard({ name, address, mapUrl, accentColor }: { name?: string, a
 }
 
 export default function Training() {
+  const [playVideo, setPlayVideo] = useState(false);
+
   return (
     <div className="min-h-screen pt-20 bg-black">
       <div className="relative py-16 bg-gradient-to-b from-gray-900 to-black border-b border-gray-800">
@@ -76,7 +77,7 @@ export default function Training() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         
-        {/* FRISSÍTETT ÚJ FELSŐ BLOKK */}
+        {/* FELSŐ BLOKK */}
         <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 mb-12 relative overflow-hidden shadow-2xl shadow-orange-950/10">
           <div className="absolute top-0 left-0 w-1 h-full bg-neon-orange" />
           <h2 className="text-2xl md:text-3xl font-black text-white mb-4 uppercase tracking-wide">Taekwon-do</h2>
@@ -102,7 +103,6 @@ export default function Training() {
         <div className="mb-20">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-6 tracking-tight">Edzőink</h2>
           
-          {/* CSS Grid elrendezés: Alapból 1 oszlop, de asztalon engedi a 2 oszlopos törést */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {trainers.map((t) => {
               const vanKep = t.image && t.image.trim() !== "";
@@ -323,18 +323,46 @@ export default function Training() {
           </div>
         </div>
 
-        {/* VIDEÓ BLOKK */}
+        {/* VIDEÓ BLOKK ── PREMUM TISZTA LUSTA BETÖLTÉS */}
         <div className="mb-6 w-full max-w-4xl mx-auto">
-          <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-2xl bg-black">
-            <div className="absolute top-0 left-0 right-0 h-8 sm:h-16 bg-gradient-to-b from-black to-transparent z-10 pointer-events-none" />
-            <iframe 
-              className="w-full h-full relative z-0" 
-              src="https://www.youtube.com/embed/Lb_2QhIdyek" 
-              title="YouTube bemutató videó" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowFullScreen
-            ></iframe>
-            <div className="absolute bottom-0 left-0 right-0 h-8 sm:h-16 bg-gradient-to-t from-black to-transparent z-10 pointer-events-none" />
+          <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-2xl bg-black border border-gray-800 group">
+            
+            {!playVideo ? (
+              // Egyedi borítókép letisztultan, amin semmilyen zavaró YouTube felirat nincs
+              <div 
+                className="absolute inset-0 w-full h-full cursor-pointer flex items-center justify-center bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                style={{ backgroundImage: "url('/kondor.webp')" }}
+                onClick={() => setPlayVideo(true)}
+              >
+                {/* Sötétítő dizájn réteg */}
+                <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors" />
+                
+                {/* Pulzáló narancssárga lejátszás gomb */}
+                <div className="relative z-10 w-16 h-16 md:w-20 md:h-20 bg-neon-orange text-black rounded-full flex items-center justify-center shadow-lg shadow-neon-orange/50 transform group-hover:scale-110 transition-all duration-300">
+                  <svg className="w-8 h-8 md:w-10 md:h-10 fill-current translate-x-0.5" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+                
+                {/* Finom alsó és felső sötét átmenet */}
+                <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-black to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black to-transparent" />
+              </div>
+            ) : (
+              // Az iframe csak kattintásra ugrik be, automatikus indulással és minimalizált brandinggel
+              <>
+                <div className="absolute top-0 left-0 right-0 h-8 sm:h-16 bg-gradient-to-b from-black to-transparent z-10 pointer-events-none" />
+                <iframe 
+                  className="w-full h-full relative z-0" 
+                  src="https://www.youtube.com/embed/Lb_2QhIdyeI?autoplay=1&modestbranding=1&rel=0" 
+                  title="YouTube bemutató videó" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowFullScreen
+                ></iframe>
+                <div className="absolute bottom-0 left-0 right-0 h-8 sm:h-16 bg-gradient-to-t from-black to-transparent z-10 pointer-events-none" />
+              </>
+            )}
+
           </div>
         </div>
 
