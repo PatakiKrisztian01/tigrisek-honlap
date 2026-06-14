@@ -98,11 +98,40 @@ export default function Members() {
         <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
           <h3 className="font-black text-xl mb-6 flex items-center gap-3"><span className="w-2 h-6 bg-orange-500 rounded-full"></span>Tagoknak — Fontos tudnivalók</h3>
           <ul className="space-y-6 text-sm text-gray-400">
+            {/* 01. SZEKCIÓ — SPORTORVOSI & FACEBOOK CSOPORT */}
             <li className="flex items-start gap-4">
               <span className="text-orange-500 font-bold text-lg">01.</span>
-              <div><p><strong className="text-white">Sportorvosi vizsgálat</strong> — Gyerekeknek fél évente, felnőtteknek évente kötelező.</p>
-                <div className="flex gap-4 pt-2"><a href="https://online.osei.hu/bejelentkezes" className="text-orange-500 underline">OSEI időpont</a><a href="https://osei.hu/images/stories/osei/Sportoli-krdv-20260310-szerkeszthet-.pdf" className="text-gray-300 underline">Kérdőív letöltése</a></div></div>
+              <div className="w-full space-y-4">
+                <div>
+                  <p><strong className="text-white">Sportorvosi vizsgálat</strong> — Gyerekeknek fél évente, felnőtteknek évente kötelező.</p>
+                  <div className="flex gap-4 pt-2">
+                    <a href="https://online.osei.hu/bejelentkezes" target="_blank" rel="noopener noreferrer" className="text-orange-500 underline hover:text-orange-400 transition-colors">OSEI időpont</a>
+                    <a href="https://osei.hu/images/stories/osei/Sportoli-krdv-20260310-szerkeszthet-.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-300 underline hover:text-white transition-colors">Kérdőív letöltése</a>
+                  </div>
+                </div>
+
+                {/* Új beillesztett Facebook csoport felhívás */}
+                <div className="bg-black/40 border border-gray-800/60 p-4 rounded-xl space-y-3">
+                  <div className="space-y-1">
+                    <h4 className="text-white font-bold text-sm">A Tigers Taekwondo Team hivatalos zárt Facebook-csoportja</h4>
+                    <p className="text-xs text-gray-400 leading-relaxed">
+                      Edzésváltozások, versenyinformációk, rendezvények, fotók, videók és minden fontos klubhír itt jelenik meg először.
+                    </p>
+                    <p className="text-xs text-orange-500/90 font-medium">Ha nálunk edzel, csatlakozz a csoporthoz!</p>
+                  </div>
+                  <a 
+                    href="https://www.facebook.com/" /* IDE MAJD ILLESZD BE A PONTOS CSOPORT LINKET */
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-[#1877F2]/10 hover:bg-[#1877F2]/20 border border-[#1877F2]/40 text-[#1877F2] hover:text-[#4294ff] text-xs font-bold px-4 py-2 rounded-lg transition-all shadow-[0_0_15px_rgba(24,119,242,0.05)]"
+                  >
+                    <span>🔵</span> Facebook-csoport megnyitása
+                  </a>
+                </div>
+              </div>
             </li>
+
+            {/* 02. SZEKCIÓ — FEJVÉDŐ */}
             <li className="flex items-start gap-4">
               <span className="text-orange-500 font-bold text-lg">02.</span>
               <p><strong className="text-white">Fejvédő</strong> — Versenyeken kötelező, edzéseken ajánlott. Versenyzőknek mindkét színből (piros és kék) kell rendelkezniük.</p>
