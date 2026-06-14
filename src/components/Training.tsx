@@ -5,10 +5,20 @@ const trainers = [
   { 
     name: 'Pataki Krisztián', 
     rank: 'VI.dan', 
-    role: 'Klubvezető elnök', 
+    role: 'Vetető edző, Alapító elnök', 
     image: '/patakikrisztian.webp',
-    motto: 'Amit a cél elérésével kapunk közel sem olyan fontos, mint amivé válunk, amíg azt elérjük.'
+    motto: 'Amit a cél elérésével kapunk közel sem olyan fontos, mint amivé válunk, amíg azt elérjük.',
+    fullWidth: true // Kiemelt teljes szélességű elrendezéshez
   },
+  { 
+    name: 'Patakiné Zs. Anikó', 
+    rank: 'III.dan', 
+    role: 'Klubvezető helyettes', 
+    image: '/patakinezsaniko.webp',
+    motto: 'Azok emelik fel, és mozdítják előre a világot, akik többet biztatnak, mint kritizálnak.',
+    fullWidth: true // Kiemelt teljes szélességű elrendezéshez
+  },
+  // Első kettes sor edzői
   { 
     name: 'Leiti Edmond', 
     rank: 'IV.dan', 
@@ -17,25 +27,19 @@ const trainers = [
     motto: 'A siker nem fogja lejjebb adni. Nekünk kell felemelkedni hozzá.'
   },
   { 
-    name: 'Patakiné Zs. Anikó', 
-    rank: 'III.dan', 
-    role: 'Klubvezető helyettes', 
-    image: '/patakinezsaniko.webp',
-    motto: 'Azok emelik fel, és mozdítják előre a világot, akik többet biztatnak, mint kritizálnak.'
+    name: 'Höflinger Zsolt', 
+    rank: 'II.dan', 
+    role: '', 
+    image: '/hoflingerzsolt.webp',
+    motto: 'Oda kell figyelni ellenségeinkre, mert ők az elsők, akik fölfedezik hibáinkat!'
   },
+  // Második kettes sor edzői
   { 
     name: 'Kiss Viktor', 
     rank: 'III.dan', 
     role: '', 
     image: '/kissviktor.webp',
     motto: 'Gyakorold azt, amit már tudsz, és ez segíteni fog felismerni azt, amit még nem tudsz.'
-  },
-  { 
-    name: 'Höflinger Zsolt', 
-    rank: 'II.dan', 
-    role: '', 
-    image: '/hoflingerzsolt.webp',
-    motto: 'Oda kell figyelni ellenségeinkre, mert ők az elsők, akik fölfedezik hibáinkat!'
   },
   { 
     name: 'Kardos Zsolt', 
@@ -97,13 +101,17 @@ export default function Training() {
         {/* EDZŐK SZEKCIÓ */}
         <div className="mb-20">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-6 tracking-tight">Edzőink</h2>
-          <div className="flex flex-col gap-4">
+          
+          {/* CSS Grid elrendezés: Alapból 1 oszlop, de asztalon engedi a 2 oszlopos törést */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {trainers.map((t) => {
               const vanKep = t.image && t.image.trim() !== "";
               return (
                 <div 
                   key={t.name} 
-                  className="bg-gradient-to-l from-gray-950 via-gray-950 to-gray-900 border border-gray-800/50 rounded-2xl overflow-hidden shadow-xl flex flex-col sm:flex-row group relative"
+                  className={`bg-gradient-to-l from-gray-950 via-gray-950 to-gray-900 border border-gray-800/50 rounded-2xl overflow-hidden shadow-xl flex flex-col sm:flex-row group relative transition-all duration-300 ${
+                    t.fullWidth ? 'lg:col-span-2' : ''
+                  }`}
                 >
                   
                   {/* BAL OLDAL: SZÖVEG */}
@@ -134,16 +142,16 @@ export default function Training() {
                     )}
                   </div>
 
-                  {/* JOBB OLDAL: MOBILON KISEBB KÉP CONTÉNER */}
+                  {/* JOBB OLDAL: SZÍNES FOTÓ KONTÉNER */}
                   <div className="w-full sm:w-[150px] md:w-[190px] bg-black flex-shrink-0 flex items-stretch order-1 sm:order-2 p-2 sm:p-0">
-                    <div className="relative w-full h-full min-h-[110px] sm:min-h-full p-[3px] bg-gradient-to-br from-amber-400 via-yellow-600 to-amber-700 shadow-[0_0_10px_rgba(217,119,6,0.1)] group-hover:shadow-[0_0_25px_rgba(217,119,6,0.4)] group-hover:from-yellow-400 group-hover:via-amber-400 group-hover:to-yellow-200 transition-all duration-700 sm:rounded-r-2xl sm:rounded-l-none rounded-xl overflow-hidden flex-1">
+                    <div className="relative w-full h-full min-h-[140px] sm:min-h-full p-[3px] bg-gradient-to-br from-amber-400 via-yellow-600 to-amber-700 shadow-[0_0_10px_rgba(217,119,6,0.1)] group-hover:shadow-[0_0_25px_rgba(217,119,6,0.4)] group-hover:from-yellow-400 group-hover:via-amber-400 group-hover:to-yellow-200 transition-all duration-700 sm:rounded-r-2xl sm:rounded-l-none rounded-xl overflow-hidden flex-1">
                       
                       <div className="w-full h-full sm:rounded-r-[13px] sm:rounded-l-none rounded-[9px] overflow-hidden bg-gray-950 flex items-center justify-center relative">
                         {vanKep ? (
                           <img 
                             src={t.image} 
                             alt={t.name}
-                            className="w-full h-full object-cover grayscale contrast-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
                           />
                         ) : (
                           <div className="w-full h-full flex flex-col items-center justify-center p-4 bg-gradient-to-b from-gray-950 to-gray-900">
@@ -151,7 +159,7 @@ export default function Training() {
                             <span className="text-[8px] text-gray-600 uppercase font-black tracking-widest mt-1">FOTÓ</span>
                           </div>
                         )}
-                        <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-l from-black/50 sm:from-black/30 via-transparent to-transparent opacity-50" />
+                        <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-l from-black/40 sm:from-black/20 via-transparent to-transparent opacity-40" />
                       </div>
 
                     </div>
