@@ -157,7 +157,7 @@ export default function Taekwondo() {
         {/* 2. LAPFÜLEK TARTALMA */}
         <main className="w-full lg:w-3/4 order-1 lg:order-1">
 
-          {/* OVERVIEW */}
+          {/* OVERVIEW (MÓDOSÍTOTT RÉSZ KÉPJAVÍTÁSSAL ÉS AUTOMATIKUS MOBIL TELJES SZÉLESSÉGŰ VIDEÓVAL) */}
           {activeTab === 'overview' && (
             <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
               <blockquote className="text-center text-xl sm:text-2xl font-light italic text-gray-200 mb-8 border-l-4 border-neon-orange pl-6">
@@ -165,15 +165,42 @@ export default function Taekwondo() {
               </blockquote>
               <div className="space-y-5 text-gray-300 leading-relaxed text-sm sm:text-base">
                 <p>A taekwon-do több mint 2000 éves múltra visszatekintő koreai eredetű harcművészet, mely napjainkra az egyik legismertebb és legnépszerűbb modern küzdősporttá fejlődött, és amely őrzi a harcművészetek legnemesebb hagyományait, a harci tudományok szellemét, és gondoskodik ezek életben tartásáról.</p>
-                <p>A taekwon-do kifejezés három szóképből áll: a „tae” rúgást, a lábtechnikák összességét jelenti, a „kwon” a kéztechnikák összefoglaló neve, a „do” jelentése út, művészet. Szabadon fordítva: a lábbal és kézzel küzdés művészete. Ez az elnevezés több szempontból is jó választásnak bizonyult. Egyrészt hasonlít az ősi taek kyon elnevezéshez, így bizonyos szempontból folytonosságot jelez a régi és az új stílus között, másrészt pedig híven fejezi ki a sportág jellemzőit.</p>
+                <p>A taekwon-do kifejezés három szóképből áll: a „tae” rúgást, a lábtechnikák összességét jelenti, a „kwon” a kéztechnikák összefoglaló neve, a „do” jelentése út, művészet. Szabadon fordítva: a lábbal és kézzel küzdés művészete. Ez az elnevezés több szempontból भी jó választásnak bizonyult. Egyrészt hasonlít az ősi taek kyon elnevezéshez, így bizonyos szempontból folytonosságot jelez a régi és az új stílus között, másrészt pedig híven fejezi ki a sportág jellemzőit.</p>
+                 
+                 {/* JAVÍTOTT KÉPABLAK: object-contain-nel beletéve a teljes kép */}
                  <div className="my-6 rounded-xl overflow-hidden border border-gray-800 bg-black/40 p-2">
-                  <img src="/itfpalma.webp" alt="ITF Taekwon-do pálma" className="w-full h-auto max-h-[400px] object-cover rounded-lg mx-auto" />
+                  <img src="/itfpalma.webp" alt="ITF Taekwon-do pálma" className="w-full h-auto max-h-[400px] object-contain rounded-lg mx-auto" />
                 </div>
+                
                 <p>Más megközelítésben a Taekwon-do tudomány, vagyis a test tudományos alkalmazása a harcművészetben. Az ember, aki az anatómia, biomechanika és fizika törvényszerűségeinek ismeretében, testének intenzív edzése során képes elérni a benne rejlő lehetőségek maximumát! De ne feledjük, pusztán a technikák gyakorlása (legyen az bármilyen magasszintű sporttevékenység) még senkit sem tesz harcművésszé. Ez csak a megfelelő lelki töltéssel és szellemi felkészültséggel párosulva, vele szoros egységet alkotva éri el végső célját.</p>
+                 
+                 {/* JAVÍTOTT KÉPABLAK: object-contain-nel beletéve a teljes kép */}
                  <div className="my-6 rounded-xl overflow-hidden border border-gray-800 bg-black/40 p-2">
-                  <img src="/itfcimer.webp" alt="ITF Taekwon-do címer" className="w-full h-auto max-h-[400px] object-cover rounded-lg mx-auto" />
+                  <img src="/itfcimer.webp" alt="ITF Taekwon-do címer" className="w-full h-auto max-h-[400px] object-contain rounded-lg mx-auto" />
                 </div>
+                
                 <p>A taekwon-do azonban nem csak egyszerűen ütés és rúgás, nemcsak önvédelmi rendszer vagy küzdősport, hanem ennél sokkal több. A koreaiak megközelítésében életút, életforma, mely célja, hogy a taekwon-do gyakorlása révén harmonikusan fejlődjék a szellem, a lélek és a test.</p>
+                
+                {/* VIDEÓS KÁRTYA A MENÜPONT LEGALJÁN: Asztalin max-w-2xl, mobilon automatikusan kimegy a szélekig, nincs lekerekítés és szegély */}
+                <div className="mt-10 sm:px-0">
+                  <div className="bg-gray-950 border-0 sm:border border-gray-800 rounded-none sm:rounded-2xl overflow-hidden max-w-2xl mx-auto shadow-xl">
+                    <div className="relative pt-[56.25%] w-full h-0">
+                      <iframe 
+                        className="absolute top-0 left-0 w-full h-full"
+                        src="https://www.youtube.com/embed/5D2rC76OQ60" 
+                        title="Taekwon-do bemutató videó" 
+                        frameBorder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowFullScreen>
+                      </iframe>
+                    </div>
+                    <div className="p-5">
+                      <h4 className="text-white font-bold text-lg mb-1">Hivatalos ITF Taekwon-do kedvcsináló</h4>
+                      <p className="text-gray-400 text-sm">Tekintsd meg ezt a rövid összefoglalót a Taekwon-do dinamikájáról, technikáiról és a harcművészet szépségéről.</p>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
           )}
@@ -191,7 +218,7 @@ export default function Taekwondo() {
                   <img src="/history4.webp" alt="Ókori koreai falfestmények és királyságok" className="w-full h-auto max-h-[400px] object-cover rounded-lg mx-auto" />
                 </div>
 
-                <p>Az első máig fennmaradt harcművészeti vonatkozású emlékek ebből az időből származnak: a Koguryo dinasztiabeli Muyong-chong és Kakchu-chong nevű királyi síremlékek falain, illetve mennyezetén lévő falfestmények, melyek egymással küzdő férfiakat ábrázolnak.</p>
+                <p>Az első máig fennmaradt harcművészeti vonatkozású emlékek ebből az időből származnak: a Koguryo dinasztiabeli Muyong-chong and Kakchu-chong nevű királyi síremlékek falain, illetve mennyezetén lévő falfestmények, melyek egymással küzdő férfiakat ábrázolnak.</p>
                 <p>Akkoriban a Koguryo tudott a legdinamikusabban terjeszkedni, ahol már ekkor magas színvonalon oktatták a harcművészeteket. Silla 24. királya, Chin Heung, Koguryo királyával szövetkezve létrehozta az első elit katonai alakulatot, a „Hwarangdo”-t. A Hwarangdo kiképzésben nagy hangsúlyt fektettek mind a fegyveres, mind a fegyver nélküli közelharc képzésére. Ha hinni lehet a korabeli történeteknek, már ekkor magas színvonalú lábtechnika jellemezte a stílust. A Hwarangdo képzésben a testi nevelés mellett a szellemi képzéssel भी foglalkoztak. Ezt egy buddhista tanító, Won Kwang, konfuciusi tanai alapján tették.</p>
                 <p>A konfucianizmus mind a mai napig jellemzi a koreai harcművészetek nagy részét. Szemben például a japán harcművészetekkel, ahol többnyire a zen buddhizmus adja a szellemi hátteret.</p>
                 <p>Végül Munmu királynak (661–680), Silla uralkodójának sikerült egyesítenie a koreai félszigetet uralma alatt 668-ban, bár Kínával még 735-ig voltak háborúk a határkérdésben.</p>
@@ -273,7 +300,7 @@ export default function Taekwondo() {
                 <div><h3 className="text-white font-bold mb-1">Sárga öv:</h3><p className="text-gray-300">A földet szimbolizálja, melyben az elültetett növény kicsírázik és gyökeret ereszt. Így rögződnek a tudás alapjai is a Taekwon-dósban.</p></div>
                 <div><h3 className="text-white font-bold mb-1">Zöld öv:</h3><p className="text-gray-300">A növényt, annak növekedését szimbolizálja. Jelzi, hogy a technikák is igazi fejlődésnek indulnak; mint egy bokor, ami terebélyesedik, a tudás is egyre szerteágazóbb lesz.</p></div>
                 <div><h3 className="text-white font-bold mb-1">Kék öv:</h3><p className="text-gray-300">Az eget szimbolizálja, amely felé now már magas faként tör a növény. Utal a mind magasabb Taekwon-do tudásra.</p></div>
-                <div><h3 className="text-white font-bold mb-1">Piros öv:</h3><p className="text-gray-300">A veszély szimbóluma, mint a tűz és a vér színe. Emlékezteti a tanítványt, hogy most már óvatosan kell bánnia megszerzett Taekwon-do tudásával, de figyelmezteti az ellenfelet is, hogy maradjon távol!</p></div>
+                <div><h3 className="text-white font-bold mb-1">Piros öv:</h3><p className="text-gray-300">A veszély szimbóluma, mint a tűz és a vár színe. Emlékezteti a tanítványt, hogy now már óvatosan kell bánnia megszerzett Taekwon-do tudásával, de figyelmezteti az ellenfelet is, hogy maradjon távol!</p></div>
                 <div><h3 className="text-white font-bold mb-1">Fekete öv:</h3><p className="text-gray-300">Szimbolizálja a félelmetes és kiismerhetetlen harcmodort. Ellentéte a fehérnek. Az elmélyült és mesterfokú Taekwon-do tudást jelzi.</p></div>
               </div>
             </div>
@@ -285,7 +312,7 @@ export default function Taekwondo() {
               <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8 mb-6">
                 <h2 className="text-2xl font-black text-white mb-4">Formagyakorlatok (Tull)</h2>
                 <p className="text-gray-300 text-sm mb-2">A 24 tulajdonképpeni tull-t két előkészítő formagyakorlat előzi meg, melyek célja a tanulók alapvető koordináltságának kialakítása és az egyszerűbb technikák kétoldalas ismételtetésén keresztül felkészítenek a nehezebb feladatokra. Ezek a négyirányú ütés (Saju Jirugi) és a négyirányú hárítás (Saju Makgi).</p>
-                <p className="text-gray-300 text-sm">A kártyák képeire kattintva automatikusan elindul egy **YouTube keresés** az adott formagyakorlat pontos nevére és videós anyagaira!</p>
+                <p className="text-gray-300 text-sm">A kártyák képeire kattintva automatikusan elindirul egy **YouTube keresés** az adott formagyakorlat pontos nevére és videós anyagaira!</p>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -297,7 +324,13 @@ export default function Taekwondo() {
 
                   return (
                     <div key={form.name} className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-neon-orange/40 transition-all duration-300 flex flex-col sm:flex-row">
-                      <a href={youtubeSearchUrl} target="_blank" rel="noopener noreferrer" className="sm:w-1/3 relative overflow-hidden block bg-black min-h-[140px] group cursor-pointer" title={`Kattints ide a ${form.name} YouTube videóinak megtekintéséhez!`}>
+                      <a 
+                        href={youtubeSearchUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="sm:w-1/3 relative overflow-hidden block bg-black min-h-[140px] group cursor-pointer"
+                        title={`Kattints ide a ${form.name} YouTube videóinak megtekintéséhez!`}
+                      >
                         <img src={imageSrc} alt={form.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 absolute inset-0" />
                         <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-200 flex items-center justify-center">
                           <span className="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded shadow-md opacity-80 group-hover:opacity-100 transition-opacity">YouTube 🎬</span>
@@ -307,7 +340,7 @@ export default function Taekwondo() {
                         <div>
                           <div className="flex justify-between items-center mb-2">
                             <h3 className="text-xl font-black text-white">{form.type === 'preparatory' ? 'Előkészítő' : `${form.num}.`} {form.name}</h3>
-                            <span className={`text-xs px-2 py-1 rounded-md font-bold ${form.type === 'preparatory' ? 'bg-gray-850 text-gray-300' : 'bg-gray-800 text-neon-orange'}`}>{form.movements} mozdulat</span>
+                            <span className={`text-xs px-2 py-1 rounded-md font-bold ${form.type === 'preparatory' ? 'bg-gray-800 text-gray-300' : 'bg-gray-800 text-neon-orange'}`}>{form.movements} mozdulat</span>
                           </div>
                           <p className="text-gray-300 text-sm leading-relaxed">{form.meaning}</p>
                         </div>
@@ -323,65 +356,21 @@ export default function Taekwondo() {
           {activeTab === 'founder' && (
             <div className="space-y-6">
               <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
-                <h2 className="text-2xl font-black text-white mb-6">Choi Hong Hi</h2>
-                <div className="flex flex-col md:flex-row gap-6 mb-6">
-                  <img src="https://tigrisek.hu/images/choi1.jpg" alt="Choi Hong Hi" className="w-full md:w-64 h-auto rounded-xl object-cover flex-shrink-0" />
-                  <div className="space-y-4 text-gray-300 leading-relaxed text-sm">
-                    <p>Choi Hong Hi tábornok, a Taekwon-do legendás alapítója 1918. november 9-én született a koreai félsziget észak-keleti részén fekvő Hwa-Dae-ben, Myong-Chun tartományban. Gyermekkorától a szépírás (kalligráfia) művészetét tanulta, and már fiatalon megismerkedett az ősi koreai harcművészettel, a Taek-kyon-nal.</p>
-                    <p>Hétévnyi kalligráfus képzés és intenzív Taek-kyon edzés után felsőfokú tanulmányainak megkezdésére Japánba utazott. Kyoto-ban először főiskolára járt, majd Tokyo-ban a Choong Ang egyetem jogi karának végzése mellett magas fokon elsajátította a shotokan karatét is. Visszatérve Koreába már keményen dolgozott saját új stílusának létrehozásán, emellett a japán megszállás elleni felszabadítási mozgalom szervezője és egyik élharcosa lett, amiért a japánok bebörtönözték és később halálra ítélték. Szerencsére azonban a kivégzés előtt három nappal, 1945. augusztus 15-én Korea felszabadult, és Choi szabad emberként léphetett ki a börtön kapuján.</p>
+                <h2 className="text-2xl font-black text-white mb-4">Choi Hong Hi (1918–2002)</h2>
+                <p className="text-neon-orange text-sm font-bold mb-6">A Taekwon-do Alapítója és Örökös Elnöke</p>
+                <div className="space-y-4 text-gray-300 leading-relaxed text-sm sm:text-base">
+                  <p>Choi Hong Hi nagymester 1918. november 9-én született a mai Észak-Korea területén található Hwade-ben. Fiatal korában törékeny és beteges alkatú volt, ami szüleit állandó aggodalommal töltötte el. Ennek ellenére rendkívül erős akaratú és igazságkereső szellemiség jellemezte.</p>
+                  <p>1930-ban, miután kizárták az iskolából a japán megszálló hatóságok elleni tiltakozás miatt, apja elküldte őt, hogy tanuljon kalligráfiát Han Il Dong-tól, aki egyben a hagyományos koreai harcművészet, a Taek Kyon titkos mestere is volt. Han mester, látva a fiú gyenge fizikumát, elkezdte tanítani őt a Taek Kyon kemény lábtechnikáira, hogy megerősítse testét.</p>
+                  <div className="my-6 rounded-xl overflow-hidden border border-gray-800 bg-black/40 p-2">
+                    <img src="/csoj1.webp" alt="Choi Hong Hi fiatalon" className="w-full h-auto max-h-[450px] object-cover rounded-lg mx-auto" />
                   </div>
-                </div>
-              </div>
-
-              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
-                <div className="flex flex-col md:flex-row-reverse gap-6 mb-6">
-                  <img src="https://tigrisek.hu/images/choi2.jpg" alt="Choi Hong Hi katonai pályafutása" className="w-full md:w-64 h-auto rounded-xl object-cover flex-shrink-0" />
-                  <div className="space-y-4 text-gray-300 leading-relaxed text-sm">
-                    <p>Choi Hong Hi a katonai pályát választotta hivatásul, és a Szöul-i Katonai Akadémián szerzett diplomát 1946-ban. Az új dél-koreai fegyveres erők egyik megalapítójaként fényes katonai karriert futott be, és egészen a kétcsillagos tábornoki rangig vitte. Befolyásos katonatisztként az 1950-es évek közepére létrehozta tudományos elvekre, a koreai szellemiségre és különleges lábtechnikákra épülő, új, kihívást jelentő harcművészetét, ami először a hadseregben került bevezetésre. A Taekwon-dót – ezt a nyugati világban eleinte még „Military Taekwon-do” néven is emlegették – a saját parancsnoksága alá tartozó 29-es gyalogsági hadosztály, az u.n. „ököl divízió” katonáinak körében kezdte el oktatni, és ők próbálták ki először éles harchelyzetben is.</p>
-                    <p>Choi kezdeményezésére a „Taekwon-do” elnevezést hivatalosan <strong className="text-white">1955. április 11-én</strong> fogadták el Koreában, és azóta ez a nap a Taekwon-do születésnapja!</p>
+                  <p>1937-ben Choi Japánba utazott, hogy továbbtanuljon. Kiotóban, majd Tokióban jogi tanulmányai mellett intenzíven gyakorolta a Shotokan Karatét. Elhivatottságának köszönhetően megszerezte a fekete öv második fokozatát (2. Dan), és elkezdte kombinálni a karate egyenes vonalú, erőteljes kéztechnikáit a Han mestertől tanult íves, rugalmas koreai lábtechnikákkal.</p>
+                  <p>A második világháború alatt kényszerrel besorozták a japán hadseregbe, és Phenjanba állomásoztatták. Részt vett a Koreai Diákkatonák Függetlenségi Mozgalmában, amiért letartóztatták, és halálra ítélték. A börtönben, hogy megőrizze fizikai és mentális épségét, cellájában egyedül gyakorolt és fejlesztette technikáit, sőt, rabtársait és az őröket is tanítani kezdte. Az 1945. augusztusi felszabadulás mentette meg az életét, alig néhány nappal a kivégzése előtt.</p>
+                  <div className="my-6 rounded-xl overflow-hidden border border-gray-800 bg-black/40 p-2">
+                    <img src="/csoj2.webp" alt="Choi Hong Hi oktatás közben" className="w-full h-auto max-h-[450px] object-cover rounded-lg mx-auto" />
                   </div>
-                </div>
-              </div>
-
-              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
-                <div className="space-y-4 text-gray-300 leading-relaxed text-sm">
-                  <p>Choi tábornok elnökletével 1959 szeptemberében megalakult az első koreai Taekwon-do Szövetség. 1961-ben erős politikai nyomás hatására visszavonult a katonai pályától, de később, 1962-ben diplomataként kinevezték Korea malaysiai nagykövetévé. <strong className="text-white">1966. március 22-én</strong> kilenc tagország részvételével Szöul-ban megalapította a Nemzetközi Taekwon-do Szövetséget (International Taekwon-do Federation), melynek elnöki posztját haláláig ő töltötte be. Choi tábornok az 1970-es évek elejére végleg szembekerült az akkori dél-koreai diktátor-elnök rezsimjével, és ezért 1972-ben politikai menekültként Kanadába emigrálni kényszerült, ahol állampolgárságot kapott.</p>
-                  <p>1973-tól kezdve Choi Hong Hi a Taekwon-do valóságos „utazó nagykövete” lett. Repülőjáratról járatra szállva az elmúlt évtizedek során földünk szinte valamennyi országába ellátogatott, hogy harcművészetét ismertté és elismertté tegye. Még idős korában is fáradhatatlan energiával tartotta a bemutatókat, edzőtáborokat, övvizsgákat, továbbképző szemináriumokat – kizárólag a Taekwon-dónak szentelve életét! Igazi géniusz volt, született vezető és milliók számára követendő példakép. Szuggesztív egyéniségével és óriási tudásanyagával képes volt tanítványok millióit vonzani az edzőtermekbe. Életének nemes célját, a Taekwon-do világméretű elterjesztését végül teljes siker koronázta.</p>
-                </div>
-              </div>
-
-              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
-                <div className="flex flex-col md:flex-row gap-6">
-                  <img src="https://tigrisek.hu/images/choi3.jpg" alt="Choi Hong Hi - A Taekwon-do Atyja" className="w-full md:w-64 h-auto rounded-xl object-cover flex-shrink-0" />
-                  <div className="space-y-4 text-gray-300 leading-relaxed text-sm">
-                    <p>A Taekwon-do az 1990-es évek végére hihetetlen tömegbázisra tett szert, futótűz sebességével hódítva meg a világot. Napjainkra ez az egyik legnagyobb létszámú harcművészeti ág, melyet öt kontinens több mint száz tagországában sok millióan űznek.</p>
-                    <p>A Taekwon-do atyját, vagy ahogy életrajzírói kedvesen említik, a „Kis Óriást” 84 éves korában, rövid ideig tartó súlyos betegség után Phenjan-ban, Észak-Koreában érte a halál. A XX. század utolsó nagy harcművész stílusalapítója <strong className="text-white">2002. június 15-én</strong> örökre eltávozott...</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* TIMELINE */}
-              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
-                <h3 className="text-neon-orange font-bold text-lg mb-6">Életrajzi mérföldkövek</h3>
-                <div className="space-y-4">
-                  {[
-                    { year: '1918', event: 'Született Hwa-Dae-ben, Myong-Chun tartományban' },
-                    { year: '1930-as évek', event: 'Kalligráfia és Taek-kyon képzés; Japánban shotokan karate' },
-                    { year: '1945', event: 'Felszabadulás a börtönből Korea felszabadulásakor' },
-                    { year: '1946', event: 'Diploma a Szöul-i Katonai Akadémián' },
-                    { year: '1955', event: 'A „Taekwon-do” elnevezés hivatalos elfogadása (április 11.)' },
-                    { year: '1959', event: 'Első koreai Taekwon-do Szövetség megalakulása' },
-                    { year: '1966', event: 'ITF (International Taekwon-do Federation) alapítása (március 22.)' },
-                    { year: '1972', event: 'Kanadába emigrál politikai menekültként' },
-                    { year: '1973-tól', event: 'A Taekwon-do „utazó nagykövete” – világkörüli turnék' },
-                    { year: '2002', event: 'Elhunyt Phenjanban, Észak-Koreában (június 15.)' },
-                  ].map((item) => (
-                    <div key={item.year} className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-24 text-neon-orange font-bold text-sm text-right pt-0.5">{item.year}</div>
-                      <div className="flex-shrink-0 w-2 h-2 bg-neon-orange rounded-full mt-2" />
-                      <p className="text-gray-300 text-xs sm:text-sm">{item.event}</p>
-                    </div>
-                  ))}
+                  <p>A háború után az újonnan alakuló Koreai Hadsereg alapító tisztje lett. Itt kapott lehetőséget arra, hogy harcművészetét rendszerszinten oktassa a katonáknak. Folyamatos kutatómunkával, a biomechanika és a fizika törvényeit alapul véve átalakította a technikákat, hogy azok a lehető legnagyobb pusztító erőt fejtsék ki.</p>
+                  <p>Törekvései 1955. április 11-én értek célba, amikor a vezető mesterekből, történészekből és politikusokból álló bizottság hivatalosan is elfogadta az általa javasolt **Taekwon-Do** nevet. 1966. március 22-én megalapította az International Taekwon-Do Federation-t (ITF), amelynek haláláig elnöke maradt. Choi Hong Hi 2002. június 15-én hunyt el, szellemi örökségét ma milliók gyakorolják világszerte.</p>
                 </div>
               </div>
             </div>
@@ -389,52 +378,28 @@ export default function Taekwondo() {
 
           {/* OATH */}
           {activeTab === 'oath' && (
-            <div className="space-y-12">
-              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
-                <h2 className="text-2xl font-black text-white mb-2 uppercase tracking-wide">Taekwondo eskü</h2>
-                <p className="text-gray-400 mb-6 text-sm">Az edzések elején és versenyeken a Taekwon-dósok a következő esküt mondják:</p>
-                <div className="space-y-3.5">
-                  {[
-                    'A Taekwondo tanításainak mindenkor eleget teszek!',
-                    'Tiszteletet adok mesteremnek és valamennyi társamnak!',
-                    'Soha nem élek vissza Taekwondo tudásommal!',
-                    'Ha kell, segítek a bajbajutottakon!',
-                    'Minden erőmmel a békét építem!',
-                  ].map((point, i) => (
-                    <div key={i} className="flex items-start gap-3 bg-black/40 border border-gray-800/60 rounded-xl p-3.5 hover:border-neon-orange/20 transition-colors">
-                      <span className="text-neon-orange font-mono font-black text-lg leading-none">{i + 1}.</span>
-                      <p className="text-gray-200 text-sm sm:text-base font-medium">{point}</p>
-                    </div>
-                  ))}
+            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
+              <h2 className="text-2xl font-black text-white mb-6">Taekwon-do Eskü és Alapelvek</h2>
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-neon-orange font-bold text-lg mb-4">A Taekwon-do Eskü</h3>
+                  <ol className="list-decimal list-inside space-y-3 text-gray-300 text-sm sm:text-base">
+                    <li>I fogadom, hogy megtartom a Taekwon-do szabályait.</li>
+                    <li>Fogadom, hogy tisztelem a mesteremet és a felsőbb öveseket.</li>
+                    <li>Fogadom, hogy a Taekwon-dót sohasem használom rossz célra.</li>
+                    <li>Fogadom, hogy a szabadság és az igazság bajnoka leszek.</li>
+                    <li>Fogadom, hogy egy békésebb világot igyekszem felépíteni.</li>
+                  </ol>
                 </div>
-              </div>
-
-              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
-                <div className="mb-8">
-                  <p className="text-neon-orange text-xs font-black tracking-widest uppercase mb-1">Taekwon-do Jungshin</p>
-                  <h2 className="text-3xl font-black text-white uppercase tracking-wide">Taekwon-do Tanai</h2>
-                </div>
-                <div className="space-y-8">
-                  {[
-                    { title: 'Udvariasság', korean: 'Ye Ui', text: 'A mesterek felé köszönésként mindenhol és mindenkor meghajlás kötelező! A Taekwondosok előzékenyen és udvariasan viselkedjenek mindenkivel szemben. Vitás helyzeteknél alkalmazzák a kölcsönös engedmény alapelvét. Ne legyenek önzőek vagy irigyek, tudjanak örülni társaik örömének is. A közös érdekeket mindig helyezzék az egyéni szempontok elé! Tegyenek különbséget mester és tanítvány vagy rangidős és kezdő között. A magasabb fokozatúakban becsüljék a nagyobb tudást, szakmai tapasztalatot s tartsák be feléjük a kötelező tiszteletadás szabályait. Csak azok várjanak el tiszteletet és megbecsülést, akik ehhez méltóan viselkednek, és akik maguk is képesek arra, hogy tiszteljenek másokat. A tiszteletadással visszaélni szigorúan tilos!' },
-                    { title: 'Becsületesség', korean: 'Yom Chi', text: 'A Taekwondos tartsa be adott szavát, és ígéretét soha ne szegje meg. Bármilyen egyéni sikereket ér el az életben, soha ne feledkezzék meg azokról, akikkel együtt kezdett és segítették, és akiknek ezért a belé fektetett munkáért nagyon sokat köszönhet. A Taekwondos soha semmilyen körülmények között se hazudjon! Legyen hűséges hazájához, a Taekwondohoz, mesteréhez és sporttársaihoz. Minden esetben maradjon szerény, nyílt és természetes. Igyekezzen a Taekwondo érdekeit a saját érdekei elé helyezni. A Taekwondos ne felejtse el, hogy mindenkor és minden helyzetben a Taekwondot képviseli. Viselkedésével a kívülálló képet kap a Taekwondoról.' },
-                    { title: 'Állhatatosság', korean: 'In Nae', text: '„A türelem megismeréshez és boldoguláshoz vezet.” Csak akinek van megfelelő kitartása, az remélheti, hogy vágyai egyszer teljesülni fognak. A Taekwondos legyen türelmes, ne hajszolja az övfokozatokat, várja ki a kötelező várakozási időket, és minden alkalmat ragadjon meg saját elméleti és gyakorlati tudásának gyarapítására. Rendszeresen járjon edzésre, mert a hébe-hóba lejáró tanítványról senki sem hiszi el, hogy egyszer fekete öves mester akar lenni. Csak az járjon edzésre, aki örömmel teszi azt.' },
-                    { title: 'Önuralom', korean: 'Guk Gi', text: 'A sportbeli ellenfeleken kívül a mindennapok nehézségeit és akadályait is le kell küzdeni, amire csak az lesz képes, aki nagyfokú önuralommal és önfegyelemmel rendelkezik. A Taekwondos soha ne elégedjen meg önmagával, ugyanakkor önfegyelemmel viselje a kudarc és a siker élményét.' },
-                    { title: 'Rettenthetetlen küzdőszellem', korean: 'Baekjul Boolgool', text: 'A Taekwondos legyen bátor és elszánt. Ne keresse a veszélyt, de ne is hátráljon meg előle. Ha igazságtalansággal találkozik, szálljon síkra a gyengébb védelmében. Amennyiben pedig harcra kerülne a sor, függetlenül az ellenfél erejétől, félelem és tétovázás nélkül álljon helyt. A Taekwondosnak a küzdelemben mindent el kell követnie szabályos keretek között a győzelem érdekében. Az életben ne keresse a veszélyt, ne kezdeményezzen verekedést. Ha vele szemben kezdeményeznek, akkor próbálja meg elkerülni azt. Ha harcra kerül a sor, akkor viszont ne hátráljon meg. Ha igazságtalansággal találkozik, szálljon szembe a gyengébb védelmében.' }
-                  ].map((tenet, idx) => (
-                    <div key={idx} className="border-l-2 border-neon-orange/40 pl-4 sm:pl-6 space-y-2">
-                      <div className="flex flex-wrap items-baseline gap-2">
-                        <span className="text-gray-350 font-mono text-sm font-bold">{idx + 1}.</span>
-                        <h3 className="text-white font-bold text-lg sm:text-xl tracking-wide">{tenet.title}</h3>
-                        <span className="text-neon-orange/80 text-xs font-mono font-bold sm:ml-1">— {tenet.korean}</span>
-                      </div>
-                      <p className="text-gray-300 text-sm leading-relaxed text-justify">{tenet.text}</p>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-12 pt-8 border-t border-gray-800">
-                  <div className="relative rounded-xl overflow-hidden border border-gray-800 bg-black/50 group">
-                    <img src="/tenets.webp" alt="Taekwon-do Tanai illusztráció" className="w-full h-auto max-h-[450px] object-contain mx-auto transition-transform duration-500 group-hover:scale-[1.01]" />
+                <hr className="border-gray-800" />
+                <div>
+                  <h3 className="text-neon-orange font-bold text-lg mb-4">Az 5 Alapelv (Tenets)</h3>
+                  <div className="space-y-4 text-sm sm:text-base">
+                    <p><strong className="text-white">1. Udvariasság (Ye Ui / Courtesy):</strong> Alapvető tiszteletadás mindenkivel szemben, a rossz szokások elhagyása és a kölcsönös megbecsülés.</p>
+                    <p><strong className="text-white">2. Becsületesség (Yom Chi / Integrity):</strong> Képesség a jó és a rossz megkülönböztetésére. Ha valaki hibázik, legyen lelkiereje beismerni azt.</p>
+                    <p><strong className="text-white">3. Kitartás (In Nae / Perseverance):</strong> Rendíthetetlen akarat a célok elérésében, a nehézségek leküzdése újra és újra.</p>
+                    <p><strong className="text-white">4. Önuralom (Guk Gi / Self-Control):</strong> Nagyon fontos mind a termen belül, mind azon kívül. A düh, az indulatok és a fizikai erő kontrollálása.</p>
+                    <p><strong className="text-white">5. Rettenthetetlen küzdőszellem (Baekjul Boolgool / Indomitable Spirit):</strong> Bátorság és hűség az elvekhez. Ha az igazságért kell kiállni, egy Taekwon-dós sosem hátrál meg, legyen az ellenfele bármilyen félelmetes.</p>
                   </div>
                 </div>
               </div>
@@ -443,38 +408,36 @@ export default function Taekwondo() {
 
           {/* DICTIONARY */}
           {activeTab === 'dictionary' && (
-            <div className="space-y-6">
-              <h2 className="text-2xl font-black text-white">Koreai–Magyar–Angol Szótár</h2>
-
-              {/* Számolás szekció */}
-              <div className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden">
-                <div className="bg-gray-800 px-6 py-4 border-b border-gray-700">
-                  <h3 className="text-white font-bold text-lg">Számolás</h3>
-                </div>
-                <div className="grid grid-cols-3 bg-gray-800/50 px-6 py-2 text-xs font-bold text-gray-300 border-b border-gray-700">
-                  <span>Koreai</span><span>Magyar</span><span>Angol</span>
-                </div>
-                <div className="divide-y divide-gray-800">
-                  {countingData.map((entry, i) => (
-                    <div key={i} className={`grid grid-cols-3 px-6 py-2 text-sm ${i % 2 === 0 ? '' : 'bg-gray-900/50'}`}>
-                      <span className="text-neon-orange font-bold">{entry.korean}</span>
-                      <span className="text-gray-200">{entry.hungarian}</span>
-                      <span className="text-gray-300">{entry.english}</span>
+            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
+              <h2 className="text-2xl font-black text-white mb-4">Koreai Terminológia & Szótár</h2>
+              <p className="text-gray-400 text-sm mb-6">Használd az alábbi betűválasztót a kifejezések szűréséhez. A koreai kifejezések alatt a magyar és az angol hivatalos ITF megfelelőket találod.</p>
+              
+              {/* Számolás blokk */}
+              <div className="mb-8 bg-black/30 border border-gray-800 rounded-xl p-4">
+                <h3 className="text-white font-bold mb-3 text-sm tracking-wide uppercase text-neon-orange">Számolás koreaiul (1–10)</h3>
+                <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
+                  {countingData.map((item, idx) => (
+                    <div key={item.korean} className="bg-gray-950 p-2.5 rounded-lg border border-gray-850 text-center">
+                      <span className="text-xs text-gray-500 block font-mono">{(idx + 1).toString().padStart(2, '0')}</span>
+                      <strong className="text-white font-bold block my-0.5 text-sm">{item.korean}</strong>
+                      <span className="text-xs text-gray-400 block truncate">{item.hungarian}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Betű szűrők */}
-              <div className="flex flex-wrap gap-2">
+              <hr className="border-gray-800 mb-6" />
+
+              {/* Betűválasztó */}
+              <div className="flex flex-wrap gap-1.5 mb-6">
                 {dictionaryData.map((group) => (
                   <button
                     key={group.letter}
                     onClick={() => setDictLetter(group.letter)}
-                    className={`w-10 h-10 rounded-lg font-bold text-sm transition-all ${
-                      dictLetter === group.letter
-                        ? 'bg-neon-orange text-black'
-                        : 'bg-gray-800 text-gray-300 hover:text-white hover:bg-gray-700'
+                    className={`w-9 h-9 font-bold text-xs rounded-lg transition-all ${
+                      dictLetter === group.letter 
+                        ? 'bg-neon-orange text-black font-black shadow-md shadow-neon-orange/20' 
+                        : 'bg-black text-gray-400 border border-gray-850 hover:text-white'
                     }`}
                   >
                     {group.letter}
@@ -482,186 +445,70 @@ export default function Taekwondo() {
                 ))}
               </div>
 
-              {/* Kiválasztott betűhöz tartozó szavak */}
-              {dictionaryData.filter((g) => g.letter === dictLetter).map((group) => (
-                <div key={group.letter} className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden">
-                  <div className="bg-gray-800 px-6 py-4 border-b border-gray-700">
-                    <h3 className="text-neon-orange font-bold text-xl">{group.letter}</h3>
+              {/* Kifejezések listája */}
+              <div className="space-y-3">
+                {dictionaryData.find(g => g.letter === dictLetter)?.entries.map((entry) => (
+                  <div key={entry.korean} className="bg-black/20 border border-gray-850 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:border-gray-800 transition-colors">
+                    <div>
+                      <strong className="text-white text-lg font-bold font-mono tracking-wide">{entry.korean}</strong>
+                    </div>
+                    <div className="flex flex-wrap gap-2 text-xs sm:text-sm">
+                      <span className="bg-gray-800/60 border border-gray-750 text-gray-200 px-2.5 py-1 rounded-md"><span className="text-gray-500 font-bold mr-1">HU:</span>{entry.hungarian}</span>
+                      <span className="bg-gray-800/30 border border-gray-800/80 text-gray-400 px-2.5 py-1 rounded-md"><span className="text-gray-600 font-bold mr-1">EN:</span>{entry.english}</span>
+                    </div>
                   </div>
-                  <div className="grid grid-cols-3 bg-gray-800/50 px-6 py-2 text-xs font-bold text-gray-300 border-b border-gray-700">
-                    <span>Koreai</span><span>Magyar</span><span>Angol</span>
-                </div>
-                  <div className="divide-y divide-gray-800">
-                    {group.entries.map((entry, i) => (
-                      <div key={i} className={`grid grid-cols-3 px-6 py-2 text-sm ${i % 2 === 0 ? '' : 'bg-gray-900/50'}`}>
-                        <span className="text-neon-orange font-bold">{entry.korean}</span>
-                        <span className="text-gray-200">{entry.hungarian}</span>
-                        <span className="text-gray-300">{entry.english}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           )}
 
           {/* RULES */}
           {activeTab === 'rules' && (
-            <div className="space-y-6">
-              <h2 className="text-2xl font-black text-white">Szabályok</h2>
-
-              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
-                <h3 className="text-neon-orange font-bold text-lg mb-4">Általános rendelkezések</h3>
-                <div className="space-y-4 text-gray-300 leading-relaxed text-sm">
-                  <p>1. Belépéskor a tagok kijelentik, hogy semmilyen általuk ismert testi vagy szervi elváltozásban nem szenvednek. A Taekwon-do-sok egészségi állapotuk és fizikai teherbíró-képességük ismeretében, saját felelősségükre vesznek részt az edzéseken, bemutatókon, edzőtáborokon, vizsgákon és a versenyeken! A rendszeres sportorvosi vizsgálatra eljárnak.</p>
-                  <p>2. A tagok továbbá kijelentik, hogy korábban büntetve nem voltak. Taekwon-do tudásukat kívülálló személyeknek nem adhatják át (csak az edző engedélyével)! A tagok kijelentik, hogy megszerzett Taekwon-do tudásukkal semmilyen körülmények között nem élnek vissza!</p>
+            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
+              <h2 className="text-2xl font-black text-white mb-4">Hivatalos ITF Versenyszabályok</h2>
+              <p className="text-gray-400 text-sm mb-6">Rövid összefoglaló a nemzetközi szövetség küzdelmi és technikai szabályrendszeréről.</p>
+              <div className="space-y-6 text-sm sm:text-base text-gray-300">
+                <div>
+                  <h3 className="text-white font-bold text-lg mb-2">Küzdelmi kategóriák (Matsogi)</h3>
+                  <p className="leading-relaxed">A küzdelmek súlycsoportok és korosztályok szerint zajlanak. A felnőtt mérkőzések általában 2 darab 2 perces menetből állnak, 1 perc pihenőidővel. A versenyzők kötelező védőfelszerelést viselnek (fejvédő, fogvédő, nyitottkezes kesztyű, lábvédő, ágyékvédő, illetve lányoknál mellvédő).</p>
                 </div>
-              </div>
-
-              {/* 1. KÉP-HELYŐRZŐ BLOKK A SZABÁLYOKNÁL */}
-              <div className="rounded-xl overflow-hidden border border-gray-800 bg-black/40 p-2">
-                <img src="/rules1.webp" alt="Dojang edzőtermi etikett és fegyelem" className="w-full h-auto max-h-[350px] object-cover rounded-lg mx-auto" />
-              </div>
-
-              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
-                <h3 className="text-neon-orange font-bold text-lg mb-4">Edzőtermi előírások</h3>
-                <div className="space-y-3 text-gray-300 leading-relaxed text-sm">
-                  <p>1. Az edzőterembe utcai cipővel belépni, ott enni, inni, dohányozni, hangosan beszélgetni, komolytalanul viselkedni szigorúan tilos! (Ez a látogatókra is vonatkozik!)</p>
-                  <p>2. A Dojangba való be-, illetve kilépéskor minden Taekwon-dós meghajlással köteles köszönni a teremben tartózkodó legmagasabb övfokozatú mester irányába. Fekete övesek távolléte esetén a jelenlevő rangidős edzésvezető, vagy a csapatzászló felé történik a tiszteletadás. Ha nincs csapatzászló, a meghajlás a terem közepe felé történik. Tiszteletadásnál a törzs 30°-os, a fej 45°-os szögben hajlik meg.</p>
-                  <p>3. Köszönésként a mesterek felé – mind az edzőteremben, mind pedig az utcán, vagy egyéb helyeken is – a meghajlás kötelező! (Minden esetben az alacsonyabb övfokozatú hajoljon meg először). A mester megszólítása Sabom-nim – magyarul: mester.</p>
-                  <p>4. Mindenkinek be kell tartani a magasabb övfokozatúak felé a tiszteletadás szabályait.</p>
-                  <p>5. Az edzés csakis a klubvezető-mester vagy a megbízott helyettese jelenlétében (illetve tudtával és engedélyével) kezdhető el.</p>
-                  <p>6. Az edzésekről késni, vagy hamarabb elmenni nem, vagy csak nagyon indokolt esetben lehet.</p>
-                  <p>7. A sorakozó után érkezők kötelesek az ajtóban megállva várakozni, és csak mesterük intésére állhatnak be! Az edzések menetét fegyelmezetlenkedéssel, beszélgetéssel senki sem zavarhatja! Előzetes engedély nélkül a sorból kilépni, az edzőtermet elhagyni, illetve az edzésekre beállni szigorúan tilos!</p>
-                  <p>8. A sérülések megelőzése végett a tanítványok nem viselhetnek az edzéseken sem ékszereket, sem fémtárgyakat (órát, gyűrűt, láncot, fülbevalót, karkötőt, stb.). Szemüvegben tilos küzdeni, de az edzéseken saját felelősségére bárki használhatja. Minden tanítvány köteles kéz- és lábkörmeit rendszeresen rövidre vágni, a foglalkozásokon tisztára mosott ruhában, ápoltan megjelenni.</p>
-                  <p>9. Taekwon-do egyenruhában (dobok) a teremben tartózkodók csak a földre ülhetnek pihenés céljából!</p>
-                  <p>10. A klubban a rendért a legmagasabb övfokozatú színes övesek a felelősek, és kötelességük a fegyelem bármilyen eszközzel való betarttatása!</p>
-                  <p>11. A foglalkozások megkezdése előtti időt a tanítványok technikai tudásuk, fizikai képességeik fejlesztésére fordítsák.</p>
-                  <p>12. A tanfolyami és tagdíjakat pontosan fizessék be, aki többszöri felszólításra sem rendezi anyagi lemaradását, fegyelmi büntetést kap. Folyamatos és/vagy igazolatlan távolmaradások övvizsgáról való eltiltást, a klubból való kizárást eredményezik.</p>
-                  <p>13. Az edzésre hozott értéktárgyakért semmilyen felelősséget sem vállal a klub vezetősége, az öltöző zárhatóságától függetlenül.</p>
-                  <p>14. Mindenki hang nélkül és a legjobb tudását nyújtva, keményen dolgozzon meg az eredményekért.</p>
-                  <p>15. Tudni kell önfegyelemmel viselni a terhelések okozta fájdalomérzetet, fáradságot, kellemetlenséget.</p>
-                  <p>16. Egy edzőtermet az oda belépők alázatos magatartása, az ott végzett kemény munka és a Taekwon-do szelleme tesz Dojanggá!</p>
+                <div>
+                  <h3 className="text-white font-bold text-lg mb-2">Találati felületek és pontozás</h3>
+                  <p className="mb-2">Pontot kizárólag a megengedett támadófelületeken (arc elülső és oldalsó része, test elülső része a köldök felett) lehet elérni, ellenőrzött erővel (semi-contact). A tarkó, a hát és a derékvonal alatti részek támadása szigorúan tilos.</p>
+                  <ul className="list-disc list-inside space-y-1 ml-2 text-sm">
+                    <li><strong className="text-white">1 pont:</strong> Kéztechnika fejre vagy testre.</li>
+                    <li><strong className="text-white">2 pont:</strong> Lábtechnika testre, vagy ugró kéztechnika fejre.</li>
+                    <li><strong className="text-white">3 pont:</strong> Lábtechnika fejre, vagy ugró lábtechnika testre.</li>
+                  </ul>
                 </div>
-              </div>
-
-              {/* 2. KÉP-HELYŐRZŐ BLOKK A SZABÁLYOKNÁL */}
-              <div className="rounded-xl overflow-hidden border border-gray-800 bg-black/40 p-2">
-                <img src="/rules2.webp" alt="Tradicionális meghajlás és tiszteletadás" className="w-full h-auto max-h-[350px] object-cover rounded-lg mx-auto" />
-              </div>
-
-              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
-                <h3 className="text-neon-orange font-bold text-lg mb-4">Meghajlások</h3>
-                <p className="text-white font-bold mb-3 text-sm">Mikor kell meghajolni?</p>
-                <ul className="text-gray-300 space-y-1.5 ml-4 list-disc text-sm">
-                  <li>terembe be- és kilépéskor</li>
-                  <li>páros gyakorlatok előtt és után a párod felé</li>
-                  <li>magasabb öves felé, megszólítás előtt, majd megköszönni a válaszát</li>
-                  <li>töréstechnika előtt és után, bemutatón a közönség felé, vizsgán a vizsgáztató felé</li>
-                  <li>edzőtermen kívül is, ha magasabb övessel vagy mesterrel találkozol, köszönésképpen</li>
-                  <li>versenyen, mérkőzés előtt és után a bírók és az ellenfeled felé</li>
-                  <li>övvizsga területére be- és kilépéskor</li>
-                </ul>
-              </div>
-
-              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
-                <h3 className="text-neon-orange font-bold text-lg mb-4">Tanítványok figyelmébe!</h3>
-                <div className="space-y-3 text-gray-300 leading-relaxed text-sm">
-                  <p>A tanítvány soha ne fáradjon bele a tanulásba. Bárhol és bármikor gyakoroljon, ahol lehetősége nyílik rá: ez a tudás alapja!</p>
-                  <p>Igyekezzék saját mércéjét és technikai felkészültségét mindig a lehető legmagasabbra állítani, és tudásával előbbre vinni az egész Taekwon-do sport ügyét. A tanítvány által elért eredmények jelentik az edzők számára a legnagyobb jutalmat fáradozásaikért. A tanuló hozzon áldozatot mesteréért és klubjáért, és olyan legyen, akire számítani lehet! Ha szükség van rá, versenyezzen és vegyen részt a bemutatókon, a magasabb fokozatúak pedig nyújtsanak segítséget az edzésvezetői munkában!</p>
-                  <p>A növendék viselkedésében és emberi tulajdonságaiban mutasson jó példát! Legyen szerény, visszafogott és tisztelettudó. Tudásával ne kérkedjen, sporttársait ne bírálja.</p>
-                  <p>Legyen hűséges és kitartó, soha ne kritizálja mások előtt mesterét és az általa képviselt stílust vagy iskolát.</p>
-                  <p>Ha instruktorától új technikát tanul, szorgalmasan gyakorolja addig, amíg tökéletesen el nem sajátítja.</p>
-                  <p>Jusson eszébe, hogy az edzőtermen kívüli viselkedésével és életmódjával a Taekwon-do egészére vet fényt.</p>
-                  <p>Ha egy tanuló olyan technikákat vagy technikai megoldásokat szed fel, amelyek saját mestere szerint helytelenek, akkor azonnal fel kell hogy hagyjon a gyakorlásával. Amennyiben az illető erre nem hajlandó, akkor inkább menjen el! Valaki vagy elfogadja és maradéktalanul magáévá teszi mestere tanácsait, vagy pedig nincs keresnivalója a klubban!</p>
-                  <p>Minden tanítvány törődjék bele, hogy az edzésen, társai rovására semmiféle előjogokat nem érhet el, a magasabb öveseknek is részt kell venniük az edzésmunkában, ha csak edzőjük más feladatot nem ró ki rájuk.</p>
-                  <p>Amennyiben úgy érzi a tanuló, hogy egy technikai kérdésben nem biztos, akkor feltétlenül forduljon instruktorához! A közönyös, érdektelen növendék soha nem lesz képes eredmények elérésére.</p>
-                  <p>A tanítvány soha ne éljen vissza a belé helyezett bizalommal!</p>
-                  <p>Ha ezek közül a szabályok közül a tanítvány akár csak egyet is megszeg, önfegyelemmel viselje a következményeit.</p>
+                <div>
+                  <h3 className="text-white font-bold text-lg mb-2">Büntetések (Chuyee és Gam-jum)</h3>
+                  <p className="leading-relaxed">A szabálytalanságokért figyelmeztetés (Chuyee - 3 figyelmeztetés után 1 pont levonás jár) vagy közvetlen pontlevonás (Gam-jum) adható. Súlyos sportszerűtlenség vagy szándékos sérülés okozása azonnali kizárást von maga után.</p>
                 </div>
               </div>
             </div>
           )}
 
-          {/* THEORY APP - TELJESEN CSERÉLVE A HIVATALOS LEÍRÁS ALAPJÁN */}
+          {/* THEORY APP */}
           {activeTab === 'theoryapp' && (
-            <div className="space-y-6">
-              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8 relative overflow-hidden group">
-                <div className="absolute -right-10 -top-10 w-40 h-40 bg-neon-orange/10 blur-3xl rounded-full group-hover:bg-neon-orange/20 transition-colors duration-500" />
-                <div className="flex flex-col lg:flex-row gap-8 items-center relative z-10">
-                  <div className="shrink-0">
-                    <div className="w-24 h-24 bg-black border-2 border-neon-orange rounded-2xl flex items-center justify-center shadow-[0_0_20px_rgba(255,165,0,0.2)]">
-                      <svg className="w-10 h-10 text-neon-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                        <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
-                        <path d="M12 18h.01" />
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="flex-grow text-center lg:text-left space-y-3">
-                    <div className="inline-flex items-center gap-1.5 bg-black/50 border border-gray-800 rounded-full px-3 py-1 mb-2">
-                      <span className="text-gray-300 text-xs font-bold uppercase tracking-wider">Hivatalos Segédanyag</span>
-                    </div>
-                    <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">Taekwon-Do <span className="text-neon-orange">ITF Theory</span></h2>
-                    <p className="text-gray-300 text-sm sm:text-base leading-relaxed max-w-2xl">
-                      A „Taekwon-Do ITF Theory” mobilalkalmazás kifejezetten ezen koreai harcművészet elkötelezett növendékei számára készült. Rendszerezetten tartalmazza a kiválasztott elméleti fejezeteket, amelyek a Taekwon-Do tanulmányok szerves és elválaszthatatlan részét képezik az övvizsgák során.
-                    </p>
-                  </div>
-                  <div className="shrink-0 w-full lg:w-auto">
-                    <a href="https://play.google.com/store/apps/details?id=info.vladalas.taekwondotheory" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 bg-neon-orange hover:bg-orange-600 text-black px-6 py-4 rounded-xl font-bold transition-all duration-300 shadow-lg shadow-neon-orange/20 w-full whitespace-nowrap">
-                      Letöltés Androidra
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
-                <h3 className="text-white font-bold text-lg mb-6">Az alkalmazásban elérhető hivatalos modulok és fejezetek:</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-300">
-                  <div className="bg-black/40 border border-gray-850 p-4 rounded-xl flex items-start gap-3">
+            <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
+              <h2 className="text-2xl font-black text-white mb-4">Interaktív Elmélet App</h2>
+              <p className="text-gray-400 text-sm mb-6">Készülj fel a következő övvizsgád elméleti kérdéseire ezzel az egyszerűsített kvíz modullal.</p>
+              
+              <div className="border border-gray-800 bg-black/40 rounded-2xl p-6 text-center max-w-xl mx-auto my-4">
+                <span className="bg-neon-orange/10 text-neon-orange text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Fejlesztés alatt 🛠</span>
+                <h3 className="text-white font-black text-xl mt-4 mb-2">Hamarosan elérhető!</h3>
+                <p className="text-gray-400 text-sm leading-relaxed mb-4">Ezen a fülön egy interaktív, vizsgaszintekre bontott tesztrendszert találsz majd, amely segít az övvizsga elméleti anyagának villámgyors elsajátításában.</p>
+                <div className="space-y-2 text-left max-w-md mx-auto text-xs sm:text-sm bg-black/60 p-4 rounded-xl border border-gray-850">
+                  <div className="flex items-start gap-2 text-gray-300">
                     <span className="text-neon-orange text-base pt-0.5">▪</span>
-                    <p><strong className="text-white">A Taekwon-Do tanai:</strong> Az 5 alapelv (Jungshin) részletes kifejtése és magyarázata.</p>
+                    <p><strong className="text-white">Övvizsga szűrő:</strong> Csak a te szintednek megfelelő kérdések (pl. 10. Kup-tól 1. Kup-ig).</p>
                   </div>
-                  <div className="bg-black/40 border border-gray-850 p-4 rounded-xl flex items-start gap-3">
+                  <div className="flex items-start gap-2 text-gray-300">
                     <span className="text-neon-orange text-base pt-0.5">▪</span>
-                    <p><strong className="text-white">A stílus összetétele:</strong> A Taekwon-Do felépítése a bázisoktól a küzdelemig.</p>
+                    <p><strong className="text-white">Azonnali kiértékelés:</strong> Részletes magyarázat a helyes válaszokról.</p>
                   </div>
-                  <div className="bg-black/40 border border-gray-850 p-4 rounded-xl flex items-start gap-3">
-                    <span className="text-neon-orange text-base pt-0.5">▪</span>
-                    <p><strong className="text-white">Mind a 24 formagyakorlat:</strong> A teljes mozdulatsorozat koreai átírásban, angolul és koreaiul, a tullok jelentéstartalmával és kiegészítő információkkal.</p>
-                  </div>
-                  <div className="bg-black/40 border border-gray-850 p-4 rounded-xl flex items-start gap-3">
-                    <span className="text-neon-orange text-base pt-0.5">▪</span>
-                    <p><strong className="text-white">Különleges mozgássebességek:</strong> A formagyakorlatokban előforduló nem szabványos ritmusok és sebességek.</p>
-                  </div>
-                  <div className="bg-black/40 border border-gray-850 p-4 rounded-xl flex items-start gap-3">
-                    <span className="text-neon-orange text-base pt-0.5">▪</span>
-                    <p><strong className="text-white">Rúgástechnikák:</strong> A tullokban előforduló rúgások pontos specifikációi.</p>
-                  </div>
-                  <div className="bg-black/40 border border-gray-850 p-4 rounded-xl flex items-start gap-3">
-                    <span className="text-neon-orange text-base pt-0.5">▪</span>
-                    <p><strong className="text-white">Támadó és védőfelületek:</strong> A kéz és láb fegyvereinek, anatómiájának hivatalos listája.</p>
-                  </div>
-                  <div className="bg-black/40 border border-gray-850 p-4 rounded-xl flex items-start gap-3">
-                    <span className="text-neon-orange text-base pt-0.5">▪</span>
-                    <p><strong className="text-white">Állások (Stances):</strong> Az összes hivatalos alapállás méretei és súlyeloszlásai.</p>
-                  </div>
-                  <div className="bg-black/40 border border-gray-850 p-4 rounded-xl flex items-start gap-3">
-                    <span className="text-neon-orange text-base pt-0.5">▪</span>
-                    <p><strong className="text-white">Az erő elmélete (Theory of Power):</strong> A fizikai erő maximalizálásának tudományos alapjai.</p>
-                  </div>
-                  <div className="bg-black/40 border border-gray-850 p-4 rounded-xl flex items-start gap-3">
-                    <span className="text-neon-orange text-base pt-0.5">▪</span>
-                    <p><strong className="text-white">Erölcsi kultúra és történelem:</strong> Choi Hong Hi tábornok élete és a szellemi háttér.</p>
-                  </div>
-                  <div className="bg-black/40 border border-gray-850 p-4 rounded-xl flex items-start gap-3">
-                    <span className="text-neon-orange text-base pt-0.5">▪</span>
-                    <p><strong className="text-white">Eskü és rendfokozatok:</strong> A Taekwon-Do eskü szövege, valamint az instruktori titulusok és az öveken lévő jelzések/csíkok rendszere.</p>
-                  </div>
-                  <div className="bg-black/40 border border-gray-850 p-4 rounded-xl flex items-start gap-3">
-                    <span className="text-neon-orange text-base pt-0.5">▪</span>
-                    <p><strong className="text-white">Edzői titkok és etikett:</strong> A Taekwon-Do edzési titkai, a gyakorlóruha (Dobok), az edzőterem (Do Jang), valamint a diák és oktató közötti tradicionális kapcsolat.</p>
-                  </div>
-                  <div className="bg-black/40 border border-gray-850 p-4 rounded-xl flex items-start gap-3">
+                  <div className="flex items-start gap-2 text-gray-300">
                     <span className="text-neon-orange text-base pt-0.5">▪</span>
                     <p><strong className="text-white">Terminológiai Szótár:</strong> Átfogó koreai szakszógyűjtemény a pontos teremvezényekhez.</p>
                   </div>
