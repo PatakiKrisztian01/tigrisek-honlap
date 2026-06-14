@@ -6,7 +6,7 @@ const trainers = [
   { 
     name: 'Pataki Krisztián', 
     rank: 'VI.dan', 
-    role: 'Vezető edző, Alapító elnök', 
+    role: 'Klubvezető elnök', 
     image: '/patakikrisztian.webp',
     motto: 'Amit a cél elérésével kapunk közel sem olyan fontos, mint amivé válunk, amíg azt elérjük.',
     fullWidth: true
@@ -323,18 +323,21 @@ export default function Training() {
           </div>
         </div>
 
-        {/* VIDEÓ BLOKK ── MEGFELELŐ, JAVÍTOTT LINKKEL */}
+        {/* VIDEÓ BLOKK ── MOZIS KITAKARÁSSAL ÉS ERŐS SÖTÉTÍTÉSSEL */}
         <div className="mb-6 w-full max-w-4xl mx-auto">
           <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-2xl bg-black border border-gray-800 group">
             
             {!playVideo ? (
+              // 1. ERŐSEBB SÖTÉTÍTÉS: bg-black/75 a korábbi 50 helyett, így sokkal hangsúlyosabb a gomb
               <div 
                 className="absolute inset-0 w-full h-full cursor-pointer flex items-center justify-center bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                 style={{ backgroundImage: "url('/kondor.webp')" }}
                 onClick={() => setPlayVideo(true)}
               >
-                <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors" />
+                {/* Durvább sötétítő réteg */}
+                <div className="absolute inset-0 bg-black/75 group-hover:bg-black/65 transition-colors" />
                 
+                {/* Pulzáló prémium gomb */}
                 <div className="relative z-10 w-16 h-16 md:w-20 md:h-20 bg-neon-orange text-black rounded-full flex items-center justify-center shadow-lg shadow-neon-orange/50 transform group-hover:scale-110 transition-all duration-300">
                   <svg className="w-8 h-8 md:w-10 md:h-10 fill-current translate-x-0.5" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
@@ -346,15 +349,21 @@ export default function Training() {
               </div>
             ) : (
               <>
-                <div className="absolute top-0 left-0 right-0 h-8 sm:h-16 bg-gradient-to-b from-black to-transparent z-10 pointer-events-none" />
+                {/* A tényleges YouTube lejátszó */}
                 <iframe 
                   className="w-full h-full relative z-0" 
-                  src="https://www.youtube.com/embed/Lb_2QhIdyek?autoplay=1&modestbranding=1&rel=0" 
+                  src="https://www.youtube.com/embed/Lb_2QhIdyeI?autoplay=1&modestbranding=1&rel=0" 
                   title="YouTube bemutató videó" 
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                   allowFullScreen
                 ></iframe>
-                <div className="absolute bottom-0 left-0 right-0 h-8 sm:h-16 bg-gradient-to-t from-black to-transparent z-10 pointer-events-none" />
+
+                {/* 2. ZSENIÁLIS MOZIS KITAKARÓ SÁVOK (Végleg elrejtik a YouTube feliratokat és logót) */}
+                {/* Felső takaró sáv: Kitakarja a csatorna nevet és a megosztás gombot */}
+                <div className="absolute top-0 left-0 right-0 h-[11%] bg-black z-10 pointer-events-none" />
+                
+                {/* Alsó takaró sáv: Teljesen leleplezi és elrejti a jobb alsó YouTube logót */}
+                <div className="absolute bottom-0 left-0 right-0 h-[12%] bg-black z-10 pointer-events-none" />
               </>
             )}
 
