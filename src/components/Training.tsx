@@ -6,7 +6,7 @@ const trainers = [
   { 
     name: 'Pataki Krisztián', 
     rank: 'VI.dan', 
-    role: 'Vezető edző, Alapító elnök', 
+    role: 'Klubvezető elnök', 
     image: '/patakikrisztian.webp',
     motto: 'Amit a cél elérésével kapunk közel sem olyan fontos, mint amivé válunk, amíg azt elérjük.',
     fullWidth: true
@@ -323,33 +323,28 @@ export default function Training() {
           </div>
         </div>
 
-        {/* VIDEÓ BLOKK ── PREMUM TISZTA LUSTA BETÖLTÉS */}
+        {/* VIDEÓ BLOKK ── MEGFELELŐ, JAVÍTOTT LINKKEL */}
         <div className="mb-6 w-full max-w-4xl mx-auto">
           <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-2xl bg-black border border-gray-800 group">
             
             {!playVideo ? (
-              // Egyedi borítókép letisztultan, amin semmilyen zavaró YouTube felirat nincs
               <div 
                 className="absolute inset-0 w-full h-full cursor-pointer flex items-center justify-center bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                 style={{ backgroundImage: "url('/kondor.webp')" }}
                 onClick={() => setPlayVideo(true)}
               >
-                {/* Sötétítő dizájn réteg */}
                 <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors" />
                 
-                {/* Pulzáló narancssárga lejátszás gomb */}
                 <div className="relative z-10 w-16 h-16 md:w-20 md:h-20 bg-neon-orange text-black rounded-full flex items-center justify-center shadow-lg shadow-neon-orange/50 transform group-hover:scale-110 transition-all duration-300">
                   <svg className="w-8 h-8 md:w-10 md:h-10 fill-current translate-x-0.5" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
                 
-                {/* Finom alsó és felső sötét átmenet */}
                 <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-black to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black to-transparent" />
               </div>
             ) : (
-              // Az iframe csak kattintásra ugrik be, automatikus indulással és minimalizált brandinggel
               <>
                 <div className="absolute top-0 left-0 right-0 h-8 sm:h-16 bg-gradient-to-b from-black to-transparent z-10 pointer-events-none" />
                 <iframe 
