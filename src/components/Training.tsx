@@ -6,7 +6,7 @@ const trainers = [
   { 
     name: 'Pataki Krisztián', 
     rank: 'VI.dan', 
-    role: 'Klubvezető elnök', 
+    role: 'Vezető edző, Alapító elnök', 
     image: '/patakikrisztian.webp',
     motto: 'Amit a cél elérésével kapunk közel sem olyan fontos, mint amivé válunk, amíg azt elérjük.',
     fullWidth: true
