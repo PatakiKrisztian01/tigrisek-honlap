@@ -145,16 +145,16 @@ export default function Kickbox() {
               <p className="text-gray-400 text-sm">A formagyakorlatok sokszínűek, és mindenki megtalálhatja a számára megfelelőt:</p>
               <div className="grid sm:grid-cols-2 gap-4 text-sm">
                 <div className="bg-gray-900/30 border border-gray-800 p-4 rounded-lg">
-                  <span className="text-white font-bold block mb-1">Hard Style (kemény stílus)</span>
+                  <span className="text-white font-bold block mb-1">Creative Hard Style (kemény stílusú pusztakezes)</span>
                   <span className="text-gray-400 text-xs">Hagyományos, erőteljes és robbanékony mozdulatok jellemzik.</span>
                 </div>
                 <div className="bg-gray-900/30 border border-gray-800 p-4 rounded-lg">
                   <span className="text-white font-bold block mb-1">Hard Style Weapons</span>
-                  <span className="text-gray-400 text-xs">Hagyományos fegyverek (pl. bot, kard) látványos és kontrollált használata.</span>
+                  <span className="text-gray-400 text-xs">Kreatív fegyveres forma (pl. bot, kard, nun-chaku, kama) látványos és kontrollált használata.</span>
                 </div>
                 <div className="bg-gray-900/30 border border-gray-800 p-4 rounded-lg">
-                  <span className="text-white font-bold block mb-1">Zenés formagyakorlat</span>
-                  <span className="text-gray-400 text-xs">Zenére történő bemutató, ahol a mozdulatok és a zene ritmusa, hangulata tökéletes összhangban van.</span>
+                  <span className="text-white font-bold block mb-1">Zenés pusztakezes formagyakorlat</span>
+                  <span className="text-gray-400 text-xs">Zenére történő bemutató, ahol a mozdulatok és a zene ritmusa, hangulata tökéletes összhangban van, akrobatikus elemekkel.</span>
                 </div>
                 <div className="bg-gray-900/30 border border-gray-800 p-4 rounded-lg flex items-center">
                   <span className="text-white font-bold">Zenés fegyveres formagyakorlat</span>
