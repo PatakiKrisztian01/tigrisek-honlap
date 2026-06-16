@@ -20,7 +20,7 @@ const bajnokokListaja: Bajnok[] = [
     kiemeltCimek: [
       { ikon: "🔥", szoveg: "3× Európa-bajnok", bgClass: "bg-red-500/10 border-red-500/30", textClass: "text-red-400" },
       { ikon: "🏆", szoveg: "5× World Cup győztes", bgClass: "bg-amber-500/10 border-amber-500/30", textClass: "text-amber-400" },
-      { ikon: "🥉", szoveg: "2× Világbajnoki bronz", bgClass: "bg-orange-600/10 border-orange-600/30", textClass: "text-orange-400" }
+      { ikon: "🥉", szoveg: "3× Világbajnoki bronz", bgClass: "bg-orange-600/10 border-orange-600/30", textClass: "text-orange-400" }
     ],
     reszletesEredmenyek: [
       "2x ITF Taekwon-do Európa-bajnoki arany",
@@ -30,7 +30,7 @@ const bajnokokListaja: Bajnok[] = [
       "1x ITF Taekwon-do World Cup ezüst",
       "2x ITF Taekwon-do World Cup bronz",
       "All Style Karate Kick-box Európa-bajnoki arany",
-      "2x ITF Taekwon-do Világbajnokság Bronz"
+      "3x ITF Taekwon-do Világbajnokság Bronz"
     ]
   },
   {
