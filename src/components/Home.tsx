@@ -289,7 +289,7 @@ export default function Home() {
               <div className="space-y-4 max-w-md mx-auto">
                 <div className="flex items-center justify-center gap-3 border-b border-gray-900 pb-3">
                   <span className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-                    4 ×
+                    4
                   </span>
                   <span className="text-xl sm:text-2xl font-extrabold uppercase text-gray-200 tracking-wide text-left">
                     Világbajnok
@@ -298,9 +298,9 @@ export default function Home() {
                 
                 <div className="flex items-center justify-center gap-3">
                   <span className="text-3xl sm:text-4xl font-black text-neon-orange tracking-tight drop-shadow-[0_0_8px_rgba(249,115,22,0.4)]">
-                    6 ×
+                    6
                   </span>
-                  <span className="text-xl sm:text-2xl font-extrabold uppercase text-gray-200 tracking-wide text-left">
+                  <span className="text-xl sm:text-2xl font-extrabold uppercase text-neon-orange tracking-wide text-left">
                     Európa-bajnok
                   </span>
                 </div>
