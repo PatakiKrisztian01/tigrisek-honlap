@@ -9,8 +9,8 @@ type Belt = {
 };
 
 const belts: Belt[] = [
-  { rank: 'VI. Dan', rankEn: '', members: ['Pataki Krisztián'], results: [{ name: 'Pataki Krisztián'] },
-  { rank: 'IV. Dan', rankEn: '', members: ['Leiti Edmond'], results: [{ name: 'Leiti Edmond'] },
+  { rank: 'VI. Dan', rankEn: '', members: ['Pataki Krisztián'] },
+  { rank: 'IV. Dan', rankEn: '', members: ['Leiti Edmond'] },
   { rank: 'III. Dan', rankEn: '', members: ['Kiss Viktor', 'Patakiné Zs. Anikó'] },
   { rank: 'II. Dan', rankEn: '', members: ['Almási Zsolt', 'Csáki Máté', 'Dányi Leonetta', 'Höflinger Zsolt', 'Jakab Norbert', 'Kardos Zsolt', 'Kökény Bence', 'Schäfer Péter', 'Takács Ágnes'] },
   { rank: 'I. Dan', rankEn: '', members: ['Fodor Andrea', 'Horváth Gergő', 'Králik Csaba', 'Mireisz Tibor', 'Nagy Varga Bence', 'Nagy Varga Csenge', 'Nas Levente', 'Orha Noémi', 'Papp Alexandra', 'Simon Gábor', 'Solymosi Hanna Zoé', 'Tar Balázs', 'Vajler Éva'] },
