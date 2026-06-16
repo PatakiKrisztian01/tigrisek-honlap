@@ -44,11 +44,13 @@ export default function News() {
                 className="w-full bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-neon-orange/50 transition-all duration-300 flex flex-col"
               >
                 {item.image && (
-                  <div className="w-full h-auto overflow-hidden bg-gray-950">
+                  /* Megemeltük a max-h-t és biztosítjuk, hogy a teljes kép látsszon */
+                  <div className="w-full bg-black flex items-center justify-center overflow-hidden border-b border-gray-800/50">
                     <img
                       src={item.image.startsWith('/') ? item.image : '/' + item.image}
                       alt={item.title}
-                      className="w-full h-auto max-h-[250px] md:max-h-[400px] object-cover cursor-pointer hover:opacity-90 transition-opacity"
+                      /* object-cover -> object-contain cserélve, így a teljes kép belezsugorodik a keretbe levágás nélkül */
+                      className="w-full h-auto max-h-[300px] md:max-h-[500px] object-contain cursor-pointer hover:opacity-95 transition-opacity"
                       onClick={() => navigate(`/hirek/${item.slug}`)}
                     />
                   </div>
