@@ -9,8 +9,8 @@ type Belt = {
 };
 
 const belts: Belt[] = [
-  { rank: 'VI. Dan', rankEn: '', members: ['Pataki Krisztián'], results: [{ name: 'Pataki Krisztián', achievements: ['2008 Lengyelország EB – tradicionális küzdelem: 1. hely', '2007 Quebec Világbajnokság – tradicionális küzdelem: 3. hely', '2007 Szeged OB – formagyakorlat: 1. hely', '2007 Szeged OB – tradicionális küzdelem: 1. hely', '2006 Constanca EB – formagyakorlat: 3. hely'] }] },
-  { rank: 'IV. Dan', rankEn: '', members: ['Leiti Edmond'], results: [{ name: 'Leiti Edmond', achievements: ['2006 Hatvan Európa Kupa – küzdelem -63kg: 1. hely', '2005 Budapest OB – küzdelem -63kg: 3. hely'] }] },
+  { rank: 'VI. Dan', rankEn: '', members: ['Pataki Krisztián'], results: [{ name: 'Pataki Krisztián'] },
+  { rank: 'IV. Dan', rankEn: '', members: ['Leiti Edmond'], results: [{ name: 'Leiti Edmond'] },
   { rank: 'III. Dan', rankEn: '', members: ['Kiss Viktor', 'Patakiné Zs. Anikó'] },
   { rank: 'II. Dan', rankEn: '', members: ['Almási Zsolt', 'Csáki Máté', 'Dányi Leonetta', 'Höflinger Zsolt', 'Jakab Norbert', 'Kardos Zsolt', 'Kökény Bence', 'Schäfer Péter', 'Takács Ágnes'] },
   { rank: 'I. Dan', rankEn: '', members: ['Fodor Andrea', 'Horváth Gergő', 'Králik Csaba', 'Mireisz Tibor', 'Nagy Varga Bence', 'Nagy Varga Csenge', 'Nas Levente', 'Orha Noémi', 'Papp Alexandra', 'Simon Gábor', 'Solymosi Hanna Zoé', 'Tar Balázs', 'Vajler Éva'] },
