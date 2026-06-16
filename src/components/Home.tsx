@@ -113,18 +113,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= 2. HÍREK (Futó hírfolyam) ================= */}
-      <section className="w-full bg-black border-b border-gray-900 py-10 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 mb-5 flex items-center justify-between">
-          <h2 className="text-sm font-black uppercase tracking-widest text-neon-orange flex items-center gap-2">
-            <span className="w-2 h-2 bg-red-600 rounded-full animate-pulse" /> Legfrissebb híreink
-          </h2>
-          <Link to="/news" className="text-xs text-gray-400 hover:text-white flex items-center gap-1 transition-colors">
-            Összes hír <ArrowRight className="w-3 h-3" />
-          </Link>
-        </div>
-
-      {/* GARANTÁLTAN SORTÖRÉS-MENTES, CENTRÁLT, PIXEL-RE KISZÁMÍTOTT SZÓKÉP */}
+     {/* GARANTÁLTAN SORTÖRÉS-MENTES, CENTRÁLT, PIXEL-RE KISZÁMÍTOTT SZÓKÉP */}
       <section className="bg-black py-24 flex flex-col items-center justify-center overflow-hidden border-b border-gray-900">
         <div className="max-w-2xl text-center mb-12 px-4">
           <span className="text-sm font-bold uppercase tracking-widest text-neon-orange mb-2 block">A mi világunk</span>
@@ -221,6 +210,16 @@ export default function Home() {
           </div>
         </div>
       </section>
+     {/* ================= 2. HÍREK (Futó hírfolyam) ================= */}
+      <section className="w-full bg-black border-b border-gray-900 py-10 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 mb-5 flex items-center justify-between">
+          <h2 className="text-sm font-black uppercase tracking-widest text-neon-orange flex items-center gap-2">
+            <span className="w-2 h-2 bg-red-600 rounded-full animate-pulse" /> Legfrissebb híreink
+          </h2>
+          <Link to="/news" className="text-xs text-gray-400 hover:text-white flex items-center gap-1 transition-colors">
+            Összes hír <ArrowRight className="w-3 h-3" />
+          </Link>
+        </div>
 
         <div className="relative w-full overflow-hidden whitespace-nowrap">
           <div className="flex flex-row-reverse w-max gap-8 animate-[marquee_50s_linear_infinite] hover:[animation-play-state:paused] py-3 px-4 cursor-pointer">
