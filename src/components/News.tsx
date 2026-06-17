@@ -1,13 +1,22 @@
 import { Calendar, Facebook, ExternalLink, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
+interface NewsItem {
+  date: string;
+  title: string;
+  body: string;
+  category: string;
+  image?: string;
+  slug?: string;
+}
+
 const newsFiles = import.meta.glob('/public/data/news/*.json', { eager: true });
 
 export default function News() {
   const navigate = useNavigate();
 
-  const newsItems = Object.entries(newsFiles).map(([path, data]: any) => ({
-    ...data,
+  const newsItems = Object.entries(newsFiles).map(([path, data]: [string, any]) => ({
+    ...(data as NewsItem),
     slug: path.split('/').pop()?.replace('.json', '')
   })).sort((a, b) => {
     // Dátum szerinti csökkenő sorrend (legújabb előre)
