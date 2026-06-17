@@ -325,7 +325,7 @@ export default function Taekwondo() {
               <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
                 <h2 className="text-2xl font-black text-white mb-6">Choi Hong Hi</h2>
                 <div className="flex flex-col md:flex-row gap-6 mb-6">
-                  <img src="https://tigrisek.hu/images/choi1.jpg" alt="Choi Hong Hi" className="w-full md:w-64 h-auto rounded-xl object-cover flex-shrink-0" />
+                  <img src="/choi1.webp" alt="Choi Hong Hi" className="w-full md:w-64 h-auto rounded-xl object-cover flex-shrink-0" />
                   <div className="space-y-4 text-gray-300 leading-relaxed text-sm">
                     <p>Choi Hong Hi tábornok, a Taekwon-do legendás alapítója 1918. november 9-én született a koreai félsziget észak-keleti részén fekvő Hwa-Dae-ben, Myong-Chun tartományban. Gyermekkorától a szépírás (kalligráfia) művészetét tanulta, and már fiatalon megismerkedett az ősi koreai harcművészettel, a Taek-kyon-nal.</p>
                     <p>Hétévnyi kalligráfus képzés és intenzív Taek-kyon edzés után felsőfokú tanulmányainak megkezdésére Japánba utazott. Kyoto-ban először főiskolára járt, majd Tokyo-ban a Choong Ang egyetem jogi karának végzése mellett magas fokon elsajátította a shotokan karatét is. Visszatérve Koreába már keményen dolgozott saját új stílusának létrehozásán, emellett a japán megszállás elleni felszabadítási mozgalom szervezője és egyik élharcosa lett, amiért a japánok bebörtönözték és később halálra ítélték. Szerencsére azonban a kivégzés előtt három nappal, 1945. augusztus 15-én Korea felszabadult, és Choi szabad emberként léphetett ki a börtön kapuján.</p>
