@@ -16,10 +16,10 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import NewsDetail from './components/NewsDetail';
 import Gyik from './components/Gyik'; 
-import TigrisAnalizator from './components/TigrisAnalizator'; // <-- Új analizátor importálása
-import Bajnokaink from './components/Bajnokaink'; // <-- PONTOSÍTVA: a te fájlneved szerint!
+import TigrisAnalizator from './components/TigrisAnalizator';
+import Bajnokaink from './components/Bajnokaink';
 
-function App() {
+function App(): JSX.Element {
   return (
     <BrowserRouter>
       <ScrollToTop />
