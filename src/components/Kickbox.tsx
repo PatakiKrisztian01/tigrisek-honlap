@@ -174,7 +174,7 @@ export default function Kickbox() {
                 <p className="text-white font-bold text-center pt-1">Készen állsz egy új kihívásra?</p>
               </div>
               <Link to="/kapcsolat" className="w-full bg-neon-orange text-black font-black text-xs uppercase tracking-widest py-3.5 rounded-xl transition-all hover:bg-white hover:scale-[1.02]">
-                Jelentkezz egy ingyenes próbaedzésre!
+                Jelentkezz egy próbaedzésre!
               </Link>
             </div>
           </div>
