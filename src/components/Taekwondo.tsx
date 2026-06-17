@@ -335,7 +335,7 @@ export default function Taekwondo() {
 
               <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
                 <div className="flex flex-col md:flex-row-reverse gap-6 mb-6">
-                  <img src="https://tigrisek.hu/images/choi2.jpg" alt="Choi Hong Hi katonai pályafutása" className="w-full md:w-64 h-auto rounded-xl object-cover flex-shrink-0" />
+                  <img src="choi2.webp" alt="Choi Hong Hi katonai pályafutása" className="w-full md:w-64 h-auto rounded-xl object-cover flex-shrink-0" />
                   <div className="space-y-4 text-gray-300 leading-relaxed text-sm">
                     <p>Choi Hong Hi a katonai pályát választotta hivatásul, és a Szöul-i Katonai Akadémián szerzett diplomát 1946-ban. Az új dél-koreai fegyveres erők egyik megalapítójaként fényes katonai karriert futott be, és egészen a kétcsillagos tábornoki rangig vitte. Befolyásos katonatisztként az 1950-es évek közepére létrehozta tudományos elvekre, a koreai szellemiségre és különleges lábtechnikákra épülő, új, kihívást jelentő harcművészetét, ami először a hadseregben került bevezetésre. A Taekwon-dót – ezt a nyugati világban eleinte még „Military Taekwon-do” néven is emlegették – a saját parancsnoksága alá tartozó 29-es gyalogsági hadosztály, az u.n. „ököl divízió” katonáinak körében kezdte el oktatni, és ők próbálták ki először éles harchelyzetben is.</p>
                     <p>Choi kezdeményezésére a „Taekwon-do” elnevezést hivatalosan <strong className="text-white">1955. április 11-én</strong> fogadták el Koreában, és azóta ez a nap a Taekwon-do születésnapja!</p>
@@ -352,7 +352,7 @@ export default function Taekwondo() {
 
               <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
                 <div className="flex flex-col md:flex-row gap-6">
-                  <img src="https://tigrisek.hu/images/choi3.jpg" alt="Choi Hong Hi - A Taekwon-do Atyja" className="w-full md:w-64 h-auto rounded-xl object-cover flex-shrink-0" />
+                  <img src="/choi3.webp" alt="Choi Hong Hi - A Taekwon-do Atyja" className="w-full md:w-64 h-auto rounded-xl object-cover flex-shrink-0" />
                   <div className="space-y-4 text-gray-300 leading-relaxed text-sm">
                     <p>A Taekwon-do az 1990-es évek végére hihetetlen tömegbázisra tett szert, futótűz sebességével hódítva meg a világot. Napjainkra ez az egyik legnagyobb létszámú harcművészeti ág, melyet öt kontinens több mint száz tagországában sok millióan űznek.</p>
                     <p>A Taekwon-do atyját, vagy ahogy életrajzírói kedvesen említik, a „Kis Óriást” 84 éves korában, rövid ideig tartó súlyos betegség után Phenjan-ban, Észak-Koreában érte a halál. A XX. század utolsó nagy harcművész stílusalapítója <strong className="text-white">2002. június 15-én</strong> örökre eltávozott...</p>
