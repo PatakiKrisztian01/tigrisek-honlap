@@ -10,15 +10,11 @@ const newsFiles = import.meta.glob('/public/data/news/*.json', { eager: true });
 export default function Home() {
   const navigate = useNavigate();
 
+  // A useEffect-ből eltávolítottuk a hibás és tiltott DOM-manipulációt (document.querySelector), 
+  // mivel a meta tageket már a központi index.html fájl tökéletesen és fixen kezeli.
   useEffect(() => {
-    document.title = "Budapest Tigers SE | Taekwon-do és Kick-box edzések a 18. kerületben";
-    let metaDesc = document.querySelector('meta[name="description"]');
-    if (!metaDesc) {
-      metaDesc = document.createElement('meta');
-      metaDesc.setAttribute('name', 'description');
-      document.head.appendChild(metaDesc);
-    }
-    metaDesc.setAttribute('content', 'Budapest Tigers SE: Professzionális ITF Taekwon-do és Kick-box edzések gyerekeknek, ovisoknak és felnőtteknek Pestszentlőrincen, a Havanna lakótelepnél. Ingyenes próbaedzés!');
+    // Ez a React-en belüli ablakfejléc-frissítés teljesen biztonságos, így megmaradt
+    document.title = "Budapesti Tigrisek SE | Taekwon-do & Kick-box edzések a XVIII. kerületben";
   }, []);
 
   const legfrissebbHirek = Object.entries(newsFiles)
@@ -55,7 +51,7 @@ export default function Home() {
                 <span className="text-neon-orange">testben és lélekben</span>
               </h1>
               <h2 className="text-base sm:text-lg lg:text-xl text-gray-200 max-w-2xl mb-6 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-                ITF Taekwon-do és Kick-box edzések gyerekeknek és felnőtteknek a 18. kerületben, <br />
+                ITF Taekwon-do és Kick-box edzések gyerekeknek és felnőtteknek a XVIII. kerületben, <br />
                 <span className="text-neon-orange font-bold text-xs sm:text-sm lg:text-base uppercase mt-1 tracking-widest block">kezdőtől fekete övig.</span>
               </h2>
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
@@ -123,7 +119,7 @@ export default function Home() {
         <div className="w-full flex flex-col items-center justify-center text-center font-mono font-black uppercase tracking-tighter leading-none select-none px-2 text-[2.2vw] sm:text-xs md:text-sm">
           {/* 1. Sor */}
           <div className="flex justify-center items-center py-1.5 w-full whitespace-nowrap">
-            <span className="text-gray-450 opacity-50 inline-block whitespace-nowrap mr-[2vw] sm:mr-4">18. KERÜLET BUDAPEST</span>
+            <span className="text-gray-450 opacity-50 inline-block whitespace-nowrap mr-[2vw] sm:mr-4">XVIII. KERÜLET BUDAPEST</span>
             <span className="text-neon-orange bg-orange-950/40 px-1 sm:px-2 rounded inline-block whitespace-nowrap mx-[0.5vw] sm:mx-2">TAEKWON-DO</span>
             <span className="text-gray-450 opacity-40 inline-block whitespace-nowrap mx-[4vw] sm:mx-8">HAVANNA SPORT</span>
             <span className="text-neon-orange bg-orange-950/40 px-1 sm:px-2 rounded inline-block whitespace-nowrap mx-[0.5vw] sm:mx-2">KICK-BOX</span>
@@ -210,7 +206,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-     {/* ================= 2. HÍREK (Futó hírfolyam) ================= */}
+
+      {/* ================= 2. HÍREK (Futó hírfolyam) ================= */}
       <section className="w-full bg-black border-b border-gray-900 py-10 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 mb-5 flex items-center justify-between">
           <h2 className="text-sm font-black uppercase tracking-widest text-neon-orange flex items-center gap-2">
@@ -269,7 +266,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= KLUBSZINTŰ STATISZTIKÁK (Kijavított, közvetlen beillesztés) ================= */}
+      {/* ================= KLUBSZINTŰ STATISZTIKÁK ================= */}
       <section className="w-full bg-black text-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden border-b border-gray-900">
         <div className="max-w-4xl mx-auto">
           
