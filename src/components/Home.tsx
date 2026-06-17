@@ -206,14 +206,13 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* ================= 2. HÍREK (Futó hírfolyam) ================= */}
+     {/* ================= 2. HÍREK (Futó hírfolyam) ================= */}
       <section className="w-full bg-black border-b border-gray-900 py-10 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 mb-5 flex items-center justify-between">
           <h2 className="text-sm font-black uppercase tracking-widest text-neon-orange flex items-center gap-2">
             <span className="w-2 h-2 bg-red-600 rounded-full animate-pulse" /> Legfrissebb híreink
           </h2>
-          <Link to="/news" className="text-xs text-gray-400 hover:text-white flex items-center gap-1 transition-colors">
+          <Link to="/hirek" className="text-xs text-gray-400 hover:text-white flex items-center gap-1 transition-colors">
             Összes hír <ArrowRight className="w-3 h-3" />
           </Link>
         </div>
@@ -223,7 +222,7 @@ export default function Home() {
             {[...legfrissebbHirek, ...legfrissebbHirek, ...legfrissebbHirek, ...legfrissebbHirek].map((item, index) => (
               <div
                 key={`${item.id}-${index}`}
-                onClick={() => navigate(`/news#${item.id}`)}
+                onClick={() => navigate(`/hirek/${item.id}`)}
                 className="w-[340px] sm:w-[400px] inline-block whitespace-normal bg-gray-900/60 border border-gray-800/80 rounded-2xl overflow-hidden hover:border-neon-orange/50 transition-all duration-300 shadow-xl group"
               >
                 <div className="w-full h-44 relative bg-black overflow-hidden">
