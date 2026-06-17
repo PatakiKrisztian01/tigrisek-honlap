@@ -192,7 +192,7 @@ export default function Taekwondo() {
                 </div>
 
                 <p>Az első máig fennmaradt harcművészeti vonatkozású emlékek ebből az időből származnak: a Koguryo dinasztiabeli Muyong-chong és Kakchu-chong nevű királyi síremlékek falain, illetve mennyezetén lévő falfestmények, melyek egymással küzdő férfiakat ábrázolnak.</p>
-                <p>Akkoriban a Koguryo tudott a legdinamikusabban terjeszkedni, ahol már ekkor magas színvonalon oktatták a harcművészeteket. Silla 24. királya, Chin Heung, Koguryo királyával szövetkezve létrehozta az első elit katonai alakulatot, a „Hwarangdo”-t. A Hwarangdo kiképzésben nagy hangsúlyt fektettek mind a fegyveres, mind a fegyver nélküli közelharc képzésére. Ha hinni lehet a korabeli történeteknek, már ekkor magas színvonalú lábtechnika jellemezte a stílust. A Hwarangdo képzésben a testi nevelés mellett a szellemi képzéssel भी foglalkoztak. Ezt egy buddhista tanító, Won Kwang, konfuciusi tanai alapján tették.</p>
+                <p>Akkoriban a Koguryo tudott a legdinamikusabban terjeszkedni, ahol már ekkor magas színvonalon oktatták a harcművészeteket. Silla 24. királya, Chin Heung, Koguryo királyával szövetkezve létrehozta az első elit katonai alakulatot, a „Hwarangdo”-t. A Hwarangdo kiképzésben nagy hangsúlyt fektettek mind a fegyveres, mind a fegyver nélküli közelharc képzésére. Ha hinni lehet a korabeli történeteknek, már ekkor magas színvonalú lábtechnika jellemezte a stílust. A Hwarangdo képzésben a testi nevelés mellett a szellemi képzéssel is foglalkoztak. Ezt egy buddhista tanító, Won Kwang, konfuciusi tanai alapján tették.</p>
                 <p>A konfucianizmus mind a mai napig jellemzi a koreai harcművészetek nagy részét. Szemben például a japán harcművészetekkel, ahol többnyire a zen buddhizmus adja a szellemi hátteret.</p>
                 <p>Végül Munmu királynak (661–680), Silla uralkodójának sikerült egyesítenie a koreai félszigetet uralma alatt 668-ban, bár Kínával még 735-ig voltak háborúk a határkérdésben.</p>
                 <p>A Silla által létrehozott egységes koreai állam végül belülről hullott darabjaira, és az országot egy Van Gon (877–943) nevezetű hadvezérnek sikerült újraegyesítenie 935-ben. Az egyesített állam és a dinasztia Koryo néven 1392-ig állt fenn. Innen ered Korea elnevezése is az európai nyelvekben.</p>
@@ -202,7 +202,7 @@ export default function Taekwondo() {
                   <img src="/history2.webp" alt="A Koryo és a Csoszon korszak harcművészetei" className="w-full h-auto max-h-[350px] object-cover rounded-lg mx-auto" />
                 </div>
 
-                <p>1392-ben a Koryo dinasztiát felváltotta a Li dinasztia, melynek első királya, Li Szong Ge megfosztotta trónjától a Koryo dinasztia utolsó királyát is, és Thedzso néven ült trónra. A Li dinasztia az országot Csoszonnak nevezte, így ezt a korszakot szokták Ó-Csoszonnak is megnevezni. Ez a korszak lényegében 1910-ig, a japán megszállás kezdetéig tartott.</p>
+                <p>1392-ben a Koryo dinasztiát felváltotta a Li dinasztia, melynek első királya, Li Szong Ge megfosztotta trónjától a Koryo dinasztia utolsó királyát is, és Thedzso néven ült trónra. A Li dinasztia az országot Csoszonnak nevezte, így ezt a korszakot szokták Ó-Csoszonnak भी megnevezni. Ez a korszak lényegében 1910-ig, a japán megszállás kezdetéig tartott.</p>
                 <p>Ebben az időben a harcművészeteket elsősorban a hadseregben oktatták, illetve megvoltak a köznépnek is a maga harcművészeti játékai, például a Soo Bak és a Taek Kyon. Máig rendszeresen rendeznek Soo Bak és Taek Kyon versenyeket a Dan-O ünnepek alkalmával (május 5-én és augusztus 15-én). Valószínűleg ebben az időben érték kínai hatások is a koreai harcművészeteket, melyek jellegzetességei néhány mai koreai harcművészeti ágban is megtalálhatóak.</p>
                
                 {/* 3. KÉP-HELYŐRZŐ BLOKK A TÖRTÉNELEMBEN */}
@@ -231,7 +231,7 @@ export default function Taekwondo() {
                 <div>
                   <h3 className="text-white font-bold text-lg mb-2">2. Formagyakorlat (Versenyszám)</h3>
                   <p className="text-gray-300 mb-3">Az erőteljes dinamizmussal, egyedül végzett formagyakorlatok különböző irányokból támadó, képzelt ellenfelek leküzdését jelképezik előre meghatározott technikákkal. A szimmetriára épülő mozgássorozatokban, pontosan kidolgozott koreográfia szerint ütések, hárítások, rúgások, ugró ütések és ugró rúgások logikus kombinációi váltják egymást. A Taekwon-doban összesen 24 kötelező formagyakorlat van, melyek a nap 24 óráját, vagyis magát az életet (az élet állandó körforgását) szimbolizálják.</p>
-                  <p className="text-gray-300">Összesen 24 Tull (formagyakorlat) van az ITF Taekwon-dóban. Ezeket Choi Hong Hi nagymester tervezte és alkotta meg. A tull-ok elnevezéseikkel emléket állítanak a koreai történelem egy-egy kimagasló alakjának, hadvezérének, államférfinek, vagy éppenséggel ismert tudósnak, filozófusnak, nemzetközi költőnek stb.</p>
+                  <p className="text-gray-300">Összesen 24 Tull (formagyakorlat) van az ITF Taekwon-dóban. These are Choi Hong Hi nagymester tervezte és alkotta meg. A tull-ok elnevezéseikkel emléket állítanak a koreai történelem egy-egy kimagasló alakjának, hadvezérének, államférfinek, vagy éppenséggel ismert tudósnák, filozófusnak, nemzetközi költőnek stb.</p>
                 </div>
                 <div>
                   <h3 className="text-white font-bold text-lg mb-2">3. Formai küzdelem</h3>
@@ -337,7 +337,7 @@ export default function Taekwondo() {
                 <div className="flex flex-col md:flex-row-reverse gap-6 mb-6">
                   <img src="choi2.webp" alt="Choi Hong Hi katonai pályafutása" className="w-full md:w-64 h-auto rounded-xl object-cover flex-shrink-0" />
                   <div className="space-y-4 text-gray-300 leading-relaxed text-sm">
-                    <p>Choi Hong Hi a katonai pályát választotta hivatásul, és a Szöul-i Katonai Akadémián szerzett diplomát 1946-ban. Az új dél-koreai fegyveres erők egyik megalapítójaként fényes katonai karriert futott be, és egészen a kétcsillagos tábornoki rangig vitte. Befolyásos katonatisztként az 1950-es évek közepére létrehozta tudományos elvekre, a koreai szellemiségre és különleges lábtechnikákra épülő, új, kihívást jelentő harcművészetét, ami először a hadseregben került bevezetésre. A Taekwon-dót – ezt a nyugati világban eleinte még „Military Taekwon-do” néven is emlegették – a saját parancsnoksága alá tartozó 29-es gyalogsági hadosztály, az u.n. „ököl divízió” katonáinak körében kezdte el oktatni, és ők próbálták ki először éles harchelyzetben is.</p>
+                    <p>Choi Hong Hi a katonai pályát választotta hivatásul, and a Szöul-i Katonai Akadémián szerzett diplomát 1946-ban. Az új dél-koreai fegyveres erők egyik megalapítójaként fényes katonai karriert futott be, és egészen a kétcsillagos tábornoki rangig vitte. Befolyásos katonatisztként az 1950-es évek közepére létrehozta tudományos elvekre, a koreai szellemiségre és különleges lábtechnikákra épülő, új, kihívást jelentő harcművészetét, ami először a hadseregben került bevezetésre. A Taekwon-dót – ezt a nyugati világban eleinte még „Military Taekwon-do” néven is emlegették – a saját parancsnoksága alá tartozó 29-es gyalogsági hadosztály, az u.n. „ököl divízió” katonáinak körében kezdte el oktatni, és ők próbálták ki először éles harchelyzetben is.</p>
                     <p>Choi kezdeményezésére a „Taekwon-do” elnevezést hivatalosan <strong className="text-white">1955. április 11-én</strong> fogadták el Koreában, és azóta ez a nap a Taekwon-do születésnapja!</p>
                   </div>
                 </div>
@@ -351,6 +351,7 @@ export default function Taekwondo() {
                   <p>1973-tól kezdve Choi Hong Hi a Taekwon-do valóságos „utazó nagykövete” lett. Repülőjáratról járatra szállva az elmúlt évtizedek során földünk szinte valamennyi országába ellátogatott, hogy harcművészetét ismertté és elismertté tegye. Még idős korában is fáradhatatlan energiával tartotta a bemutatókat, edzőtáborokat, övvizsgákat, továbbképző szemináriumokat – kizárólag a Taekwon-dónak szentelve életét! Igazi géniusz volt, született vezető és milliók számára követendő példakép. Szuggesztív egyéniségével és óriási tudásanyagával képes volt tanítványok millióit vonzani az edzőtermekbe. Életének nemes célját, a Taekwon-do világméretű elterjesztését végül teljes siker koronázta.</p>
                 </div>
               </div>
+             </div>
 
               <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
                 <div className="flex flex-col md:flex-row gap-6">
@@ -419,7 +420,7 @@ export default function Taekwondo() {
                 <div className="space-y-8">
                   {[
                     { title: 'Udvariasság', korean: 'Ye Ui', text: 'A mesterek felé köszönésként mindenhol és mindenkor meghajlás kötelező! A Taekwondosok előzékenyen és udvariasan viselkedjenek mindenkivel szemben. Vitás helyzeteknél alkalmazzák a kölcsönös engedmény alapelvét. Ne legyenek önzőek vagy irigyek, tudjanak örülni társaik örömének is. A közös érdekeket mindig helyezzék az egyéni szempontok elé! Tegyenek különbséget mester és tanítvány vagy rangidős és kezdő között. A magasabb fokozatúakban becsüljék a nagyobb tudást, szakmai tapasztalatot s tartsák be feléjük a kötelező tiszteletadás szabályait. Csak azok várjanak el tiszteletet és megbecsülést, akik ehhez méltóan viselkednek, és akik maguk is képesek arra, hogy tiszteljenek másokat. A tiszteletadással visszaélni szigorúan tilos!' },
-                    { title: 'Becsületesség', korean: 'Yom Chi', text: 'A Taekwondos tartsa be adott szavát, és ígéretét soha ne szegje meg. Bármilyen egyéni sikereket ér el az életben, soha ne feledkezzék meg azokról, akikkel együtt kezdett és segítették, és akiknek ezért a belé fektetett munkáért nagyon sokat köszönhet. A Taekwondos soha semmilyen körülmények között se hazudjon! Legyen hűséges hazájához, a Taekwondohoz, mesteréhez és sporttársaihoz. Minden esetben maradjon szerény, nyílt és természetes. Igyekezzen a Taekwondo érdekeit a saját érdekei elé helyezni. A Taekwondos ne felejtse el, hogy mindenkor és minden helyzetben a Taekwondot képviseli. Viselkedésével a kívülálló képet kap a Taekwondoról.' },
+                    { title: 'Becsületesség', korean: 'Yom Chi', text: 'A Taekwondos tartsa be adott szavát, és ígéretét soha ne szegje meg. Bármilyen egyéni sikereket ér el az életben, soha ne feledkezzék meg azokról, akikkel együtt kezdett és segítették, és akiknek ezért a belé fektetett munkáért nagyon sokat köszönhet. A Taekwondos soha semmilyen körülmények között se hazudjon! Legyen hűséges hazájához, a Taekwondohoz, mesteréhez és sporttársaihoz. Minden esetben maradjon szerény, nyílt és természetes. Igyekezzen a Taekwondo interests a saját érdekei elé helyezni. A Taekwondos ne felejtse el, hogy mindenkor és minden helyzetben a Taekwondot képviseli. Viselkedésével a kívülálló képet kap a Taekwondoról.' },
                     { title: 'Állhatatosság', korean: 'In Nae', text: '„A türelem megismeréshez és boldoguláshoz vezet.” Csak akinek van megfelelő kitartása, az remélheti, hogy vágyai egyszer teljesülni fognak. A Taekwondos legyen türelmes, ne hajszolja az övfokozatokat, várja ki a kötelező várakozási időket, és minden alkalmat ragadjon meg saját elméleti és gyakorlati tudásának gyarapítására. Rendszeresen járjon edzésre, mert a hébe-hóba lejáró tanítványról senki sem hiszi el, hogy egyszer fekete öves mester akar lenni. Csak az járjon edzésre, aki örömmel teszi azt.' },
                     { title: 'Önuralom', korean: 'Guk Gi', text: 'A sportbeli ellenfeleken kívül a mindennapok nehézségeit és akadályait is le kell küzdeni, amire csak az lesz képes, aki nagyfokú önuralommal és önfegyelemmel rendelkezik. A Taekwondos soha ne elégedjen meg önmagával, ugyanakkor önfegyelemmel viselje a kudarc és a siker élményét.' },
                     { title: 'Rettenthetetlen küzdőszellem', korean: 'Baekjul Boolgool', text: 'A Taekwondos legyen bátor és elszánt. Ne keresse a veszélyt, de ne is hátráljon meg előle. Ha igazságtalansággal találkozik, szálljon síkra a gyengébb védelmében. Amennyiben pedig harcra kerülne a sor, függetlenül az ellenfél erejétől, félelem és tétovázás nélkül álljon helyt. A Taekwondosnak a küzdelemben mindent el kell követnie szabályos keretek között a győzelem érdekében. Az életben ne keresse a veszélyt, ne kezdeményezzen verekedést. Ha vele szemben kezdeményeznek, akkor próbálja meg elkerülni azt. Ha harcra kerül a sor, akkor viszont ne hátráljon meg. Ha igazságtalansággal találkozik, szálljon szembe a gyengébb védelmében.' }
@@ -492,7 +493,7 @@ export default function Taekwondo() {
                   </div>
                   <div className="grid grid-cols-3 bg-gray-800/50 px-6 py-2 text-xs font-bold text-gray-300 border-b border-gray-700">
                     <span>Koreai</span><span>Magyar</span><span>Angol</span>
-                </div>
+                  </div>
                   <div className="divide-y divide-gray-800">
                     {group.entries.map((entry, i) => (
                       <div key={i} className={`grid grid-cols-3 px-6 py-2 text-sm ${i % 2 === 0 ? '' : 'bg-gray-900/50'}`}>
@@ -534,7 +535,7 @@ export default function Taekwondo() {
                   <p>4. Mindenkinek be kell tartani a magasabb övfokozatúak felé a tiszteletadás szabályait.</p>
                   <p>5. Az edzés csakis a klubvezető-mester vagy a megbízott helyettese jelenlétében (illetve tudtával és engedélyével) kezdhető el.</p>
                   <p>6. Az edzésekről késni, vagy hamarabb elmenni nem, vagy csak nagyon indokolt esetben lehet.</p>
-                  <p>7. A sorakozó után érkezők kötelesek az ajtóban megállva várakozni, és csak mesterük intésére állhatnak be! Az edzések menetét fegyelmezetlenkedéssel, beszélgetéssel senki sem zavarhatja! Előzetes engedély nélkül a sorból kilépni, az edzőtermet elhagyni, illetve az edzésekre beállni szigorúan tilos!</p>
+                  <p>7. A sorakozó után érkezők kötelesek az ajtóban megállva várakozni, és csak mesterük intésére állhatnak be! Az edzés menetét fegyelmezetlenkedéssel, beszélgetéssel senki sem zavarhatja! Előzetes engedély nélkül a sorból kilépni, az edzőtermet elhagyni, illetve az edzésekre beállni szigorúan tilos!</p>
                   <p>8. A sérülések megelőzése végett a tanítványok nem viselhetnek az edzéseken sem ékszereket, sem fémtárgyakat (órát, gyűrűt, láncot, fülbevalót, karkötőt, stb.). Szemüvegben tilos küzdeni, de az edzéseken saját felelősségére bárki használhatja. Minden tanítvány köteles kéz- és lábkörmeit rendszeresen rövidre vágni, a foglalkozásokon tisztára mosott ruhában, ápoltan megjelenni.</p>
                   <p>9. Taekwon-do egyenruhában (dobok) a teremben tartózkodók csak a földre ülhetnek pihenés céljából!</p>
                   <p>10. A klubban a rendért a legmagasabb övfokozatú színes övesek a felelősek, és kötelességük a fegyelem bármilyen eszközzel való betarttatása!</p>
@@ -585,7 +586,7 @@ export default function Taekwondo() {
             </div>
           )}
 
-          {/* THEORY APP - TELJESEN CSERÉLVE A HIVATALOS LEÍRÁS ALAPJÁN */}
+          {/* THEORY APP */}
           {activeTab === 'theoryapp' && (
             <div className="space-y-6">
               <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8 relative overflow-hidden group">
