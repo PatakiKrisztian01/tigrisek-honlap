@@ -27,13 +27,6 @@ const trainers = [
     motto: 'A siker nem fogja lejjebb adni. Nekünk kell felemelkedni hozzá.'
   },
   { 
-    name: 'Höflinger Zsolt', 
-    rank: 'II.dan', 
-    role: '', 
-    image: '/hoflingerzsolt.webp',
-    motto: 'Oda kell figyelni ellenségeinkre, mert ők az elsők, akik fölfedezik hibáinkat!'
-  },
-  { 
     name: 'Kiss Viktor', 
     rank: 'III.dan', 
     role: '', 
@@ -41,11 +34,18 @@ const trainers = [
     motto: 'Gyakorold azt, amit már tudsz, és ez segíteni fog felismerni azt, amit még nem tudsz.'
   },
   { 
+    name: 'Höflinger Zsolt', 
+    rank: 'II.dan', 
+    role: '', 
+    image: '/hoflingerzsolt.webp',
+    motto: 'Az életben az igazi érték, amit másoknak adunk, és nem az amit kapunk.'
+  },
+  { 
     name: 'Kardos Zsolt', 
     rank: 'II.dan', 
     role: '', 
     image: '/kardoszsolt.webp',
-    motto: 'Az életed végtelenül leegyszerűsödik, ha kéred és elfogadod a segítséget hozzá.'
+    motto: 'Nem az a lényeg, hogy sohase ess el, hanem, hogy mindannyiszor felállj.'
   },
 ];
 
