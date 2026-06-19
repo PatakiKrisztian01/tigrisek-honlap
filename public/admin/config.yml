@@ -42,7 +42,6 @@ collections:
       - label: Tartalom
         name: body
         widget: markdown
-      # --- SEO MEZŐK HOZZÁADVA ---
       - label: "SEO Cím (Title)"
         name: "seo_title"
         widget: "string"
