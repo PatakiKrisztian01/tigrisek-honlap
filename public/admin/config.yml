@@ -5,43 +5,44 @@ backend:
   base_url: https://tigrisek-oauth.vercel.app
   auth_endpoint: api/auth
 
-media_folder: "public/images/news"
-public_folder: "/images/news"
+media_folder: public/images/news
+public_folder: /images/news
 
 collections:
-  - name: "news"
-    label: "Hírek"
-    folder: "public/data/news"
+  - name: news
+    label: Hírek
+    folder: public/data/news
     create: true
     delete: true
     slug: "{{slug}}"
-    extension: "json"
-    format: "json"
+    extension: json
+    format: json
     fields:
-      - label: "Cím"
-        name: "title"
-        widget: "string"
-      - label: "Dátum"
-        name: "date"
-        widget: "datetime"
+      - label: Cím
+        name: title
+        widget: string
+      - label: Dátum
+        name: date
+        widget: datetime
         format: "YYYY-MM-DD"
         date_format: "YYYY-MM-DD"
         time_format: false
-      - label: "Kategória"
-        name: "category"
-        widget: "select"
+      - label: Kategória
+        name: category
+        widget: select
         options:
-          - "Közlemény"
-          - "Verseny"
-          - "Szeminárium"
-          - "Vizsga"
-      - label: "Kép"
-        name: "image"
-        widget: "image"
+          - Közlemény
+          - Verseny
+          - Szeminárium
+          - Vizsga
+      - label: Kép
+        name: image
+        widget: image
         required: false
-      - label: "Tartalom"
-        name: "body"
-        widget: "markdown"
+      - label: Tartalom
+        name: body
+        widget: markdown
+      # --- SEO MEZŐK HOZZÁADVA ---
       - label: "SEO Cím (Title)"
         name: "seo_title"
         widget: "string"
