@@ -44,16 +44,16 @@ const events = [
     type: "Tábor"
   },
   {
-    date: "Október",
+    date: "November 7-8",
     title: "Mighty Fist Eagles Cup Nemzetközi Bajnokság",
     location: "Monor",
     type: "Verseny"
   },
   {
-    date: "November",
-    title: "Országos Színesöves Őszi Vizsgák (10-3. Gup)",
-    location: "Budapest",
-    type: "Vizsga"
+    date: "November 14",
+    title: "Országos technikai szeminárium",
+    location: "Monort",
+    type: "Szeminárium"
   }
 ];
 
