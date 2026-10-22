@@ -86,7 +86,15 @@ export default function Calendar() {
               rel="noopener noreferrer"
               className="inline-flex text-xs text-white hover:text-neon-orange border border-neon-orange/30 hover:border-neon-orange px-3 py-1.5 rounded-lg bg-neon-orange/5 transition-all self-start sm:self-center font-bold"
             >
-              Hivatalos szövetségi forrás &rarr;
+              Hivatalos ITF szövetségi forrás &rarr;
+            </a>
+             <a 
+              href="https://kick-box.hu/versenyek/versenynaptar/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex text-xs text-white hover:text-neon-orange border border-neon-orange/30 hover:border-neon-orange px-3 py-1.5 rounded-lg bg-neon-orange/5 transition-all self-start sm:self-center font-bold"
+            >
+              Hivatalos WAKO szövetségi forrás &rarr;
             </a>
           </div>
 
