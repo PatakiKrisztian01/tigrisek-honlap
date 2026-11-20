@@ -1,0 +1,1018 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nevezési rendszer – szervezői</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b0b0c">
+<style>
+:root{--bg:#0b0b0c;--fg:#f2f2f2;--mut:#a8a8a8;--card:#171717;--bd:#2e2e2e;--ac:#ff7a00;--ok:#5fd38d;--okbg:#10241a;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b0b0c;--fg:#f2f2f2;--mut:#a8a8a8;--card:#171717;--bd:#2e2e2e;--ac:#ff7a00;--ok:#5fd38d;--okbg:#10241a}}
+:root[data-theme="dark"]{--bg:#0b0b0c;--fg:#f2f2f2;--mut:#a8a8a8;--card:#171717;--bd:#2e2e2e;--ac:#ff7a00;--ok:#5fd38d;--okbg:#10241a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:14px;max-width:1280px;margin-inline:auto}
+h1{font-size:20px;margin:4px 0 2px;color:var(--ac)}h2{font-size:17px;margin:22px 0 8px;color:var(--ac);border-bottom:1px solid var(--bd);padding-bottom:4px}
+p.s{color:var(--mut);margin:0 0 10px;font-size:14px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px;margin-bottom:10px}
+label{display:block;font-size:13px;color:var(--mut);margin:8px 0 3px}
+input,select{width:100%;padding:9px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--fg);font:inherit}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+button{padding:10px 14px;border:0;border-radius:8px;background:var(--ac);color:#111;font:inherit;font-weight:600;margin-top:12px;cursor:pointer}
+button.g{background:transparent;color:var(--mut);border:1px solid var(--bd);margin:0;padding:5px 10px;font-weight:400;font-size:13px}
+.cat{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.cat b{display:block}.cat small{color:var(--mut)}
+.res{padding:9px 11px;border-radius:8px;margin-top:6px;border:1px solid var(--bd)}
+.res.y{background:var(--okbg);border-color:var(--ok)}.res.y b{color:var(--ok)}
+.res.n{color:var(--mut)}
+.hint{font-size:13px;color:var(--mut);margin-top:6px}
+.hide{display:none}.hero img{width:100%;max-height:180px;object-fit:cover;border-radius:10px;margin-bottom:6px}.hero b{font-size:18px}.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}input[type=checkbox]{width:auto;margin-right:8px}.res.u{background:var(--card);border-color:var(--ac)}.res.u b{color:var(--ac)}.lbl{display:block;cursor:pointer}.dd{margin-top:12px;border-top:1px solid var(--bd);padding-top:8px}.dd>summary{cursor:pointer;font-weight:600;color:var(--ac);padding:6px 0}.cat>div:last-child{display:flex;flex-direction:column;gap:6px}
+.br{display:flex;gap:24px;overflow-x:auto;padding:8px 2px 12px;align-items:stretch}.rd{display:flex;flex-direction:column;min-width:176px}.rb{flex:1;display:flex;flex-direction:column;justify-content:space-around}.rt{font-size:12px;color:var(--mut);margin-bottom:4px;white-space:nowrap}
+.mt{position:relative;margin:6px 0}.rd:not(:last-child) .mt::after{content:"";position:absolute;right:-24px;top:50%;width:24px;border-top:1px solid var(--bd)}.mn{position:absolute;top:-9px;right:6px;background:var(--bg);color:var(--mut);font-size:11px;padding:0 4px;z-index:1}
+.pl{padding:5px 8px;font-size:13px;line-height:1.25;color:var(--fg)}.pl small{display:block;color:var(--mut);font-size:11px}.pl.red{border-left:5px solid #e5383b;background:rgba(229,56,59,.18);border-radius:8px 8px 0 0}.pl.blue{border-left:5px solid #3a86ff;background:rgba(58,134,255,.18);border-radius:0 0 8px 8px}.pl.win{border-left:5px solid var(--ac);background:rgba(255,122,0,.16);border-radius:8px}
+.wall{position:fixed;inset:0;background:var(--bg);z-index:100;overflow:auto;padding:20px}.wbox{max-width:420px;margin:24px auto}
+.msg{margin-top:10px;font-size:14px;white-space:pre-wrap}.okc{color:var(--ok)}.errc{color:#ff6b6b}
+.menu{display:flex;gap:6px;overflow-x:auto;padding:6px 0 10px;position:sticky;top:0;background:var(--bg);z-index:5}
+.menu button{margin:0;white-space:nowrap;background:transparent;color:var(--mut);border:1px solid var(--bd);padding:8px 12px;font-weight:600}
+.menu button.on{background:var(--ac);color:#111;border-color:var(--ac)}
+.rrow{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 0;border-top:1px solid var(--bd)}.rrow small{display:block;color:var(--mut);font-size:12px}
+.big{background:var(--card);border:1px solid var(--bd);border-left:5px solid var(--ac);border-radius:10px;padding:12px;margin:10px 0}.bn{font-size:22px;font-weight:700;color:var(--ac)}.bd{font-size:16px;margin-top:4px}
+.cl{font-size:13px;color:var(--mut);margin-top:3px}#kSel{font-size:17px;padding:12px}
+#printArea{display:none;--bg:#fff;--fg:#111;--mut:#555;--card:#fff;--bd:#888;--ac:#c05000;background:#fff;color:#111}
+@page{size:A4 landscape;margin:10mm}
+@media print{body>*:not(#printArea){display:none!important}#printArea{display:block!important}body{background:#fff!important;padding:0!important;max-width:none!important;color:#111!important}
+#printArea *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.pg{page-break-after:always}.pg:last-child{page-break-after:auto}.ph{font-size:12px;color:#444}.pg h2{color:#c05000;margin:2px 0;border:0}.pi{font-size:11px;color:#444;margin-bottom:6px}
+#printArea .br{overflow:visible;gap:18px}#printArea .rd{min-width:0;flex:1}#printArea .pl{color:#111}
+.pg.sz16 .pl{font-size:10px;padding:3px 6px}.pg.sz32 .br{zoom:.78}.pg.sz64 .br{zoom:.56}.pg.sz64 .pl small{display:none}}
+#catList,#upBox,#xfBox,#entList,#kMine{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:10px;align-items:start}
+#catList>.card,#upBox>.card,#xfBox>.card,#entList>.card,#kMine>.card{margin-bottom:0}
+#catList>p,#upBox>p,#xfBox>p,#entList>p,#kMine>p,#kMine>.hint,#entList>.hint{grid-column:1/-1}
+.enter-grid{display:grid;grid-template-columns:minmax(320px,430px) 1fr;gap:22px;align-items:start}
+@media(max-width:900px){.enter-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="printArea"></div>
+<div id="authWall" class="wall"><div class="wbox">
+  <h1>🥋 Szervezői felület</h1>
+  <div id="authBox"><div class="card"><b>Belépés / regisztráció</b>
+      <label>Név (csak regisztrációhoz)</label><input id="wName" autocomplete="name">
+      <label>E-mail</label><input id="wEmail" type="email" autocomplete="email">
+      <label>Jelszó (legalább 6 karakter)</label><input id="wPass" type="password" autocomplete="current-password">
+      <button id="wIn">Belépés</button> <button class="g" id="wUp" style="margin-top:12px;padding:10px 14px">Regisztráció</button></div></div>
+  <div id="clubBox" class="hide"><div class="card"><b>Klub létrehozása</b><p class="s">Az edzői fiókhoz egy klub tartozik. A szervező hagyja jóvá.</p>
+    <label>Klub neve</label><input id="wClub"><button id="wClubBtn">Klub létrehozása</button></div></div>
+  <div id="firstEv" class="hide"><div class="card"><b>Első verseny létrehozása</b>
+    <label>Verseny neve</label><input id="wEvName"><button id="wEvBtn">Létrehozás</button></div></div>
+  <div id="noEv" class="hide"><div class="card">Még nincs meghirdetett verseny. Nézz vissza később.</div></div>
+  <div class="msg" id="wMsg"></div>
+  <button class="g" id="wOut" style="margin-top:14px">Kilépés</button>
+</div></div>
+<h1>🥋 Szervezői felület</h1>
+<div id="userBar" class="card hide">
+  <div id="uInfo"></div><div class="hint" id="uStat"></div>
+  <div class="row" style="margin-top:8px"><select id="evPick"></select><button class="g" id="uOut" style="margin-top:0">Kilépés</button></div>
+  <div id="orgEvBox" class="hide" style="margin-top:8px"><div class="row"><input id="newEvName" placeholder="Új verseny neve"><button class="g" id="newEvBtn" style="margin-top:0">Új verseny</button></div></div>
+</div>
+<div class="hide"><button id="resetAll"></button><span id="resetMsg"></span></div>
+<div class="row hide"><button id="tabOrg">Szervezői nézet</button><button class="g" id="tabCoach" style="margin-top:12px;padding:10px 14px">Edzői nézet</button></div>
+<div id="vOrg">
+<nav class="menu" id="menuOrg">
+  <button data-pn="pn_event" class="on">Verseny</button><button data-pn="pn_cats">Kategóriák</button><button data-pn="pn_fees">Díjak</button><button data-pn="pn_entries">Nevezések</button><button data-pn="pn_draw">Sorsolás</button><button data-pn="pn_clubs" id="mClubs">Klubok</button><button data-go="coach">Edzői előnézet</button>
+</nav>
+<section class="pn" id="pn_event" data-nav="menuOrg"><h2>Verseny</h2>
+<div class="card">
+  <div id="evHead"></div>
+  <label>Verseny neve</label><input id="evName" placeholder="pl. Tigrisek Kupa 2027">
+  <label>Helyszín</label><input id="evPlace" placeholder="pl. sportcsarnok, város">
+  <label>Kép (plakát vagy logó)</label><input type="file" id="evImg" accept="image/*">
+  <label>Versenynap</label><input type="date" id="evDate" value="2027-05-15">
+  <label>Hogyan számoljuk az életkort ennél a versenynél?</label>
+  <select id="evMode">
+    <option value="day">A versenynapon betöltött kor</option>
+    <option value="fixed">Egy megadott nap szerinti kor (pl. január 1.)</option>
+    <option value="year">Versenyév mínusz születési év</option><option value="yearm1">Versenyév − születési év − 1 (ITF világkupa)</option>
+  </select>
+  <div id="fixedBox" class="hide"><label>Referencianap</label><input type="date" id="evFixed" value="2027-01-01"></div>
+  <div class="hint" id="modeHint"></div>
+  
+  
+  
+  
+
+<details class="dd"><summary>Nevezési időszak és feloldás</summary>
+  <div class="row"><div><label>Nevezés nyílik</label><input type="datetime-local" id="rOpen" value="2027-03-01T00:00"></div><div><label>Nevezési határidő (zárás)</label><input type="datetime-local" id="rClose" value="2027-05-07T23:59"></div></div>
+  <label>Utolsó módosítás határideje (már beadott nevezésre)</label><input type="datetime-local" id="rMod" value="2027-05-11T23:59">
+  <div class="hint" id="rStat"></div>
+  <label style="margin-top:10px">Feloldás (kivétel): ebben az időszakban újra lehet nevezni vagy módosítani</label>
+  <div id="exList"></div>
+  <div class="row"><div><label>Tól</label><input type="datetime-local" id="xFrom"></div><div><label>Ig</label><input type="datetime-local" id="xTo"></div></div>
+  <input id="xClub" placeholder="Klub neve (üresen: minden klub)" style="margin-top:8px">
+  <button class="g" id="xAdd" style="margin-top:8px">Feloldás hozzáadása</button>
+  <div class="hint" id="xMsg"></div>
+  </details>
+<details class="dd"><summary>Kötelező dokumentumok</summary>
+  <div id="docList"></div>
+  <input id="dName" placeholder="Dokumentum neve">
+  <div class="row3"><input type="number" id="dMin" placeholder="Kor tól"><input type="number" id="dMax" placeholder="Kor ig"><input type="number" id="dMon" placeholder="Max. hónap"></div>
+  <button class="g" id="dAdd" style="margin-top:8px">Dokumentum hozzáadása</button>
+  </details>
+</div></section>
+<section class="pn hide" id="pn_cats" data-nav="menuOrg"><h2>Kategóriák</h2>
+<details class="dd" open><summary>Kategória-csomag választása</summary>
+  <select id="pkSel"><option value="">Válassz csomagot…</option><option value="own">Saját verseny: Diákok ITF Taekwon-do Olimpiája (2021-es kiírás)</option><option value="mb">Magyar bajnokság (MITSZ versenyszabályzat, 2023)</option><option value="wc">ITF Világkupa 2026 (szabálykönyv, részleges)</option></select>
+  <div class="hint" id="pkNote"></div>
+  <div id="pkBox"></div>
+</details>
+<div id="catList"></div>
+<details class="dd" id="catDet"><summary>Új kategória hozzáadása</summary>
+<div class="card">
+  <b id="cHead">Új kategória</b>
+  <label>Név</label><input id="cName" placeholder="pl. Zenés-fegyveres formagyakorlat, 9–10 év">
+  <label>Versenyszám (bármi beírható)</label><input id="cDisc" list="discs" placeholder="pl. zenés formagyakorlat">
+  <datalist id="discs"><option>Tul (formagyakorlat)</option><option>Matsogi (küzdelem)</option><option>Tradicionális küzdelem</option><option>Zenés formagyakorlat</option><option>Fegyveres formagyakorlat</option><option>Zenés-fegyveres formagyakorlat</option><option>Speciális technika</option><option>Erőtörés</option></datalist>
+  <div class="row">
+    <div><label>Nem</label><select id="cG"><option value="FL">Fiú és lány (két kategória)</option><option value="V">Vegyes</option><option value="F">Fiú</option><option value="L">Lány</option></select></div>
+    <div><label>Korhatár megadása</label><select id="cRule"><option value="age">Életkorral</option><option value="born">Születési dátum intervallummal</option></select></div>
+  </div>
+  <div id="ageBox">
+    <div class="row"><div><label>Kor tól</label><input type="number" id="cMin" min="0" value="7"></div><div><label>Kor ig</label><input type="number" id="cMax" min="0" value="8"></div></div>
+    <label>Életkor számítása ennél a kategóriánál</label>
+    <select id="cMode"><option value="ev">A verseny beállítása szerint</option><option value="day">Versenynapon betöltött kor</option><option value="fixed">Megadott nap szerint</option><option value="year">Versenyév mínusz születési év</option><option value="yearm1">Versenyév − születési év − 1 (ITF világkupa)</option></select>
+  </div>
+  <div id="bornBox" class="hide"><div class="row"><div><label>Született ettől</label><input type="date" id="cFrom"></div><div><label>Született eddig</label><input type="date" id="cTo"></div></div></div>
+  <div class="row"><div><label>Öv tól</label><select id="cB1"></select></div><div><label>Öv ig</label><select id="cB2"></select></div></div>
+  <div class="row"><div><label>Súly tól (kg)</label><input type="number" id="cW1"></div><div><label>Súly ig (kg)</label><input type="number" id="cW2"></div></div>
+  <div class="row"><div><label>Magasság tól (cm)</label><input type="number" id="cH1"></div><div><label>Magasság ig (cm)</label><input type="number" id="cH2"></div></div>
+  <div class="row"><div><label>Csapatlétszám (1 = egyéni)</label><input type="number" id="cT" min="1" value="1"></div><div></div></div>
+  <button id="addBtn">Kategória hozzáadása</button>
+</div>
+</details>
+
+<details class="dd"><summary>Gyors létrehozás (sok kategória egyszerre)</summary>
+<p class="s">Egyszerre sok kategória: versenyszámok × korcsoportok × nem × súlycsoportok. A súlycsoport csak a matsogi/küzdelem versenyszámokra kerül.</p>
+<div class="card">
+  <button class="g" id="preset">Betöltés: gyerek ITF példa (igazítsd a kiíráshoz)</button>
+  <label>Versenyszámok (pontosvesszővel elválasztva)</label><input id="gD" value="Tul (formagyakorlat); Matsogi (küzdelem)">
+  <label>Korcsoportok (vesszővel, pl. 7-8, 9-10)</label><input id="gA" value="7-8, 9-10, 11-12">
+  <div class="row"><div><label>Nem</label><select id="gG"><option value="FL">Fiú és lány külön</option><option value="V">Vegyes</option></select></div><div><label>Kor számítása</label><select id="gM"><option value="ev">A verseny beállítása szerint</option><option value="day">Versenynapon betöltött kor</option><option value="fixed">Megadott nap szerint</option><option value="year">Versenyév mínusz születési év</option><option value="yearm1">Versenyév − születési év − 1 (ITF világkupa)</option></select></div></div>
+  <label>Súlycsoportok (nem kötelező, pl. -30, -35, -40, +40)</label><input id="gW">
+  <label>Övcsoportok formagyakorlatokhoz (pl. 10-8, 7-5, 4-1, dan)</label><input id="gO">
+  <div class="row"><div><label>Öv tól</label><select id="gB1"></select></div><div><label>Öv ig</label><select id="gB2"></select></div></div>
+  <div class="hint" id="gCnt"></div>
+  <button id="gBtn">Létrehozás</button>
+</div>
+
+</details>
+</section>
+<section class="pn hide" id="pn_fees" data-nav="menuOrg"><h2>Díjak és feljebb nevezés</h2><div class="card"><b>Nevezési díj</b>
+  <select id="feeModel"><option value="fix">Egységes díj versenyzőnként (minden versenyszámra jogosít)</option><option value="disc">Versenyszámonként külön díj</option><option value="plus">Alapdíj + további versenyszámonként</option></select>
+  <label>Alapdíj / egységes díj (Ft)</label><input type="number" id="feeBase" value="9000" placeholder="Alapdíj (Ft)">
+  <div id="feePlus" class="hide"><label>Hány versenyszám van az alapdíjban?</label><input type="number" id="feeIncl" value="1" min="1"><label>Minden további versenyszám díja (Ft)</label><input type="number" id="feeAdd" value="2000"></div>
+  <div class="hint" style="margin-top:12px"><b>Extra díjak az alapdíjon felül</b><br>Az alapdíj az alap versenyszámokra jogosít. A csapat- és párosversenyszámok (pl. tradicionális küzdelem) díját itt állíthatod, ezek mindig extraként számolódnak.</div>
+  <div id="xfBox"></div>
+  </div><div class="card"><b>Feljebb nevezés versenyszámonként</b><p class="s">Versenyszámonként állítsd be, lehet-e korcsoporttal vagy súlycsoporttal feljebb nevezni, és mennyi a felár.</p><div id="upBox"></div></div></section>
+<section class="pn hide" id="pn_entries" data-nav="menuOrg"><h2>Beérkezett nevezések</h2><button class="g" id="entRefresh" style="margin:0 8px 8px 0">Frissítés</button><span class="hint" id="entStamp"></span>
+<div id="entList"></div>
+<h2>Egyedül maradt versenyzők</h2>
+<p class="s">Ha egy kategóriában csak egy induló van, a kiírás szerint hozzájárulhat az összevonáshoz egy magasabb kategóriával, éremmel távozhat küzdelem nélkül, vagy visszaléphet.</p>
+<div id="loneBox"></div>
+</section>
+<section class="pn hide" id="pn_draw" data-nav="menuOrg"><h2>Sorsolás</h2>
+<details class="dd" open><summary>Sorsolás kategóriánként</summary>
+  <label>Kategória</label><select id="dCat"></select>
+  <button class="g" id="dLoad" style="margin-top:8px">Magyar bajnokság kategóriák betöltése (gyors indulás)</button>
+  <div class="row"><div><label>Próbanevezők száma</label><input type="number" id="dDemo" value="11"></div><div><button class="g" id="dDemoBtn" style="margin-top:30px">Próbanevezők hozzáadása</button></div></div>
+  <div class="hint" style="margin-top:10px"><b>Indulók és mérlegelés</b></div>
+  <div id="dEntr"></div>
+  <div class="row"><div><label>Kiemelt 1. (előző évi 1. helyezett)</label><select id="dS1"></select></div><div><label>Kiemelt 2. (előző évi 2. helyezett)</label><select id="dS2"></select></div></div>
+  <div class="row"><button id="dGo">Sorsolás</button><button id="dRe" class="g" style="margin-top:12px;padding:10px 14px">Újrasorsolás mérlegelés után</button></div>
+  <div class="hint" id="dMsg"></div>
+  <label>Megtekintett verzió</label><select id="dVer"></select>
+  <button class="g" id="dPrint" style="margin:10px 8px 0 0">Nyomtatás / PDF: ez a tábla</button><button class="g" id="dPrintAll" style="margin-top:10px">Minden sorsolt tábla</button>
+  <div id="dOut"></div>
+</details>
+</section>
+<section class="pn hide" id="pn_test" data-nav="menuOrg"><h2>Próba: egy versenyző</h2>
+<p class="s">Írd be egy versenyző adatait, és látod, mely kategóriákba nevezhető.</p>
+<div class="card">
+  <div class="row"><div><label>Születési dátum</label><input type="date" id="tBirth" value="2019-03-10"></div><div><label>Nem</label><select id="tG"><option value="F">Fiú</option><option value="L">Lány</option></select></div></div>
+  <select id="tD" class="hide"></select><div class="row3"><div id="wB"><label>Öv</label><select id="tB"></select></div><div id="wW"><label>Súly (kg)</label><input type="number" id="tW"></div><div id="wH"><label>Magasság (cm)</label><input type="number" id="tH"></div></div>
+  <details><summary>2. csapattag (csapatversenyszámhoz)</summary>
+  <div class="row"><div><label>Születési dátum</label><input type="date" id="t2Birth"></div><div><label>Nem</label><select id="t2G"><option value="F">Fiú</option><option value="L">Lány</option></select></div></div>
+  <label>Öv</label><select id="t2B"></select></details>
+  <div class="hint" id="tAge"></div>
+</div>
+<div id="tRes"></div>
+<div id="feeBox"></div>
+<div id="docBox"></div>
+<div class="card" style="margin-top:14px"><b>Nevezés rögzítése</b>
+  <label>Versenyző (csapatnál a csapat) neve</label><input id="eName">
+  <label>Klub</label><input id="eClub">
+  <label>Próba időpont (üresen: a valós idő)</label><input type="datetime-local" id="simNow">
+  <div class="hint" id="eStat"></div>
+  <button id="eAdd">Nevezés rögzítése a jelölt kategóriákkal</button>
+  <div class="hint" id="eMsg"></div></div>
+</section>
+<section class="pn hide" id="pn_clubs" data-nav="menuOrg"><h2>Klubok</h2><p class="s">Az új edzői klubokat itt kell jóváhagynod, különben nem tudnak versenyzőt felvenni és nevezni.</p><div id="clubList"></div></section>
+</div>
+<div id="vCoach" class="hide">
+  <div class="card" id="kHead"></div>
+  <div class="card"><label>Klub</label><input id="kClub" value="Budapesti Tigrisek SE"><div class="hint" id="kStat"></div></div>
+  <nav class="menu" id="menuCoach">
+    <button data-pn="pn_k_enter" class="on">Nevezés</button><button data-pn="pn_k_roster">Versenyzőim</button><button data-pn="pn_k_mine">Leadott nevezéseim</button><button data-go="org" id="mBack" class="hide">Szervezői nézet</button>
+  </nav>
+  <section class="pn" id="pn_k_enter" data-nav="menuCoach"><div class="enter-grid">
+    <div>
+      <label>Versenyző</label><select id="kSel"></select>
+      <div id="kDetail" class="hide"></div>
+      <div id="kSum"></div>
+      <button id="kSubmit" class="hide">Leadás</button>
+      <div class="msg" id="kMsg"></div>
+    </div>
+    <div id="kPick"></div>
+  </div></section>
+  <section class="pn hide" id="pn_k_roster" data-nav="menuCoach"><h2>Versenyzőim</h2>
+    <div id="kRoster"></div>
+    <details class="dd" id="kFormDet"><summary>Új versenyző felvétele</summary><div class="card"><b id="kForm">Új versenyző</b>
+    <label>Név</label><input id="kName">
+    <div class="row"><div><label>Születési dátum</label><input type="date" id="kBirth"></div><div><label>Nem</label><select id="kGender"><option value="F">Fiú</option><option value="L">Lány</option></select></div></div>
+    <div class="row3"><div><label>Öv</label><select id="kBelt"></select></div><div><label>Súly (kg)</label><input type="number" id="kW"></div><div><label>Magasság (cm)</label><input type="number" id="kH"></div></div>
+    <button id="kAdd">Versenyző felvétele</button></div>
+  </details>
+  </section>
+  <section class="pn hide" id="pn_k_mine" data-nav="menuCoach"><h2>Leadott nevezéseim <small id="kMineSum"></small></h2><div id="kMine"></div></section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.110.0/dist/umd/supabase.js"></script>
+<script>
+var BELTS=["10. gup (fehér)","9. gup","8. gup","7. gup","6. gup","5. gup","4. gup","3. gup","2. gup","1. gup","1. dan","2. dan","3. dan","4. dan","5. dan","6. dan"];
+var MODES={day:"versenynapon betöltött kor",fixed:"megadott nap szerinti kor",year:"versenyév mínusz születési év",yearm1:"versenyév − születési év − 1 (ITF világkupa)"};
+var cats=[
+ {n:"Tul, fiúk, 7–8 év, 10.–8. gup",d:"Tul (formagyakorlat)",g:"F",rule:"age",min:7,max:8,mode:"ev",b1:0,b2:2},
+ {n:"Tul, fiúk, 7–8 év, 7.–5. gup",d:"Tul (formagyakorlat)",g:"F",rule:"age",min:7,max:8,mode:"ev",b1:3,b2:5},
+ {n:"Tul, fiúk, 9–10 év, 10.–8. gup",d:"Tul (formagyakorlat)",g:"F",rule:"age",min:9,max:10,mode:"ev",b1:0,b2:2},
+ {n:"Tul, fiúk, 9–10 év, 7.–5. gup",d:"Tul (formagyakorlat)",g:"F",rule:"age",min:9,max:10,mode:"ev",b1:3,b2:5},
+ {n:"Zenés formagyakorlat, 7–9 év",d:"Zenés formagyakorlat",g:"V",rule:"age",min:7,max:9,mode:"ev"},
+ {n:"Zenés-fegyveres formagyakorlat, 12–17 év",d:"Zenés-fegyveres formagyakorlat",g:"V",rule:"age",min:12,max:17,mode:"ev",b1:6,b2:12},
+ {n:"Matsogi, lányok, 2018–2019-ben születettek",d:"Matsogi (küzdelem)",g:"L",rule:"born",from:"2018-01-01",to:"2019-12-31",w2:30},
+ {n:"Tradicionális küzdelem, vegyes páros, Junior 9–17 év",d:"Tradicionális küzdelem",g:"V",rule:"age",min:9,max:17,mode:"ev",t:2},
+ {n:"Tradicionális küzdelem, vegyes páros, Felnőtt 18+ év",d:"Tradicionális küzdelem",g:"V",rule:"age",min:18,max:99,mode:"ev",t:2}
+];
+function $(i){return document.getElementById(i)}
+function ev(){return {date:$("evDate").value,mode:$("evMode").value,fixed:$("evFixed").value}}
+function ageFor(birth,mode,e){
+  var b=new Date(birth),d=new Date(e.date);
+  if(mode==="yearm1")return d.getUTCFullYear()-b.getUTCFullYear()-1;
+  if(mode==="year")return d.getUTCFullYear()-b.getUTCFullYear();
+  var r=new Date(mode==="fixed"?e.fixed:e.date);
+  var a=r.getUTCFullYear()-b.getUTCFullYear(),m=r.getUTCMonth()-b.getUTCMonth();
+  if(m<0||(m===0&&r.getUTCDate()<b.getUTCDate()))a--;
+  return a;
+}
+function check(c,p,e){
+  var why=[];
+  if(c.g!=="V"&&c.g!==p.g)why.push("nem nem egyezik");
+  if(c.rule==="born"){
+    if((c.from&&p.birth<c.from)||(c.to&&p.birth>c.to))why.push("születési dátum a megadott intervallumon kívül");
+  }else{
+    var mode=c.mode==="ev"?e.mode:c.mode,a=ageFor(p.birth,mode,e);
+    if(a<c.min||a>c.max)why.push("kor: "+a+" ("+MODES[mode]+"), kell: "+c.min+"–"+c.max);
+  }
+  if(c.b1!=null&&p.belt<c.b1)why.push("alacsony öv");
+  if(c.b2!=null&&p.belt>c.b2)why.push("magas öv");
+  if(p.w!=null){
+    if(c.w1!=null&&(p.w<c.w1||(c.wx&&p.w===c.w1)))why.push("súly kevés");
+    if(c.w2!=null&&p.w>c.w2)why.push("súly sok");
+  }
+  if(p.h!=null){
+    if(c.h1!=null&&p.h<c.h1)why.push("magasság kevés");
+    if(c.h2!=null&&p.h>c.h2)why.push("magasság sok");
+  }
+  return why;
+}
+function desc(c){
+  var s=[c.d,c.g==="V"?"vegyes":c.g==="F"?"fiú":"lány"];
+  s.push(c.rule==="born"?"született "+(c.from||"…")+" – "+(c.to||"…"):"kor "+c.min+"–"+c.max+(c.mode==="ev"?"":" ("+MODES[c.mode]+")"));
+  if(c.b1!=null||c.b2!=null)s.push("öv: "+BELTS[c.b1==null?0:c.b1]+" – "+BELTS[c.b2==null?BELTS.length-1:c.b2]);
+  if(c.w1!=null||c.w2!=null)s.push("súly: "+(c.w1==null?"":c.w1)+"–"+(c.w2==null?"":c.w2)+" kg");
+  if(c.h1!=null||c.h2!=null)s.push("magasság: "+(c.h1==null?"":c.h1)+"–"+(c.h2==null?"":c.h2)+" cm");
+  if(c.t>1)s.push("csapat: "+c.t+" fő, minden tagra érvényes a kor és az öv");
+  return s.join(" · ");
+}
+function esc(s){return String(s).replace(/[&<>"]/g,function(x){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[x]})}
+function renderCats(){
+  $("catList").innerHTML=cats.map(function(c,i){
+    return '<div class="card cat"><div><b>'+esc(c.n)+'</b><small>'+esc(desc(c))+'</small></div><div>'+(c.g==="V"?"":'<button class="g" data-c="'+i+'">Másolás másik nemre</button>')+'<button class="g" data-e="'+i+'">Szerkesztés</button><button class="g" data-i="'+i+'">Törlés</button></div></div>';
+  }).join("")||'<p class="s">Még nincs kategória.</p>';
+  Array.prototype.forEach.call(document.querySelectorAll("#catList button[data-i]"),function(b){
+    b.onclick=function(){cats.splice(+b.dataset.i,1);renderCats();renderTest()};
+  });
+}
+function renderTest(){renderUp();tFields();renderReg();renderDraw();renderXf();
+  var e=ev(),b=$("tBirth").value;
+  if(!b){$("tRes").innerHTML="";$("feeBox").innerHTML="";$("docBox").innerHTML="";sel={};$("tAge").textContent="";return}
+  var w=$("tW").value===""?null:+$("tW").value;
+  var h=$("tH").value===""?null:+$("tH").value;var p={birth:b,g:$("tG").value,belt:+$("tB").value,w:w,h:h};
+  $("tAge").textContent="Életkor: "+ageFor(b,e.mode,e)+" év ("+MODES[e.mode]+")";
+  var ok=[],no=[],ms=[p];if($("t2Birth").value)ms.push({birth:$("t2Birth").value,g:$("t2G").value,belt:+$("t2B").value,w:null,h:null});
+  cats.filter(function(c){return !$("tD").value||c.d===$("tD").value}).forEach(function(c){var r=[];(c.t>1?ms:[p]).forEach(function(m){r=r.concat(check(c,m,e))});(r.length?no:ok).push([c,r])});
+  $("tRes").innerHTML=groupHtml(ok)
+   +upHtml2(ok.map(function(x){return x[0]}),p,e);
+  Object.keys(sel).forEach(function(k){if(!shown[k])delete sel[k]});$("feeBox").innerHTML=feeHtml();$("docBox").innerHTML=docHtml();
+}
+function num(id){var v=$(id).value;return v===""?null:+v}
+function init(){cats=[];dset={};DOCS0=JSON.stringify(docs);ROSTER0=JSON.stringify(roster);loadState();
+  var opts=BELTS.map(function(b,i){return '<option value="'+i+'">'+b+'</option>'}).join("");
+  $("cB1").innerHTML='<option value="">Bármely</option>'+opts;
+  $("cB2").innerHTML='<option value="">Bármely</option>'+opts;
+  $("tB").innerHTML=opts;$("tB").value="3";$("t2B").innerHTML=opts;$("t2B").value="3";$("gB1").innerHTML=$("cB1").innerHTML;$("gB2").innerHTML=$("cB2").innerHTML;
+  $("evMode").onchange=function(){
+    $("fixedBox").className=$("evMode").value==="fixed"?"":"hide";
+    $("modeHint").textContent={day:"Pl. a 8. születésnapját a verseny előtt betöltő gyerek 8 évesnek számít.",fixed:"Mindenki ugyanahhoz a naphoz viszonyított korát vesszük, függetlenül a versenynaptól.",yearm1:"ITF világkupa: versenyév − születési év − 1 (pl. 2026-ban a 2013-ban születettek 12 évesek).",year:"Csak az évszám számít: a születési nap hónapja és napja nem."}[$("evMode").value];
+    renderTest();
+  };
+  $("evMode").onchange();
+  ["evDate","evFixed","tBirth","tG","tB","tW","tH","tD","t2Birth","t2G","t2B","feeModel","feeBase","rOpen","rClose","rMod","simNow","eClub"].forEach(function(i){$(i).oninput=renderTest});
+  $("cRule").onchange=function(){var b=$("cRule").value==="born";$("ageBox").className=b?"hide":"";$("bornBox").className=b?"":"hide"};
+  $("addBtn").onclick=function(){
+    var n=$("cName").value.trim(),d=$("cDisc").value.trim();
+    if(!n){$("cName").focus();return}
+    var c={n:n,d:d||"Egyéb",g:$("cG").value,rule:$("cRule").value,min:num("cMin"),max:num("cMax"),mode:$("cMode").value,from:$("cFrom").value,to:$("cTo").value,
+      b1:$("cB1").value===""?null:+$("cB1").value,b2:$("cB2").value===""?null:+$("cB2").value,w1:num("cW1"),w2:num("cW2"),h1:num("cH1"),h2:num("cH2"),t:num("cT")||1,wx:editIdx>=0?!!cats[editIdx].wx:false};if(c.g==="FL"){var f=JSON.parse(JSON.stringify(c));f.g="F";f.n=n+" – fiúk";c.g="L";c.n=n+" – lányok";cats.push(f)}
+    if(editIdx>=0){cats.splice(editIdx,1,c);editIdx=-1;$("addBtn").textContent="Kategória hozzáadása";$("cHead").textContent="Új kategória"}else cats.push(c);$("cName").value="";renderCats();renderTest();
+  };
+  $("catList").addEventListener("click",function(e){var i=e.target.dataset?e.target.dataset.c:null;if(i==null)return;i=+i;cats.splice(i+1,0,flip(cats[i]));renderCats();renderTest()});
+  $("evName").oninput=head;$("evPlace").oninput=head;$("evDate").addEventListener("input",head);
+  $("evImg").onchange=function(){var f=this.files[0];if(!f)return;var r=new FileReader();r.onload=function(){imgData=r.result;head()};r.readAsDataURL(f)};
+  ["gD","gA","gG","gM","gW","gO","gB1","gB2"].forEach(function(i){$(i).oninput=cnt});
+  $("pkSel").onchange=pkRender;
+  $("pkBox").addEventListener("change",function(e){var t=e.target;if(t.dataset&&t.dataset.pd!=null){var det=t.closest("details");det.querySelectorAll("input[data-pi]").forEach(function(x){x.checked=t.checked})}pkCount()});
+  $("pkBox").addEventListener("click",function(e){var id=e.target.id;if(id==="pkAll"||id==="pkNone"){document.querySelectorAll("#pkBox input[type=checkbox]").forEach(function(x){x.checked=id==="pkAll"});pkCount()}else if(id==="pkAdd")pkAddSel()});
+  $("preset").onclick=function(){$("gD").value="Tul (formagyakorlat); Matsogi (küzdelem); Tradicionális küzdelem; Speciális technika; Erőtörés";$("gO").value="10-8, 7-5, 4-1, dan";$("gA").value="6-7, 8-9, 10-11, 12-13, 14-15, 16-17, 18-99";$("gG").value="FL";$("gW").value="-30, -35, -40, -45, +45";cnt()};
+  $("gBtn").onclick=function(){Array.prototype.push.apply(cats,genList());renderCats();renderTest()};
+  head();cnt();renderCats();renderTest();
+  $("catList").addEventListener("click",function(e){var i=e.target.dataset?e.target.dataset.e:null;if(i==null)return;editCat(+i)});
+  $("tRes").addEventListener("change",function(e){var t=e.target;if(!t.dataset||t.dataset.s==null)return;if(t.checked)sel[t.dataset.s]={d:t.dataset.d,fee:+t.dataset.fee||0};else delete sel[t.dataset.s];$("feeBox").innerHTML=feeHtml()});
+  $("docList").addEventListener("click",function(e){var i=e.target.dataset?e.target.dataset.dd:null;if(i==null)return;docs.splice(+i,1);renderDocs();renderTest()});
+  $("xAdd").onclick=function(){var f=$("xFrom").value,t=$("xTo").value;if(!f||!t||new Date(t)<=new Date(f)){$("xMsg").textContent="Adj meg kezdő és végidőpontot (a vég legyen később).";return}$("xMsg").textContent="";excs.push({f:f,t:t,c:$("xClub").value.trim()});$("xFrom").value="";$("xTo").value="";$("xClub").value="";renderTest()};
+  $("exList").addEventListener("click",function(e){var i=e.target.dataset?e.target.dataset.xd:null;if(i==null)return;excs.splice(+i,1);renderTest()});
+  $("tabOrg").onclick=function(){showView("org")};$("tabCoach").onclick=function(){showView("coach")};
+  $("kBelt").innerHTML=opts;$("kBelt").value="3";
+  $("kClub").oninput=function(){renderCoach()};
+  $("kAdd").onclick=function(){var n=$("kName").value.trim(),b=$("kBirth").value;if(!n||!b){$("kMsg").textContent="Add meg a nevet és a születési dátumot.";return}$("kMsg").textContent="";var rr={n:n,b:b,g:$("kGender").value,belt:+$("kBelt").value,w:num("kW"),h:num("kH")};if(kEdit>=0){roster[kEdit]=rr;kEdit=-1;$("kAdd").textContent="Versenyző felvétele";$("kForm").textContent="Új versenyző"}else roster.push(rr);$("kName").value="";$("kBirth").value="";$("kW").value="";$("kH").value="";renderCoach()};
+  $("kRoster").addEventListener("click",function(e){var d=e.target.dataset||{};if(d.ko!=null){kcur=kcur===+d.ko?-1:+d.ko;renderCoach()}else if(d.ke!=null){editK(+d.ke)}else if(d.kd!=null){roster.splice(+d.kd,1);ksel={};kcur=-1;renderCoach()}});
+  $("kRoster").addEventListener("change",function(e){var t=e.target,d=t.dataset||{};if(kcur<0)return;var s=ksel[kcur]=ksel[kcur]||{};if(d.k!=null){if(t.checked){s[d.k]={d:d.d,fee:+d.fee||0,kind:d.kind||""};if(isTeam(d.k))kTeamInit(kcur,d.k)}else delete s[d.k]}else if(d.tm!=null&&s[d.tm]){s[d.tm].tm=t.value;if(t.value==="__new"&&!s[d.tm].tn)s[d.tm].tn=kSugg(d.tm)}else if(d.tn!=null&&s[d.tn])s[d.tn].tn=t.value;renderCoach()});
+  $("kSubmit").onclick=kSubmit;
+  $("dCat").onchange=renderDraw;$("dVer").onchange=function(){verSel[$("dCat").value]=+$("dVer").value;renderDraw()};$("dS1").onchange=function(){};$("dS2").onchange=function(){};
+  $("dLoad").onclick=function(){cats=mbPack();renderCats();renderTest();$("dMsg").textContent="A Magyar bajnokság kategóriái betöltve. Válassz egyet, és adj hozzá próbanevezőket."};
+  $("resetAll").onclick=function(){try{localStorage.removeItem(SK)}catch(e){}cats=[];dset={};entries=[];excs=[];draws={};wstat={};ksel={};kcur=-1;docs=JSON.parse(DOCS0);roster=JSON.parse(ROSTER0);renderDocs();renderCats();renderTest();renderEntries();renderCoach();$("resetMsg").textContent="Minden mentett adat törölve."};
+  setInterval(saveState,1500);
+  $("xfBox").addEventListener("input",function(e){var t=e.target,d=t.dataset?XFD[+t.dataset.xd]:null;if(d==null||!t.dataset.xk)return;(dset[d]=dset[d]||{})[t.dataset.xk]=t.value;renderTest()});
+  $("dDemoBtn").onclick=demoEntrants;$("dGo").onclick=function(){doDraw("Sorsolás")};$("dRe").onclick=function(){doDraw("Újrasorsolás mérlegelés után")};
+  $("dEntr").addEventListener("change",function(e){var t=e.target;if(t.dataset&&t.dataset.ws!=null){wstat[t.dataset.ws]=t.value;renderDraw()}});
+  $("eAdd").onclick=addEntry;
+  $("entList").addEventListener("click",function(e){var i=e.target.dataset?e.target.dataset.en:null;if(i==null)return;var rs=regStatus(entries[+i].club);if(!rs.mod){$("eMsg").textContent="Módosítás nem lehetséges: "+rs.t;return}entries.splice(+i,1);renderEntries()});
+  $("loneBox").addEventListener("change",function(e){var t=e.target;if(!t.dataset||t.dataset.l==null)return;dec[t.dataset.l]=t.value;renderLone()});
+  renderEntries();
+  $("dAdd").onclick=function(){var n=$("dName").value.trim();if(!n){$("dName").focus();return}docs.push({n:n,a:num("dMin")==null?0:num("dMin"),b:num("dMax")==null?99:num("dMax"),m:num("dMon")});$("dName").value="";renderDocs();renderTest()};
+  renderDocs();
+  $("upBox").addEventListener("input",function(e){var t=e.target,d=UPD[+t.dataset.d];if(d==null)return;(dset[d]=dset[d]||{})[t.dataset.k]=t.value;renderTest()});
+}
+var imgData="";
+function head(){var n=$("evName").value||"Verseny neve",p=$("evPlace").value;$("evHead").innerHTML='<div class="hero">'+(imgData?'<img alt="" src="'+imgData+'">':'')+'<b>'+esc(n)+'</b><div class="hint">'+esc(p)+(p?' · ':'')+esc($("evDate").value)+'</div></div>'}
+function flip(c){var o=JSON.parse(JSON.stringify(c));o.g=c.g==="F"?"L":"F";o.n=c.n.replace(/fiúk|lányok|fiú|lány/i,function(m){var l=m.toLowerCase();return l==="fiúk"?"lányok":l==="lányok"?"fiúk":l==="fiú"?"lány":"fiú"});if(o.n===c.n)o.n+=o.g==="L"?" (lány)":" (fiú)";return o}
+function wparse(s){var out=[],prev=null;s.split(",").map(function(x){return x.trim()}).forEach(function(x){var m=x.match(/^-\s*(\d+(?:[.,]\d+)?)$/),p=x.match(/^\+\s*(\d+(?:[.,]\d+)?)$/);if(m){var u=+m[1].replace(",",".");out.push({w1:prev,w2:u,wx:prev!=null,t:"-"+u+" kg"});prev=u}else if(p){var l=+p[1].replace(",",".");out.push({w1:l,w2:null,wx:true,t:"+"+l+" kg"})}});return out}
+function genList(){
+  var discs=$("gD").value.split(";").map(function(s){return s.trim()}).filter(Boolean);
+  var ages=$("gA").value.split(",").map(function(s){var m=s.trim().match(/^(\d+)\s*[-–]\s*(\d+)$/);return m?[+m[1],+m[2]]:null}).filter(Boolean);
+  var gs=$("gG").value==="FL"?["F","L"]:["V"],ws=wparse($("gW").value),out=[];
+  discs.forEach(function(d){var fight=/matsogi|küzd/i.test(d);ages.forEach(function(a){gs.forEach(function(g){(fight&&ws.length?ws:[{}]).forEach(function(w){
+    out.push({n:d+", "+(g==="F"?"fiúk":g==="L"?"lányok":"vegyes")+", "+a[0]+"–"+a[1]+" év"+(w.t?", "+w.t:""),d:d,g:g,rule:"age",min:a[0],max:a[1],mode:$("gM").value,b1:$("gB1").value===""?null:+$("gB1").value,b2:$("gB2").value===""?null:+$("gB2").value,w1:w.w1==null?null:w.w1,w2:w.w2==null?null:w.w2,wx:!!w.wx})})})})});
+  return out}
+var dset={"Tul (formagyakorlat)":{a:"1"},"Tradicionális küzdelem":{a:"99"}},lastKey=null,UPD=[];
+function opts2(v,list){return list.map(function(x){return '<option value="'+x[0]+'"'+(String(v||"0")===x[0]?' selected':'')+'>'+x[1]+'</option>'}).join("")}
+function renderUp(){
+  var ds=[];cats.forEach(function(c){if(ds.indexOf(c.d)<0)ds.push(c.d)});
+  function hw(d){return cats.some(function(c){return c.d===d&&(c.w1!=null||c.w2!=null)})}var k=ds.map(function(d){return d+(hw(d)?"~w":"")}).join("|");if(k===lastKey)return;lastKey=k;UPD=ds;
+  var SA=[["0","Nem"],["1","1 korcsoport"],["2","2 korcsoport"],["99","Bármennyi (pl. gyerek a felnőttekkel)"]],SW=[["0","Nem"],["1","1 súlycsoport"],["2","2 súlycsoport"]];
+  $("upBox").innerHTML=ds.map(function(d,i){var s=dset[d]||{},a='data-d="'+i+'" data-k="';
+    return '<div class="card"><b>'+esc(d)+'</b><div class="row"><div><label>Korcsoporttal feljebb</label><select '+a+'a">'+opts2(s.a,SA)+'</select></div><div><label>Felár (Ft)</label><input type="number" '+a+'fa" value="'+(s.fa||"")+'"></div></div>'+(hw(d)?'<div class="row"><div><label>Súlycsoporttal feljebb</label><select '+a+'w">'+opts2(s.w,SW)+'</select></div><div><label>Felár (Ft)</label><input type="number" '+a+'fw" value="'+(s.fw||"")+'"></div></div>':'<div class="hint">Ennél a versenyszámnál nincs súlycsoport, ezért csak korcsoporttal lehet feljebb nevezni.</div>')+'<label>Nevezési díj (Ft, ha versenyszámonként számolunk)</label><input type="number" '+a+'fee" value="'+(s.fee||"")+'"></div>'}).join("")||'<p class="s">Előbb vegyél fel kategóriákat.</p>';
+}
+function upHtml2(own,p,e){
+  var seen={},out=[];
+  function okO(x){return (x.g==="V"||x.g===p.g)&&(x.b1==null||p.belt>=x.b1)&&(x.b2==null||p.belt<=x.b2)}
+  function add(c,fee,tag){if(own.indexOf(c)>=0||seen[c.n])return;seen[c.n]=1;shown[c.n]=1;out.push('<label class="res u lbl"><input type="checkbox" data-s="'+esc(c.n)+'" data-d="'+esc(c.d)+'" data-fee="'+(fee||0)+'"'+(sel[c.n]?' checked':'')+'> <b>↑ '+esc(c.n)+'</b><div class="hint">'+tag+(fee?' · felár: '+fee+' Ft':'')+'</div></label>')}
+  own.forEach(function(c){
+    var s=dset[c.d]||{},A=+s.a||0,W=+s.w||0;
+    if(W&&c.w2!=null)cats.filter(function(x){return x!==c&&x.d===c.d&&x.g===c.g&&x.rule===c.rule&&x.min===c.min&&x.max===c.max&&x.from===c.from&&x.to===c.to&&(x.w2==null||x.w2>c.w2)&&okO(x)}).sort(function(a,b){return (a.w2==null?1e9:a.w2)-(b.w2==null?1e9:b.w2)}).slice(0,W).forEach(function(x){add(x,+s.fw||0,"súlycsoporttal feljebb")});
+    if(A&&c.rule==="age")ageUps(c,p,A).forEach(function(x){add(x,+s.fa||0,"korcsoporttal feljebb")});
+  });
+  return out.length?'<div class="hint" style="margin-top:12px">Feljebb nevezhető:</div>'+out.join(""):""
+}
+function ageUps(c,p,A){var cand=cats.filter(function(x){return x.d===c.d&&x.g===c.g&&x.rule==="age"&&x.min>c.max&&(x.g==="V"||x.g===p.g)&&(x.b1==null||p.belt>=x.b1)&&(x.b2==null||p.belt<=x.b2)&&(p.w==null||!((x.w1!=null&&(p.w<x.w1||(x.wx&&p.w===x.w1)))||(x.w2!=null&&p.w>x.w2)))}),mins=[];
+  cand.forEach(function(x){if(mins.indexOf(x.min)<0)mins.push(x.min)});mins.sort(function(a,b){return a-b});mins=mins.slice(0,A);
+  return cand.filter(function(x){return mins.indexOf(x.min)>=0})}
+function wk(x){return (x.w1==null?"":x.w1)+"-"+(x.w2==null?"":x.w2)}
+function upHtml(own,p,e){
+  var aA=$("upAge").checked,aW=$("upWeight").checked;if(!aA&&!aW)return"";
+  var fA=num("feeAge"),fW=num("feeWeight"),seen={},out=[];
+  function okO(x){return (x.g==="V"||x.g===p.g)&&(x.b1==null||p.belt>=x.b1)&&(x.b2==null||p.belt<=x.b2)}
+  function add(c,fee,tag){if(!c||own.indexOf(c)>=0||seen[c.n])return;seen[c.n]=1;out.push('<div class="res u"><b>↑ '+esc(c.n)+'</b><div class="hint">'+tag+(fee?' · felár: '+fee+' Ft':'')+'</div></div>')}
+  own.forEach(function(c){
+    if(aW&&c.w2!=null){
+      var best=null;cats.forEach(function(x){
+        if(x!==c&&x.d===c.d&&x.g===c.g&&x.rule===c.rule&&x.min===c.min&&x.max===c.max&&x.from===c.from&&x.to===c.to&&(x.w2==null||x.w2>c.w2)&&okO(x)){
+          var k=x.w2==null?1e9:x.w2,bk=best?(best.w2==null?1e9:best.w2):2e9;if(k<bk)best=x}});
+      add(best,fW,"egy súlycsoporttal feljebb")}
+    if(aA&&c.rule==="age"){
+      var b2=null;cats.forEach(function(x){
+        if(x.d===c.d&&x.g===c.g&&x.rule==="age"&&x.min>c.max&&wk(x)===wk(c)&&okO(x)&&(!b2||x.min<b2.min))b2=x});
+      add(b2,fA,"egy korcsoporttal feljebb")}
+  });
+  return out.length?'<div class="hint" style="margin-top:12px">Feljebb nevezhető:</div>'+out.join(""):""
+}
+function tFields(){var D=$("tD").value,cs=cats.filter(function(c){return !D||c.d===D});function u(f){return cs.some(f)}
+  $("wB").className=u(function(c){return c.b1!=null||c.b2!=null})?"":"hide";
+  $("wW").className=u(function(c){return c.w1!=null||c.w2!=null})?"":"hide";
+  $("wH").className=u(function(c){return c.h1!=null||c.h2!=null})?"":"hide"}
+function oparse(s){return s.split(",").map(function(x){return x.trim().toLowerCase()}).filter(Boolean).map(function(x){var m=x.match(/^(\d+)\s*-\s*(\d+)$/);if(m){var hi=Math.max(+m[1],+m[2]),lo=Math.min(+m[1],+m[2]);return {b1:10-hi,b2:10-lo,t:hi+"–"+lo+". gup"}}if(x==="dan")return {b1:10,b2:12,t:"dan"};m=x.match(/^(\d+)$/);return m?{b1:10-+m[1],b2:10-+m[1],t:m[1]+". gup"}:null}).filter(Boolean)}
+function genList(){
+  var discs=$("gD").value.split(";").map(function(s){return s.trim()}).filter(Boolean);
+  var ages=$("gA").value.split(",").map(function(s){var m=s.trim().match(/^(\d+)\s*[-–]\s*(\d+)$/);return m?[+m[1],+m[2]]:null}).filter(Boolean);
+  var gs=$("gG").value==="FL"?["F","L"]:["V"],ws=wparse($("gW").value),bs=oparse($("gO").value),out=[];
+  var gb1=$("gB1").value===""?null:+$("gB1").value,gb2=$("gB2").value===""?null:+$("gB2").value;
+  discs.forEach(function(d){var fight=/matsogi|küzd/i.test(d)&&!/tradic/i.test(d),form=/tul|formagyak/i.test(d);
+    var vs=fight&&ws.length?ws:(form&&bs.length?bs:[{}]);
+    ages.forEach(function(a){gs.forEach(function(g){vs.forEach(function(w){
+      out.push({n:d+", "+(g==="F"?"fiúk":g==="L"?"lányok":"vegyes")+", "+a[0]+"–"+a[1]+" év"+(w.t?", "+w.t:""),d:d,g:g,rule:"age",min:a[0],max:a[1],mode:$("gM").value,b1:w.b1!=null?w.b1:gb1,b2:w.b2!=null?w.b2:gb2,w1:w.w1==null?null:w.w1,w2:w.w2==null?null:w.w2,wx:!!w.wx})})})})});
+  return out}
+function loadOlimpia(){
+  var AG=[["Gyermek",9,11],["Serdülő",12,14],["Ifjúsági",15,17],["Felnőtt",18,99]],nB=[3,4,5,7];
+  var BG=[["9–7 gup",1,3],["6–4 gup",4,6],["3–1 gup",7,9],["I. dan",10,10],["II. dan",11,11],["III. dan",12,12],["IV–VI. dan",13,15]];
+  var W={"Gyermek":{L:[29,32,35,38,41],F:[32,35,38,41,45]},"Serdülő":{L:[35,40,45,50,55],F:[40,45,50,55,60]},"Ifjúsági":{L:[45,50,55,60,65],F:[50,56,62,68,75]},"Felnőtt":{L:[50,56,62,68,75],F:[57,63,70,78,85]}};
+  var out=[];
+  AG.forEach(function(a,ai){["L","F"].forEach(function(g){
+    var gl=a[0]==="Felnőtt"?(g==="L"?"hölgyek":"urak"):(g==="L"?"lányok":"fiúk");
+    var al=a[0]+" "+(a[2]===99?"18+":a[1]+"–"+a[2])+" év";
+    for(var i=0;i<nB[ai];i++){var b=BG[i];out.push({n:"Formagyakorlat, "+gl+", "+al+", "+b[0],d:"Formagyakorlat",g:g,rule:"age",min:a[1],max:a[2],mode:"day",b1:b[1],b2:b[2]})}
+    var L=W[a[0]][g];
+    L.concat([null]).forEach(function(u,i){
+      var open=u===null,lo=i>0?L[i-1]:null;
+      out.push({n:"Szabad küzdelem, "+gl+", "+(a[0]==="Felnőtt"?"Felnőtt 18–35 év":al)+", "+(open?"+"+lo:"-"+u)+" kg",d:"Szabad küzdelem",g:g,rule:"age",min:a[1],max:a[0]==="Felnőtt"?35:a[2],mode:"day",b1:1,w1:lo,w2:open?null:u,wx:i>0})})
+  })});
+  [["Old girls",36,99,"L",[60,70]],["Old boys",36,45,"F",[72,80]],["Old boys",46,99,"F",[72,80]]].forEach(function(o){var L=o[4];L.concat([null]).forEach(function(u,i){var open=u===null,lo=i>0?L[i-1]:null;out.push({n:"Szabad küzdelem, "+o[0]+" "+o[1]+(o[2]===99?"+":"–"+o[2])+" év, "+(open?"+"+lo:"-"+u)+" kg",d:"Szabad küzdelem",g:o[3],rule:"age",min:o[1],max:o[2],mode:"day",b1:1,w1:lo,w2:open?null:u,wx:i>0})})});
+  out.push({n:"Tradicionális küzdelem, vegyes páros, Junior 9–17 év",d:"Tradicionális küzdelem",g:"V",rule:"age",min:9,max:17,mode:"day",t:2},{n:"Tradicionális küzdelem, vegyes páros, Felnőtt 18+ év",d:"Tradicionális küzdelem",g:"V",rule:"age",min:18,max:99,mode:"day",t:2});
+  return out;
+}
+function groupHtml(ok){shown={};var g={},ord=[];ok.forEach(function(x){var d=x[0].d;if(!g[d]){g[d]=[];ord.push(d)}g[d].push(x[0])});
+  return ord.map(function(d){return '<div class="hint" style="margin-top:12px"><b>'+esc(d)+'</b></div>'+g[d].map(function(c){shown[c.n]=1;return '<label class="res y lbl"><input type="checkbox" data-s="'+esc(c.n)+'" data-d="'+esc(c.d)+'" data-fee="0"'+(sel[c.n]?' checked':'')+'> <b>'+esc(c.n)+'</b>'+(c.t>1?'<div class="hint">Csapat: '+c.t+' fő, minden tagra érvényes a kor és az öv</div>':'')+'</label>'}).join("")}).join("")||'<div class="hint">Nincs megfelelő kategória.</div>'}
+var editIdx=-1;
+function editCat(i){var c=cats[i];editIdx=i;function v(x){return x==null?"":x}
+  $("cName").value=c.n;$("cDisc").value=c.d;$("cG").value=c.g;$("cRule").value=c.rule;$("cRule").onchange();
+  $("cMin").value=v(c.min);$("cMax").value=v(c.max);$("cMode").value=c.mode||"ev";$("cFrom").value=c.from||"";$("cTo").value=c.to||"";
+  $("cB1").value=v(c.b1);$("cB2").value=v(c.b2);$("cW1").value=v(c.w1);$("cW2").value=v(c.w2);$("cH1").value=v(c.h1);$("cH2").value=v(c.h2);$("cT").value=c.t||1;
+  $("catDet").open=true;$("cHead").textContent="Kategória szerkesztése";$("addBtn").textContent="Módosítás mentése";$("cName").scrollIntoView({behavior:"smooth",block:"center"})}
+var sel={},shown={};
+var docs=[{n:"Sportorvosi igazolás",a:0,b:17,m:6},{n:"Sportorvosi igazolás",a:18,b:99,m:12},{n:"Diákigazolvány (tanulói jogviszony)",a:15,b:99,m:null},{n:"Szülői engedély",a:0,b:17,m:null}];
+function renderDocs(){$("docList").innerHTML=docs.map(function(d,i){return '<div class="card cat"><div><b>'+esc(d.n)+'</b><small>'+d.a+'–'+d.b+' év'+(d.m?' · legfeljebb '+d.m+' hónapos':'')+'</small></div><button class="g" data-dd="'+i+'">Törlés</button></div>'}).join("")}
+function docHtml(){var b=$("tBirth").value;if(!b)return"";var e=ev(),age=ageFor(b,"day",e),out=[];
+  docs.forEach(function(d){if(age>=d.a&&age<=d.b){var t=d.n;if(d.m){var x=new Date(e.date);x.setUTCMonth(x.getUTCMonth()-d.m);if(!isNaN(x))t+=" – a versenynapon legfeljebb "+d.m+" hónapos lehet (legkorábbi kiállítás: "+x.toISOString().slice(0,10)+")"}out.push('<div class="res">'+esc(t)+'</div>')}});
+  return out.length?'<div class="hint" style="margin-top:14px"><b>Szükséges dokumentumok ('+age+' évesen)</b></div>'+out.join(""):""}
+function fmt(x){return String(x).replace(/\B(?=(\d{3})+(?!\d))/g," ")+" Ft"}
+function feeHtml(){var n=0,m=$("feeModel").value,base=num("feeBase")||0,ds={},up=0,lines=[],total=0;
+  Object.keys(sel).forEach(function(k){n++;ds[sel[k].d]=1;up+=sel[k].fee||0});
+  if(!n)return '<div class="hint" style="margin-top:14px">Jelölj ki kategóriákat a nevezési díj kiszámításához.</div>';
+  if(m==="fix"){total=base;lines.push("Nevezési díj (minden versenyszámra): "+fmt(base))}
+  else Object.keys(ds).forEach(function(d){var f=+((dset[d]||{}).fee)||0;total+=f;lines.push(d+": "+fmt(f))});
+  if(up){total+=up;lines.push("Felár (feljebb nevezés): "+fmt(up))}
+  var xp=xPerson(Object.keys(sel));if(xp){total+=xp;lines.push("Extra díj (főnként): "+fmt(xp))}
+  Object.keys(sel).forEach(function(k){var tf=xTeamFee(k);if(tf)lines.push("Csapat-/párosdíj külön számlázva ("+k+"): "+fmt(tf))});
+  return '<div class="card" style="margin-top:14px"><b>Nevezési díj: '+fmt(total)+'</b>'+lines.map(function(l){return '<div class="hint">'+esc(l)+'</div>'}).join("")+'</div>'}
+var entries=[],dec={};
+function feeTotal(){var ks=Object.keys(sel);if(!ks.length)return 0;var ds={},up=0,tot=0;ks.forEach(function(k){ds[sel[k].d]=1;up+=sel[k].fee||0});if($("feeModel").value==="fix")tot=num("feeBase")||0;else Object.keys(ds).forEach(function(d){tot+=+((dset[d]||{}).fee)||0});return tot+up+xPerson(ks)}
+function bk(x){return (x.b1==null?"":x.b1)+"/"+(x.b2==null?"":x.b2)}
+function nextCats(c){var r=[];
+  if(c.w2!=null){var w=cats.filter(function(x){return x!==c&&x.d===c.d&&x.g===c.g&&x.rule===c.rule&&x.min===c.min&&x.max===c.max&&x.from===c.from&&x.to===c.to&&bk(x)===bk(c)&&(x.w2==null||x.w2>c.w2)}).sort(function(a,b){return (a.w2==null?1e9:a.w2)-(b.w2==null?1e9:b.w2)})[0];if(w)r.push(w)}
+  if(c.rule==="age"){var lo=c.w1==null?-1e9:c.w1,hi=c.w2==null?1e9:c.w2,bl=c.b1==null?-1:c.b1,bh=c.b2==null?99:c.b2;
+    var cd=cats.filter(function(x){return x.d===c.d&&x.g===c.g&&x.rule==="age"&&x.min>c.max&&(x.w2==null||x.w2>lo)&&(x.w1==null||x.w1<hi)&&(x.b2==null||x.b2>=bl)&&(x.b1==null||x.b1<=bh)}).sort(function(p,q){return p.min-q.min});
+    if(cd.length){var m0=cd[0].min;cd.filter(function(x){return x.min===m0}).slice(0,2).forEach(function(x){r.push(x)})}}
+  return r}
+function addEntry(){var n=$("eName").value.trim(),ks=Object.keys(sel);
+  if(!n){$("eName").focus();return}
+  var rs=regStatus($("eClub").value.trim());if(!rs.ok){$("eMsg").textContent="Nem lehet nevezni: "+rs.t;return}
+  if(!ks.length){$("eMsg").textContent="Előbb jelölj ki kategóriákat a tesztelőben.";return}
+  $("eMsg").textContent="";entries.push({n:n,club:$("eClub").value.trim(),cats:ks,fee:feeTotal(),demo:true});$("eName").value="";sel={};renderTest();renderEntries()}
+function renderEntries(){$("entList").innerHTML=entries.map(function(en,i){return '<div class="card cat"><div><b>'+esc(en.n)+(en.club?' ('+esc(en.club)+')':'')+'</b><small>'+en.cats.map(function(k){return esc(k)}).join('; ')+' · '+fmt(en.fee)+'</small></div><button class="g" data-en="'+i+'">Törlés</button></div>'}).join("")||'<p class="s">Még nincs rögzített nevezés.</p>';renderLone()}
+function renderLone(){var by={};entries.forEach(function(en){en.cats.forEach(function(k){(by[k]=by[k]||[]).push(en)})});
+  var lone=Object.keys(by).filter(function(k){return by[k].length===1}),refund=0,nm=0,nw=0,nmed=0;
+  var html=lone.map(function(k){var c=cats.filter(function(x){return x.n===k})[0],en=by[k][0],v=dec[k]||"";
+    var opts=[["","Még nincs döntés"],["medal","Éremmel távozik, nem küzd"]];
+    (c?nextCats(c):[]).forEach(function(x){opts.push(["m:"+x.n,"Összevonás: "+x.n+" ("+((by[x.n]||[]).length)+" jelenlegi induló)"])});
+    opts.push(["wd","Visszalép, a díjat visszakapja"]);
+    if(v==="wd"){nw++;if(en.cats.length===1)refund+=en.fee}else if(v==="medal")nmed++;else if(v.indexOf("m:")===0)nm++;
+    return '<div class="card"><b>'+esc(k)+'</b><div class="hint">Egyedül indul: '+esc(en.n)+(en.club?' ('+esc(en.club)+')':'')+'</div><select data-l="'+esc(k)+'">'+opts.map(function(o){return '<option value="'+esc(o[0])+'"'+(o[0]===v?' selected':'')+'>'+esc(o[1])+'</option>'}).join("")+'</select></div>'}).join("");
+  $("loneBox").innerHTML=entries.length?(lone.length?html+'<div class="hint">Összevonás: '+nm+' · érem: '+nmed+' · visszalépés: '+nw+(refund?' · visszatérítendő: '+fmt(refund):'')+'</div>':'<p class="s">Nincs egyedül maradt versenyző.</p>'):'<p class="s">Előbb rögzíts nevezéseket.</p>'}
+var excs=[];
+function nowT(){var v=$("simNow").value;return v?new Date(v):new Date()}
+function regStatus(club){var n=nowT(),o=$("rOpen").value,c=$("rClose").value,m=$("rMod").value;
+  if(!c)return {s:"unset",ok:false,mod:false,t:"Nincs megadva a nevezési határidő. Állítsd be, meddig legyen nyitva a nevezés (verseny beállításai)."};
+  var O=o?new Date(o):null,C=new Date(c),M=m?new Date(m):null;
+  for(var i=0;i<excs.length;i++){var x=excs[i];if(n>=new Date(x.f)&&n<=new Date(x.t)&&(!x.c||x.c.toLowerCase()===(club||"").toLowerCase()))return {s:"exc",ok:true,mod:true,t:"Feloldva"+(x.c?" ("+x.c+")":"")+" eddig: "+x.t.replace("T"," ")+"."}}
+  if(O&&n<O)return {s:"before",ok:false,mod:false,t:"A nevezés még nem nyílt meg ("+o.replace("T"," ")+" kezdettel)."};
+  if(n<=C)return {s:"open",ok:true,mod:true,t:"Nevezés nyitva, határidő: "+c.replace("T"," ")+"."};
+  if(M&&n<=M)return {s:"mod",ok:false,mod:true,t:"A nevezés lezárult; a már beadott nevezést "+m.replace("T"," ")+"-ig lehet módosítani."};
+  return {s:"closed",ok:false,mod:false,t:"A nevezés lezárult. Új nevezés vagy módosítás csak a szervező feloldásával lehetséges."}}
+function renderReg(){$("rStat").textContent=regStatus("").t;$("eStat").textContent=regStatus($("eClub").value.trim()).t;
+  $("exList").innerHTML=excs.map(function(x,i){return '<div class="card cat"><div><b>'+esc(x.f.replace("T"," "))+' – '+esc(x.t.replace("T"," "))+'</b><small>'+(x.c?esc(x.c):'minden klub')+'</small></div><button class="g" data-xd="'+i+'">Törlés</button></div>'}).join("")}
+var roster=[{n:"Kiss Anna",b:"2016-03-10",g:"L",belt:3,w:null},{n:"Nagy Bence",b:"2013-07-21",g:"F",belt:5,w:null},{n:"Szabó Lili",b:"2015-09-01",g:"L",belt:2,w:null},{n:"Tóth Máté",b:"2008-01-15",g:"F",belt:10,w:null}],kcur=-1,ksel={};
+function showView(v){$("vOrg").className=v==="org"?"":"hide";$("vCoach").className=v==="coach"?"":"hide";$("tabOrg").className=v==="org"?"":"g";$("tabCoach").className=v==="coach"?"":"g";if(v==="coach")renderCoach()}
+function pm(r){return {birth:r.b,g:r.g,belt:r.belt,w:r.w==null?null:r.w,h:null}}
+function upList(own,p){var out=[],seen={};
+  function okO(x){return (x.g==="V"||x.g===p.g)&&(x.b1==null||p.belt>=x.b1)&&(x.b2==null||p.belt<=x.b2)}
+  function add(c,fee,tag){if(own.indexOf(c)>=0||seen[c.n])return;seen[c.n]=1;out.push({c:c,fee:fee,tag:tag})}
+  own.forEach(function(c){var s=dset[c.d]||{},A=+s.a||0,W=+s.w||0;
+    if(W&&c.w2!=null)cats.filter(function(x){return x!==c&&x.d===c.d&&x.g===c.g&&x.rule===c.rule&&x.min===c.min&&x.max===c.max&&x.from===c.from&&x.to===c.to&&(x.w2==null||x.w2>c.w2)&&okO(x)}).sort(function(a,b){return (a.w2==null?1e9:a.w2)-(b.w2==null?1e9:b.w2)}).slice(0,W).forEach(function(x){add(x,+s.fw||0,"súlycsoporttal feljebb")});
+    if(A&&c.rule==="age")ageUps(c,p,A).forEach(function(x){add(x,+s.fa||0,"korcsoporttal feljebb")})});
+  return out}
+function kRow(c,sel,fee,tag,i){var on=sel[c.n];
+  var x='<label class="res '+(tag?'u':'y')+' lbl"><input type="checkbox" data-k="'+esc(c.n)+'" data-d="'+esc(c.d)+'" data-fee="'+(fee||0)+'"'+(on?' checked':'')+'> <b>'+(tag?'↑ ':'')+esc(c.n)+'</b>'+(tag?'<div class="hint">'+tag+(fee?' · felár: '+fmt(fee):'')+'</div>':'')+'</label>';
+  if(c.t>1&&on){var ps=[];roster.forEach(function(q,j){if(j!==i&&check(c,pm(q),ev()).length===0)ps.push('<option value="'+j+'"'+(String(on.partner)===String(j)?' selected':'')+'>'+esc(q.n)+'</option>')});
+    x+='<select data-pk="'+esc(c.n)+'"><option value="">Válassz csapattársat…</option>'+ps.join("")+'</select>'}
+  return x}
+function kPicker(i){var r=roster[i],p=pm(r),e=ev(),sel=ksel[i]=ksel[i]||{};
+  var own=cats.filter(function(c){return check(c,p,e).length===0}),g={},ord=[];
+  own.forEach(function(c){if(!g[c.d]){g[c.d]=[];ord.push(c.d)}g[c.d].push(c)});
+  var h=ord.map(function(d){return '<div class="hint" style="margin-top:10px"><b>'+esc(d)+'</b></div>'+g[d].map(function(c){return kRow(c,sel,0,"",i)}).join("")}).join("");
+  var ups=upList(own,p);if(ups.length)h+='<div class="hint" style="margin-top:10px">Feljebb nevezhető:</div>'+ups.map(function(u){return kRow(u.c,sel,u.fee,u.tag,i)}).join("");
+  return h||'<div class="hint">Nincs megfelelő kategória.</div>'}
+function kFee(sel){var ks=Object.keys(sel);if(!ks.length)return 0;var ds={},up=0,t=0;ks.forEach(function(k){ds[sel[k].d]=1;up+=sel[k].fee||0});if($("feeModel").value==="fix")t=num("feeBase")||0;else Object.keys(ds).forEach(function(d){t+=+((dset[d]||{}).fee)||0});return t+up+xPerson(ks)}
+function kDocs(r){var e=ev(),age=ageFor(r.b,"day",e),o=[];docs.forEach(function(d){if(age>=d.a&&age<=d.b){var t=d.n;if(d.m){var x=new Date(e.date);x.setUTCMonth(x.getUTCMonth()-d.m);if(!isNaN(x))t+=" ("+x.toISOString().slice(0,10)+" után kiadva)"}o.push(t)}});return o}
+function isTeam(k){return cats.some(function(c){return c.n===k&&c.t>1})}
+function renderCoach(){var club=$("kClub").value.trim(),e=ev();
+  $("kHead").innerHTML='<b>'+esc($("evName").value||"Verseny neve")+'</b><div class="hint">'+esc($("evPlace").value)+($("evPlace").value?' · ':'')+esc(e.date)+'</div>';
+  $("kStat").textContent=regStatus(club).t;
+  $("kRoster").innerHTML=roster.map(function(r,i){var open=kcur===i,n=Object.keys(ksel[i]||{}).length;
+    return '<div class="card"><div class="cat"><div><b>'+esc(r.n)+'</b><small>'+ageFor(r.b,"day",e)+' év · '+(r.g==="L"?"lány":"fiú")+' · '+BELTS[r.belt]+(r.w?' · '+r.w+' kg':'')+(n?' · '+n+' kategória kijelölve':'')+'</small></div><div><button class="g" data-ko="'+i+'">'+(open?'Bezár':'Nevezés')+'</button><button class="g" data-kd="'+i+'">Törlés</button></div></div>'+(open?'<div>'+kPicker(i)+'</div>':'')+'</div>'}).join("")||'<p class="s">Még nincs versenyző.</p>';
+  var tot=0,lines=[];roster.forEach(function(r,i){var s=ksel[i]||{},ks=Object.keys(s);if(!ks.length)return;var f=kFee(s);tot+=f;
+    var miss=ks.filter(function(k){return isTeam(k)&&!s[k].partner});
+    lines.push('<div class="card"><b>'+esc(r.n)+'</b> – '+fmt(f)+'<div class="hint">'+ks.map(function(k){return esc(k)}).join('; ')+'</div>'+(miss.length?'<div class="hint" style="color:var(--ac)">Csapattárs hiányzik: '+miss.map(function(k){return esc(k)}).join('; ')+'</div>':'')+'<div class="hint">Szükséges: '+kDocs(r).map(function(k){return esc(k)}).join(' · ')+'</div></div>')});
+  $("kSum").innerHTML=lines.length?lines.join("")+'<div class="card"><b>Összesen: '+fmt(tot)+'</b></div>':'<p class="s">Még nincs kijelölt nevezés. Nyomd meg egy versenyzőnél a „Nevezés” gombot.</p>'}
+function kSubmit(){var club=$("kClub").value.trim(),rs=regStatus(club);
+  if(!club){$("kMsg").textContent="Add meg a klub nevét.";return}
+  if(!rs.ok){$("kMsg").textContent="Nem lehet nevezni: "+rs.t;return}
+  var any=false,bad=false;roster.forEach(function(r,i){var s=ksel[i]||{},ks=Object.keys(s);if(ks.length)any=true;if(ks.some(function(k){return isTeam(k)&&!s[k].partner}))bad=true});
+  if(!any){$("kMsg").textContent="Nincs kijelölt nevezés.";return}
+  if(bad){$("kMsg").textContent="Egyes csapatkategóriáknál hiányzik a csapattárs.";return}
+  var n=0;roster.forEach(function(r,i){var s=ksel[i]||{},ks=Object.keys(s);if(!ks.length)return;
+    var pn=[];ks.forEach(function(k){if(s[k].partner!==""&&roster[+s[k].partner]&&pn.indexOf(roster[+s[k].partner].n)<0)pn.push(roster[+s[k].partner].n)});
+    entries.push({n:r.n+(pn.length?" (társ: "+pn.join(", ")+")":""),club:club,cats:ks.slice(),fee:kFee(s)});n++;ksel[i]={}});
+  $("kMsg").textContent=n+" versenyző nevezése leadva. A szervezői nézetben megjelent a nevezések között.";renderEntries();renderCoach()}
+var kEdit=-1;
+function editK(i){var r=roster[i];kEdit=i;function v(x){return x==null?"":x}
+  $("kName").value=r.n;$("kBirth").value=r.b;$("kGender").value=r.g;$("kBelt").value=r.belt;$("kW").value=v(r.w);$("kH").value=v(r.h);
+  $("kForm").textContent="Versenyző szerkesztése";$("kAdd").textContent="Módosítás mentése";$("kName").scrollIntoView({behavior:"smooth",block:"center"})}
+function pm(r){return {birth:r.b,g:r.g,belt:r.belt,w:r.w==null?null:r.w,h:r.h==null?null:r.h}}
+function wkey(c){return [c.d,c.g,c.rule,c.min,c.max,c.from,c.to,bk(c)].join("|")}
+function wcls(c){return cats.filter(function(x){return wkey(x)===wkey(c)&&(x.w1!=null||x.w2!=null)}).sort(function(a,b){return (a.w2==null?1e9:a.w2)-(b.w2==null?1e9:b.w2)})}
+function byName(k){return cats.filter(function(c){return c.n===k})[0]}
+function wInfo(sel,r){var gs={},extras=[],bad=[],e=ev();
+  Object.keys(sel).forEach(function(k){var c=byName(k);if(!c||(c.w1==null&&c.w2==null))return;var key=wkey(c);(gs[key]=gs[key]||[]).push(c)});
+  Object.keys(gs).forEach(function(key){var L=wcls(gs[key][0]),W=+((dset[gs[key][0].d]||{}).w)||0,idx=gs[key].map(function(c){return L.indexOf(c)}),b;
+    if(r.w!=null){b=-1;L.forEach(function(c,i){if(check(c,pm(r),e).length===0)b=i});if(b<0)b=Math.min.apply(null,idx)}else b=Math.min.apply(null,idx);
+    gs[key].forEach(function(c,j){var i=idx[j];if(i===b)return;extras.push(c.n);if(i<b||i-b>W)bad.push(c.n)})});
+  return {extras:extras,bad:bad}}
+function kFee(sel,r){var ks=Object.keys(sel);if(!ks.length)return 0;var ds={},up=0,t=0,wi=wInfo(sel,r);
+  ks.forEach(function(k){ds[sel[k].d]=1;if(sel[k].kind==="a")up+=sel[k].fee||0});
+  wi.extras.forEach(function(k){var c=byName(k);up+=+((dset[c.d]||{}).fw)||0});
+  if($("feeModel").value==="fix")t=num("feeBase")||0;else Object.keys(ds).forEach(function(d){t+=+((dset[d]||{}).fee)||0});return t+up+xPerson(ks)}
+function kRow(c,sel,fee,tag,i,dis,xt){var on=sel[c.n],kind=tag?(tag.indexOf("súly")===0?"w":"a"):"",ex=typeof xt==="number";
+  var x='<label class="res '+((tag||ex)?'u':'y')+' lbl"'+(dis&&!on?' style="opacity:.4"':'')+'><input type="checkbox" data-k="'+esc(c.n)+'" data-d="'+esc(c.d)+'" data-fee="'+(fee||0)+'" data-kind="'+kind+'"'+(on?' checked':'')+(dis&&!on?' disabled':'')+'> <b>'+((tag||ex)?'↑ ':'')+esc(c.n)+'</b>'+(tag?'<div class="hint">'+tag+(fee?' · felár: '+fmt(fee):'')+'</div>':(ex?'<div class="hint">súlycsoporttal feljebb'+(xt?' · felár: '+fmt(xt):'')+'</div>':''))+'</label>';
+  if(c.t>1&&on){var ps=[];roster.forEach(function(q,j){if(j!==i&&check(c,pm(q),ev()).length===0)ps.push('<option value="'+j+'"'+(String(on.partner)===String(j)?' selected':'')+'>'+esc(q.n)+'</option>')});
+    x+='<select data-pk="'+esc(c.n)+'"><option value="">Válassz csapattársat…</option>'+ps.join("")+'</select>'}
+  return x}
+function kPicker(i){var r=roster[i],p=pm(r),e=ev(),sel=ksel[i]=ksel[i]||{},wi=wInfo(sel,r);
+  var own=cats.filter(function(c){return check(c,p,e).length===0}),g={},ord=[],dis={};
+  if(r.w==null){var gs={};own.forEach(function(c){if(c.w1==null&&c.w2==null)return;var k=wkey(c);(gs[k]=gs[k]||[]).push(c)});
+    Object.keys(gs).forEach(function(k){var L=wcls(gs[k][0]),W=+((dset[gs[k][0].d]||{}).w)||0,sl=[];L.forEach(function(c,j){if(sel[c.n])sl.push(j)});
+      if(!sl.length)return;var b=Math.min.apply(null,sl);L.forEach(function(c,j){if(j<b||j-b>W)dis[c.n]=1})})}
+  own.forEach(function(c){if(!g[c.d]){g[c.d]=[];ord.push(c.d)}g[c.d].push(c)});
+  var h=ord.map(function(d){return '<div class="hint" style="margin-top:10px"><b>'+esc(d)+'</b></div>'+g[d].map(function(c){return kRow(c,sel,0,"",i,dis[c.n],wi.extras.indexOf(c.n)>=0?(+((dset[c.d]||{}).fw)||0):undefined)}).join("")}).join("");
+  var ups=upList(own,p);if(ups.length)h+='<div class="hint" style="margin-top:10px">Feljebb nevezhető:</div>'+ups.map(function(u){return kRow(u.c,sel,u.fee,u.tag,i)}).join("");
+  return h||'<div class="hint">Nincs megfelelő kategória.</div>'}
+function renderCoach(){var club=$("kClub").value.trim(),e=ev();
+  $("kHead").innerHTML='<b>'+esc($("evName").value||"Verseny neve")+'</b><div class="hint">'+esc($("evPlace").value)+($("evPlace").value?' · ':'')+esc(e.date)+'</div>';
+  $("kStat").textContent=regStatus(club).t;
+  $("kRoster").innerHTML=roster.map(function(r,i){var open=kcur===i,n=Object.keys(ksel[i]||{}).length;
+    return '<div class="card"><div class="cat"><div><b>'+esc(r.n)+'</b><small>'+ageFor(r.b,"day",e)+' év · '+(r.g==="L"?"lány":"fiú")+' · '+BELTS[r.belt]+(r.w?' · '+r.w+' kg':'')+(r.h?' · '+r.h+' cm':'')+(n?' · '+n+' kategória kijelölve':'')+'</small></div><div><button class="g" data-ko="'+i+'">'+(open?'Bezár':'Nevezés')+'</button><button class="g" data-ke="'+i+'">Szerkesztés</button><button class="g" data-kd="'+i+'">Törlés</button></div></div>'+(open?'<div>'+kPicker(i)+'</div>':'')+'</div>'}).join("")||'<p class="s">Még nincs versenyző.</p>';
+  var tot=0,lines=[];roster.forEach(function(r,i){var s=ksel[i]||{},ks=Object.keys(s);if(!ks.length)return;var f=kFee(s,r),wi=wInfo(s,r);tot+=f;
+    var miss=ks.filter(function(k){return isTeam(k)&&!s[k].partner});
+    lines.push('<div class="card"><b>'+esc(r.n)+'</b> – '+fmt(f)+'<div class="hint">'+ks.map(function(k){return esc(k)}).join('; ')+'</div>'+(wi.extras.length?'<div class="hint">Feljebb nevezés: '+wi.extras.length+' db</div>':'')+(wi.bad.length?'<div class="hint" style="color:var(--ac)">A beállítás szerint nem engedélyezett súlycsoport: '+wi.bad.map(function(k){return esc(k)}).join('; ')+'</div>':'')+(miss.length?'<div class="hint" style="color:var(--ac)">Csapattárs hiányzik: '+miss.map(function(k){return esc(k)}).join('; ')+'</div>':'')+'<div class="hint">Szükséges: '+kDocs(r).map(function(k){return esc(k)}).join(' · ')+'</div></div>')});
+  $("kSum").innerHTML=lines.length?lines.join("")+'<div class="card"><b>Összesen: '+fmt(tot)+'</b></div>':'<p class="s">Még nincs kijelölt nevezés. Nyomd meg egy versenyzőnél a „Nevezés” gombot.</p>'}
+function kSubmit(){var club=$("kClub").value.trim(),rs=regStatus(club);
+  if(!club){$("kMsg").textContent="Add meg a klub nevét.";return}
+  if(!rs.ok){$("kMsg").textContent="Nem lehet nevezni: "+rs.t;return}
+  var any=false,bad=false,wb=false;roster.forEach(function(r,i){var s=ksel[i]||{},ks=Object.keys(s);if(ks.length)any=true;if(ks.some(function(k){return isTeam(k)&&!s[k].partner}))bad=true;if(wInfo(s,r).bad.length)wb=true});
+  if(!any){$("kMsg").textContent="Nincs kijelölt nevezés.";return}
+  if(bad){$("kMsg").textContent="Egyes csapatkategóriáknál hiányzik a csapattárs.";return}
+  if(wb){$("kMsg").textContent="Van olyan súlycsoport, ami a szervező beállítása szerint nem választható. Nézd meg az összesítőt.";return}
+  var n=0;roster.forEach(function(r,i){var s=ksel[i]||{},ks=Object.keys(s);if(!ks.length)return;
+    var pn=[];ks.forEach(function(k){if(s[k].partner!==""&&roster[+s[k].partner]&&pn.indexOf(roster[+s[k].partner].n)<0)pn.push(roster[+s[k].partner].n)});
+    entries.push({n:r.n+(pn.length?" (társ: "+pn.join(", ")+")":""),club:club,cats:ks.slice(),fee:kFee(s,r)});n++;ksel[i]={}});
+  $("kMsg").textContent=n+" versenyző nevezése leadva. A szervezői nézetben megjelent a nevezések között.";renderEntries();renderCoach()}
+function wcPack(){var out=[],AG=[["Pre-Junior",12,14],["Junior",15,17],["Adult",18,35],["Senior",36,45],["Veterans",46,99]],G=[["F","férfi"],["L","női"]];
+  function al(a){return a[0]+" "+(a[2]===99?"46+":a[1]+"–"+a[2])+" év"}
+  var B4=[["4–3 gup",6,7],["2–1 gup",8,9]],ADAN=[["1. dan",10,10],["2. dan",11,11],["3. dan",12,12],["4–6. dan",13,15]];
+  var PI={"Pre-Junior":B4.concat([["1. dan",10,10],["2–3. dan",11,12]]),"Junior":B4.concat([["1. dan",10,10],["2. dan",11,11],["3. dan",12,12]]),"Adult":B4.concat(ADAN),"Senior":B4.concat(ADAN),"Veterans":B4.concat(ADAN)};
+  var TJ=[["4–1 gup",6,9],["1–3. dan",10,12]],TA=[["4–1 gup",6,9],["1–6. dan",10,15]];
+  var TP={"Pre-Junior":TJ,"Junior":TJ,"Adult":TA,"Senior":TA,"Veterans":TA};
+  AG.forEach(function(a){G.forEach(function(g){
+    PI[a[0]].forEach(function(b){out.push({n:"Formagyakorlat, "+g[1]+", "+al(a)+", "+b[0],d:"Formagyakorlat",g:g[0],rule:"age",min:a[1],max:a[2],mode:"yearm1",b1:b[1],b2:b[2]})});
+    TP[a[0]].forEach(function(b){out.push({n:"Csapat formagyakorlat, "+g[1]+", "+al(a)+", "+b[0],d:"Csapat formagyakorlat",g:g[0],rule:"age",min:a[1],max:a[2],mode:"yearm1",b1:b[1],b2:b[2],t:5})})})});
+  var SW={"Pre-Junior":[40,45,50,55,60,65],"Junior":[50,55,60,65,70,75],"Adult":[57,63,69,75,81,87]},SB={"Pre-Junior":TJ,"Junior":TJ,"Adult":TA};
+  AG.slice(0,3).forEach(function(a){SB[a[0]].forEach(function(b){var L=SW[a[0]];L.concat([null]).forEach(function(u,i){var open=u===null,lo=i>0?L[i-1]:null;
+    out.push({n:"Szabad küzdelem, férfi, "+al(a)+", "+b[0]+", "+(open?"+"+lo:"-"+u)+" kg",d:"Szabad küzdelem",g:"F",rule:"age",min:a[1],max:a[2],mode:"yearm1",b1:b[1],b2:b[2],w1:lo,w2:open?null:u,wx:i>0})})})});
+  return out}
+function mbPack(){var out=[];
+  var AG=[["Gyermek",8,9],["Serdülő",10,13],["Ifjúsági",14,17],["Felnőtt",18,99]];
+  function gl(a,g){return (a[0]==="Gyermek"||a[0]==="Serdülő")?(g==="L"?"lány":"fiú"):(g==="L"?"női":"férfi")}
+  function al(a){return a[0]+" "+(a[2]===99?"18+":a[1]+"–"+a[2])+" év"}
+  function base(a,g){return {rule:"age",min:a[1],max:a[2],mode:"day",g:g}}
+  var C9=[["9–7 gup",1,3],["6–4 gup",4,6],["3–1 gup",7,9]],CA=[["9–5 gup",1,5],["4–1 gup",6,9],["1. dan",10,10],["2. dan",11,11],["3. dan",12,12]];
+  var CB={"Gyermek":C9,"Serdülő":C9.concat([["1. dan",10,10]]),"Ifjúsági":CA,"Felnőtt":CA.concat([["4–6. dan",13,15]])};
+  var W={"Gyermek":{F:[28,33,38,43],L:[25,30,35,40]},"Serdülő":{F:[36,42,48,54,60],L:[32,38,44,50]},"Ifjúsági":{F:[50,56,62,68,75],L:[45,50,55,60,65]},"Felnőtt":{F:[57,63,70,78,85],L:[50,56,62,68,75]}};
+  AG.forEach(function(a){["F","L"].forEach(function(g){
+    CB[a[0]].forEach(function(b){var c=base(a,g);c.n="Formagyakorlat, "+gl(a,g)+", "+al(a)+", "+b[0];c.d="Formagyakorlat";c.b1=b[1];c.b2=b[2];out.push(c)});
+    var L=W[a[0]][g];
+    L.concat([null]).forEach(function(u,i){var open=u===null,lo=i>0?L[i-1]:null,c=base(a,g);c.n="Szabad küzdelem, "+gl(a,g)+", "+al(a)+", "+(open?"+"+lo:"-"+u)+" kg";c.d="Szabad küzdelem";c.b1=1;c.w1=lo;c.w2=open?null:u;c.wx=i>0;out.push(c)});
+  })});
+  AG.slice(2).forEach(function(a){
+    ["F","L"].forEach(function(g){var sz=g==="F"?5:3;
+      [["Csapat formagyakorlat",sz],["Csapat szabad küzdelem",sz],["Erőtörés",1],["Csapat erőtörés",sz],["Speciál törés",1],["Csapat speciál törés",sz]].forEach(function(x){var c=base(a,g);c.n=x[0]+", "+gl(a,g)+", "+al(a);c.d=x[0];c.b1=1;if(x[1]>1)c.t=x[1];out.push(c)});
+    });
+    [["F","férfi párok"],["L","női párok"],["V","vegyes párok"]].forEach(function(p){var c=base(a,p[0]);c.n="Tradicionális küzdelem, "+p[1]+", "+al(a);c.d="Tradicionális küzdelem";c.b1=1;c.t=2;out.push(c)});
+  });
+  return out}
+var PACKS={mb:{f:mbPack,note:"A MITSZ 2023-as versenyszabályzatából: egyéni formagyakorlat (övcsoportok), egyéni küzdelem (súlycsoportok), csapat formagyakorlat és küzdelem, erő- és speciál törés, tradicionális küzdelem (párok). Az életkor a verseny első napján betöltött kor. Egyéni küzdelemben a szabályzat szerint nem lehet más súlycsoportban indulni.",dset:{}},own:{f:function(){return loadOlimpia()},note:"A 2021-es kiírásod: formagyakorlat övcsoportonként, szabad küzdelem súlycsoportonként (idősebb csoportokkal), tradicionális küzdelem párosban.",dset:{"Formagyakorlat":{a:"1"},"Tradicionális küzdelem":{a:"99"}}},
+  wc:{f:wcPack,note:"Az ITF 2026-os szabálykönyvéből: egyéni és csapat formagyakorlat teljesen, egyéni küzdelem csak férfiaknál (Pre-Junior, Junior, Adult). Hiányzik: női küzdelem, Senior/Veterans küzdelem, erőtörés, speciális technika, előre megbeszélt küzdelem. Az életkor: versenyév − születési év − 1.",dset:{}}};
+var pkList=[];
+function pkRender(){var k=$("pkSel").value;if(!k){pkList=[];$("pkBox").innerHTML="";$("pkNote").textContent="";return}
+  pkList=PACKS[k].f();$("pkNote").textContent=PACKS[k].note;
+  var g={},ord=[];pkList.forEach(function(c,i){if(!g[c.d]){g[c.d]=[];ord.push(c.d)}g[c.d].push(i)});
+  $("pkBox").innerHTML='<div class="row"><button class="g" id="pkAll">Mind kell</button><button class="g" id="pkNone">Egyik sem</button></div>'+ord.map(function(d){return '<details class="dd"><summary>'+esc(d)+' <span data-cnt="'+esc(d)+'">(0/'+g[d].length+')</span></summary><label class="lbl"><input type="checkbox" data-pd="'+esc(d)+'"> <b>Az összes ebben a csoportban</b></label>'+g[d].map(function(i){return '<label class="lbl"><input type="checkbox" data-pi="'+i+'" data-pdisc="'+esc(d)+'"> '+esc(pkList[i].n)+'</label>'}).join("")+'</details>'}).join("")+'<button id="pkAdd">Hozzáadás a versenyhez (0)</button><div class="hint" id="pkMsg"></div>'}
+function pkCount(){var n=0,per={};document.querySelectorAll("#pkBox input[data-pi]").forEach(function(x){if(x.checked){n++;per[x.dataset.pdisc]=(per[x.dataset.pdisc]||0)+1}});
+  document.querySelectorAll("#pkBox [data-cnt]").forEach(function(sp){var d=sp.dataset.cnt;sp.textContent="("+(per[d]||0)+"/"+pkList.filter(function(c){return c.d===d}).length+")"});
+  var b=$("pkAdd");if(b)b.textContent="Hozzáadás a versenyhez ("+n+")"}
+function pkAddSel(){var P=PACKS[$("pkSel").value],add=[];document.querySelectorAll("#pkBox input[data-pi]").forEach(function(x){if(x.checked)add.push(pkList[+x.dataset.pi])});
+  if(!add.length){$("pkMsg").textContent="Jelölj ki legalább egy kategóriát.";return}
+  var have={},n=0;cats.forEach(function(c){have[c.n]=1});add.forEach(function(c){if(!have[c.n]){cats.push(JSON.parse(JSON.stringify(c)));have[c.n]=1;n++}});
+  Object.keys(P.dset||{}).forEach(function(d){if(!dset[d])dset[d]=JSON.parse(JSON.stringify(P.dset[d]))});
+  $("pkMsg").textContent=n+" kategória hozzáadva"+(add.length-n?" ("+(add.length-n)+" már megvolt)":"")+". A lenti listában látod és szerkesztheted őket.";renderCats();renderTest()}
+function shortClub(c){var s=c.replace(/^budapesti\s+/i,"").replace(/\s+(se|sc|sportegyesület)\.?$/i,"").trim();return s||c}
+function tmName(e){return (e.tm&&e.tm!=="__new")?e.tm:((e.tn||"").trim()||"Csapat")}
+function capOf(k){var c=byName(k),t=c?c.t:1;return t>2?t+1:t}
+function teamsIn(k,skip){var m={},ord=[];roster.forEach(function(r,i){if(i===skip)return;var e=(ksel[i]||{})[k];if(!e)return;var n=tmName(e);if(!m[n]){m[n]=[];ord.push(n)}m[n].push(i)});return {m:m,ord:ord}}
+function kSugg(k){var club=$("kClub").value.trim(),b=shortClub(club),used={},n=0;
+  teamsIn(k,-1).ord.forEach(function(x){used[x.toLowerCase()]=1});
+  entries.forEach(function(en){if(en.team&&en.club===club&&en.tcat===k)used[en.tn.toLowerCase()]=1});
+  do{n++}while(used[(b+" "+n).toLowerCase()]);return b+" "+n}
+function kTeamInit(i,k){var e=ksel[i][k],t=teamsIn(k,i),cap=capOf(k),open=t.ord.filter(function(n){return t.m[n].length<cap});
+  if(open.length){e.tm=open[0];e.tn=""}else{e.tm="__new";e.tn=kSugg(k)}}
+function kRow(c,sel,fee,tag,i,dis,xt){var on=sel[c.n],kind=tag?(tag.indexOf("súly")===0?"w":"a"):"",ex=typeof xt==="number";
+  var x='<label class="res '+((tag||ex)?'u':'y')+' lbl"'+(dis&&!on?' style="opacity:.4"':'')+'><input type="checkbox" data-k="'+esc(c.n)+'" data-d="'+esc(c.d)+'" data-fee="'+(fee||0)+'" data-kind="'+kind+'"'+(on?' checked':'')+(dis&&!on?' disabled':'')+'> <b>'+((tag||ex)?'↑ ':'')+esc(c.n)+'</b>'+(tag?'<div class="hint">'+tag+(fee?' · felár: '+fmt(fee):'')+'</div>':(ex?'<div class="hint">súlycsoporttal feljebb'+(xt?' · felár: '+fmt(xt):'')+'</div>':''))+'</label>';
+  if(c.t>1&&on){var t=teamsIn(c.n,i),cap=capOf(c.n),isNew=on.tm==="__new";
+    var opts=t.ord.map(function(n){var full=t.m[n].length>=cap&&on.tm!==n;return '<option value="'+esc(n)+'"'+(on.tm===n?' selected':'')+(full?' disabled':'')+'>'+esc(n)+' ('+t.m[n].length+'/'+c.t+' fő'+(full?', betelt':'')+')</option>'}).join("");
+    x+='<div class="hint">Csapat (a meglévőbe tesszük, vagy új csapatot nyitunk):</div><select data-tm="'+esc(c.n)+'">'+opts+'<option value="__new"'+(isNew?' selected':'')+'>Új csapat</option></select>'+(isNew?'<input data-tn="'+esc(c.n)+'" value="'+esc(on.tn||"")+'" placeholder="Csapat neve">':'')}
+  return x}
+function allTeams(){var out=[],cs={};roster.forEach(function(r,i){Object.keys(ksel[i]||{}).forEach(function(k){if(isTeam(k))cs[k]=1})});
+  Object.keys(cs).forEach(function(k){var t=teamsIn(k,-1),c=byName(k);t.ord.forEach(function(n){out.push({k:k,n:n,m:t.m[n],need:c.t,cap:capOf(k)})})});return out}
+function renderMine(){var club=$("kClub").value.trim(),mine=entries.filter(function(en){return en.club===club}),ind=mine.filter(function(e){return !e.team}),tm=mine.filter(function(e){return e.team});
+  $("kMineSum").textContent="Leadott nevezéseim ("+ind.length+" versenyző"+(tm.length?", "+tm.length+" csapat":"")+")";
+  var h="";
+  if(ind.length)h+='<div class="hint" style="margin-top:8px"><b>Egyéni nevezések</b></div>'+ind.map(function(en){return '<div class="card"><b>'+esc(en.n)+'</b> – '+fmt(en.fee)+'<div class="hint">'+(en.cats.length?en.cats.map(function(k){return esc(k)}).join('; '):'')+((en.tm&&en.tm.length)?(en.cats.length?'<br>':'')+'Csapattag: '+en.tm.map(function(k){return esc(k)}).join('; '):'')+'</div></div>'}).join("");
+  if(tm.length)h+='<div class="hint" style="margin-top:8px"><b>Csapatok</b></div>'+tm.map(function(en){return '<div class="card"><b>'+esc(en.tn)+'</b><div class="hint">'+esc(en.tcat)+'<br>Tagok: '+en.members.map(function(k){return esc(k)}).join(', ')+(en.fee?'<br>Csapatdíj: '+fmt(en.fee):'')+'</div></div>'}).join("");
+  $("kMine").innerHTML=h||'<p class="s">Még nincs leadott nevezés ennél a klubnál.</p>'}
+function renderCoach(){var club=$("kClub").value.trim(),e=ev();
+  $("kHead").innerHTML='<b>'+esc($("evName").value||"Verseny neve")+'</b><div class="hint">'+esc($("evPlace").value)+($("evPlace").value?' · ':'')+esc(e.date)+'</div>';
+  $("kStat").textContent=regStatus(club).t;
+  $("kRoster").innerHTML=roster.map(function(r,i){var open=kcur===i,n=Object.keys(ksel[i]||{}).length;
+    return '<div class="card"><div class="cat"><div><b>'+esc(r.n)+'</b><small>'+ageFor(r.b,"day",e)+' év · '+(r.g==="L"?"lány":"fiú")+' · '+BELTS[r.belt]+(r.w?' · '+r.w+' kg':'')+(r.h?' · '+r.h+' cm':'')+(n?' · '+n+' kategória kijelölve':'')+'</small></div><div><button class="g" data-ko="'+i+'">'+(open?'Bezár':'Nevezés')+'</button><button class="g" data-ke="'+i+'">Szerkesztés</button><button class="g" data-kd="'+i+'">Törlés</button></div></div>'+(open?'<div>'+kPicker(i)+'</div>':'')+'</div>'}).join("")||'<p class="s">Még nincs versenyző.</p>';
+  var tot=0,lines=[];roster.forEach(function(r,i){var s=ksel[i]||{},ks=Object.keys(s);if(!ks.length)return;var f=kFee(s,r),wi=wInfo(s,r);tot+=f;
+    var ik=ks.filter(function(k){return !isTeam(k)}),tk=ks.filter(isTeam);
+    lines.push('<div class="card"><b>'+esc(r.n)+'</b> – '+fmt(f)+'<div class="hint">'+ik.map(function(k){return esc(k)}).join('; ')+'</div>'+(tk.length?'<div class="hint">Csapattag: '+tk.map(function(k){return esc(tmName(s[k])+' – '+k)}).join('; ')+'</div>':'')+(wi.extras.length?'<div class="hint">Feljebb nevezés: '+wi.extras.length+' db</div>':'')+(wi.bad.length?'<div class="hint" style="color:var(--ac)">A beállítás szerint nem engedélyezett súlycsoport: '+wi.bad.map(function(k){return esc(k)}).join('; ')+'</div>':'')+'<div class="hint">Szükséges: '+kDocs(r).map(function(k){return esc(k)}).join(' · ')+'</div></div>')});
+  var tms=allTeams().map(function(t){var ok=t.m.length>=t.need&&t.m.length<=t.cap;return '<div class="card"><b>'+esc(t.n)+'</b><div class="hint">'+esc(t.k)+'<br>Tagok: '+t.m.map(function(j){return esc(roster[j].n)}).join(', ')+' ('+t.m.length+'/'+t.need+' fő)'+(xTeamFee(t.k)?'<br>Csapatdíj: '+fmt(xTeamFee(t.k)):'')+'</div>'+(ok?'':'<div class="hint" style="color:var(--ac)">Még nem teljes csapat.</div>')+'</div>'}).join("");
+  var tfee=allTeams().reduce(function(a,t){return a+xTeamFee(t.k)},0);$("kSum").innerHTML=(lines.length?lines.join("")+'<div class="card"><b>Egyéni nevezések összesen: '+fmt(tot)+'</b>'+(tfee?'<div class="hint">Csapat- és párosdíjak: '+fmt(tfee)+'</div><div><b>Fizetendő összesen: '+fmt(tot+tfee)+'</b></div>':'')+'</div>':'<p class="s">Még nincs kijelölt nevezés. Nyomd meg egy versenyzőnél a „Nevezés” gombot.</p>')+(tms?'<div class="hint" style="margin-top:12px"><b>Csapatok</b></div>'+tms:'');
+  renderMine()}
+function kSubmit(){var club=$("kClub").value.trim(),rs=regStatus(club);
+  if(!club){$("kMsg").textContent="Add meg a klub nevét.";return}
+  if(!rs.ok){$("kMsg").textContent="Nem lehet nevezni: "+rs.t;return}
+  var any=false,wb=false;roster.forEach(function(r,i){var s=ksel[i]||{};if(Object.keys(s).length)any=true;if(wInfo(s,r).bad.length)wb=true});
+  if(!any){$("kMsg").textContent="Nincs kijelölt nevezés.";return}
+  if(wb){$("kMsg").textContent="Van olyan súlycsoport, ami a szervező beállítása szerint nem választható. Nézd meg az összesítőt.";return}
+  var teams=allTeams(),bad=teams.filter(function(t){return t.m.length<t.need||t.m.length>t.cap});
+  if(bad.length){$("kMsg").textContent="A(z) "+bad.map(function(t){return t.n+" ("+t.m.length+"/"+t.need+" fő)"}).join(", ")+" csapat nem teljes. Add hozzá a hiányzó tagokat.";return}
+  var n=0;roster.forEach(function(r,i){var s=ksel[i]||{},ks=Object.keys(s);if(!ks.length)return;
+    entries.push({n:r.n,club:club,cats:ks.filter(function(k){return !isTeam(k)}),tm:ks.filter(isTeam).map(function(k){return tmName(s[k])+" – "+k}),fee:kFee(s,r)});n++});
+  teams.forEach(function(t){entries.push({n:t.n+" ("+t.m.map(function(j){return roster[j].n}).join(", ")+")",club:club,cats:[t.k],team:true,tcat:t.k,tn:t.n,members:t.m.map(function(j){return roster[j].n}),fee:xTeamFee(t.k)})});
+  ksel={};
+  $("kMsg").textContent=n+" versenyző és "+teams.length+" csapat nevezése leadva. A részletek a „Leadott nevezéseim” részben.";renderEntries();renderCoach()}
+var wstat={},draws={},verSel={};
+function entrantsOf(k){var out=[];entries.forEach(function(en){if(en.team){if(en.tcat===k)out.push({id:"T:"+en.tn+"|"+en.club,name:en.tn,club:en.club})}else if(en.cats.indexOf(k)>=0)out.push({id:"I:"+en.n+"|"+en.club,name:en.n,club:en.club})});return out}
+function outOf(e,k){var st=wstat[e.id];if(st==="absent")return true;if(st==="over"){var c=byName(k);return !!c&&(c.w1!=null||c.w2!=null)}return false}
+function rng(seed){var a=seed>>>0;return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function bitPen(i,j){var x=i^j,l=0;while(x){l++;x>>=1}return l<=1?100:l===2?20:l===3?5:l===4?1:0}
+function scoreSlots(s){var sc=0;for(var i=0;i<s.length;i++){var a=s[i];if(!a||a==="BYE"||!a.club)continue;for(var j=i+1;j<s.length;j++){var b=s[j];if(b&&b!=="BYE"&&b.club===a.club)sc+=bitPen(i,j)}}return sc}
+function mkDraw(ents,sid1,sid2,seed){var N=ents.length;if(N<2)return null;var R=rng(seed),size=2;while(size<N)size*=2;var B=size-N,M=size/2,slots=[],byeM=[],i;
+  for(i=0;i<size;i++)slots.push(null);
+  var s1=null,s2=null;ents.forEach(function(e){if(e.id===sid1)s1=e;else if(e.id===sid2)s2=e});
+  var forced=[];if(B>0){if(s1)forced.push(0);if(s2&&forced.length<B&&M>1)forced.push(M-1)}
+  var blocked={};forced.forEach(function(m){blocked[m]=1;byeM.push(m)});
+  function avail(lo,hi){var c=0;for(var q=lo;q<hi;q++)if(!blocked[q])c++;return c}
+  (function pick(lo,hi,b){if(b<=0)return;if(hi-lo===1){if(!blocked[lo])byeM.push(lo);return}var mid=(lo+hi)>>1,cl=avail(lo,mid),cr=avail(mid,hi),a=Math.ceil(b/2),c=b-a;if(a!==c&&R()<.5){var t=a;a=c;c=t}a=Math.min(a,cl);c=b-a;if(c>cr){c=cr;a=b-c}pick(lo,mid,a);pick(mid,hi,c)})(0,M,B-forced.length);
+  if(s1)slots[0]=s1;if(s2)slots[size-1]=s2;
+  byeM.forEach(function(m){var a=2*m,b=2*m+1,sl=slots[b]?a:b;if(slots[sl])sl=(sl===a?b:a);slots[sl]="BYE"});
+  var rest=ents.filter(function(e){return e!==s1&&e!==s2}),free=[];for(i=0;i<size;i++)if(slots[i]===null)free.push(i);
+  var best=null,bs=1e12;
+  for(var t=0;t<300;t++){var sh=rest.slice();for(i=sh.length-1;i>0;i--){var j=Math.floor(R()*(i+1)),x=sh[i];sh[i]=sh[j];sh[j]=x}var cur=slots.slice();free.forEach(function(p,ix){cur[p]=sh[ix]});var sc=scoreSlots(cur);if(sc<bs){bs=sc;best=cur;if(sc===0)break}}
+  for(var it=0;it<1500&&bs>0&&free.length>1;it++){var pa=free[Math.floor(R()*free.length)],pb=free[Math.floor(R()*free.length)];if(pa===pb)continue;var c2=best.slice(),tmp=c2[pa];c2[pa]=c2[pb];c2[pb]=tmp;var s=scoreSlots(c2);if(s<bs){bs=s;best=c2}}
+  return {size:size,N:N,B:B,slots:best,seed:seed,score:bs,seeds:[s1&&s1.id,s2&&s2.id].filter(Boolean)}}
+function pTxt(x,d){if(x.t==="e"){var st=(d.seeds&&d.seeds.indexOf(x.e.id)>=0)?"★ ":"";return '<b>'+st+esc(x.e.name)+'</b>'+(x.e.club?'<small>'+esc(x.e.club)+'</small>':'')}
+  if(x.t==="out")return '<s>'+esc(x.e.name)+'</s><small>'+(wstat[x.e.id]==="over"?"súlyon kívül":"nem jelent meg")+'</small>';
+  if(x.t==="bye")return '<i>előnyerő</i>';return '<i>korábbi győztes</i>'}
+function bracketHtml(br,d){var n=0,h='<div class="br">';
+  br.rounds.forEach(function(r){h+='<div class="rd"><div class="rt">'+rname(r.n)+'</div><div class="rb">'+r.ms.map(function(m){var real=(m[0].t==="e"||m[0].t==="?")&&(m[1].t==="e"||m[1].t==="?");
+    return '<div class="mt">'+(real?'<span class="mn">'+(++n)+'.</span>':'')+'<div class="pl red">'+pTxt(m[0],d)+'</div><div class="pl blue">'+pTxt(m[1],d)+'</div></div>'}).join("")+'</div></div>'});
+  h+='<div class="rd"><div class="rt">Győztes</div><div class="rb"><div class="mt"><div class="pl win">'+(br.champ.t==="e"?'<b>'+esc(br.champ.e.name)+'</b>':'<i>–</i>')+'</div></div></div></div></div>';return h}
+function rname(n){return n===2?"Döntő":n===4?"Elődöntő":n===8?"Negyeddöntő":"Legjobb "+n}
+function winnerOf(a,b){var A=(a.t==="e"||a.t==="?"),B=(b.t==="e"||b.t==="?");if(A&&B)return {t:"?"};if(A)return a;if(B)return b;return {t:"bye"}}
+function bracketOf(d,k){var cur=d.slots.map(function(s){return s==="BYE"?{t:"bye"}:(outOf(s,k)?{t:"out",e:s}:{t:"e",e:s})}),rounds=[],i;
+  while(cur.length>1){var ms=[],nx=[];for(i=0;i<cur.length;i+=2){ms.push([cur[i],cur[i+1]]);nx.push(winnerOf(cur[i],cur[i+1]))}rounds.push({n:cur.length,ms:ms});cur=nx}
+  return {rounds:rounds,champ:cur[0]}}
+function slotTxt(x){if(x.t==="e")return '<b>'+esc(x.e.name)+'</b>'+(x.e.club?' <span class="hint">('+esc(x.e.club)+')</span>':'');if(x.t==="out")return '<s>'+esc(x.e.name)+'</s> <span class="hint">('+(wstat[x.e.id]==="over"?"súlyon kívül":"nem jelent meg")+')</span>';if(x.t==="bye")return '<i>előnyerő</i>';return '<span class="hint">a korábbi mérkőzés győztese</span>'}
+function demoEntrants(){var k=$("dCat").value;if(!k){$("dMsg").textContent="Nincs kategória. Előbb töltsd be a kategóriákat (a fenti gombbal, vagy a 2. résznel a csomagból).";return}var n=Math.max(2,Math.min(64,num("dDemo")||11)),c=byName(k),CL=["Tigrisek","Sárkányok","Párducok","Farkasok","Sasok"],FN=["Anna","Bence","Dóra","Máté","Lili","Zoltán","Kata","Péter","Réka","Ádám","Eszter","Gergő","Nóra","Dávid","Hanna","Levente"],LN=["Kiss","Nagy","Szabó","Tóth","Varga","Kovács","Horváth","Molnár","Farkas","Balogh"];
+  for(var i=0;i<n;i++){var club=CL[Math.floor(Math.pow(Math.random(),1.6)*CL.length)];
+    if(c&&c.t>1)entries.push({demo:true,n:club+" "+(i+1)+" (próba)",club:club,cats:[k],team:true,tcat:k,tn:club+" "+(i+1)+" (próba)",members:[],fee:0});
+    else entries.push({demo:true,n:LN[Math.floor(Math.random()*LN.length)]+" "+FN[Math.floor(Math.random()*FN.length)]+" "+(i+1),club:club,cats:[k],tm:[],fee:0})}
+  renderEntries();renderDraw();$("dMsg").textContent=n+" próbanevező hozzáadva a(z) "+k+" kategóriához."}
+function doDraw(note){var k=$("dCat").value;if(!k){$("dMsg").textContent="Nincs kategória. Előbb töltsd be a kategóriákat.";return}var ents=entrantsOf(k).filter(function(e){return !outOf(e,k)});
+  if(ents.length<2){$("dMsg").textContent="Legalább 2 jelenlévő induló kell a sorsoláshoz.";return}
+  var seed=(Date.now()^Math.floor(Math.random()*1e9))>>>0,d=mkDraw(ents,$("dS1").value,$("dS2").value,seed),L=draws[k]=draws[k]||[];
+  d.v=L.length+1;d.when=new Date().toLocaleString("hu-HU");d.note=note;L.push(d);verSel[k]=d.v;$("dMsg").textContent="";renderDraw()}
+function renderDraw(){$("dLoad").className=cats.length?"g hide":"g";var sel=$("dCat"),keep=sel.value,cnts={};
+  entries.forEach(function(en){(en.team?[en.tcat]:en.cats).forEach(function(k){cnts[k]=(cnts[k]||0)+1})});
+  sel.innerHTML=cats.map(function(c){return '<option value="'+esc(c.n)+'"'+(c.n===keep?' selected':'')+'>'+esc(c.n)+' ('+(cnts[c.n]||0)+' fő)</option>'}).join("");
+  var k=sel.value||(cats[0]&&cats[0].n)||"";if(!k){$("dEntr").innerHTML='<p class="s">Előbb vegyél fel kategóriákat és nevezéseket.</p>';$("dOut").innerHTML="";return}
+  var ents=entrantsOf(k),present=ents.filter(function(e){return !outOf(e,k)});
+  $("dEntr").innerHTML=ents.length?'<div class="hint">Jelen: '+present.length+' / '+ents.length+'</div>'+ents.map(function(e){var st=wstat[e.id]||"";return '<div class="card cat"><div><b>'+esc(e.name)+'</b><small>'+esc(e.club||"")+'</small></div><select data-ws="'+esc(e.id)+'"><option value=""'+(st===""?' selected':'')+'>Jelen van</option><option value="absent"'+(st==="absent"?' selected':'')+'>Nem jelent meg</option><option value="over"'+(st==="over"?' selected':'')+'>Súlyon kívül</option></select></div>'}).join(""):'<p class="s">Ebben a kategóriában még nincs induló. Adj hozzá próbanevezőket.</p>';
+  ["dS1","dS2"].forEach(function(id){var cur=$(id).value;$(id).innerHTML='<option value="">– nincs –</option>'+present.map(function(e){return '<option value="'+esc(e.id)+'"'+(e.id===cur?' selected':'')+'>'+esc(e.name)+'</option>'}).join("")});
+  var L=draws[k]||[];if(!L.length){$("dVer").innerHTML="";$("dOut").innerHTML='<p class="s">Még nincs sorsolás ebben a kategóriában.</p>';return}
+  var v=verSel[k]||L[L.length-1].v;$("dVer").innerHTML=L.map(function(d){return '<option value="'+d.v+'"'+(d.v===v?' selected':'')+'>'+d.v+'. verzió · '+d.N+' fő · '+esc(d.when)+' · '+esc(d.note)+'</option>'}).join("");
+  var d=L.filter(function(x){return x.v===v})[0]||L[L.length-1],br=bracketOf(d,k),n=0,gone=d.slots.filter(function(s){return s!=="BYE"&&outOf(s,k)}).length;
+  var h='<div class="hint" style="margin-top:10px">'+d.size+'-os tábla · '+d.N+' induló · '+d.B+' előnyerő · azonos klub az első körben: '+d.slots.reduce(function(a,s,i){return a+((i%2===0&&s&&s!=="BYE"&&d.slots[i+1]&&d.slots[i+1]!=="BYE"&&s.club&&s.club===d.slots[i+1].club)?1:0)},0)+' · seed '+d.seed+'</div>';
+  if(gone)h+='<div class="hint" style="color:var(--ac)">'+gone+' induló azóta kiesett (mérlegelés): az ellenfele automatikusan továbbjut. Ha még nem kezdődött el a küzdelem, újrasorsolhatod.</div>';
+  h+=bracketHtml(br,d);var lh="";br.rounds.forEach(function(r){lh+='<div class="hint" style="margin-top:12px"><b>'+rname(r.n)+'</b></div>'+r.ms.map(function(m){var real=(m[0].t==="e"||m[0].t==="?")&&(m[1].t==="e"||m[1].t==="?"),adv="";if(!real){var w=winnerOf(m[0],m[1]);if(w.t==="e")adv=' <span class="hint">→ '+esc(w.e.name)+' továbbjut</span>'}return '<div class="res">'+(real?'<b>'+(++n)+'.</b> ':'')+slotTxt(m[0])+' – '+slotTxt(m[1])+adv+'</div>'}).join("")});h+='<details class="dd"><summary>Mérkőzéslista</summary>'+lh+'</details>';
+  if(br.champ.t==="e")h+='<div class="card" style="margin-top:12px"><b>Győztes: '+esc(br.champ.e.name)+'</b></div>';
+  $("dOut").innerHTML=h}
+var SK="szabalymotor_v1",DOCS0,ROSTER0,INP=["evName","evPlace","evDate","evMode","evFixed","feeModel","feeBase","rOpen","rClose","rMod","kClub","feeAdd","feeIncl"];
+function saveState(){try{var o={cats:cats,dset:dset,docs:docs,entries:entries,excs:excs,roster:roster,draws:draws,wstat:wstat,inp:{}};INP.forEach(function(i){o.inp[i]=$(i).value});localStorage.setItem(SK,JSON.stringify(o))}catch(e){}}
+function loadState(){try{var s=localStorage.getItem(SK);if(!s)return;var o=JSON.parse(s);if(o.cats)cats=o.cats;if(o.dset)dset=o.dset;if(o.docs)docs=o.docs;if(o.entries)entries=o.entries;if(o.excs)excs=o.excs;if(o.roster)roster=o.roster;if(o.draws)draws=o.draws;if(o.wstat)wstat=o.wstat;INP.forEach(function(i){if(o.inp&&o.inp[i]!=null)$(i).value=o.inp[i]})}catch(e){}}
+var XFD=[],xfKey=null;
+function xInfo(d){var s=dset[d]||{},isT=cats.some(function(c){return c.d===d&&c.t>1}),f=+s.xfee||0,u=s.xunit||(isT?"team":"person");if(!isT)u="person";return {fee:f,unit:u,team:isT}}
+function xPerson(ks){var t=0;ks.forEach(function(k){var c=byName(k);if(!c)return;var x=xInfo(c.d);if(x.fee>0&&x.unit==="person")t+=x.fee});return t}
+function xTeamFee(k){var c=byName(k);if(!c)return 0;var x=xInfo(c.d);return x.fee>0&&x.unit==="team"?x.fee:0}
+function renderXf(){var ds=[];cats.forEach(function(c){if(ds.indexOf(c.d)<0)ds.push(c.d)});var k=ds.join("|");if(k===xfKey)return;xfKey=k;XFD=ds;
+  $("xfBox").innerHTML=ds.map(function(d,i){var s=dset[d]||{},x=xInfo(d);return '<div class="card"><b>'+esc(d)+'</b>'+(x.team?' <span class="hint">(csapat / páros)</span>':'')+'<div class="row"><div><label>Extra díj (Ft)</label><input type="number" data-xd="'+i+'" data-xk="xfee" value="'+(s.xfee||"")+'" placeholder="0"></div>'+(x.team?'<div><label>A díj egysége</label><select data-xd="'+i+'" data-xk="xunit"><option value="team"'+(x.unit==="team"?' selected':'')+'>Csapatonként / párosonként</option><option value="person"'+(x.unit==="person"?' selected':'')+'>Főnként</option></select></div>':'<div></div>')+'</div></div>'}).join("")||'<p class="s">Előbb vegyél fel kategóriákat.</p>'}
+function cnt(){$("gCnt").textContent=genList().length+" kategória jön létre"}
+/* ===== Új felület: menü, panelek, díjmodell, edzői nevezés ===== */
+function pnShow(nav,pid){
+  document.querySelectorAll("#"+nav+" button[data-pn]").forEach(function(b){b.className=(b.dataset.pn===pid?"on":"")});
+  document.querySelectorAll("section.pn").forEach(function(s){if(s.dataset.nav===nav)s.className="pn"+(s.id===pid?"":" hide")});
+  if(pid==="pn_draw")renderDraw();
+  if(nav==="menuCoach")renderCoach();
+}
+function fmShow(){$("feePlus").className=$("feeModel").value==="plus"?"":"hide"}
+function baseFeeOf(ds){var m=$("feeModel").value,base=num("feeBase")||0,t=0;
+  if(m==="disc"){Object.keys(ds).forEach(function(d){t+=+((dset[d]||{}).fee)||0});return t}
+  if(m==="plus"){var ind=Object.keys(ds).filter(function(d){return !xInfo(d).team}).length,incl=Math.max(1,num("feeIncl")||1),add=num("feeAdd")||0;return base+Math.max(0,ind-incl)*add}
+  return base}
+function kFee(sel,r){var ks=Object.keys(sel);if(!ks.length)return 0;var ds={},up=0,wi=wInfo(sel,r);
+  ks.forEach(function(k){ds[sel[k].d]=1;if(sel[k].kind==="a")up+=sel[k].fee||0});
+  wi.extras.forEach(function(k){var c=byName(k);up+=+((dset[c.d]||{}).fw)||0});
+  return baseFeeOf(ds)+up+xPerson(ks)}
+function feeTotal(){var ks=Object.keys(sel);if(!ks.length)return 0;var ds={},up=0;ks.forEach(function(k){ds[sel[k].d]=1;up+=sel[k].fee||0});return baseFeeOf(ds)+up+xPerson(ks)}
+function feeHtml(){var ks=Object.keys(sel);if(!ks.length)return '<div class="hint" style="margin-top:14px">Jelölj ki kategóriákat a nevezési díj kiszámításához.</div>';
+  var ds={},up=0,lines=[],m=$("feeModel").value;ks.forEach(function(k){ds[sel[k].d]=1;up+=sel[k].fee||0});
+  var b=baseFeeOf(ds),total=b;
+  lines.push(m==="plus"?"Alapdíj és további versenyszámok: "+fmt(b):m==="disc"?"Versenyszámonkénti díjak: "+fmt(b):"Nevezési díj (minden versenyszámra): "+fmt(b));
+  if(up){total+=up;lines.push("Felár (feljebb nevezés): "+fmt(up))}
+  var xp=xPerson(ks);if(xp){total+=xp;lines.push("Extra díj (főnként): "+fmt(xp))}
+  ks.forEach(function(k){var tf=xTeamFee(k);if(tf)lines.push("Csapat-/párosdíj külön számlázva ("+k+"): "+fmt(tf))});
+  return '<div class="card" style="margin-top:14px"><b>Nevezési díj: '+fmt(total)+'</b>'+lines.map(function(l){return '<div class="hint">'+esc(l)+'</div>'}).join("")+'</div>'}
+
+/* csapatok: a már leadott csapatok is választhatók */
+function subTeams(k){var club=$("kClub").value.trim(),o={};entries.forEach(function(en){if(en.team&&en.club===club&&en.tcat===k)o[en.tn]=en.members.slice()});return o}
+function teamsIn(k,skip){var m={},ord=[],st=subTeams(k);
+  Object.keys(st).forEach(function(n){m[n]=st[n].map(function(x){return "S:"+x});ord.push(n)});
+  roster.forEach(function(r,i){if(i===skip)return;var e=(ksel[i]||{})[k];if(!e)return;var n=tmName(e);if(!m[n]){m[n]=[];ord.push(n)}m[n].push(i)});
+  return {m:m,ord:ord}}
+function editK(i){var r=roster[i];kEdit=i;function v(x){return x==null?"":x}
+  $("kName").value=r.n;$("kBirth").value=r.b;$("kGender").value=r.g;$("kBelt").value=r.belt;$("kW").value=v(r.w);$("kH").value=v(r.h);
+  $("kForm").textContent="Versenyző szerkesztése";$("kAdd").textContent="Módosítás mentése";$("kFormDet").open=true;$("kName").scrollIntoView({behavior:"smooth",block:"center"})}
+function kPickChange(e){var t=e.target,d=t.dataset||{};if(kcur<0)return;var s=ksel[kcur]=ksel[kcur]||{};
+  if(d.k!=null){if(t.checked){s[d.k]={d:d.d,fee:+d.fee||0,kind:d.kind||""};if(isTeam(d.k))kTeamInit(kcur,d.k)}else delete s[d.k]}
+  else if(d.tm!=null&&s[d.tm]){s[d.tm].tm=t.value;if(t.value==="__new"&&!s[d.tm].tn)s[d.tm].tn=kSugg(d.tm)}
+  else if(d.tn!=null&&s[d.tn])s[d.tn].tn=t.value;
+  renderCoach()}
+function renderCoach(){var club=$("kClub").value.trim(),e=ev();
+  $("kHead").innerHTML='<b>'+esc($("evName").value||"Verseny neve")+'</b><div class="hint">'+esc($("evPlace").value)+($("evPlace").value?' · ':'')+esc(e.date)+'</div>';
+  $("kStat").textContent=regStatus(club).t;
+  if(kcur>=roster.length)kcur=-1;
+  $("kRoster").innerHTML=roster.map(function(r,i){return '<div class="rrow"><div><b>'+esc(r.n)+'</b><small>'+ageFor(r.b,"day",e)+' év · '+(r.g==="L"?"lány":"fiú")+' · '+BELTS[r.belt]+(r.w?' · '+r.w+' kg':'')+(r.h?' · '+r.h+' cm':'')+'</small></div><div><button class="g" data-ke="'+i+'">Szerkesztés</button> <button class="g" data-kd="'+i+'">Törlés</button></div></div>'}).join("")||'<p class="s">Még nincs versenyző. Vegyél fel egyet lent.</p>';
+  $("kSel").innerHTML='<option value="-1">– Válassz versenyzőt –</option>'+roster.map(function(r,i){return '<option value="'+i+'"'+(i===kcur?' selected':'')+'>'+esc(r.n)+' ('+ageFor(r.b,"day",e)+' év, '+BELTS[r.belt]+')</option>'}).join("");
+  if(kcur>=0&&roster[kcur]){var r=roster[kcur],s=ksel[kcur]||{},ks=Object.keys(s),wi=wInfo(s,r);
+    $("kDetail").className="";
+    $("kDetail").innerHTML='<div class="big"><div class="bn">'+esc(r.n)+'</div><div class="bd">'+ageFor(r.b,"day",e)+' éves · '+(r.g==="L"?"lány":"fiú")+' · '+BELTS[r.belt]+(r.w?' · '+r.w+' kg':'')+(r.h?' · '+r.h+' cm':'')+'</div><div class="cl">Szükséges dokumentumok: '+kDocs(r).map(function(x){return esc(x)}).join(' · ')+'</div></div>';
+    $("kPick").innerHTML=kPicker(kcur);
+    var f=kFee(s,r);
+    $("kSum").innerHTML=ks.length?'<div class="card"><b>Kijelölve ('+ks.length+') – díj: '+fmt(f)+'</b>'+ks.map(function(k){return '<div class="cl">'+esc(isTeam(k)?k+' – csapat: '+tmName(s[k]):k)+'</div>'}).join("")+(wi.bad.length?'<div class="cl" style="color:var(--ac)">A beállítás szerint nem engedélyezett súlycsoport: '+wi.bad.map(function(k){return esc(k)}).join('; ')+'</div>':'')+'</div>':'<p class="s">Jelölj ki kategóriákat, majd nyomd meg a Leadás gombot.</p>';
+    $("kSubmit").className=""
+  }else{$("kDetail").className="hide";$("kDetail").innerHTML="";$("kPick").innerHTML="";$("kSum").innerHTML='<p class="s">Válassz egy versenyzőt a fenti listából.</p>';$("kSubmit").className="hide"}
+  renderMine()}
+function renderMine(){var club=$("kClub").value.trim(),mine=[];entries.forEach(function(en,ix){if(en.club===club)mine.push({en:en,ix:ix})});
+  var ind=mine.filter(function(o){return !o.en.team}),tm=mine.filter(function(o){return o.en.team});
+  $("kMineSum").textContent="("+ind.length+" versenyző"+(tm.length?", "+tm.length+" csapat":"")+")";var h="";
+  if(ind.length)h+='<div class="hint" style="margin-top:8px"><b>Egyéni nevezések</b></div>'+ind.map(function(o){var en=o.en;return '<div class="card"><div class="cat"><div><b>'+esc(en.n)+'</b> – '+fmt(en.fee)+'</div><div><button class="g" data-md="'+o.ix+'">Törlés</button></div></div>'+en.cats.map(function(k){return '<div class="cl">'+esc(k)+'</div>'}).join("")+(en.tm||[]).map(function(k){return '<div class="cl">Csapattag: '+esc(k)+'</div>'}).join("")+'</div>'}).join("");
+  if(tm.length)h+='<div class="hint" style="margin-top:12px"><b>Csapatok</b></div>'+tm.map(function(o){var en=o.en,need=(byName(en.tcat)||{}).t||0;return '<div class="card"><b>'+esc(en.tn)+'</b> <small>('+en.members.length+'/'+need+' fő)</small><div class="cl">'+esc(en.tcat)+'</div><div class="cl">Tagok: '+en.members.map(function(x){return esc(x)}).join(', ')+'</div>'+(en.fee?'<div class="cl">Csapatdíj: '+fmt(en.fee)+'</div>':'')+(en.members.length<need?'<div class="cl" style="color:var(--ac)">Még nem teljes csapat.</div>':'')+'</div>'}).join("");
+  $("kMine").innerHTML=h||'<p class="s">Még nincs leadott nevezés ennél a klubnál.</p>'}
+async function kSubmit(){var i=kcur,club=$("kClub").value.trim(),rs=regStatus(club),M=$("kMsg");
+  function msg(t,ok){M.textContent=t;M.className="msg "+(ok?"okc":"errc")}
+  if(i<0||!roster[i]){msg("Válassz versenyzőt.",false);return}
+  if(!club){msg("Add meg a klub nevét.",false);return}
+  if(!rs.ok){msg("Nem lehet nevezni: "+rs.t,false);return}
+  var r=roster[i],s=ksel[i]||{},ks=Object.keys(s);
+  if(!ks.length){msg("Jelölj ki legalább egy kategóriát.",false);return}
+  if(wInfo(s,r).bad.length){msg("Van olyan súlycsoport, ami a szervező beállítása szerint nem választható.",false);return}
+  var ex=entries.filter(function(e){return !e.team&&e.club===club&&e.n===r.n})[0],full={};
+  if(ex&&ex.sel)Object.keys(ex.sel).forEach(function(k){full[k]=ex.sel[k]});Object.keys(s).forEach(function(k){full[k]=s[k]});
+  var fk=Object.keys(full),ent={n:r.n,club:club,cats:fk.filter(function(k){return !isTeam(k)}),tm:fk.filter(isTeam).map(function(k){return tmName(full[k])+" – "+k}),sel:full,fee:kFee(full,r)};
+  if(ROLE==="organizer")ent.demo=true;
+  if(ex)entries.splice(entries.indexOf(ex),1);entries.push(ent);
+  ks.filter(isTeam).forEach(function(k){var name=tmName(s[k]),te=entries.filter(function(e){return e.team&&e.club===club&&e.tcat===k&&e.tn===name})[0];
+    if(te){if(te.members.indexOf(r.n)<0)te.members.push(r.n)}else{te={n:"",club:club,cats:[k],team:true,tcat:k,tn:name,members:[r.n],fee:xTeamFee(k)};if(ROLE==="organizer")te.demo=true;entries.push(te)}
+    te.n=te.tn+" ("+te.members.join(", ")+")"});
+  ksel[i]={};kcur=-1;renderEntries();renderCoach();msg("Leadva: "+r.n+". Mentés a szerverre…",true);
+  await saveNow();
+  if(ROLE==="organizer")msg("Leadva: "+r.n+" (előnézet, nem megy a szerverre).",true);
+  else if(LASTERR)msg("A nevezés a gépen megvan, de a szerverre mentés NEM sikerült:\n"+LASTERR,false);
+  else msg("Leadva és elmentve: "+r.n+" ✓",true)}
+async function kDelEntry(ix){var club=$("kClub").value.trim(),rs=regStatus(club),en=entries[ix];if(!en||en.team)return;
+  if(!rs.mod){setStat("Módosítás nem lehetséges: "+rs.t,false);return}
+  entries.splice(ix,1);
+  for(var j=entries.length-1;j>=0;j--){var te=entries[j];if(te.team&&te.club===club){te.members=te.members.filter(function(m){return m!==en.n});if(!te.members.length)entries.splice(j,1);else te.n=te.tn+" ("+te.members.join(", ")+")"}}
+  renderEntries();renderCoach();await saveNow()}
+function renderEntries(){$("entList").innerHTML=entries.map(function(en,i){return '<div class="card cat"><div><b>'+esc(en.n)+(en.club?' ('+esc(en.club)+')':'')+'</b>'+(en.cats||[]).map(function(k){return '<div class="cl">'+esc(k)+'</div>'}).join("")+((en.tm&&en.tm.length)?en.tm.map(function(k){return '<div class="cl">Csapattag: '+esc(k)+'</div>'}).join(""):'')+'<div class="cl">'+fmt(en.fee||0)+(en.demo?' · próba':'')+'</div></div>'+(en.demo?'<div><button class="g" data-en="'+i+'">Törlés</button></div>':'')+'</div>'}).join("")||'<p class="s">Még nincs rögzített nevezés.</p>';renderLone()}
+async function refreshSubs(){await pollSubs()}
+function printDraws(all){var list=[],cur=$("dCat").value;
+  if(all){Object.keys(draws).forEach(function(k){var L=draws[k];if(L&&L.length)list.push({k:k,d:L[L.length-1]})})}
+  else{var L=draws[cur]||[];if(!L.length){$("dMsg").textContent="Ebben a kategóriában még nincs sorsolás.";return}var v=verSel[cur]||L[L.length-1].v;list.push({k:cur,d:L.filter(function(x){return x.v===v})[0]||L[L.length-1]})}
+  if(!list.length){$("dMsg").textContent="Még nincs sorsolt tábla.";return}
+  var e=ev(),head='<div class="ph"><b>'+esc($("evName").value||"Verseny")+'</b> · '+esc($("evPlace").value)+' · '+esc(e.date)+'</div>';
+  $("printArea").innerHTML=list.map(function(o){var br=bracketOf(o.d,o.k);return '<div class="pg sz'+o.d.size+'">'+head+'<h2>'+esc(o.k)+'</h2><div class="pi">'+o.d.size+'-os tábla · '+o.d.N+' induló · '+o.d.B+' előnyerő · '+o.d.v+'. verzió · '+esc(o.d.when)+' · a párok felső sora piros, az alsó kék</div>'+bracketHtml(br,o.d)+'</div>'}).join("");
+  window.print()}
+function pnInit(){
+  ["menuOrg","menuCoach"].forEach(function(m){$(m).addEventListener("click",function(e){var b=e.target.closest?e.target.closest("button"):null;if(!b)return;if(b.dataset.go){showView(b.dataset.go);return}if(b.dataset.pn)pnShow(m,b.dataset.pn)})});
+  $("kSel").onchange=function(){kcur=+this.value;renderCoach()};
+  $("kPick").addEventListener("change",kPickChange);
+  $("kMine").addEventListener("click",function(e){var i=e.target.dataset?e.target.dataset.md:null;if(i==null)return;kDelEntry(+i)});
+  $("feeModel").addEventListener("change",fmShow);fmShow();
+  $("entRefresh").onclick=refreshSubs;$("dPrint").onclick=function(){printDraws(false)};$("dPrintAll").onclick=function(){printDraws(true)}}
+
+/* ===== Felhő réteg (Supabase) ===== */
+var SUPABASE_URL="https://bxqztzivnnrihijdbfif.supabase.co",SUPABASE_KEY="sb_publishable_-hxFoij6Xp-REuRFZK0Yvg_3yrKSYTd";
+var sb=window.supabase?window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY):null;
+var APP_MODE="organizer",COACH_URL="https://tigrisek.hu/nevezes/",ORG_URL="https://tigrisek.hu/szervezo/";
+var LASTERR=null,ROLE="coach",PROFILE=null,CLUB=null,USER=null,EVENT=null,EVLIST=[],CFG={},CLUBS=[],KNOWN={},LASTCFG="",LASTSUB="",LASTEXC="",LASTWS="",SAVING=false,RSYNC=false,CLOUD={roster:[],entries:[],subEntries:[],draws:{},wstat:{}},DRAWSAVED={};
+function errT(e){return (e&&e.message?e.message:String(e))+(e&&e.hint?" ("+e.hint+")":"")}
+function wmsg(t,ok){var e=$("wMsg");e.textContent=t;e.className="msg "+(ok?"okc":"errc")}
+function setStat(t,ok){var e=$("uStat");if(e){e.textContent=t;e.style.color=ok?"var(--ok)":"#ff6b6b"}}
+function iso(v){return v?new Date(v).toISOString():null}
+function wallOnly(id){["authBox","clubBox","firstEv","noEv"].forEach(function(x){$(x).className=x===id?"":"hide"});$("authWall").className="wall"}
+
+async function boot(){
+  $("wIn").onclick=async function(){if(!sb)return;var r=await sb.auth.signInWithPassword({email:$("wEmail").value.trim(),password:$("wPass").value});if(r.error)wmsg("Belépési hiba: "+errT(r.error),false);else location.reload()};
+  $("wUp").onclick=async function(){if(!sb)return;var r=await sb.auth.signUp({email:$("wEmail").value.trim(),password:$("wPass").value,options:{data:{full_name:$("wName").value.trim()}}});if(r.error){wmsg("Regisztrációs hiba: "+errT(r.error),false);return}if(r.data&&r.data.session)location.reload();else wmsg("Sikeres regisztráció. Erősítsd meg az e-mail-címedet a kapott levélben, utána léphetsz be.",true)};
+  $("wOut").onclick=$("uOut").onclick=async function(){await sb.auth.signOut();location.reload()};
+  $("wClubBtn").onclick=async function(){var n=$("wClub").value.trim();if(!n){wmsg("Add meg a klub nevét.",false);return}var r=await sb.rpc("create_club_and_join",{p_name:n});if(r.error)wmsg("Hiba: "+errT(r.error),false);else location.reload()};
+  $("wEvBtn").onclick=async function(){await createEvent($("wEvName").value)};
+  if(!sb){wallOnly("authBox");wmsg("A Supabase könyvtár nem töltődött be. Ellenőrizd az internetkapcsolatot, majd frissítsd az oldalt.",false);return}
+  var s=await sb.auth.getSession();
+  if(!s.data.session){wallOnly("authBox");return}
+  await afterLogin(s.data.session.user)
+}
+async function createEvent(name){name=(name||"").trim();if(!name){wmsg("Add meg a verseny nevét.",false);return}
+  var d=new Date();d.setDate(d.getDate()+60);
+  var r=await sb.from("events").insert({name:name,event_date:d.toISOString().slice(0,10)}).select("id").single();
+  if(r.error){wmsg("Létrehozási hiba: "+errT(r.error),false);return}
+  try{localStorage.setItem("nev_event",r.data.id)}catch(e){}location.reload()}
+async function afterLogin(u){USER=u;
+  var p=await sb.from("profiles").select("role,full_name,club_id").eq("id",u.id).maybeSingle();
+  if(p.error||!p.data){wallOnly("authBox");wmsg("A profilod nem található: "+(p.error?errT(p.error):"hiányzó profil sor")+". Lépj ki, és próbáld újra.",false);$("wOut").className="g";return}
+  PROFILE=p.data;ROLE=PROFILE.role;
+  if(APP_MODE==="organizer"&&ROLE!=="organizer"){wallOnly("noEv");$("noEv").innerHTML='<div class="card">Ez a szervezői felület, a fiókod viszont edzői jogosultságú. Az edzői nevezés itt érhető el:<br><a href="'+COACH_URL+'" style="color:var(--ac)">'+COACH_URL+'</a></div>';$("wOut").className="g";return}
+  if(PROFILE.club_id){var c=await sb.from("clubs").select("id,name,approved").eq("id",PROFILE.club_id).maybeSingle();CLUB=c.data}
+  if(ROLE==="coach"&&!CLUB){wallOnly("clubBox");return}
+  var r=await sb.from("events").select("id,name,event_date,config").order("created_at",{ascending:false});EVLIST=r.data||[];
+  var want=null;try{want=localStorage.getItem("nev_event")}catch(e){}
+  EVENT=EVLIST.filter(function(e){return e.id===want})[0]||EVLIST[0]||null;
+  if(!EVENT){wallOnly(ROLE==="organizer"?"firstEv":"noEv");return}
+  await loadCloud();
+  $("authWall").className="wall hide";
+  applyRole();init();pnInit();
+  if(ROLE==="organizer"&&APP_MODE==="organizer"){pnShow("menuOrg","pn_event");pollSubs();setInterval(pollSubs,20000)}
+  else{showView("coach");pnShow("menuCoach","pn_k_enter")}
+}
+async function loadCloud(){CFG=EVENT.config||{};
+  if(ROLE==="coach"&&CLUB){
+    var r=await sb.from("competitors").select("*").eq("club_id",CLUB.id).order("created_at");
+    CLOUD.roster=(r.data||[]).map(function(x){var it={id:x.id,n:x.full_name,b:x.birth_date,g:x.gender,belt:x.belt,w:x.weight_kg,h:x.height_cm};KNOWN[it.id]=JSON.stringify(rowOf(it));return it});
+    var s=await sb.from("submissions").select("payload").eq("event_id",EVENT.id).eq("club_id",CLUB.id).maybeSingle();
+    CLOUD.entries=(s.data&&s.data.payload&&s.data.payload.entries)||[];LASTSUB=JSON.stringify(CLOUD.entries);
+  }
+  if(ROLE==="organizer"&&APP_MODE==="organizer"){
+    var c=await sb.from("clubs").select("id,name,approved").order("name");CLUBS=c.data||[];
+    await loadSubs();
+    var d=await sb.from("draws").select("category,version,payload").eq("event_id",EVENT.id).order("version");CLOUD.draws={};
+    (d.data||[]).forEach(function(x){(CLOUD.draws[x.category]=CLOUD.draws[x.category]||[]).push(x.payload);DRAWSAVED[x.category+"#"+x.version]=1});
+    var p=await sb.from("event_private").select("data").eq("event_id",EVENT.id).maybeSingle();CLOUD.wstat=(p.data&&p.data.data&&p.data.data.wstat)||{};LASTWS=JSON.stringify(CLOUD.wstat);
+    LASTCFG=JSON.stringify(CFG&&CFG.cats?CFG:"")
+  }
+}
+async function loadSubs(){var s=await sb.from("submissions").select("club_id,payload").eq("event_id",EVENT.id),out=[];
+  (s.data||[]).forEach(function(x){((x.payload&&x.payload.entries)||[]).forEach(function(e){out.push(e)})});CLOUD.subEntries=out}
+async function pollSubs(){try{await loadSubs();entries=entries.filter(function(e){return e.demo}).concat(CLOUD.subEntries);renderEntries();renderDraw();
+  var ni=CLOUD.subEntries.filter(function(e){return !e.team}).length,nt=CLOUD.subEntries.filter(function(e){return e.team}).length,nc={};CLOUD.subEntries.forEach(function(e){nc[e.club]=1});
+  $("entStamp").textContent="Frissítve: "+new Date().toLocaleTimeString("hu-HU")+" · "+ni+" versenyző, "+nt+" csapat, "+Object.keys(nc).length+" klubtól"}catch(e){$("entStamp").textContent="Frissítési hiba: "+errT(e)}}
+function applyRole(){
+  $("userBar").className="card";
+  $("uInfo").textContent=(PROFILE.full_name||USER.email)+" · "+(ROLE==="organizer"?"szervező":"edző"+(CLUB?" · "+CLUB.name+(CLUB.approved?"":" (jóváhagyásra vár)"):""));
+  $("evPick").innerHTML=EVLIST.map(function(e){return '<option value="'+esc(e.id)+'"'+(e.id===EVENT.id?" selected":"")+'>'+esc(e.name)+'</option>'}).join("");
+  $("evPick").onchange=function(){try{localStorage.setItem("nev_event",$("evPick").value)}catch(e){}location.reload()};
+  if(ROLE==="coach"||APP_MODE==="coach"){$("tabOrg").style.display="none";$("tabCoach").style.display="none";$("vOrg").className="hide";
+    if(ROLE==="organizer")setStat("Szervezőként a beállításokat itt éred el: "+ORG_URL+" (ez az oldal csak előnézet, nem ment).",true);
+    else if(CLUB&&!CLUB.approved)setStat("A klubod még nincs jóváhagyva: a versenyzők mentése és a nevezés a jóváhagyás után indul.",false)}
+  if(ROLE==="organizer"&&APP_MODE==="organizer"){$("mBack").className="";$("orgEvBox").className="";$("newEvBtn").onclick=function(){createEvent($("newEvName").value)};renderClubs();
+    $("clubList").addEventListener("click",async function(e){var i=e.target.dataset?e.target.dataset.ca:null;if(i==null)return;var c=CLUBS[+i];
+      var r=await sb.from("clubs").update({approved:!c.approved}).eq("id",c.id);if(r.error){setStat("Hiba: "+errT(r.error),false);return}c.approved=!c.approved;renderClubs()})}
+}
+function renderClubs(){var pend=CLUBS.filter(function(c){return !c.approved}).length;$("mClubs").textContent="Klubok"+(pend?" ("+pend+")":"");$("clubList").innerHTML=CLUBS.map(function(c,i){return '<div class="card cat"><div><b>'+esc(c.name)+'</b><small>'+(c.approved?"jóváhagyva":"jóváhagyásra vár")+'</small></div><button class="g" data-ca="'+i+'">'+(c.approved?"Visszavonás":"Jóváhagyás")+'</button></div>'}).join("")||'<p class="s">Még nincs regisztrált klub.</p>'}
+
+function loadState(){var o=CFG||{};
+  if(o.cats)cats=o.cats;if(o.dset)dset=o.dset;if(o.docs)docs=o.docs;if(o.excs)excs=o.excs;
+  INP.forEach(function(i){if(o.inp&&o.inp[i]!=null)$(i).value=o.inp[i]});
+  if(!o.inp||!o.inp.evName)$("evName").value=EVENT.name;
+  if(!o.inp||!o.inp.evDate)$("evDate").value=EVENT.event_date;
+  if(ROLE==="coach"||APP_MODE==="coach"){roster=CLOUD.roster;entries=CLOUD.entries;if(CLUB){$("kClub").value=CLUB.name;$("kClub").readOnly=true}}
+  else{entries=(CLOUD.subEntries||[]).slice();draws=CLOUD.draws||{};wstat=CLOUD.wstat||{}}
+}
+function buildCfg(){var o={cats:cats,dset:dset,docs:docs,excs:excs,inp:{}};INP.forEach(function(i){if(i!=="kClub")o.inp[i]=$(i).value});return o}
+function rowOf(r){return {club_id:CLUB.id,full_name:r.n,birth_date:r.b,gender:r.g,belt:r.belt,weight_kg:r.w==null?null:r.w,height_cm:r.h==null?null:r.h}}
+async function syncRoster(){if(RSYNC)return;RSYNC=true;
+  try{var cur={};roster.forEach(function(r){if(r.id)cur[r.id]=1});
+    var gone=Object.keys(KNOWN).filter(function(id){return !cur[id]});
+    for(var i=0;i<gone.length;i++){var d=await sb.from("competitors").delete().eq("id",gone[i]);if(d.error)throw d.error;delete KNOWN[gone[i]]}
+    for(var j=0;j<roster.length;j++){var r=roster[j],row=rowOf(r),h=JSON.stringify(row);
+      if(!r.id){var ins=await sb.from("competitors").insert(Object.assign({created_by:USER.id},row)).select("id").single();if(ins.error)throw ins.error;r.id=ins.data.id;KNOWN[r.id]=h}
+      else if(KNOWN[r.id]!==h){var up=await sb.from("competitors").update(row).eq("id",r.id);if(up.error)throw up.error;KNOWN[r.id]=h}}
+  }finally{RSYNC=false}}
+async function syncExc(){var key=JSON.stringify(excs);if(key===LASTEXC)return;
+  var del=await sb.from("event_exceptions").delete().eq("event_id",EVENT.id);if(del.error)throw del.error;
+  var rows=[];excs.forEach(function(x){var cl=null;if(x.c){var f=CLUBS.filter(function(c){return c.name.toLowerCase()===x.c.toLowerCase()})[0];if(!f)return;cl=f.id}rows.push({event_id:EVENT.id,club_id:cl,valid_from:iso(x.f),valid_to:iso(x.t)})});
+  if(rows.length){var r=await sb.from("event_exceptions").insert(rows);if(r.error)throw r.error}
+  LASTEXC=key}
+async function saveDraws(){var rows=[];Object.keys(draws).forEach(function(k){draws[k].forEach(function(d){var key=k+"#"+d.v;if(!DRAWSAVED[key])rows.push({key:key,row:{event_id:EVENT.id,category:k,version:d.v,payload:d}})})});
+  for(var i=0;i<rows.length;i++){var r=await sb.from("draws").insert(rows[i].row);if(r.error)throw r.error;DRAWSAVED[rows[i].key]=1}}
+async function saveWs(){var j=JSON.stringify(wstat);if(j===LASTWS)return;var r=await sb.from("event_private").upsert({event_id:EVENT.id,data:{wstat:wstat}},{onConflict:"event_id"});if(r.error)throw r.error;LASTWS=j}
+async function saveNow(){var n=0;while(SAVING&&n++<60)await new Promise(function(r){setTimeout(r,100)});await saveState()}
+async function saveState(){if(SAVING||!EVENT||!USER||(ROLE==="organizer"&&APP_MODE==="coach"))return;SAVING=true;LASTERR=null;
+  try{
+    if(ROLE==="organizer"){
+      var cfg=buildCfg(),h=JSON.stringify(cfg);
+      if(h!==LASTCFG){
+        var rowE={name:($("evName").value||"").trim()||EVENT.name||"Névtelen verseny",place:$("evPlace").value||null,event_date:$("evDate").value||EVENT.event_date,age_mode:$("evMode").value,age_ref_date:$("evFixed").value||null,fee_model:($("feeModel").value==="disc"?"disc":"fix"),fee_base:Math.round(+$("feeBase").value||0),reg_open:iso($("rOpen").value),reg_close:iso($("rClose").value),reg_mod_close:iso($("rMod").value),config:cfg};
+        var u=await sb.from("events").update(rowE).eq("id",EVENT.id);if(u.error)throw u.error;
+        LASTCFG=h;await syncExc();setStat("Mentve "+new Date().toLocaleTimeString("hu-HU"),true)}
+      await saveDraws();await saveWs();
+    }else if(CLUB){
+      if(CLUB.approved)await syncRoster();
+      var sj=JSON.stringify(entries.filter(function(e){return e.club===CLUB.name}));
+      if(sj!==LASTSUB){var up=await sb.from("submissions").upsert({event_id:EVENT.id,club_id:CLUB.id,payload:{entries:JSON.parse(sj)},updated_by:USER.id,updated_at:new Date().toISOString()},{onConflict:"event_id,club_id"});
+        if(up.error)throw up.error;LASTSUB=sj;setStat("Nevezések mentve "+new Date().toLocaleTimeString("hu-HU"),true)}
+    }
+  }catch(e){LASTERR=errT(e);setStat("Mentési hiba: "+LASTERR,false)}
+  SAVING=false}
+boot();
+
+</script>
+</body>
+</html>
